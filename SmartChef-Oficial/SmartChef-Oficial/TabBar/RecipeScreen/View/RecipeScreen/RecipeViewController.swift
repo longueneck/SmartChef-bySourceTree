@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 
+//MARK: Protocolo do Botao
 protocol RecipeViewControllerProtocol: AnyObject{
     
     func navToScreen()
@@ -9,24 +10,22 @@ protocol RecipeViewControllerProtocol: AnyObject{
 class RecipeViewController: UIViewController{
     
     weak private var delegate: RecipeViewControllerProtocol?
-    
     func setupDelegate(delegate: RecipeViewControllerProtocol){
         self.delegate = delegate
     }
 
-    var viewModel: RecipeViewModel = RecipeViewModel()
+    //MARK: Instanciando
     var wrapperView: WrapperViewAnimation?
     var recipe: RecipeScreen?
+    private var viewModel: RecipeScreenViewModel = RecipeScreenViewModel()
     
+    //MARK: Carregando a tela
     override func loadView() {
         self.recipe = RecipeScreen()
         self.view = recipe
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
+    //MARK: Carrega configs e elementos
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -46,12 +45,17 @@ class RecipeViewController: UIViewController{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         recipe?.tfSearchRecipe.resignFirstResponder()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
-extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//MARK: EXTENSIONS TableView
+extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.countRecipes()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -60,14 +64,14 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        cell?.setupCell(data: viewModel.listRecipes[indexPath.row])
+        if let image = UIImage(named: viewModel.loadCurrentRecipeSearch(indexPath: indexPath)) {
+            cell?.picture.image = image
+        }
         return cell ?? UICollectionViewCell()
     }
-    
-
 }
 
-
+//MARK: EXTENSIONS StackView
 extension RecipeViewController: RecipeStackViewProtocol{
     func goToHot() {
         let vc = HotMealsViewController()
@@ -95,6 +99,7 @@ extension RecipeViewController: RecipeStackViewProtocol{
     }
 }
 
+//MARK: EXTENSIONS TextFieldDelegate
 extension RecipeViewController: UITextFieldDelegate{
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -113,6 +118,8 @@ extension RecipeViewController: UITextFieldDelegate{
         return true
     }
 }
+
+//MARK: EXTENSIONS Protocolo de Button Action
 extension RecipeViewController: RecipeScreenProtocol{
     func tapToMain() {
         delegate?.navToScreen()

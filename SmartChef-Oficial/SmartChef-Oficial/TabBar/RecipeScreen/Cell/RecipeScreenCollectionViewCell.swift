@@ -22,7 +22,7 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
     }
     
     public func setupCell(data: RecipeModel){
-        picture.image = UIImage(named: data.nameImage)
+        self.picture.image = UIImage(named: data.image)
     }
     
     required init?(coder: NSCoder) {

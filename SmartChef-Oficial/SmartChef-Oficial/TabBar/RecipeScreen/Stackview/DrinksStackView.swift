@@ -1,8 +1,8 @@
 import UIKit
 
-class VisitedsSteckView: UIStackView {
+class DrinksStackView: UIStackView {
 
-    lazy var visited1: UIButton = {
+    lazy var drink1: UIButton = {
         let hot = UIButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
         hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -10,13 +10,11 @@ class VisitedsSteckView: UIStackView {
         hot.clipsToBounds = true
         hot.imageView?.contentMode = .scaleAspectFill
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        let buttonImage = UIImage(named: "suco")
-        hot.setImage(buttonImage, for: .normal)
-        
+       
         return hot
     }()
     
-    lazy var visited2: UIButton = {
+    lazy var drink2: UIButton = {
         let option1 = UIButton()
         option1.translatesAutoresizingMaskIntoConstraints = false
         option1.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -24,13 +22,11 @@ class VisitedsSteckView: UIStackView {
         option1.imageView?.contentMode = .scaleAspectFill
         option1.clipsToBounds = true
         option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        let buttonImage = UIImage(named: "cha")
-        option1.setImage(buttonImage, for: .normal)
-        
+      
         return option1
     }()
     
-    lazy var visited3: UIButton = {
+    lazy var drink3: UIButton = {
         let option2 = UIButton()
         option2.translatesAutoresizingMaskIntoConstraints = false
         option2.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -38,13 +34,11 @@ class VisitedsSteckView: UIStackView {
         option2.imageView?.contentMode = .scaleAspectFill
         option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         option2.clipsToBounds = true
-        let buttonImage = UIImage(named: "expresso")
-        option2.setImage(buttonImage, for: .normal)
-        
+      
         return option2
     }()
     
-    lazy var visited4: UIButton = {
+    lazy var drink4: UIButton = {
         let option3 = UIButton()
         option3.translatesAutoresizingMaskIntoConstraints = false
         option3.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -52,9 +46,7 @@ class VisitedsSteckView: UIStackView {
         option3.imageView?.contentMode = .scaleAspectFill
         option3.clipsToBounds = true
         option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        let buttonImage = UIImage(named: "refrigerante")
-        option3.setImage(buttonImage, for: .normal)
-        
+      
         return option3
     }()
     
@@ -71,27 +63,27 @@ class VisitedsSteckView: UIStackView {
     }
     
     func addViews(){
-        self.addArrangedSubview(self.visited1)
-        self.addArrangedSubview(self.visited2)
-        self.addArrangedSubview(self.visited3)
-        self.addArrangedSubview(self.visited4)
+        self.addArrangedSubview(self.drink1)
+        self.addArrangedSubview(self.drink2)
+        self.addArrangedSubview(self.drink3)
+        self.addArrangedSubview(self.drink4)
     }
     
     func addConstraints(){
         
         NSLayoutConstraint.activate([
             
-            visited1.heightAnchor.constraint(equalToConstant: 70),
-            visited1.widthAnchor.constraint(equalToConstant: 55),
+            drink1.heightAnchor.constraint(equalToConstant: 70),
+            drink1.widthAnchor.constraint(equalToConstant: 55),
             
-            visited2.heightAnchor.constraint(equalToConstant: 70),
-            visited2.widthAnchor.constraint(equalToConstant: 55),
+            drink2.heightAnchor.constraint(equalToConstant: 70),
+            drink2.widthAnchor.constraint(equalToConstant: 55),
             
-            visited3.heightAnchor.constraint(equalToConstant: 70),
-            visited3.widthAnchor.constraint(equalToConstant: 55),
+            drink3.heightAnchor.constraint(equalToConstant: 70),
+            drink3.widthAnchor.constraint(equalToConstant: 55),
             
-            visited4.heightAnchor.constraint(equalToConstant: 70),
-            visited4.widthAnchor.constraint(equalToConstant: 55),
+            drink4.heightAnchor.constraint(equalToConstant: 70),
+            drink4.widthAnchor.constraint(equalToConstant: 55),
         
         ])
     }

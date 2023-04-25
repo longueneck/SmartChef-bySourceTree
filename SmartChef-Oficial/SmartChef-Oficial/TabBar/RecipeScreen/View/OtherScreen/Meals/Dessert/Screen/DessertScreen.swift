@@ -1,21 +1,21 @@
 import UIKit
 
-protocol HotMealScreenProtocol: AnyObject{
+protocol DessertScreenProtocol: AnyObject{
     func actionBackButton()
 }
 
-class HotMealScreen: UIView {
+class DessertScreen: UIView {
     
-    weak private var delegate:HotMealScreenProtocol?
+    weak private var delegate:DessertScreenProtocol?
     
-    func delegate(delegate:HotMealScreenProtocol){
+    func delegate(delegate:DessertScreenProtocol){
         self.delegate = delegate
     }
     
     lazy var lbPageName: UILabel = {
         let page = UILabel()
         page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Receitas Populares"
+        page.text = "Lanches"
         page.font = UIFont.boldSystemFont(ofSize: 18)
         page.numberOfLines = 0
         page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -26,7 +26,7 @@ class HotMealScreen: UIView {
     lazy var imagePageType: UIImageView = {
         let imageType = UIImageView()
         imageType.translatesAutoresizingMaskIntoConstraints = false
-        imageType.image = UIImage(named: "hot")
+        imageType.image = UIImage(named: "lanche")
         imageType.contentMode = .scaleAspectFill
         
         return imageType
@@ -106,7 +106,7 @@ class HotMealScreen: UIView {
         collection.delaysContentTouches = false
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
-        collection.register(HotMealsCollectionViewCell.self, forCellWithReuseIdentifier: HotMealsCollectionViewCell.identifier)
+        collection.register(DessertCollectionViewCell.self, forCellWithReuseIdentifier: DessertCollectionViewCell.identifier)
         collection.setCollectionViewLayout(layout, animated: true)
         
         return collection
@@ -131,8 +131,8 @@ class HotMealScreen: UIView {
         return friend
     }()
     
-    lazy var stackRecipes: VisitedsSteckView = {
-        let stack = VisitedsSteckView()
+    lazy var stackRecipes: DrinksStackView = {
+        let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
@@ -156,8 +156,8 @@ class HotMealScreen: UIView {
         collectionHot.dataSource = dataSource
     }
     
-    private func addViews()
-    {
+    private func addViews(){
+        
         self.addSubview(self.lbPageName)
         self.addSubview(self.imagePageType)
         self.addSubview(self.backButton)
@@ -170,6 +170,7 @@ class HotMealScreen: UIView {
         self.addSubview(self.imageFriends)
         self.addSubview(self.collectionHot)
         self.addSubview(self.stackRecipes)
+        
     }
     
     @objc func tappedBackButton(){
@@ -184,12 +185,11 @@ class HotMealScreen: UIView {
     private func addConstraints(){
         NSLayoutConstraint.activate([
             
+            
             backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             backButton.heightAnchor.constraint(equalToConstant: 35),
             backButton.widthAnchor.constraint(equalToConstant: 35),
             backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            
-            
             
             lbPageName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             lbPageName.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),

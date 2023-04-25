@@ -131,8 +131,8 @@ class LunchScreen: UIView {
         return friend
     }()
     
-    lazy var stackRecipes: VisitedsSteckView = {
-        let stack = VisitedsSteckView()
+    lazy var stackRecipes: DrinksStackView = {
+        let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal

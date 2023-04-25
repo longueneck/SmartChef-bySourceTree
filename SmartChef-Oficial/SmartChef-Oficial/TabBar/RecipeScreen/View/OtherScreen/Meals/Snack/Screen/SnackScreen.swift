@@ -1,14 +1,14 @@
 import UIKit
 
-protocol DessertScreenProtocol: AnyObject{
+protocol SnackScreenProtocol: AnyObject{
     func actionBackButton()
 }
 
-class DessertScreen: UIView {
+class SnackScreen: UIView {
     
-    weak private var delegate:DessertScreenProtocol?
+    weak private var delegate:SnackScreenProtocol?
     
-    func delegate(delegate:DessertScreenProtocol){
+    func delegate(delegate:SnackScreenProtocol){
         self.delegate = delegate
     }
     
@@ -106,7 +106,7 @@ class DessertScreen: UIView {
         collection.delaysContentTouches = false
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
-        collection.register(DessertCollectionViewCell.self, forCellWithReuseIdentifier: DessertCollectionViewCell.identifier)
+        collection.register(SnackCollectionViewCell.self, forCellWithReuseIdentifier: SnackCollectionViewCell.identifier)
         collection.setCollectionViewLayout(layout, animated: true)
         
         return collection
@@ -131,8 +131,8 @@ class DessertScreen: UIView {
         return friend
     }()
     
-    lazy var stackRecipes: VisitedsSteckView = {
-        let stack = VisitedsSteckView()
+    lazy var stackRecipes: DrinksStackView = {
+        let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
@@ -175,7 +175,6 @@ class DessertScreen: UIView {
     
     @objc func tappedBackButton(){
         self.delegate?.actionBackButton()
-        print("CLICOU")
     }
     
     func configTextFieldDelegate(delegate: UITextFieldDelegate){
@@ -184,7 +183,6 @@ class DessertScreen: UIView {
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
-            
             
             backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             backButton.heightAnchor.constraint(equalToConstant: 35),

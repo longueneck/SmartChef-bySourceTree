@@ -1,21 +1,21 @@
 import UIKit
 
-protocol SnackScreenProtocol: AnyObject{
+protocol HotMealScreenProtocol: AnyObject{
     func actionBackButton()
 }
 
-class SnackScreen: UIView {
+class HotMealScreen: UIView {
     
-    weak private var delegate:SnackScreenProtocol?
+    weak private var delegate:HotMealScreenProtocol?
     
-    func delegate(delegate:SnackScreenProtocol){
+    func delegate(delegate:HotMealScreenProtocol){
         self.delegate = delegate
     }
     
     lazy var lbPageName: UILabel = {
         let page = UILabel()
         page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Lanches"
+        page.text = "Receitas Populares"
         page.font = UIFont.boldSystemFont(ofSize: 18)
         page.numberOfLines = 0
         page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -26,7 +26,7 @@ class SnackScreen: UIView {
     lazy var imagePageType: UIImageView = {
         let imageType = UIImageView()
         imageType.translatesAutoresizingMaskIntoConstraints = false
-        imageType.image = UIImage(named: "lanche")
+        imageType.image = UIImage(named: "hot")
         imageType.contentMode = .scaleAspectFill
         
         return imageType
@@ -106,7 +106,7 @@ class SnackScreen: UIView {
         collection.delaysContentTouches = false
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
-        collection.register(SnackCollectionViewCell.self, forCellWithReuseIdentifier: SnackCollectionViewCell.identifier)
+        collection.register(HotMealsCollectionViewCell.self, forCellWithReuseIdentifier: HotMealsCollectionViewCell.identifier)
         collection.setCollectionViewLayout(layout, animated: true)
         
         return collection
@@ -131,8 +131,8 @@ class SnackScreen: UIView {
         return friend
     }()
     
-    lazy var stackRecipes: VisitedsSteckView = {
-        let stack = VisitedsSteckView()
+    lazy var stackRecipes: DrinksStackView = {
+        let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
@@ -156,8 +156,8 @@ class SnackScreen: UIView {
         collectionHot.dataSource = dataSource
     }
     
-    private func addViews(){
-        
+    private func addViews()
+    {
         self.addSubview(self.lbPageName)
         self.addSubview(self.imagePageType)
         self.addSubview(self.backButton)
@@ -170,11 +170,11 @@ class SnackScreen: UIView {
         self.addSubview(self.imageFriends)
         self.addSubview(self.collectionHot)
         self.addSubview(self.stackRecipes)
-        
     }
     
     @objc func tappedBackButton(){
         self.delegate?.actionBackButton()
+        print("CLICOU")
     }
     
     func configTextFieldDelegate(delegate: UITextFieldDelegate){
@@ -188,6 +188,8 @@ class SnackScreen: UIView {
             backButton.heightAnchor.constraint(equalToConstant: 35),
             backButton.widthAnchor.constraint(equalToConstant: 35),
             backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            
+            
             
             lbPageName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             lbPageName.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),

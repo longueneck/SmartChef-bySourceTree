@@ -88,8 +88,8 @@ class RecipeScreen: UIView {
         return ingredients
     }()
     
-    lazy var stack2: VisitedsSteckView = {
-        let stack = VisitedsSteckView()
+    lazy var stack2: DrinksStackView = {
+        let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
