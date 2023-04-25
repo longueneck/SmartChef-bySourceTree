@@ -1,11 +1,12 @@
 import Foundation
+import UIKit
 
-class Recipes{
+struct RecipeModel {
+    
     var nameImage: String
     
     init(nameImage: String) {
         self.nameImage = nameImage
     }
-    
-}
 
+}

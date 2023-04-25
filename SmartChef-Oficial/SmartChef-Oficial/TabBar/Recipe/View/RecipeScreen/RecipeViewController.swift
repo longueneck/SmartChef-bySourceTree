@@ -14,8 +14,8 @@ class RecipeViewController: UIViewController{
         self.delegate = delegate
     }
 
+    var viewModel: RecipeViewModel = RecipeViewModel()
     var wrapperView: WrapperViewAnimation?
-
     var recipe: RecipeScreen?
     
     override func loadView() {
@@ -48,7 +48,7 @@ class RecipeViewController: UIViewController{
     }
 }
 
-extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -60,9 +60,11 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        cell?.setupCell(data: RecipeModel().listRecipes[indexPath.row])
+        cell?.setupCell(data: viewModel.listRecipes[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
+    
+
 }
 
 

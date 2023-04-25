@@ -4,7 +4,6 @@ import UIKit
 protocol IngredientsTableViewCellProtocol {
     
     func removeIngredients(index: Int)
-    
 }
 
 class IngredientsTableViewCell: UITableViewCell{

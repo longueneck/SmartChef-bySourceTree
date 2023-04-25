@@ -21,8 +21,8 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
-    public func setupCell(data: Recipes){
-        self.picture.image = UIImage(named: data.nameImage)
+    public func setupCell(data: RecipeModel){
+        picture.image = UIImage(named: data.nameImage)
     }
     
     required init?(coder: NSCoder) {
