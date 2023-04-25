@@ -71,6 +71,8 @@
 		63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787729D5410200658E88 /* DiscoverScreen.swift */; };
 		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
 		C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* RecipeViewModel.swift */; };
+		C4CC787929F849050055DC8A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787829F849050055DC8A /* LoginModel.swift */; };
+		C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787A29F849280055DC8A /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,8 @@
 		63C6787729D5410200658E88 /* DiscoverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreen.swift; sourceTree = "<group>"; };
 		63C6787929D5410200658E88 /* DiscoverStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStackView.swift; sourceTree = "<group>"; };
 		C4CC787629F846140055DC8A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		C4CC787829F849050055DC8A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		C4CC787A29F849280055DC8A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,8 +618,8 @@
 		C4CC784D29F836E10055DC8A /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
 				638E450829C0218D00BA3A0B /* LoginScreen.swift */,
+				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -623,6 +627,7 @@
 		C4CC784E29F836EC0055DC8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC787829F849050055DC8A /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 		C4CC784F29F836F30055DC8A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC787A29F849280055DC8A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1011,6 +1017,7 @@
 				63C6786929D463FC00658E88 /* FavoriteViewController.swift in Sources */,
 				6328C31129CDE94400727FDA /* SnackScreen.swift in Sources */,
 				631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */,
+				C4CC787929F849050055DC8A /* LoginModel.swift in Sources */,
 				6328C30B29CDE88700727FDA /* SnackStackView.swift in Sources */,
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
 				6328C33829CE2A4B00727FDA /* DessertRecipe.swift in Sources */,
@@ -1040,6 +1047,7 @@
 				C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */,
 				631C70BF29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift in Sources */,
 				638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */,
+				C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */,
 				631C70C529CD4D8A00074D35 /* BreakfastScreen.swift in Sources */,
 				63C6786C29D47E5D00658E88 /* FavoriteCollectionViewCell.swift in Sources */,
 				631C70C729CD4D8A00074D35 /* BreakfastViewController.swift in Sources */,
