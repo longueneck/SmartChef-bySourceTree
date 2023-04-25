@@ -14,7 +14,6 @@ class SucessRegisterScreen: UIView {
         self.sucessRegisterScreenProtocol = delegate
     }
     
-    
     var labelBemVindo: UILabel = {
         let welcomeLabel = UILabel()
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
