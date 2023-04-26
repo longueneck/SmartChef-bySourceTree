@@ -19,6 +19,7 @@ class HomeScreenViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         inicializeConfigs()
         setTableViewDelegate()
+        
     }
     
     func setTableViewDelegate(){
@@ -28,6 +29,7 @@ class HomeScreenViewController: UIViewController {
     
     func inicializeConfigs() {
         mainScreen?.tfIngredients.delegate = self
+        mainScreen?.delegate(delegate: self)
         guard let screen = mainScreen else { return }
         wrapperView = WrapperViewAnimation(target: screen.tfIngredients)
     }
@@ -125,13 +127,8 @@ extension HomeScreenViewController: UITextFieldDelegate{
     }
 }
 
-//extension MainScreenViewController: MainScreenProtocol{
-//    func goToSearch() {
-//        navigationController?.pushViewController(DiscoverViewController(), animated: true)
-//    }
-//
-//
-//}
-
-
-//EMPTY STATE
+extension HomeScreenViewController: HomeScreenProtocol {
+    func goToSearch() {
+        navigationController?.pushViewController(DiscoverViewController(), animated: true)
+    }
+}
