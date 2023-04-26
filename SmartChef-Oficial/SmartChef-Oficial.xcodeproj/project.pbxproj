@@ -76,6 +76,8 @@
 		C4B7146229F94A18003DC323 /* SucessRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7146129F94A18003DC323 /* SucessRegisterViewModel.swift */; };
 		C4B7146B29F95DD1003DC323 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7146A29F95DD1003DC323 /* DiscoverViewModel.swift */; };
 		C4B7147029F96508003DC323 /* DiscoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7146F29F96508003DC323 /* DiscoverModel.swift */; };
+		C4B7148229F9AAF4003DC323 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148129F9AAF4003DC323 /* FavoriteViewModel.swift */; };
+		C4B7148429F9AB05003DC323 /* FavoriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148329F9AB05003DC323 /* FavoriteRecipe.swift */; };
 		C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* RecipeViewModel.swift */; };
 		C4CC787929F849050055DC8A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787829F849050055DC8A /* LoginModel.swift */; };
 		C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787A29F849280055DC8A /* LoginViewModel.swift */; };
@@ -153,6 +155,8 @@
 		C4B7146129F94A18003DC323 /* SucessRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessRegisterViewModel.swift; sourceTree = "<group>"; };
 		C4B7146A29F95DD1003DC323 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		C4B7146F29F96508003DC323 /* DiscoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverModel.swift; sourceTree = "<group>"; };
+		C4B7148129F9AAF4003DC323 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		C4B7148329F9AB05003DC323 /* FavoriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipe.swift; sourceTree = "<group>"; };
 		C4CC787629F846140055DC8A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		C4CC787829F849050055DC8A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C4CC787A29F849280055DC8A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -829,6 +833,7 @@
 		C4CC786629F83A290055DC8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4B7148329F9AB05003DC323 /* FavoriteRecipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 		C4CC786729F83A2D0055DC8A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C4B7148129F9AAF4003DC323 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1036,9 +1042,11 @@
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
 				6328C33829CE2A4B00727FDA /* DessertRecipe.swift in Sources */,
 				639DE0A129C3683000A0F37A /* RecipeStackView.swift in Sources */,
+				C4B7148229F9AAF4003DC323 /* FavoriteViewModel.swift in Sources */,
 				6307066529E2FBD000D61DAF /* SearchedFieldTableView.swift in Sources */,
 				63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */,
 				C4B7146229F94A18003DC323 /* SucessRegisterViewModel.swift in Sources */,
+				C4B7148429F9AB05003DC323 /* FavoriteRecipe.swift in Sources */,
 				6328C32829CE2A1A00727FDA /* LunchRecipe.swift in Sources */,
 				638E451B29C0241A00BA3A0B /* ProfileScreen.swift in Sources */,
 				6328C33629CE2A4B00727FDA /* DessertCollectionViewCell.swift in Sources */,

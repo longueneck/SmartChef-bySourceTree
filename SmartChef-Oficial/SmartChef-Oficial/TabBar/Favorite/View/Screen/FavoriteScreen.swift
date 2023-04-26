@@ -55,7 +55,6 @@ class FavoriteScreen: UIView {
         self.addSubview(self.lbNamePage)
         self.addSubview(self.imageBall)
         self.addSubview(self.collectionView)
-        //        self.addSubview(self.tableView)
     }
     
     required init?(coder: NSCoder) {

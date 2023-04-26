@@ -30,7 +30,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let name = UIImageView()
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.image = UIImage(named: "expresso")
+//        name.image = UIImage(named: "expresso")
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
@@ -41,7 +41,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var lbIngredients:UILabel = {
         let label1 = UILabel()
         label1.translatesAutoresizingMaskIntoConstraints = false
-        label1.text = "Receitas Favoritadas"
+//        label1.text = "Receitas Favoritadas"
         label1.font = UIFont.boldSystemFont(ofSize: 16)
         label1.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         
@@ -58,9 +58,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         return stack
     }()
     
-    
-    
-    lazy var bookMark:UIButton = {
+        lazy var bookMark:UIButton = {
         var config = UIButton.Configuration.plain()
         config.image = UIImage(systemName: "bookmark.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
@@ -110,6 +108,11 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         self.contentView.addSubview(self.lbTimer)
         self.contentView.addSubview(self.stack1)
         
+    }
+    
+    public func setupCell(favoriteRecipe: FavoriteRecipe) {
+        imageRecipe.image = UIImage(named: favoriteRecipe.image)
+        lbIngredients.text = favoriteRecipe.name
     }
     
     @objc private func tapToSaveFavorite(){

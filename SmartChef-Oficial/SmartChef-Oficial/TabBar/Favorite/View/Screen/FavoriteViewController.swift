@@ -1,9 +1,9 @@
-import Foundation
 import UIKit
 
 class FavoriteViewController: UIViewController{
     
     var favoriteScreen: FavoriteScreen?
+    var viewModel: FavoriteViewModel = FavoriteViewModel()
     
     override func loadView() {
         self.favoriteScreen = FavoriteScreen()
@@ -24,13 +24,13 @@ class FavoriteViewController: UIViewController{
 
 extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfItemsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as! FavoriteCollectionViewCell
-        cell.configShadow()
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCollectionViewCell.identifier, for: indexPath) as? FavoriteCollectionViewCell
+        cell?.setupCell(favoriteRecipe: viewModel.cellForItemAt(index: indexPath.row))
+        return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
