@@ -8,7 +8,7 @@
 import Foundation
 
 struct DiscoverModel {
-    
+    var nameRecipe: String
     var nameImage: String 
     
 }
