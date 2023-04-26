@@ -70,6 +70,8 @@
 		63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787529D5410200658E88 /* DiscoverViewController.swift */; };
 		63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787729D5410200658E88 /* DiscoverScreen.swift */; };
 		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
+		C4B7145C29F9408B003DC323 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7145B29F9408B003DC323 /* RegisterModel.swift */; };
+		C4B7145E29F940AA003DC323 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7145D29F940AA003DC323 /* RegisterViewModel.swift */; };
 		C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* RecipeViewModel.swift */; };
 		C4CC787929F849050055DC8A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787829F849050055DC8A /* LoginModel.swift */; };
 		C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787A29F849280055DC8A /* LoginViewModel.swift */; };
@@ -141,6 +143,8 @@
 		63C6787529D5410200658E88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		63C6787729D5410200658E88 /* DiscoverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreen.swift; sourceTree = "<group>"; };
 		63C6787929D5410200658E88 /* DiscoverStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStackView.swift; sourceTree = "<group>"; };
+		C4B7145B29F9408B003DC323 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		C4B7145D29F940AA003DC323 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C4CC787629F846140055DC8A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		C4CC787829F849050055DC8A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C4CC787A29F849280055DC8A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -660,6 +664,7 @@
 		C4CC785229F8371F0055DC8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4B7145B29F9408B003DC323 /* RegisterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -667,6 +672,7 @@
 		C4CC785329F837230055DC8A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C4B7145D29F940AA003DC323 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1002,11 +1008,13 @@
 				638E44FE29C01C0700BA3A0B /* IngredientsTableViewCell.swift in Sources */,
 				638E450729C0217100BA3A0B /* LoginScreenViewController.swift in Sources */,
 				634E7F5929CB8015003996DD /* UIView.swift in Sources */,
+				C4B7145E29F940AA003DC323 /* RegisterViewModel.swift in Sources */,
 				6328C31729CDE99E00727FDA /* SnackViewController.swift in Sources */,
 				638E451129C022B300BA3A0B /* SucessRegisterScreen.swift in Sources */,
 				638E44FC29C01BDA00BA3A0B /* MainScreen.swift in Sources */,
 				6308BCEC29C0E3CA00104398 /* RecipeViewController.swift in Sources */,
 				6328C32629CE2A1A00727FDA /* LunchCollectionViewCell.swift in Sources */,
+				C4B7145C29F9408B003DC323 /* RegisterModel.swift in Sources */,
 				6308BCF329C0E8E500104398 /* RecipeScreenCollectionViewCell.swift in Sources */,
 				631C70BE29CD4D8A00074D35 /* HotRecipeStackView.swift in Sources */,
 				63398A7629EEBE05009B154A /* IngredientsModel.swift in Sources */,

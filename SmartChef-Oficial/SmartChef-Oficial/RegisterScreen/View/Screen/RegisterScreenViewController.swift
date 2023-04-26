@@ -8,7 +8,6 @@ class RegisterScreenViewController: UIViewController {
     override func loadView() {
         self.register = RegisterScreen() //Dizendo que a propria register vai receber a RegisterScreen
         self.view = self.register //Dizendo que a propria view vai ser a propria register que recebeu os elementos da RegisterScreen()
-        
     }
     
     override func viewDidLoad() {
@@ -41,7 +40,6 @@ class RegisterScreenViewController: UIViewController {
 
 extension RegisterScreenViewController: RegisterScreenProtocol{
    
-    
     func registerButton() {
         self.navigationController?.pushViewController(SucessRegisterViewController(), animated: true)
     }
