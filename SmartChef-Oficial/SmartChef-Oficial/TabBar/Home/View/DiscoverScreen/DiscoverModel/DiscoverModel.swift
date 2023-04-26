@@ -9,5 +9,6 @@ import Foundation
 
 struct DiscoverModel {
     
+    var nameImage: String 
     
 }

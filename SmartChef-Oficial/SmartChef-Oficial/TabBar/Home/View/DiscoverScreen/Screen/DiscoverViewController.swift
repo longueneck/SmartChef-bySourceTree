@@ -4,6 +4,7 @@ import UIKit
 class DiscoverViewController: UIViewController{
     
     var discoverScreen: DiscoverScreen?
+    var viewModel: DiscoverViewModel = DiscoverViewModel()
     
     override func loadView() {
         self.discoverScreen = DiscoverScreen()
@@ -25,12 +26,12 @@ class DiscoverViewController: UIViewController{
 
 extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.getListImages()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverCollectionViewCell.identifier, for: indexPath) as? DiscoverCollectionViewCell
-        
+        cell?.setupCell(image: viewModel.getListCell(index: indexPath.row))
         return cell ?? UICollectionViewCell()
     }
     

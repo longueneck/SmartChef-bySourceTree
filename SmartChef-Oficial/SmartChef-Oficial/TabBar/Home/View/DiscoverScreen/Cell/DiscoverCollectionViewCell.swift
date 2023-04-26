@@ -30,7 +30,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let name = UIImageView()
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.image = UIImage(named: "pao")
+//        name.image = UIImage(named: "pao")
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
@@ -105,6 +105,10 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         
     }
     
+    
+    public func setupCell(image: DiscoverModel) {
+        imageRecipe.image = UIImage(named: image.nameImage)
+    }
     
     
     func addConstraints(){
