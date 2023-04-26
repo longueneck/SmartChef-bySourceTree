@@ -3,7 +3,7 @@ import UIKit
 
 class DiscoverCollectionViewCell: UICollectionViewCell{
     
-    static let identifier = "DiscoverCollectionViewCell"
+    static let identifier = String(describing: DiscoverCollectionViewCell.self)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

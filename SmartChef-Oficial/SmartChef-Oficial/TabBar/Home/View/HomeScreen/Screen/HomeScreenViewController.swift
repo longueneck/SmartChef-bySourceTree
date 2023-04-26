@@ -1,15 +1,15 @@
 import UIKit
 
-class MainScreenViewController: UIViewController {
+class HomeScreenViewController: UIViewController {
     
     //MARK: Instancias
-    var viewModel: MainScreeViewModel = MainScreeViewModel()
-    var mainScreen: MainScreen?
+    var viewModel: HomeScreeViewModel = HomeScreeViewModel()
+    var mainScreen: HomeScreen?
     var wrapperView: WrapperViewAnimation? //Instanciada
     
     //MARK: Carrega a tela
     override func loadView() {
-        self.mainScreen = MainScreen()
+        self.mainScreen = HomeScreen()
         self.view = self.mainScreen
     }
     
@@ -42,7 +42,7 @@ class MainScreenViewController: UIViewController {
 }
 
 //MARK: EXTENSIONS TableView
-extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case mainScreen?.searchTableView:
@@ -85,7 +85,7 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: EXTENSIONS CELULA da TableView
-extension MainScreenViewController: IngredientsTableViewCellProtocol{
+extension HomeScreenViewController: IngredientsTableViewCellProtocol{
     
     func removeIngredients(index: Int) {
         viewModel.deleteSelectedIngredient(index: index)
@@ -94,7 +94,7 @@ extension MainScreenViewController: IngredientsTableViewCellProtocol{
 }
 
 //MARK: EXTENSIONS TextField Delegate
-extension MainScreenViewController: UITextFieldDelegate{
+extension HomeScreenViewController: UITextFieldDelegate{
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text as? NSString else { return false }
