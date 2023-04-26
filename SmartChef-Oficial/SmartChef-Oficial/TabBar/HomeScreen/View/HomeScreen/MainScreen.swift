@@ -89,8 +89,6 @@ class MainScreen: UIView {
         let search = UIButton()
         search.translatesAutoresizingMaskIntoConstraints = false
         search.backgroundColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-//        search.layer.borderWidth = 2
-//        search.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         search.layer.cornerRadius = 10
         search.setTitle("Search", for: .normal)
         search.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)

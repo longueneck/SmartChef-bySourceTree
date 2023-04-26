@@ -39,7 +39,7 @@ class MainScreenViewController: UIViewController {
     }
 }
 
-//==========================================================================================================================================================
+//===================================================================================================================================
 //MARK: EXTENSIONS TableView
 extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -83,7 +83,7 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//==========================================================================================================================================================
+//===================================================================================================================================
 //MARK: EXTENSIONS CELULA da TableView
 extension MainScreenViewController: IngredientsTableViewCellProtocol{
     
@@ -93,7 +93,7 @@ extension MainScreenViewController: IngredientsTableViewCellProtocol{
     }
 }
 
-//==========================================================================================================================================================
+//===================================================================================================================================
 //MARK: EXTENSIONS TextField Delegate
 extension MainScreenViewController: UITextFieldDelegate{
     
@@ -126,7 +126,7 @@ extension MainScreenViewController: UITextFieldDelegate{
     }
 }
 
-//==========================================================================================================================================================
+//==================================================================================================================================
 //MARK: EXTENSIONS TextField Delegate
 extension MainScreenViewController: MainScreenProtocol{
     func goToSearch(){
