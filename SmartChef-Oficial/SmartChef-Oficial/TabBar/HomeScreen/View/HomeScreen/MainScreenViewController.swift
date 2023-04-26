@@ -2,23 +2,28 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
-    //MARK: Instancias
     var viewModel: MainScreeViewModel = MainScreeViewModel()
     var mainScreen: MainScreen?
-    var wrapperView: WrapperViewAnimation? //Instanciada
+    var wrapperView: WrapperViewAnimation?
     
-    //MARK: Carrega a tela
     override func loadView() {
         self.mainScreen = MainScreen()
         self.view = self.mainScreen
     }
     
-    //MARK: Carrega configs e elementos
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         inicializeConfigs()
         setTableViewDelegate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mainScreen?.addIngredientLabel.resignFirstResponder()
     }
     
     func setTableViewDelegate(){
@@ -27,29 +32,23 @@ class MainScreenViewController: UIViewController {
     }
     
     func inicializeConfigs() {
-        mainScreen?.tfIngredients.delegate = self
+        mainScreen?.addIngredientLabel.delegate = self
+        mainScreen?.delegate(delegate: self)
         guard let screen = mainScreen else { return }
-        wrapperView = WrapperViewAnimation(target: screen.tfIngredients)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        mainScreen?.tfIngredients.resignFirstResponder()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+        wrapperView = WrapperViewAnimation(target: screen.addIngredientLabel)
     }
 }
 
+//==========================================================================================================================================================
 //MARK: EXTENSIONS TableView
 extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
-        case mainScreen?.searchTableView:
-            mainScreen?.tfIngredients.text = ""
+        case mainScreen?.searchedTableView:
+            mainScreen?.addIngredientLabel.text = ""
             mainScreen?.removeSearchTableView()
             viewModel.addSelectedIngredient(indexPath: indexPath)
-            mainScreen?.tableView.reloadData()
+            mainScreen?.insertedIngredientTableView.reloadData()
             print(viewModel.countSelectedIngredients())
             break
         default:
@@ -60,7 +59,7 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
-        case mainScreen?.searchTableView:
+        case mainScreen?.searchedTableView:
             return viewModel.countIngredientSearch()
         default:
             return viewModel.countSelectedIngredients()
@@ -69,7 +68,7 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView {
-        case mainScreen?.searchTableView:
+        case mainScreen?.searchedTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchedFieldTableView.identifier, for: indexPath) as? SearchedFieldTableView
             cell?.searchedItem.text = viewModel.loadCurrentIngredientSearch(indexPath: indexPath)
             return cell ?? UITableViewCell()
@@ -84,18 +83,20 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//==========================================================================================================================================================
 //MARK: EXTENSIONS CELULA da TableView
 extension MainScreenViewController: IngredientsTableViewCellProtocol{
     
     func removeIngredients(index: Int) {
         viewModel.deleteSelectedIngredient(index: index)
-        mainScreen?.tableView.reloadData()
+        mainScreen?.insertedIngredientTableView.reloadData()
     }
 }
 
+//==========================================================================================================================================================
 //MARK: EXTENSIONS TextField Delegate
 extension MainScreenViewController: UITextFieldDelegate{
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text as? NSString else { return false }
         let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
@@ -104,7 +105,7 @@ extension MainScreenViewController: UITextFieldDelegate{
         if !txtAfterUpdate.isEmpty {
             mainScreen?.addSearchTableView()
             viewModel.filterIngredients(with: txtAfterUpdate)
-            mainScreen?.searchTableView.reloadData()
+            mainScreen?.searchedTableView.reloadData()
         }
         return true
     }
@@ -125,13 +126,10 @@ extension MainScreenViewController: UITextFieldDelegate{
     }
 }
 
-//extension MainScreenViewController: MainScreenProtocol{
-//    func goToSearch() {
-//        navigationController?.pushViewController(DiscoverViewController(), animated: true)
-//    }
-//
-//
-//}
-
-
-//EMPTY STATE
+//==========================================================================================================================================================
+//MARK: EXTENSIONS TextField Delegate
+extension MainScreenViewController: MainScreenProtocol{
+    func goToSearch(){
+        navigationController?.pushViewController(DiscoverViewController(), animated: true)
+    }
+}

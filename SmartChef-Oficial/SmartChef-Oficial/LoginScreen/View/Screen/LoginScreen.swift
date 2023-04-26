@@ -13,17 +13,15 @@ class LoginScreen: UIView {
         self.loginScreenProtocol = delegate
     }
     
-    lazy var bgYellow: UIView = {
+    lazy var gbYellowView: UIView = {
         let background = UIView()
-        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
             return background
         }()
     
-    lazy var logoInitial: UIImageView = {
+    lazy var initialLogoImage: UIImageView = {
        let logoImage = UIImageView()
-        
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.image = UIImage(named: "logoBranca.png")
         logoImage.contentMode = .scaleAspectFit
@@ -31,13 +29,11 @@ class LoginScreen: UIView {
         logoImage.layer.shadowOpacity = 0.3
         logoImage.layer.shadowOffset = CGSize(width: 0, height: 2)
         logoImage.layer.shadowRadius = 2
-        
             return logoImage
         }()
     
     lazy var suspenseView: UIView = {
         let separation = UIView()
-        
         separation.translatesAutoresizingMaskIntoConstraints = false
         separation.backgroundColor = .white
         separation.layer.cornerRadius = 10
@@ -48,20 +44,17 @@ class LoginScreen: UIView {
             return separation
         }()
     
-    lazy var labelLogin: UILabel = {
+    lazy var loginLabel: UILabel = {
        let loginText = UILabel()
-        
         loginText.translatesAutoresizingMaskIntoConstraints = false
         loginText.text = "Usuário"
         loginText.font = UIFont.boldSystemFont(ofSize: 17)
         loginText.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
         return loginText
         }()
     
-    lazy var tfLogin: UITextField = {
+    lazy var loginTextField: UITextField = {
        let login = UITextField()
-        
         login.translatesAutoresizingMaskIntoConstraints = false
         login.layer.cornerRadius = 10
         login.textColor = UIColor.black
@@ -81,9 +74,8 @@ class LoginScreen: UIView {
             return login
         }()
     
-    lazy var labelPassword: UILabel = {
+    lazy var passwordLabel: UILabel = {
        let password = UILabel()
-        
         password.translatesAutoresizingMaskIntoConstraints = false
         password.text = "Senha"
         password.font = UIFont.boldSystemFont(ofSize: 17)
@@ -91,10 +83,9 @@ class LoginScreen: UIView {
             return password
         }()
     
-    lazy var tfPassword: UITextField = {
+    lazy var passwordTextField: UITextField = {
         
        let pass = UITextField()
-        
         pass.translatesAutoresizingMaskIntoConstraints = false
         pass.layer.cornerRadius = 10
         pass.backgroundColor = .white
@@ -110,13 +101,11 @@ class LoginScreen: UIView {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: pass.frame.height))
             pass.leftView = paddingView
             pass.leftViewMode = .always
-        
             return pass
         }()
     
-    lazy var passReset: UILabel = {
+    lazy var resetPassLabel: UILabel = {
        let reset = UILabel()
-        
         reset.translatesAutoresizingMaskIntoConstraints = false
         reset.text = "Recupere sua senha"
         reset.font = UIFont.boldSystemFont(ofSize: 14)
@@ -126,7 +115,6 @@ class LoginScreen: UIView {
 
     lazy var loginButton: UIButton = {
        let button = UIButton()
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Entrar", for: .normal)
         button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
@@ -137,26 +125,21 @@ class LoginScreen: UIView {
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.addTarget(self, action: #selector(tapToLogin), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
             return button
         }()
 
-    lazy var txtConectse: UILabel = {
+    lazy var textConectLabel: UILabel = {
        let reset = UILabel()
-        
         reset.translatesAutoresizingMaskIntoConstraints = false
         reset.text = "Ou conecte-se com"
         reset.font = UIFont.boldSystemFont(ofSize: 14)
         reset.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
             return reset
     }()
-    
 
-
-    lazy var appleIcon: UIButton = {
+    lazy var appleIconImage: UIButton = {
        let apple = UIButton()
-        
         apple.translatesAutoresizingMaskIntoConstraints = false
         apple.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         apple.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
@@ -169,9 +152,8 @@ class LoginScreen: UIView {
             return apple
         }()
     
-    lazy var btGoogleIcon: UIButton = {
+    lazy var googleIconImage: UIButton = {
        let google = UIButton()
-        
         google.translatesAutoresizingMaskIntoConstraints = false
         google.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         google.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
@@ -184,9 +166,8 @@ class LoginScreen: UIView {
             return google
         }()
     
-    lazy var btFaceIcon: UIButton = {
+    lazy var facebookIconImage: UIButton = {
        let facebook = UIButton()
-        
         facebook.translatesAutoresizingMaskIntoConstraints = false
         facebook.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         facebook.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
@@ -198,11 +179,9 @@ class LoginScreen: UIView {
         facebook.setImage(UIImage(named: "faceicon.png"), for: .normal)
             return facebook
         }()
-    
-    
-    lazy var buttonSignIn: UIButton = {
-       let entrar = UIButton()
         
+    lazy var signInButton: UIButton = {
+       let entrar = UIButton()
         entrar.translatesAutoresizingMaskIntoConstraints = false
         entrar.setTitle("Inscreva-se", for: .normal)
         entrar.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
@@ -215,55 +194,52 @@ class LoginScreen: UIView {
         entrar.layer.shadowOffset = CGSize(width: 0, height: 2)
         entrar.layer.shadowRadius = 2
         entrar.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        entrar.addTarget(self, action: #selector(registerButton), for: .touchUpInside)
-        
+        entrar.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
             return entrar
         }()
     
+    // END CREATE OBJECTS
+//================================================================================================================================================
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configSuperViews()
-        addConstraints()
-        configButtonEnable(false)
-        
+
+            configSuperViews()
+            addConstraints()
+            configButtonEnable(false)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configSuperViews(){ 
-        
-        self.addSubview(self.bgYellow)
-        self.addSubview(self.logoInitial)
+    func configSuperViews(){
+        self.addSubview(self.gbYellowView)
+        self.addSubview(self.initialLogoImage)
         self.addSubview(self.suspenseView)
-        self.addSubview(self.labelLogin)
-        self.addSubview(self.tfLogin)
-        self.addSubview(self.labelPassword)
-        self.addSubview(self.tfPassword)
-        self.addSubview(self.passReset)
+        self.addSubview(self.loginLabel)
+        self.addSubview(self.loginTextField)
+        self.addSubview(self.passwordLabel)
+        self.addSubview(self.passwordTextField)
+        self.addSubview(self.resetPassLabel)
         self.addSubview(self.loginButton)
-        self.addSubview(self.txtConectse)
-        self.addSubview(self.appleIcon)
-        self.addSubview(self.btGoogleIcon)
-        self.addSubview(self.btFaceIcon)
-        self.addSubview(self.buttonSignIn)
+        self.addSubview(self.textConectLabel)
+        self.addSubview(self.appleIconImage)
+        self.addSubview(self.googleIconImage)
+        self.addSubview(self.facebookIconImage)
+        self.addSubview(self.signInButton)
     }
     
-    @objc func tapToLogin(){
+    @objc func tappedLoginButton(){
         loginScreenProtocol?.actionButton()
     }
     
-    @objc func registerButton(){
+    @objc func tappedRegisterButton(){
         loginScreenProtocol?.actionRegister()
     }
     
-    
-    //MARK: Validando textField isEmpty
-    
-    
     public func validateTextFields(){
-        let email: String = self.tfLogin.text ?? ""
-        let pass: String = self.tfPassword.text ?? ""
+        let email: String = self.loginTextField.text ?? ""
+        let pass: String = self.passwordTextField.text ?? ""
         
         if !email.isEmpty && !pass.isEmpty{
             self.configButtonEnable(true)
@@ -287,73 +263,73 @@ class LoginScreen: UIView {
     func addConstraints(){
         
         NSLayoutConstraint.activate([
-
-        bgYellow.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-        bgYellow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-        bgYellow.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-        bgYellow.bottomAnchor.constraint(equalTo: self.centerYAnchor),
-        
-        logoInitial.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
-        logoInitial.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
-        logoInitial.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-        logoInitial.heightAnchor.constraint(equalToConstant: 150),
-        
-        suspenseView.topAnchor.constraint(equalTo: logoInitial.bottomAnchor,constant: 20),
-        suspenseView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 15),
-        suspenseView.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -15),
-        suspenseView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-
-        labelLogin.topAnchor.constraint(equalTo: suspenseView.topAnchor,constant: 8),
-        labelLogin.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        labelLogin.heightAnchor.constraint(equalToConstant: 20),
-
-        tfLogin.topAnchor.constraint(equalTo: labelLogin.bottomAnchor, constant: 6),
-        tfLogin.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        tfLogin.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
-        tfLogin.heightAnchor.constraint(equalToConstant: 45),
-
-        labelPassword.topAnchor.constraint(equalTo: tfLogin.bottomAnchor, constant: 10),
-        labelPassword.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        labelPassword.heightAnchor.constraint(equalToConstant: 20),
-
-        tfPassword.topAnchor.constraint(equalTo: labelPassword.bottomAnchor,constant: 6),
-        tfPassword.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        tfPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
-        tfPassword.heightAnchor.constraint(equalToConstant: 45),
-
-        passReset.topAnchor.constraint(equalTo: tfPassword.bottomAnchor, constant: 7),
-        passReset.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 32),
-        passReset.heightAnchor.constraint(equalToConstant: 20),
-
-        loginButton.topAnchor.constraint(equalTo: passReset.bottomAnchor,constant: 10),
-        loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
-        loginButton.heightAnchor.constraint(equalToConstant: 45),
-
-        txtConectse.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
-        txtConectse.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        txtConectse.heightAnchor.constraint(equalToConstant: 20),
-
-        appleIcon.centerXAnchor.constraint(equalTo: txtConectse.centerXAnchor),
-        appleIcon.topAnchor.constraint(equalTo: txtConectse.bottomAnchor, constant: 10),
-        appleIcon.heightAnchor.constraint(equalToConstant: 64),
-        appleIcon.widthAnchor.constraint(equalToConstant: 64),
-        
-        btFaceIcon.leadingAnchor.constraint(equalTo: suspenseView.leadingAnchor, constant: 15),
-        btFaceIcon.centerYAnchor.constraint(equalTo: appleIcon.centerYAnchor),
-        btFaceIcon.heightAnchor.constraint(equalToConstant: 64),
-        btFaceIcon.widthAnchor.constraint(equalToConstant: 64),
-       
-        btGoogleIcon.trailingAnchor.constraint(equalTo: suspenseView.trailingAnchor, constant: -15),
-        btGoogleIcon.centerYAnchor.constraint(equalTo: appleIcon.centerYAnchor),
-        btGoogleIcon.heightAnchor.constraint(equalToConstant: 64),
-        btGoogleIcon.widthAnchor.constraint(equalToConstant: 64),
-    
-        buttonSignIn.bottomAnchor.constraint(equalTo: suspenseView.bottomAnchor,constant: -15),
-        buttonSignIn.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-        buttonSignIn.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
-        buttonSignIn.heightAnchor.constraint(equalToConstant: 45),
-        
+            
+            gbYellowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            gbYellowView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            gbYellowView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            gbYellowView.bottomAnchor.constraint(equalTo: self.centerYAnchor),
+            
+            initialLogoImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            initialLogoImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            initialLogoImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            initialLogoImage.heightAnchor.constraint(equalToConstant: 150),
+            
+            suspenseView.topAnchor.constraint(equalTo: initialLogoImage.bottomAnchor,constant: 20),
+            suspenseView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 15),
+            suspenseView.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -15),
+            suspenseView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            
+            loginLabel.topAnchor.constraint(equalTo: suspenseView.topAnchor,constant: 8),
+            loginLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            loginLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 6),
+            loginTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            loginTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
+            loginTextField.heightAnchor.constraint(equalToConstant: 45),
+            
+            passwordLabel.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 10),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            passwordLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor,constant: 6),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 45),
+            
+            resetPassLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 7),
+            resetPassLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 32),
+            resetPassLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            loginButton.topAnchor.constraint(equalTo: resetPassLabel.bottomAnchor,constant: 10),
+            loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
+            loginButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            textConectLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+            textConectLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            textConectLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            appleIconImage.centerXAnchor.constraint(equalTo: textConectLabel.centerXAnchor),
+            appleIconImage.topAnchor.constraint(equalTo: textConectLabel.bottomAnchor, constant: 10),
+            appleIconImage.heightAnchor.constraint(equalToConstant: 64),
+            appleIconImage.widthAnchor.constraint(equalToConstant: 64),
+            
+            facebookIconImage.leadingAnchor.constraint(equalTo: suspenseView.leadingAnchor, constant: 15),
+            facebookIconImage.centerYAnchor.constraint(equalTo: appleIconImage.centerYAnchor),
+            facebookIconImage.heightAnchor.constraint(equalToConstant: 64),
+            facebookIconImage.widthAnchor.constraint(equalToConstant: 64),
+            
+            googleIconImage.trailingAnchor.constraint(equalTo: suspenseView.trailingAnchor, constant: -15),
+            googleIconImage.centerYAnchor.constraint(equalTo: appleIconImage.centerYAnchor),
+            googleIconImage.heightAnchor.constraint(equalToConstant: 64),
+            googleIconImage.widthAnchor.constraint(equalToConstant: 64),
+            
+            signInButton.bottomAnchor.constraint(equalTo: suspenseView.bottomAnchor,constant: -15),
+            signInButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            signInButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
+            signInButton.heightAnchor.constraint(equalToConstant: 45),
+            
         ])
     }
 }

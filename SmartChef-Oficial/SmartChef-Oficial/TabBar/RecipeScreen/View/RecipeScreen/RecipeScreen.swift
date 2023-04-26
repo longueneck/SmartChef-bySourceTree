@@ -108,6 +108,8 @@ class RecipeScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //Criar configStackView, 
+    
     public func collectionDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
         collectionRecipe.delegate = delegate
         collectionRecipe.dataSource = dataSource

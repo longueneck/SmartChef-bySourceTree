@@ -62,6 +62,8 @@ class DrinksStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+//ToDo = Criar metodo igual SetupCell para configurar a stackView
+    
     func addViews(){
         self.addArrangedSubview(self.drink1)
         self.addArrangedSubview(self.drink2)

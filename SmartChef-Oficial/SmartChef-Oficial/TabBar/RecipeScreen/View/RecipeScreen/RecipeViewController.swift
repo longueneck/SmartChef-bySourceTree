@@ -34,6 +34,7 @@ class RecipeViewController: UIViewController{
         recipe?.stack1.delegate(delegate: self)
         recipe?.tfSearchRecipe.delegate = self
         inicializeConfigs()
+        //recipe.metodo de config da stackView
     }
     
     func inicializeConfigs() {

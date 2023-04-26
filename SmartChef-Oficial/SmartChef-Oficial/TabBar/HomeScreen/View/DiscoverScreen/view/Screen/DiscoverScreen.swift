@@ -13,11 +13,10 @@ class DiscoverScreen: UIView {
         self.discoverProtocol = delegate
     }
       
-    lazy var view1: UIView = {
+    lazy var topBackgorundView: UIView = {
         let table = UIView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        
         return table
     }()
     
@@ -30,18 +29,16 @@ class DiscoverScreen: UIView {
         back.contentMode = .scaleAspectFit
         back.backgroundColor = .white
         back.addTarget(self, action: #selector(tappedToBack), for: .touchUpInside)
-               
         return back
     }()
     
-    lazy var lbNamePage: UILabel = {
+    lazy var namePageLabel: UILabel = {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
         name.text = "< Descubrir Receitas >"
         let locate = NSLocalizedString("discover_recipe", comment: "")
         name.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         name.font = UIFont(name: "Nice Sugar", size: 22)
-        
         return name
     }()
     
@@ -75,9 +72,9 @@ class DiscoverScreen: UIView {
     }
     
     private func addSubViews(){
-        self.addSubview(self.view1)
+        self.addSubview(self.topBackgorundView)
         self.addSubview(self.backButton)
-        self.addSubview(self.lbNamePage)
+        self.addSubview(self.namePageLabel)
         self.addSubview(self.imageBall)
         self.addSubview(self.collectionView)
         //        self.addSubview(self.tableView)
@@ -99,22 +96,22 @@ class DiscoverScreen: UIView {
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             
-            view1.topAnchor.constraint(equalTo: self.topAnchor),
-            view1.heightAnchor.constraint(equalToConstant: 150),
-            view1.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            view1.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            topBackgorundView.topAnchor.constraint(equalTo: self.topAnchor),
+            topBackgorundView.heightAnchor.constraint(equalToConstant: 150),
+            topBackgorundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            topBackgorundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             backButton.heightAnchor.constraint(equalToConstant: 35),
             backButton.widthAnchor.constraint(equalToConstant: 35),
             backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             
-            lbNamePage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            lbNamePage.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            namePageLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            namePageLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             
             imageBall.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageBall.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageBall.centerYAnchor.constraint(equalTo: view1.bottomAnchor),
+            imageBall.centerYAnchor.constraint(equalTo: topBackgorundView.bottomAnchor),
             imageBall.heightAnchor.constraint(equalToConstant: 30),
             
             collectionView.topAnchor.constraint(equalTo: imageBall.bottomAnchor,constant: 10),

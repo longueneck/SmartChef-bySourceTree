@@ -2,16 +2,11 @@ import UIKit
 
 class LoginScreenViewController: UIViewController {
     
-    var loginScreen: LoginScreen? //Call the LoginScreen inside the ViewController
+    var loginScreen: LoginScreen?
     
     override func loadView() {
         self.loginScreen = LoginScreen()
         self.view = self.loginScreen
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
@@ -19,20 +14,26 @@ class LoginScreenViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         addTfToDelegate()
         self.loginScreen?.delegate(delegate: self)
-        
     }
     
-    func addTfToDelegate(){
-        loginScreen?.tfLogin.delegate = self
-        loginScreen?.tfPassword.delegate = self
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        loginScreen?.tfLogin.resignFirstResponder()
-        loginScreen?.tfPassword.resignFirstResponder()
+        loginScreen?.loginTextField.resignFirstResponder()
+        loginScreen?.passwordTextField.resignFirstResponder()
     }
     
+    func addTfToDelegate(){
+        loginScreen?.loginTextField.delegate = self
+        loginScreen?.passwordTextField.delegate = self
+    }
 }
+
+//-----------------------------------------------------------------------------------------------------------
+//MARK: EXTENSION TEXTFIELD DELEGATES
 
 extension LoginScreenViewController: UITextFieldDelegate{
     
@@ -49,6 +50,9 @@ extension LoginScreenViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
     }
 }
+
+//-----------------------------------------------------------------------------------------------------------
+//MARK: EXTENSION BUTTON PROTOCOL
 
 extension LoginScreenViewController: LoginScreenProtocol{
     func actionRegister() {

@@ -27,21 +27,14 @@ class MyTabBarController: UITabBarController{
         let tela03 = UINavigationController(rootViewController: favorite)
         let tela04 = UINavigationController(rootViewController: profile)
         
-//        self.tabBar.translatesAutoresizingMaskIntoConstraints = false
         self.setViewControllers([tela01, tela02, tela03, tela04], animated: false)
         self.tabBar.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         self.tabBar.unselectedItemTintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         self.tabBar.tintColor = .white
         self.tabBar.itemPositioning = .centered
         self.tabBar.isTranslucent = false
-        self.tabBar.layer.cornerRadius = 25
         self.tabBar.barTintColor = .white
-        
-        NSLayoutConstraint.activate([
-            self.tabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            self.tabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-        ])
-        
+      
         
         guard let items = tabBar.items else{return}
         
@@ -49,13 +42,13 @@ class MyTabBarController: UITabBarController{
         items[0].title = "Home"
         
         items[1].image = UIImage(systemName: "book.fill")
-        items[1].title = "Recipes"
+        items[1].title = "Receitas"
         
         items[2].image = UIImage(systemName: "bookmark.fill")
-        items[2].title = "Favorites"
+        items[2].title = "Favoritos"
         
         items[3].image = UIImage(systemName: "person.fill")
-        items[3].title = "Profile"
+        items[3].title = "Perfil"
         
         self.selectedIndex = 0
     }
