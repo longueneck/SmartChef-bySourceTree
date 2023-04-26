@@ -30,7 +30,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let name = UIImageView()
         name.translatesAutoresizingMaskIntoConstraints = false
-//        name.image = UIImage(named: "pao")
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
@@ -105,7 +104,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         
     }
     
-    
     public func setupCell(image: DiscoverModel) {
         imageRecipe.image = UIImage(named: image.nameImage)
     }
@@ -143,7 +141,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         bookMark.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         bookMark.heightAnchor.constraint(equalToConstant: 35),
         bookMark.widthAnchor.constraint(equalToConstant: 35),
-        
         
         ])
     }

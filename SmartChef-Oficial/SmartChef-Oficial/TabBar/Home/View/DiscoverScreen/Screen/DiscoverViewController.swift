@@ -44,8 +44,6 @@ extension DiscoverViewController: DiscoverScreenProtocol{
     func backToPage() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
 
