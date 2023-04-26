@@ -21,6 +21,7 @@ class SucessRegisterScreen: UIView {
         welcomeLabel.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
         welcomeLabel.font = UIFont(name: "Purple Smile.ttf", size: 48)
         welcomeLabel.textAlignment = .center
+        
         return welcomeLabel
     }()
     
@@ -42,8 +43,8 @@ class SucessRegisterScreen: UIView {
         message.numberOfLines = 0
         message.lineBreakMode = .byWordWrapping
         message.textAlignment = .center
-        
         message.setContentHuggingPriority(.required, for: .horizontal)
+        
         return message
     }()
     
@@ -54,6 +55,7 @@ class SucessRegisterScreen: UIView {
         messageEmail.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
         messageEmail.font = UIFont.boldSystemFont(ofSize: 20)
         messageEmail.textAlignment = .center
+        
         return messageEmail
     }()
     
