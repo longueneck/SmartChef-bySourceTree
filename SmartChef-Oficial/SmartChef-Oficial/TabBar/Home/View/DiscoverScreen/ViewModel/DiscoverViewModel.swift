@@ -24,7 +24,6 @@ class DiscoverViewModel {
         DiscoverModel(nameRecipe: "Salada Completa", nameImage: "salada"),
     ]
     
-    
     public func getListImages() -> Int {
         listImages.count
     }
@@ -32,11 +31,7 @@ class DiscoverViewModel {
     public func getListCell(index: Int) -> DiscoverModel {
         listImages[index]
     }
-    
-    //    public func setSize() -> CGSize {
-    //        return CGSize(width: self.view.frame.width * 0.98, height: 100)
-    //    }
-    
+
 }
 
 

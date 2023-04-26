@@ -80,7 +80,6 @@ class DiscoverScreen: UIView {
         self.addSubview(self.lbNamePage)
         self.addSubview(self.imageBall)
         self.addSubview(self.collectionView)
-        //        self.addSubview(self.tableView)
     }
     
     required init?(coder: NSCoder) {
@@ -89,6 +88,7 @@ class DiscoverScreen: UIView {
     
     @objc private func tappedToBack(){
         discoverProtocol?.backToPage()
+        
     }
     
     public func addCollectionProtocol(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){

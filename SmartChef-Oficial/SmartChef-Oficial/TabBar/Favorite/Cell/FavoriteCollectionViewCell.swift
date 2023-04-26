@@ -3,7 +3,7 @@ import UIKit
 
 class FavoriteCollectionViewCell: UICollectionViewCell{
     
-    static let identifier = "FavoriteCollectionViewCell"
+    static let identifier = String(describing: FavoriteCollectionViewCell.self)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +30,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let name = UIImageView()
         name.translatesAutoresizingMaskIntoConstraints = false
-//        name.image = UIImage(named: "expresso")
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
@@ -41,7 +40,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var lbIngredients:UILabel = {
         let label1 = UILabel()
         label1.translatesAutoresizingMaskIntoConstraints = false
-//        label1.text = "Receitas Favoritadas"
         label1.font = UIFont.boldSystemFont(ofSize: 16)
         label1.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         
@@ -62,11 +60,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         var config = UIButton.Configuration.plain()
         config.image = UIImage(systemName: "bookmark.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
-//        config.imagePadding = 8.0
         let button2 = UIButton(configuration: config)
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.isSelected = true
-//        button2.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button2.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         button2.addTarget(self, action: #selector(tapToSaveFavorite), for: .touchUpInside)
       

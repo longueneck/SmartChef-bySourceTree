@@ -57,7 +57,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         return stack
     }()
     
-    lazy var bookMark:UIButton = {
+    lazy var bookMark: UIButton = {
         let button2 = UIButton()
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.setImage(UIImage(systemName: "fork.knife"), for: .normal)
@@ -65,7 +65,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         
         return button2
     }()
-
     
     lazy var timerImage:UIImageView = {
         let image = UIImageView()
@@ -107,7 +106,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     public func setupCell(image: DiscoverModel) {
         imageRecipe.image = UIImage(named: image.nameImage)
     }
-    
+
     
     func addConstraints(){
         NSLayoutConstraint.activate([
