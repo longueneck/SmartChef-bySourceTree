@@ -108,7 +108,7 @@ class ProfileScreen: UIView {
         tfname.translatesAutoresizingMaskIntoConstraints = false
         tfname.backgroundColor = .white
         tfname.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        tfname.placeholder = "Insira seu nome completo"
+        tfname.text = "Kevin Longue"
         tfname.layer.cornerRadius = 10
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tfname.frame.height))
         tfname.leftView = paddinView
@@ -140,7 +140,7 @@ class ProfileScreen: UIView {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.backgroundColor = .white
-        email.placeholder = "Insira seu Email"
+        email.text = "exemplo123@gmail.com"
         email.layer.cornerRadius = 10
         email.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: email.frame.height))
@@ -174,7 +174,7 @@ class ProfileScreen: UIView {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.backgroundColor = .white
-        email.placeholder = "Insira sua senha"
+        email.text = "*********"
         email.layer.cornerRadius = 10
         email.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: email.frame.height))
@@ -218,11 +218,6 @@ class ProfileScreen: UIView {
     }
     
     private func funcAddViews(){
-        
-        //        subviews.forEach { view in
-        //            view.translatesAutoresizingMaskIntoConstraints = false
-        //        }
-        // Use o codigo acima para cortar o uso do translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(self.cancelButton)
         self.addSubview(self.saveButton)
@@ -327,9 +322,6 @@ class ProfileScreen: UIView {
             exitButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             exitButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30)
             
-            
         ])
     }
-    
-    
 }
