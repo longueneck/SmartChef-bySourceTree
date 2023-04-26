@@ -148,7 +148,7 @@ class RegisterScreen: UIView {
         create.layer.shadowOffset = CGSize(width: 0, height: 2)
         create.layer.shadowRadius = 2
         create.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        create.addTarget(RegisterScreen.self, action: #selector(createButton), for: .touchUpInside)
+        create.addTarget(self, action: #selector(createButton), for: .touchUpInside)
         
         
         return create
