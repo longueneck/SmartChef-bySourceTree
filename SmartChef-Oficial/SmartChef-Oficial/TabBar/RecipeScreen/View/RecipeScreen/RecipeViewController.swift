@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-//MARK: Protocolo do Botao
+    //MARK: Protocolo do Botao
 protocol RecipeViewControllerProtocol: AnyObject{
     
     func navToScreen()
@@ -13,11 +13,14 @@ class RecipeViewController: UIViewController{
     func setupDelegate(delegate: RecipeViewControllerProtocol){
         self.delegate = delegate
     }
-
+    
     //MARK: Instanciando
     var wrapperView: WrapperViewAnimation?
     var recipe: RecipeScreen?
-    private var viewModel: RecipeScreenViewModel = RecipeScreenViewModel()
+    private var recipeViewModel: RecipeViewModel = RecipeViewModel()
+    var stackView: DrinksStackView = DrinksStackView()
+    var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
+
     
     //MARK: Carregando a tela
     override func loadView() {
@@ -34,7 +37,21 @@ class RecipeViewController: UIViewController{
         recipe?.stack1.delegate(delegate: self)
         recipe?.tfSearchRecipe.delegate = self
         inicializeConfigs()
-        //recipe.metodo de config da stackView
+        drinkImage()
+    }
+    
+    func drinkImage(){
+        
+        guard let subviews = self.recipe?.stack2.subviews else {
+            print("Deu merda")
+            return
+        }
+        
+        for index in 0..<subviews.count where ((subviews[index] as? UIButton) != nil) {
+            let button = subviews[index] as! UIButton
+            let image = drinkViewModel.getAllDrinkRecipes(index: index).image
+            button.setImage(UIImage(named: image), for: .normal)
+        }
     }
     
     func inicializeConfigs() {
@@ -52,11 +69,10 @@ class RecipeViewController: UIViewController{
     }
 }
 
-//MARK: EXTENSIONS TableView
 extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.countRecipes()
+        return recipeViewModel.countRecipes()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -65,7 +81,7 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        if let image = UIImage(named: viewModel.loadCurrentRecipeSearch(indexPath: indexPath)) {
+        if let image = UIImage(named: recipeViewModel.loadCurrentRecipeSearch(indexPath: indexPath)) {
             cell?.picture.image = image
         }
         return cell ?? UICollectionViewCell()
@@ -74,29 +90,18 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 //MARK: EXTENSIONS StackView
 extension RecipeViewController: RecipeStackViewProtocol{
-    func goToHot() {
-        let vc = HotMealsViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func goToBreakfast() {
-        let vc = BreakfastViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func goToLunch() {
-        let vc = SnackViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func goToSnack() {
-        let vc = LunchViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func goToDessert() {
-        let vc = DessertViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+    func tapGoToTypeRecipe(_ sender: MyCustomButton){
+        var vc = HotMealsViewController()
+        vc.dataHotMeal =
+        [
+            HotRecipes(nameImage: "lasanha"),
+            HotRecipes(nameImage: "coxinha"),
+            HotRecipes(nameImage: "costela"),
+            HotRecipes(nameImage: "strogonoff"),
+            HotRecipes(nameImage: "bolinhodearroz"),
+            
+        ]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -128,3 +133,5 @@ extension RecipeViewController: RecipeScreenProtocol{
     
     
 }
+
+

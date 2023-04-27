@@ -1,8 +1,12 @@
 import UIKit
 
-class DrinksStackView: UIStackView {
+protocol DrinkStackViewProtocol{
+    
+}
 
-    lazy var drink1: UIButton = {
+class DrinksStackView: UIStackView {
+    
+    lazy var drinkRecipe1Button: UIButton = {
         let hot = UIButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
         hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -10,7 +14,8 @@ class DrinksStackView: UIStackView {
         hot.clipsToBounds = true
         hot.imageView?.contentMode = .scaleAspectFill
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-       
+        hot.addTarget(self, action: #selector(goToDrink1), for: .touchUpInside)
+
         return hot
     }()
     
@@ -22,7 +27,6 @@ class DrinksStackView: UIStackView {
         option1.imageView?.contentMode = .scaleAspectFill
         option1.clipsToBounds = true
         option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-      
         return option1
     }()
     
@@ -34,7 +38,6 @@ class DrinksStackView: UIStackView {
         option2.imageView?.contentMode = .scaleAspectFill
         option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         option2.clipsToBounds = true
-      
         return option2
     }()
     
@@ -46,7 +49,6 @@ class DrinksStackView: UIStackView {
         option3.imageView?.contentMode = .scaleAspectFill
         option3.clipsToBounds = true
         option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-      
         return option3
     }()
     
@@ -62,21 +64,23 @@ class DrinksStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//ToDo = Criar metodo igual SetupCell para configurar a stackView
-    
     func addViews(){
-        self.addArrangedSubview(self.drink1)
+        self.addArrangedSubview(self.drinkRecipe1Button)
         self.addArrangedSubview(self.drink2)
         self.addArrangedSubview(self.drink3)
         self.addArrangedSubview(self.drink4)
+    }
+    
+    @objc func goToDrink1(){
+                
     }
     
     func addConstraints(){
         
         NSLayoutConstraint.activate([
             
-            drink1.heightAnchor.constraint(equalToConstant: 70),
-            drink1.widthAnchor.constraint(equalToConstant: 55),
+            drinkRecipe1Button.heightAnchor.constraint(equalToConstant: 70),
+            drinkRecipe1Button.widthAnchor.constraint(equalToConstant: 55),
             
             drink2.heightAnchor.constraint(equalToConstant: 70),
             drink2.widthAnchor.constraint(equalToConstant: 55),

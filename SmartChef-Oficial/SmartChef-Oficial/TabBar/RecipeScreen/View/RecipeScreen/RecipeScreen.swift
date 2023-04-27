@@ -6,11 +6,11 @@ protocol RecipeScreenProtocol: AnyObject{
 }
 
 class RecipeScreen: UIView {
-
+    
     weak private var recipeScreenProtocol: RecipeScreenProtocol?
     
     func delegate(delegate: RecipeScreenProtocol){
-            self.recipeScreenProtocol = delegate
+        self.recipeScreenProtocol = delegate
     }
     
     lazy var initialText: UILabel = {
@@ -23,12 +23,10 @@ class RecipeScreen: UIView {
         
         return initial
     }()
-    //OAISOAUBSGOIUASIFUHAIUEFIAUEGFIAUGAIFYVASF
+    
     lazy var tfSearchRecipe: UITextField = {
         let search = UITextField()
         search.translatesAutoresizingMaskIntoConstraints = false
-//        search.layer.borderWidth = 2
-//        search.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         search.placeholder = "  Pesquise por receitas"
         search.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         search.layer.shadowColor = UIColor.black.cgColor
@@ -107,9 +105,7 @@ class RecipeScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //Criar configStackView, 
-    
+        
     public func collectionDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
         collectionRecipe.delegate = delegate
         collectionRecipe.dataSource = dataSource
@@ -130,7 +126,6 @@ class RecipeScreen: UIView {
     @objc func goToMain(){
         recipeScreenProtocol?.tapToMain()
     }
-    
     
     private func addConstraints(){
         NSLayoutConstraint.activate([

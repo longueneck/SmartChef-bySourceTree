@@ -3,11 +3,7 @@ import UIKit
 
 
 protocol RecipeStackViewProtocol:AnyObject{
-    func goToHot()
-    func goToBreakfast()
-    func goToSnack()
-    func goToLunch()
-    func goToDessert()
+    func tapGoToTypeRecipe(_ sender: MyCustomButton)
 }
 
 class RecipeStackView: UIStackView {
@@ -18,71 +14,76 @@ class RecipeStackView: UIStackView {
         self.delegate = delegate
     }
     
-    lazy var recipeType1: UIButton = {
-        let hot = UIButton()
+    lazy var recipeType1: MyCustomButton = {
+        let hot = MyCustomButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
+        hot.screen = .recipeType1
         hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         hot.layer.cornerRadius = 8
         hot.contentMode = .scaleAspectFit
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "hot")
         hot.setImage(buttonImage, for: .normal)
-        hot.addTarget(self, action: #selector(self.goToHotMeals), for: .touchUpInside)
+        hot.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
         return hot
     }()
     
-    lazy var recipeType2: UIButton = {
-        let option1 = UIButton()
+    lazy var recipeType2: MyCustomButton = {
+        let option1 = MyCustomButton()
         option1.translatesAutoresizingMaskIntoConstraints = false
+        option1.screen = .recipeType2
         option1.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         option1.layer.cornerRadius = 8
         option1.contentMode = .scaleAspectFit
         option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "cafe")
         option1.setImage(buttonImage, for: .normal)
-        option1.addTarget(self, action: #selector(self.goToBreakfast), for: .touchUpInside)
+        option1.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
         return option1
     }()
     
-    lazy var recipeType3: UIButton = {
-        let option2 = UIButton()
+    lazy var recipeType3: MyCustomButton = {
+        let option2 = MyCustomButton()
         option2.translatesAutoresizingMaskIntoConstraints = false
+        option2.screen = .recipeType3
         option2.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         option2.layer.cornerRadius = 8
         option2.contentMode = .scaleAspectFit
         option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "lanche")
         option2.setImage(buttonImage, for: .normal)
-        option2.addTarget(self, action: #selector(self.goToSnack), for: .touchUpInside)
+        option2.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
         return option2
     }()
     
-    lazy var recipeType4: UIButton = {
-        let option3 = UIButton()
+    lazy var recipeType4: MyCustomButton = {
+        let option3 = MyCustomButton()
         option3.translatesAutoresizingMaskIntoConstraints = false
+        option3.screen = .recipeType4
         option3.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         option3.layer.cornerRadius = 8
         option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "pratos")
         option3.setImage(buttonImage, for: .normal)
-        option3.addTarget(self, action: #selector(self.goToLunch), for: .touchUpInside)
+        option3.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
         return option3
     }()
     
-    lazy var recipeType5: UIButton = {
-        let option4 = UIButton()
+    lazy var recipeType5: MyCustomButton = {
+        let option4 = MyCustomButton()
         option4.translatesAutoresizingMaskIntoConstraints = false
+        option4.screen = .recipeType5
         option4.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         option4.layer.cornerRadius = 8
         option4.contentMode = .scaleAspectFit
         option4.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "sobremesa")
         option4.setImage(buttonImage, for: .normal)
-        option4.addTarget(self, action: #selector(self.goToDessert), for: .touchUpInside)
+        option4.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
         return option4
     }()
@@ -107,24 +108,8 @@ class RecipeStackView: UIStackView {
         self.addArrangedSubview(self.recipeType5)
     }
     
-    @objc private func goToHotMeals(){
-        self.delegate?.goToHot()
-    }
-    
-    @objc private func goToBreakfast(){
-        self.delegate?.goToBreakfast()
-    }
-    
-    @objc private func goToSnack(){
-        self.delegate?.goToSnack()
-    }
-    
-    @objc private func goToLunch(){
-        self.delegate?.goToLunch()
-    }
-    
-    @objc private func goToDessert(){
-        self.delegate?.goToDessert()
+    @objc private func tapGoToTypeRecipe(_ sender: MyCustomButton){
+        self.delegate?.tapGoToTypeRecipe(sender)
     }
     
     private func addConstraints(){
@@ -151,3 +136,5 @@ class RecipeStackView: UIStackView {
         
     }
 }
+
+

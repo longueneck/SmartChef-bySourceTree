@@ -42,6 +42,9 @@
 		63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */; };
 		634E7F5429CB7CCA003996DD /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E7F5329CB7CCA003996DD /* Sizes.swift */; };
 		634E7F5929CB8015003996DD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E7F5829CB8015003996DD /* UIView.swift */; };
+		636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */; };
+		636C60A929F970A600C300C9 /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A829F970A600C300C9 /* DrinkModel.swift */; };
+		636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */; };
 		638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E329C0173A00BA3A0B /* AppDelegate.swift */; };
 		638E44E629C0173A00BA3A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E529C0173A00BA3A0B /* SceneDelegate.swift */; };
 		638E44E829C0173A00BA3A0B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E729C0173A00BA3A0B /* MainScreenViewController.swift */; };
@@ -109,6 +112,9 @@
 		63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperViewAnimation.swift; sourceTree = "<group>"; };
 		634E7F5329CB7CCA003996DD /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		634E7F5829CB8015003996DD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeStackViewModel.swift; sourceTree = "<group>"; };
+		636C60A829F970A600C300C9 /* DrinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
+		636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
 		638E44E029C0173A00BA3A0B /* SmartChef-Oficial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SmartChef-Oficial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638E44E329C0173A00BA3A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638E44E529C0173A00BA3A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 			children = (
 				63398A7529EEBE05009B154A /* IngredientsModel.swift */,
 				63E9FFFD29F85C84000F81B3 /* RecipeModel.swift */,
+				636C60A829F970A600C300C9 /* DrinkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				63C6786E29D52F3A00658E88 /* StarsStackView.swift */,
-				639DE0A029C3683000A0F37A /* RecipeStackView.swift */,
 				63C6787929D5410200658E88 /* DiscoverStackView.swift */,
 			);
 			path = StackViews;
@@ -597,7 +603,9 @@
 		63E9FFFF29F85D77000F81B3 /* Stackview */ = {
 			isa = PBXGroup;
 			children = (
+				639DE0A029C3683000A0F37A /* RecipeStackView.swift */,
 				63A6B7FD29C62E51002521EC /* DrinksStackView.swift */,
+				636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */,
 			);
 			path = Stackview;
 			sourceTree = "<group>";
@@ -738,6 +746,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CC787629F846140055DC8A /* RecipeViewModel.swift */,
+				636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -922,6 +931,8 @@
 				6308BCEF29C0E41E00104398 /* RecipeScreen.swift in Sources */,
 				63C6786929D463FC00658E88 /* FavoriteViewController.swift in Sources */,
 				6328C31129CDE94400727FDA /* SnackScreen.swift in Sources */,
+				636C60A929F970A600C300C9 /* DrinkModel.swift in Sources */,
+				636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */,
 				631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */,
 				6328C30B29CDE88700727FDA /* SnackStackView.swift in Sources */,
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
@@ -937,6 +948,7 @@
 				631C70C029CD4D8A00074D35 /* HotMealsScreen.swift in Sources */,
 				63C6787A29D5410200658E88 /* DiscoverCollectionViewCell.swift in Sources */,
 				63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */,
+				636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */,
 				63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */,
 				6328C33529CE2A4B00727FDA /* DessertStackView.swift in Sources */,
 				6328C33729CE2A4B00727FDA /* DessertScreen.swift in Sources */,

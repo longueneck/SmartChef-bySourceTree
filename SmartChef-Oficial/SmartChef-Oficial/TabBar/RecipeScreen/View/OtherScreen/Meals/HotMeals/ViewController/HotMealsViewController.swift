@@ -4,17 +4,8 @@ import UIKit
 class HotMealsViewController: UIViewController {
     
     var hotMeal: HotMealScreen?
-    var dataHotMeal: [HotRecipes] =
-    
-    [
-        HotRecipes(nameImage: "lasanha"),
-        HotRecipes(nameImage: "coxinha"),
-        HotRecipes(nameImage: "costela"),
-        HotRecipes(nameImage: "strogonoff"),
-        HotRecipes(nameImage: "bolinhodearroz"),
-        
-    ]
-    
+    var dataHotMeal: [HotRecipes] = []
+   
     override func loadView() {
         self.hotMeal = HotMealScreen()
         self.view = hotMeal

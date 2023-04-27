@@ -1,6 +1,6 @@
 import Foundation
 
-class RecipeScreenViewModel{
+class RecipeViewModel{
     
     private var importView: RecipeModel?
     private var recipeList: [RecipeModel] = []
