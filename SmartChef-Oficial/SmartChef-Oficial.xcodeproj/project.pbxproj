@@ -79,6 +79,7 @@
 		C4B7148229F9AAF4003DC323 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148129F9AAF4003DC323 /* FavoriteViewModel.swift */; };
 		C4B7148429F9AB05003DC323 /* FavoriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148329F9AB05003DC323 /* FavoriteRecipe.swift */; };
 		C4B7148829F9E7B7003DC323 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148729F9E7B7003DC323 /* ProfileViewModel.swift */; };
+		C4B7148B29F9F048003DC323 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7148A29F9F048003DC323 /* Alert.swift */; };
 		C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* RecipeViewModel.swift */; };
 		C4CC787929F849050055DC8A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787829F849050055DC8A /* LoginModel.swift */; };
 		C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787A29F849280055DC8A /* LoginViewModel.swift */; };
@@ -159,6 +160,7 @@
 		C4B7148129F9AAF4003DC323 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		C4B7148329F9AB05003DC323 /* FavoriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipe.swift; sourceTree = "<group>"; };
 		C4B7148729F9E7B7003DC323 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		C4B7148A29F9F048003DC323 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C4CC787629F846140055DC8A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		C4CC787829F849050055DC8A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C4CC787A29F849280055DC8A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
+				C4B7148929F9F027003DC323 /* Alert */,
 				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
 				634E7F5229CB7CA2003996DD /* Utils */,
 				635E857129DCB79C00DF1FCB /* StackViews */,
@@ -617,6 +620,14 @@
 				C4B7146F29F96508003DC323 /* DiscoverModel.swift */,
 			);
 			path = DiscoverModel;
+			sourceTree = "<group>";
+		};
+		C4B7148929F9F027003DC323 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				C4B7148A29F9F048003DC323 /* Alert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		C4CC784B29F835640055DC8A /* Resources */ = {
@@ -1064,6 +1075,7 @@
 				6328C33929CE2A4B00727FDA /* DessertViewController.swift in Sources */,
 				C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */,
 				C4B7146029F949A0003DC323 /* SucessRegisterModel.swift in Sources */,
+				C4B7148B29F9F048003DC323 /* Alert.swift in Sources */,
 				631C70BF29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift in Sources */,
 				638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */,
 				C4CC787B29F849280055DC8A /* LoginViewModel.swift in Sources */,
