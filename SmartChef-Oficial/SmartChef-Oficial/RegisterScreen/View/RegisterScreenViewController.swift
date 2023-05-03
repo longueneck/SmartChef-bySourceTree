@@ -20,27 +20,24 @@ class RegisterScreenViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
     private func addDelegateToTextFields(){
-        register?.tfUser.delegate = self
-        register?.tfEmail.delegate = self
-        register?.tfPass.delegate = self
+        register?.userTextField.delegate = self
+        register?.emailTextField.delegate = self
+        register?.passwordTextfield.delegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        register?.tfUser.resignFirstResponder()
-        register?.tfEmail.resignFirstResponder()
-        register?.tfPass.resignFirstResponder()
+        register?.userTextField.resignFirstResponder()
+        register?.emailTextField.resignFirstResponder()
+        register?.passwordTextfield.resignFirstResponder()
     }
     
 }
 
 extension RegisterScreenViewController: RegisterScreenProtocol{
-   
+    func tapToBack() {
+        navigationController?.popViewController(animated: true)
+    }
     
     func registerButton() {
         self.navigationController?.pushViewController(SucessRegisterViewController(), animated: true)

@@ -554,8 +554,6 @@
 		638E450D29C0226400BA3A0B /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
-				63E9FFFA29F85509000F81B3 /* ViewModel */,
-				63E9FFF929F854FF000F81B3 /* Model */,
 				C4CC785029F837090055DC8A /* View */,
 			);
 			path = RegisterScreen;
@@ -587,20 +585,6 @@
 			path = DiscoverScreen;
 			sourceTree = "<group>";
 		};
-		63E9FFF929F854FF000F81B3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		63E9FFFA29F85509000F81B3 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		63E9FFFF29F85D77000F81B3 /* Stackview */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,35 +610,19 @@
 		C4CC784C29F836D80055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC784D29F836E10055DC8A /* Screen */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C4CC784D29F836E10055DC8A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
 				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
 				638E450829C0218D00BA3A0B /* LoginScreen.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC785029F837090055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC785129F8370E0055DC8A /* Screen */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C4CC785129F8370E0055DC8A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
 				638E450E29C0228200BA3A0B /* RegisterScreen.swift */,
 				638E451229C022C700BA3A0B /* RegisterScreenViewController.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC785529F8377F0055DC8A /* View */ = {
