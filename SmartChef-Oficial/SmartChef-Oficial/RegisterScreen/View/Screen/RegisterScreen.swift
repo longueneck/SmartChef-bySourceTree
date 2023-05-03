@@ -149,8 +149,7 @@ class RegisterScreen: UIView {
         create.layer.shadowRadius = 2
         create.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         create.addTarget(self, action: #selector(createButton), for: .touchUpInside)
-        
-        
+    
         return create
     }()
     
@@ -210,6 +209,7 @@ class RegisterScreen: UIView {
     }
     
     func setConstraints(){
+        
         NSLayoutConstraint.activate([
             
             labelCreate.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -253,14 +253,11 @@ class RegisterScreen: UIView {
             tfPass.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             tfPass.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             
-            
             buttonCreate.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
             buttonCreate.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
             buttonCreate.heightAnchor.constraint(equalToConstant: 45),
             buttonCreate.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            
-            
+
         ])
     }
-    
 }
