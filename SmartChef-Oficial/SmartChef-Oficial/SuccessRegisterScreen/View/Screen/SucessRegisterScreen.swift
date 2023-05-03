@@ -27,7 +27,7 @@ class SucessRegisterScreen: UIView {
     var imageLogo: UIImageView = {
         let imagem = UIImageView()
         imagem.translatesAutoresizingMaskIntoConstraints = false
-        imagem.image = UIImage(named: "logo1.png")
+        imagem.image = UIImage(named: "logoAmarela.png")
         imagem.contentMode = .scaleAspectFit
         
         return imagem

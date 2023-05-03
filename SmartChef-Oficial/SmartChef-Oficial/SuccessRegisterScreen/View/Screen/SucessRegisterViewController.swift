@@ -19,7 +19,6 @@ class SucessRegisterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -28,7 +27,7 @@ class SucessRegisterViewController: UIViewController {
 extension SucessRegisterViewController: SucessRegisterScreenProtocol{
     
     func goToLoginScreen() {
-        self.navigationController?.pushViewController(LoginScreenViewController(), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
 
