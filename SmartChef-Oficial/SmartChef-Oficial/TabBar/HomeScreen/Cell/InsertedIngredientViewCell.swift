@@ -1,14 +1,14 @@
 import Foundation
 import UIKit
 
-protocol IngredientsTableViewCellProtocol {
+protocol InsertedIngredientsViewCellProtocol {
     
     func removeIngredients(index: Int)
 }
 
 class IngredientsTableViewCell: UITableViewCell{
     
-    var ingredientsCellProtocol: IngredientsTableViewCellProtocol?
+    var ingredientsCellProtocol: InsertedIngredientsViewCellProtocol?
     
     static let identifier = "IngredientsTableViewCell"
     
@@ -17,7 +17,7 @@ class IngredientsTableViewCell: UITableViewCell{
         self.backgroundColor = .white
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         addSubView()
-        addConstraints()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +53,7 @@ class IngredientsTableViewCell: UITableViewCell{
         ingredientsCellProtocol?.removeIngredients(index: sender.tag)
     }
     
-    func addConstraints(){
+    func setConstraints(){
         NSLayoutConstraint.activate([
             
             lbIngredients.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),

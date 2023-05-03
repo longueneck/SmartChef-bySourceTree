@@ -2,7 +2,7 @@ import UIKit
 
 class MyTabBarController: UITabBarController{
     
-    var mainScreen = MainScreenViewController()
+    var mainScreen = HomeViewController()
     var recipes = RecipeViewController()
     var favorite = FavoriteViewController()
     var profile = ProfileViewController()

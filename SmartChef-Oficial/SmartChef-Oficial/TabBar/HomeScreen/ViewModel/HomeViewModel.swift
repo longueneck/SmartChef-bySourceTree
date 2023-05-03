@@ -1,6 +1,6 @@
 import Foundation
 
-class MainScreeViewModel{
+class HomeViewModel{
     
     private var importView: IngredientsModel?
     private var ingredientList: [IngredientsModel] = []
