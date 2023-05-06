@@ -32,20 +32,14 @@ class LoginScreenViewController: UIViewController {
     }
 }
 
-//-----------------------------------------------------------------------------------------------------------
-//MARK: EXTENSION TEXTFIELD DELEGATES
-
 extension LoginScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        self.loginScreen?.ifContain()
         self.loginScreen?.validateWhiteSpace()
         self.loginScreen?.validateTextFields()
         self.loginScreen?.resetTextFIelds()
-        
     }
 
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
     }
@@ -59,11 +53,6 @@ extension LoginScreenViewController: UITextFieldDelegate{
         
         }
     }
-    
-
-
-//-----------------------------------------------------------------------------------------------------------
-//MARK: EXTENSION BUTTON PROTOCOL
 
 extension LoginScreenViewController: LoginScreenProtocol{
     func actionRegister() {
