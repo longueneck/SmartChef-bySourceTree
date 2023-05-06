@@ -197,16 +197,14 @@ class LoginScreen: UIView {
         entrar.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
             return entrar
         }()
-    
-    // END CREATE OBJECTS
-//================================================================================================================================================
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
             configSuperViews()
             addConstraints()
-            configButtonEnable(false)
+            isEnableTextField(false)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -237,18 +235,49 @@ class LoginScreen: UIView {
         loginScreenProtocol?.actionRegister()
     }
     
+    
+    
+    public func resetTextFIelds(){
+        let email = self.loginTextField.text
+        let pass = self.passwordTextField.text
+        
+        if email!.isEmpty && ((pass?.isEmpty) != nil){
+            loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+            passwordTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        }
+    }
+    
     public func validateTextFields(){
         let email: String = self.loginTextField.text ?? ""
         let pass: String = self.passwordTextField.text ?? ""
         
         if !email.isEmpty && !pass.isEmpty{
-            self.configButtonEnable(true)
+            self.isEnableTextField(true)
         }else{
-            self.configButtonEnable(false)
+            self.isEnableTextField(false)
+            }
+    }
+    
+    public func ifContain(){
+        let email: String = self.loginTextField.text ?? ""
+        if email.contains("@") && email.contains(".com"){
+            self.isEnableTextField(true)
+        }else{
+            self.isEnableTextField(false)
         }
     }
     
-    private func configButtonEnable(_ enable: Bool){
+    public func validateWhiteSpace(){
+        let email: String = self.loginTextField.text ?? ""
+        
+        if email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+       
+            loginTextField.layer.borderColor = UIColor.red.cgColor
+            self.isEnableTextField(false)
+        }
+    }
+        
+    private func isEnableTextField(_ enable: Bool){
         if enable{
             self.loginButton.alpha = 1.0
             self.loginButton.isEnabled = true
@@ -258,7 +287,12 @@ class LoginScreen: UIView {
         }
     }
     
-    //-------------------------------------------------------------------------------------------
+    private func showAlert() {
+        let alert = UIAlertController(title: "Título do alerta", message: "Mensagem do alerta", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+    
+    }
     
     func addConstraints(){
         

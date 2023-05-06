@@ -37,19 +37,30 @@ class LoginScreenViewController: UIViewController {
 
 extension LoginScreenViewController: UITextFieldDelegate{
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.loginScreen?.ifContain()
+        self.loginScreen?.validateWhiteSpace()
+        self.loginScreen?.validateTextFields()
+        self.loginScreen?.resetTextFIelds()
+        
+    }
+
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-        self.loginScreen?.validateTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        }
     }
-}
+    
+
 
 //-----------------------------------------------------------------------------------------------------------
 //MARK: EXTENSION BUTTON PROTOCOL
