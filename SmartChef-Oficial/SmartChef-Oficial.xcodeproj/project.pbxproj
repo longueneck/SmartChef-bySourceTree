@@ -22,6 +22,7 @@
 		631C70C529CD4D8A00074D35 /* BreakfastScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70B929CD4D8A00074D35 /* BreakfastScreen.swift */; };
 		631C70C629CD4D8A00074D35 /* BreakfastRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70BB29CD4D8A00074D35 /* BreakfastRecipe.swift */; };
 		631C70C729CD4D8A00074D35 /* BreakfastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70BD29CD4D8A00074D35 /* BreakfastViewController.swift */; };
+		631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */; };
 		6328C30B29CDE88700727FDA /* SnackStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328C30A29CDE88700727FDA /* SnackStackView.swift */; };
 		6328C30E29CDE8F000727FDA /* SnackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328C30D29CDE8F000727FDA /* SnackCollectionViewCell.swift */; };
 		6328C31129CDE94400727FDA /* SnackScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6328C31029CDE94400727FDA /* SnackScreen.swift */; };
@@ -92,6 +93,7 @@
 		631C70B929CD4D8A00074D35 /* BreakfastScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastScreen.swift; sourceTree = "<group>"; };
 		631C70BB29CD4D8A00074D35 /* BreakfastRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastRecipe.swift; sourceTree = "<group>"; };
 		631C70BD29CD4D8A00074D35 /* BreakfastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastViewController.swift; sourceTree = "<group>"; };
+		631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6328C30A29CDE88700727FDA /* SnackStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackStackView.swift; sourceTree = "<group>"; };
 		6328C30D29CDE8F000727FDA /* SnackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackCollectionViewCell.swift; sourceTree = "<group>"; };
 		6328C31029CDE94400727FDA /* SnackScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackScreen.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CC784C29F836D80055DC8A /* View */,
+				631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */,
 				631C70C529CD4D8A00074D35 /* BreakfastScreen.swift in Sources */,
 				63C6786C29D47E5D00658E88 /* FavoriteCollectionViewCell.swift in Sources */,
+				631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */,
 				631C70C729CD4D8A00074D35 /* BreakfastViewController.swift in Sources */,
 				6328C32529CE2A1A00727FDA /* LunchStackView.swift in Sources */,
 				631C70C129CD4D8A00074D35 /* HotRecipe.swift in Sources */,

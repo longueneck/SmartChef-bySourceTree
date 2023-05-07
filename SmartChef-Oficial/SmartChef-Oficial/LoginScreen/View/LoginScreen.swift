@@ -204,7 +204,7 @@ class LoginScreen: UIView {
 
             configSuperViews()
             addConstraints()
-            configureLoginButton(false)
+//            configureLoginButton(false)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -235,54 +235,53 @@ class LoginScreen: UIView {
         loginScreenProtocol?.actionRegister()
     }
     
-    public func resetTextFIelds(){
-        let email = self.loginTextField.text
-        let pass = self.passwordTextField.text
-        
-        if email!.isEmpty && ((pass?.isEmpty) != nil){
-            loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-            passwordTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-        }
-    }
+//    public func resetTextFIelds(){
+//        let email = self.loginTextField.text
+//        let pass = self.passwordTextField.text
+//
+//        if email!.isEmpty && ((pass?.isEmpty) != nil){
+//            loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+//            passwordTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+//        }
+//    }
+//
+//    public func validateTextFields(){
+//        let email: String = self.loginTextField.text ?? ""
+//        let pass: String = self.passwordTextField.text ?? ""
+//
+//        if email.contains("@") && email.contains(".com") && !pass.isEmpty{
+//                self.configureLoginButton(true)
+//            }else{
+//                self.configureLoginButton(false)
+//            }
+//        }
+//
+//
+//    public func validateWhiteSpace(){
+//        let email: String = self.loginTextField.text ?? ""
+//
+//        if email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+//
+//            loginTextField.layer.borderColor = UIColor.red.cgColor
+//            self.configureLoginButton(false)
+//        }
+//    }
+//
+//    private func configureLoginButton(_ enable: Bool){
+//        if enable{
+//            self.loginButton.alpha = 1.0
+//            self.loginButton.isEnabled = true
+//        }else{
+//            self.loginButton.alpha = 0.5
+//            self.loginButton.isEnabled = false
+//        }
+//    }
     
-    public func validateTextFields(){
-        let email: String = self.loginTextField.text ?? ""
-        let pass: String = self.passwordTextField.text ?? ""
-        
-        if !email.isEmpty && !pass.isEmpty{
-            if email.contains("@") && email.contains(".com"){
-                self.configureLoginButton(true)
-            }else{
-                self.configureLoginButton(false)
-            }
-        }
-    }
-    
-    public func validateWhiteSpace(){
-        let email: String = self.loginTextField.text ?? ""
-        
-        if email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-       
-            loginTextField.layer.borderColor = UIColor.red.cgColor
-            self.configureLoginButton(false)
-        }
-    }
-        
-    private func configureLoginButton(_ enable: Bool){
-        if enable{
-            self.loginButton.alpha = 1.0
-            self.loginButton.isEnabled = true
-        }else{
-            self.loginButton.alpha = 0.5
-            self.loginButton.isEnabled = false
-        }
-    }
-    
-    private func showAlert() {
-        let alert = UIAlertController(title: "Título do alerta", message: "Mensagem do alerta", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-    }
+//    private func showAlert() {
+//        let alert = UIAlertController(title: "Título do alerta", message: "Mensagem do alerta", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        alert.addAction(okAction)
+//    }
     
     func addConstraints(){
         
