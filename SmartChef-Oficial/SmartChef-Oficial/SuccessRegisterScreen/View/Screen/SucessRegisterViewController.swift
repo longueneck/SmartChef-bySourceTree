@@ -4,6 +4,8 @@ import UIKit
 class SucessRegisterViewController: UIViewController {
     
     var sucess: SucessRegisterScreen?
+    var recipe: RecipeScreen?
+    var recebeDado: String = ""
     
     override func loadView() {
         self.sucess = SucessRegisterScreen()
@@ -15,14 +17,15 @@ class SucessRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        sucess?.messageEmailSend.text = recebeDado
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
 }
+
 
 extension SucessRegisterViewController: SucessRegisterScreenProtocol{
     

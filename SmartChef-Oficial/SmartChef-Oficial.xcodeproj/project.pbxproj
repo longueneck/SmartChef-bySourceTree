@@ -46,6 +46,7 @@
 		636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */; };
 		636C60A929F970A600C300C9 /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A829F970A600C300C9 /* DrinkModel.swift */; };
 		636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */; };
+		637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637145C32A0829D600A8C72F /* RegisterViewModel.swift */; };
 		638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E329C0173A00BA3A0B /* AppDelegate.swift */; };
 		638E44E629C0173A00BA3A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E529C0173A00BA3A0B /* SceneDelegate.swift */; };
 		638E44E829C0173A00BA3A0B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E729C0173A00BA3A0B /* HomeViewController.swift */; };
@@ -117,6 +118,7 @@
 		636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeStackViewModel.swift; sourceTree = "<group>"; };
 		636C60A829F970A600C300C9 /* DrinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
 		636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
+		637145C32A0829D600A8C72F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		638E44E029C0173A00BA3A0B /* SmartChef-Oficial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SmartChef-Oficial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638E44E329C0173A00BA3A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638E44E529C0173A00BA3A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -489,6 +491,22 @@
 			path = StackViews;
 			sourceTree = "<group>";
 		};
+		637145C52A0829E200A8C72F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		637145C62A0829F600A8C72F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				637145C32A0829D600A8C72F /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		638E44D729C0173A00BA3A0B = {
 			isa = PBXGroup;
 			children = (
@@ -548,8 +566,8 @@
 		638E450429C0215600BA3A0B /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				637145C52A0829E200A8C72F /* ViewModel */,
 				C4CC784C29F836D80055DC8A /* View */,
-				631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -557,6 +575,7 @@
 		638E450D29C0226400BA3A0B /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
+				637145C62A0829F600A8C72F /* ViewModel */,
 				C4CC785029F837090055DC8A /* View */,
 			);
 			path = RegisterScreen;
@@ -882,6 +901,7 @@
 				636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */,
 				631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */,
 				6328C30B29CDE88700727FDA /* SnackStackView.swift in Sources */,
+				637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */,
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
 				6328C33829CE2A4B00727FDA /* DessertRecipe.swift in Sources */,
 				639DE0A129C3683000A0F37A /* RecipeStackView.swift in Sources */,

@@ -45,7 +45,6 @@ extension LoginScreenViewController: UITextFieldDelegate{
             viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
             if viewModel.isTextFieldEmpty(loginScreen.loginTextField){
                 loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-             
             }
         }
     }

@@ -164,7 +164,7 @@ class RegisterScreen: UIView {
         super.init(frame: frame)
         addViews()
         setConstraints()
-        configButtonEnable(false)
+      
     }
     
     required init?(coder: NSCoder) {
@@ -192,30 +192,10 @@ class RegisterScreen: UIView {
     
     @objc func tapToBack(){
         registerScreenProtocol?.tapToBack()
+
     }
     
-    public func validateTextFields(){
-        let name: String = userTextField.text ?? ""
-        let email: String = emailTextField.text ?? ""
-        let pass: String = passwordTextfield.text ?? ""
-        let confirmPass: String = confirmPasswordLabel.text ?? ""
-        
-        if (!name.isEmpty) && (!email.isEmpty) && (!pass.isEmpty) && (!confirmPass.isEmpty){
-            self.configButtonEnable(true)
-        }else{
-            self.configButtonEnable(false)
-        }
-    }
-    
-    private func configButtonEnable(_ enable: Bool){
-        if enable{
-            self.createButton.alpha = 1.0
-            self.createButton.isEnabled = true
-        }else{
-            self.createButton.alpha = 0.5
-            self.createButton.isEnabled = false
-        }
-    }
+   
     
     func setConstraints(){
         NSLayoutConstraint.activate([
