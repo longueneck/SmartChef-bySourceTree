@@ -115,6 +115,7 @@ class RegisterScreen: UIView {
         textfield.layer.shadowOffset = CGSize(width: 0, height: 2)
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
+        textfield.isSecureTextEntry = true
         textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return textfield
     }()
@@ -140,6 +141,7 @@ class RegisterScreen: UIView {
         textfield.layer.shadowOffset = CGSize(width: 0, height: 2)
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
+        textfield.isSecureTextEntry = true
         textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return textfield
     }()
