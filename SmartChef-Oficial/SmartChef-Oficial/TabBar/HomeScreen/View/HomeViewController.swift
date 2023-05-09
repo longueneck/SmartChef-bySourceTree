@@ -91,17 +91,26 @@ extension HomeViewController: InsertedIngredientsViewCellProtocol{
 extension HomeViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text as? NSString else { return false }
-        let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
+        if string == " " && textField == homeScreen?.addIngredientTextField {
+//            homeScreen?.addIngredientTextField.layer.borderColor = UIColor.red.cgColor
+//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+//                self.homeScreen?.addIngredientTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+            
+            return false
+        }
+        
+        guard let text = textField.text else { return false }
+        let updatedText = (text as NSString).replacingCharacters(in: range, with: string)
         homeScreen?.removeSearchTableView()
-        print(txtAfterUpdate)
-        if !txtAfterUpdate.isEmpty {
+        print(updatedText)
+        if !updatedText.isEmpty {
             homeScreen?.addSearchTableView()
-            homeViewModel.filterIngredients(with: txtAfterUpdate)
+            homeViewModel.filterIngredients(with: updatedText)
             homeScreen?.searchedTableView.reloadData()
         }
         return true
     }
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         wrapperView?.startANimation()
     }
