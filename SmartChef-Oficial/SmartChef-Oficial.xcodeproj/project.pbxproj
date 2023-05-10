@@ -753,18 +753,10 @@
 		C4CC786A29F83A6A0055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC786C29F83A730055DC8A /* Screen */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C4CC786C29F83A730055DC8A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
 				638E451A29C0241A00BA3A0B /* ProfileScreen.swift */,
 				638E451C29C0242D00BA3A0B /* ProfileViewController.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC786E29F83AF50055DC8A /* OtherScreen */ = {

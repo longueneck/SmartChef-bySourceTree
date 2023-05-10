@@ -6,6 +6,10 @@
 	<array>
 		<string>Nice Sugar.ttf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>O app deseja ter acesso à sua galeria de fotos</string>
+	<key>NSCameraUsageDescription</key>
+	<string>O app deseja ter acesso à sua câmera</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

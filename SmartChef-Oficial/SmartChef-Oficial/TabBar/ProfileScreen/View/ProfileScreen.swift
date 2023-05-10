@@ -5,6 +5,7 @@ protocol ProfileScreenProtocol: AnyObject{
     func tapToExit()
     func tapToCancel()
     func tapToSave()
+    func tapToChangeImage()
 }
 
 class ProfileScreen: UIView {
@@ -36,7 +37,7 @@ class ProfileScreen: UIView {
         return save
     }()
     
-    lazy var viewBG: UIView = {
+    lazy var backgroundMainView: UIView = {
         let bg = UIView()
         bg.translatesAutoresizingMaskIntoConstraints = false
         bg.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
@@ -49,7 +50,7 @@ class ProfileScreen: UIView {
         return bg
     }()
     
-    lazy var userPhoto: UIImageView = {
+    lazy var profileUserImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 70
@@ -66,7 +67,7 @@ class ProfileScreen: UIView {
         return back
     }()
     
-    lazy var bgYellow: UIView = {
+    lazy var yellowView: UIView = {
         let bg = UIView()
         bg.translatesAutoresizingMaskIntoConstraints = false
         bg.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
@@ -74,7 +75,7 @@ class ProfileScreen: UIView {
         return bg
     }()
     
-    lazy var imageBalls: UIImageView = {
+    lazy var ballsImage: UIImageView = {
         let balls = UIImageView()
         balls.translatesAutoresizingMaskIntoConstraints = false
         balls.image = UIImage(named: "balls2")
@@ -83,15 +84,18 @@ class ProfileScreen: UIView {
         return balls
     }()
     
-    lazy var changePic: UILabel = {
-        let change = UILabel()
+    lazy var changePic: UIButton = {
+        let change = UIButton()
         change.translatesAutoresizingMaskIntoConstraints = false
-        change.text = "Alterar imagem de perfil"
-        change.font = UIFont.boldSystemFont(ofSize: 11)
-        change.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        change.setTitle("Alterar imagem", for: .normal)
+        change.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
+        change.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        change.addTarget(self, action: #selector(tapchooseImage), for: .touchUpInside)
+        change.layer.cornerRadius = 10
         
         return change
     }()
+
     
     lazy var lbName: UILabel = {
         let name = UILabel()
@@ -217,6 +221,8 @@ class ProfileScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+   
+    
     private func funcAddViews(){
         
         //        subviews.forEach { view in
@@ -226,10 +232,10 @@ class ProfileScreen: UIView {
         
         self.addSubview(self.cancelButton)
         self.addSubview(self.saveButton)
-        self.addSubview(self.viewBG)
-        self.addSubview(self.userPhoto)
-        self.addSubview(self.bgYellow)
-        self.addSubview(self.imageBalls)
+        self.addSubview(self.backgroundMainView)
+        self.addSubview(self.profileUserImage)
+        self.addSubview(self.yellowView)
+        self.addSubview(self.ballsImage)
         self.addSubview(self.changePic)
         self.addSubview(self.lbName)
         self.addSubview(self.tfName)
@@ -247,6 +253,8 @@ class ProfileScreen: UIView {
         }
     }
     
+   
+    
     @objc func tappedExitButton(){
         profileScreenProtocol?.tapToExit()
     }
@@ -259,39 +267,43 @@ class ProfileScreen: UIView {
         profileScreenProtocol?.tapToSave()
     }
     
+    @objc func tapchooseImage(){
+        profileScreenProtocol?.tapToChangeImage()
+    }
+    
     private func funcAddConstraint(){
         NSLayoutConstraint.activate([
             
-            cancelButton.topAnchor.constraint(equalTo: viewBG.topAnchor),
+            cancelButton.topAnchor.constraint(equalTo: backgroundMainView.topAnchor),
             cancelButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             
-            saveButton.topAnchor.constraint(equalTo: viewBG.topAnchor),
+            saveButton.topAnchor.constraint(equalTo: backgroundMainView.topAnchor),
             saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         
-            viewBG.heightAnchor.constraint(equalToConstant: 150),
-            viewBG.widthAnchor.constraint(equalToConstant: 150),
-            viewBG.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            viewBG.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            backgroundMainView.heightAnchor.constraint(equalToConstant: 150),
+            backgroundMainView.widthAnchor.constraint(equalToConstant: 150),
+            backgroundMainView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            backgroundMainView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             
-            userPhoto.heightAnchor.constraint(equalToConstant: 140),
-            userPhoto.widthAnchor.constraint(equalToConstant: 140),
-            userPhoto.centerXAnchor.constraint(equalTo: viewBG.centerXAnchor),
-            userPhoto.centerYAnchor.constraint(equalTo: viewBG.centerYAnchor),
+            profileUserImage.heightAnchor.constraint(equalToConstant: 140),
+            profileUserImage.widthAnchor.constraint(equalToConstant: 140),
+            profileUserImage.centerXAnchor.constraint(equalTo: backgroundMainView.centerXAnchor),
+            profileUserImage.centerYAnchor.constraint(equalTo: backgroundMainView.centerYAnchor),
             
             changePic.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            changePic.topAnchor.constraint(equalTo: viewBG.bottomAnchor, constant: 10),
+            changePic.topAnchor.constraint(equalTo: backgroundMainView.bottomAnchor, constant: 10),
             
-            bgYellow.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            bgYellow.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            bgYellow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            bgYellow.topAnchor.constraint(equalTo: changePic.bottomAnchor, constant: 30),
+            yellowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            yellowView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            yellowView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            yellowView.topAnchor.constraint(equalTo: changePic.bottomAnchor, constant: 30),
             
-            imageBalls.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            imageBalls.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            imageBalls.centerYAnchor.constraint(equalTo: bgYellow.topAnchor, constant: 0),
-            imageBalls.heightAnchor.constraint(equalToConstant: 45),
+            ballsImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            ballsImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            ballsImage.centerYAnchor.constraint(equalTo: yellowView.topAnchor, constant: 0),
+            ballsImage.heightAnchor.constraint(equalToConstant: 45),
             
-            lbName.topAnchor.constraint(equalTo: imageBalls.bottomAnchor, constant: 5),
+            lbName.topAnchor.constraint(equalTo: ballsImage.bottomAnchor, constant: 5),
             lbName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
             tfName.topAnchor.constraint(equalTo: lbName.bottomAnchor, constant: 8),
