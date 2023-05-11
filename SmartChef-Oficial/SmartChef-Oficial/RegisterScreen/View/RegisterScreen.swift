@@ -166,6 +166,9 @@ class RegisterScreen: UIView {
         super.init(frame: frame)
         addViews()
         setConstraints()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
       
     }
     
@@ -186,6 +189,21 @@ class RegisterScreen: UIView {
         self.addSubview(confirmPasswordLabel)
         self.addSubview(confirmPasswordTextfield)
         self.addSubview(createButton)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = keyboardSize.cgRectValue.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.frame.origin.y = -(keyboardHeight / 2)
+        }
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            self.frame.origin.y = 0
+        }
     }
     
     @objc func tapToRegister(){

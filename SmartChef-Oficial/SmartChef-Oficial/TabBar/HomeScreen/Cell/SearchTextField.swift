@@ -7,7 +7,7 @@ class SearchTextField: UITableViewCell {
     lazy var searchedIngredientLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.textColor = .black
         return label
     }()
     

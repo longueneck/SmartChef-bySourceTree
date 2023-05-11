@@ -16,7 +16,7 @@ class FavoriteScreen: UIView {
         name.translatesAutoresizingMaskIntoConstraints = false
         name.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         name.font = UIFont(name: "Nice Sugar", size: 26)
-        name.text = NSLocalizedString("teste", comment: "")
+        name.text = "< Favoritos >"
             
         return name
     }()

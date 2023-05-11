@@ -33,7 +33,6 @@ class ProfileScreen: UIView {
         save.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         save.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         save.addTarget(self, action: #selector(tappedSaveButton), for: .touchUpInside)
-        
         return save
     }()
     
@@ -46,7 +45,6 @@ class ProfileScreen: UIView {
         bg.layer.shadowOpacity = 0.3
         bg.layer.shadowOffset = CGSize(width: 0, height: 3)
         bg.layer.shadowRadius = 2
-        
         return bg
     }()
     
@@ -57,13 +55,11 @@ class ProfileScreen: UIView {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "sorria")
-        
         return imageView
     }()
     
     lazy var backButtom: UIButton = {
         let back = UIButton()
-
         return back
     }()
     
@@ -71,7 +67,6 @@ class ProfileScreen: UIView {
         let bg = UIView()
         bg.translatesAutoresizingMaskIntoConstraints = false
         bg.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
-        
         return bg
     }()
     
@@ -80,11 +75,10 @@ class ProfileScreen: UIView {
         balls.translatesAutoresizingMaskIntoConstraints = false
         balls.image = UIImage(named: "balls2")
         balls.contentMode = .scaleAspectFit
-        
         return balls
     }()
     
-    lazy var changePic: UIButton = {
+    lazy var changerPicButton: UIButton = {
         let change = UIButton()
         change.translatesAutoresizingMaskIntoConstraints = false
         change.setTitle("Alterar imagem", for: .normal)
@@ -92,22 +86,20 @@ class ProfileScreen: UIView {
         change.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         change.addTarget(self, action: #selector(tapchooseImage), for: .touchUpInside)
         change.layer.cornerRadius = 10
-        
         return change
     }()
-
     
-    lazy var lbName: UILabel = {
+    
+    lazy var nameLabel: UILabel = {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
         name.text = "Nome"
         name.font = UIFont.boldSystemFont(ofSize: 16)
         name.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
         return name
     }()
     
-    lazy var tfName: UITextField = {
+    lazy var nameTextField: UITextField = {
         let tfname = UITextField()
         tfname.translatesAutoresizingMaskIntoConstraints = false
         tfname.backgroundColor = .white
@@ -120,17 +112,21 @@ class ProfileScreen: UIView {
         return tfname
     }()
     
-    lazy var pencilChance: UIImageView = {
+    
+    lazy var pencilImage: UIImageView = {
         let pencil = UIImageView()
         pencil.translatesAutoresizingMaskIntoConstraints = false
         pencil.image = UIImage(systemName: "pencil")
         pencil.contentMode = .scaleAspectFit
         pencil.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil1(tapGestureRecognizer:)))
+        pencil.isUserInteractionEnabled = true
+        pencil.addGestureRecognizer(tapGestureRecognizer)
         
         return pencil
     }()
     
-    lazy var lbEmail: UILabel = {
+    lazy var emailLabel: UILabel = {
         let email = UILabel()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.text = "Email"
@@ -140,7 +136,7 @@ class ProfileScreen: UIView {
         return email
     }()
     
-    lazy var tfEmail: UITextField = {
+    lazy var emailTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.backgroundColor = .white
@@ -160,11 +156,14 @@ class ProfileScreen: UIView {
         pencil.image = UIImage(systemName: "pencil")
         pencil.contentMode = .scaleAspectFit
         pencil.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil2(tapGestureRecognizer:)))
+        pencil.isUserInteractionEnabled = true
+        pencil.addGestureRecognizer(tapGestureRecognizer)
         
         return pencil
     }()
     
-    lazy var lbPass: UILabel = {
+    lazy var passwordLabel: UILabel = {
         let email = UILabel()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.text = "Senha"
@@ -174,7 +173,7 @@ class ProfileScreen: UIView {
         return email
     }()
     
-    lazy var tfPass: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.backgroundColor = .white
@@ -194,7 +193,9 @@ class ProfileScreen: UIView {
         pencil.image = UIImage(systemName: "pencil")
         pencil.contentMode = .scaleAspectFit
         pencil.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil3(tapGestureRecognizer:)))
+        pencil.isUserInteractionEnabled = true
+        pencil.addGestureRecognizer(tapGestureRecognizer)
         return pencil
     }()
     
@@ -215,20 +216,17 @@ class ProfileScreen: UIView {
         
         funcAddViews()
         funcAddConstraint()
+        disableAllTextFields()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
-    
     private func funcAddViews(){
-        
-        //        subviews.forEach { view in
-        //            view.translatesAutoresizingMaskIntoConstraints = false
-        //        }
-        // Use o codigo acima para cortar o uso do translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(self.cancelButton)
         self.addSubview(self.saveButton)
@@ -236,24 +234,81 @@ class ProfileScreen: UIView {
         self.addSubview(self.profileUserImage)
         self.addSubview(self.yellowView)
         self.addSubview(self.ballsImage)
-        self.addSubview(self.changePic)
-        self.addSubview(self.lbName)
-        self.addSubview(self.tfName)
-        self.addSubview(self.pencilChance)
-        self.addSubview(self.lbEmail)
-        self.addSubview(self.tfEmail)
+        self.addSubview(self.changerPicButton)
+        self.addSubview(self.nameLabel)
+        self.addSubview(self.nameTextField)
+        self.addSubview(self.pencilImage)
+        self.addSubview(self.emailLabel)
+        self.addSubview(self.emailTextField)
         self.addSubview(self.pencilChance2)
-        self.addSubview(self.lbPass)
-        self.addSubview(self.tfPass)
+        self.addSubview(self.passwordLabel)
+        self.addSubview(self.passwordTextField)
         self.addSubview(self.pencilChance3)
         self.addSubview(self.exitButton)
-
+        
         subviews.forEach { view in
             view.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
-   
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = keyboardSize.cgRectValue.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.frame.origin.y = -(keyboardHeight / 2)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            self.frame.origin.y = 0
+        }
+    }
+    
+    
+    func disableAllTextFields(){
+        self.nameTextField.isEnabled = false
+        self.passwordTextField.isEnabled = false
+        self.emailTextField.isEnabled = false
+    }
+    
+    func chooseTextFieldEnable(textField: UITextField){
+        switch textField{
+        case self.nameTextField:
+            
+            self.nameTextField.isEnabled = true
+            self.nameTextField.becomeFirstResponder()
+            
+        case self.emailTextField:
+            
+            self.emailTextField.isEnabled = true
+            self.emailTextField.becomeFirstResponder()
+            
+        case self.passwordTextField:
+            
+            self.passwordTextField.isEnabled = true
+            self.passwordTextField.becomeFirstResponder()
+            
+            
+        default:
+            textField.isEnabled = false
+            
+        }
+    }
+    
+    
+    @objc func editPencil1(tapGestureRecognizer: UITapGestureRecognizer) {
+        chooseTextFieldEnable(textField: self.nameTextField)
+    }
+    
+    @objc func editPencil2(tapGestureRecognizer: UITapGestureRecognizer) {
+        chooseTextFieldEnable(textField: self.emailTextField)
+    }
+    
+    @objc func editPencil3(tapGestureRecognizer: UITapGestureRecognizer) {
+        chooseTextFieldEnable(textField: self.passwordTextField)
+    }
     
     @objc func tappedExitButton(){
         profileScreenProtocol?.tapToExit()
@@ -279,7 +334,7 @@ class ProfileScreen: UIView {
             
             saveButton.topAnchor.constraint(equalTo: backgroundMainView.topAnchor),
             saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-        
+            
             backgroundMainView.heightAnchor.constraint(equalToConstant: 150),
             backgroundMainView.widthAnchor.constraint(equalToConstant: 150),
             backgroundMainView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -290,51 +345,51 @@ class ProfileScreen: UIView {
             profileUserImage.centerXAnchor.constraint(equalTo: backgroundMainView.centerXAnchor),
             profileUserImage.centerYAnchor.constraint(equalTo: backgroundMainView.centerYAnchor),
             
-            changePic.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            changePic.topAnchor.constraint(equalTo: backgroundMainView.bottomAnchor, constant: 10),
+            changerPicButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            changerPicButton.topAnchor.constraint(equalTo: backgroundMainView.bottomAnchor, constant: 10),
             
             yellowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             yellowView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             yellowView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            yellowView.topAnchor.constraint(equalTo: changePic.bottomAnchor, constant: 30),
+            yellowView.topAnchor.constraint(equalTo: changerPicButton.bottomAnchor, constant: 30),
             
             ballsImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             ballsImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             ballsImage.centerYAnchor.constraint(equalTo: yellowView.topAnchor, constant: 0),
             ballsImage.heightAnchor.constraint(equalToConstant: 45),
             
-            lbName.topAnchor.constraint(equalTo: ballsImage.bottomAnchor, constant: 5),
-            lbName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            nameLabel.topAnchor.constraint(equalTo: ballsImage.bottomAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
-            tfName.topAnchor.constraint(equalTo: lbName.bottomAnchor, constant: 8),
-            tfName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            tfName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            tfName.heightAnchor.constraint(equalToConstant: 40),
+            nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            nameTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            pencilChance.trailingAnchor.constraint(equalTo: tfName.trailingAnchor, constant: -15),
-            pencilChance.centerYAnchor.constraint(equalTo: tfName.centerYAnchor),
+            pencilImage.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor, constant: -15),
+            pencilImage.centerYAnchor.constraint(equalTo: nameTextField.centerYAnchor),
             
-            lbEmail.topAnchor.constraint(equalTo: tfName.bottomAnchor, constant: 8),
-            lbEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            emailLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 8),
+            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
-            tfEmail.topAnchor.constraint(equalTo: lbEmail.bottomAnchor, constant: 8),
-            tfEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            tfEmail.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            tfEmail.heightAnchor.constraint(equalToConstant: 40),
+            emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 8),
+            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            pencilChance2.trailingAnchor.constraint(equalTo: tfEmail.trailingAnchor, constant: -15),
-            pencilChance2.centerYAnchor.constraint(equalTo: tfEmail.centerYAnchor),
+            pencilChance2.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor, constant: -15),
+            pencilChance2.centerYAnchor.constraint(equalTo: emailTextField.centerYAnchor),
             
-            lbPass.topAnchor.constraint(equalTo: tfEmail.bottomAnchor, constant: 8),
-            lbPass.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 8),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
-            tfPass.topAnchor.constraint(equalTo: lbPass.bottomAnchor, constant: 8),
-            tfPass.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            tfPass.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            tfPass.heightAnchor.constraint(equalToConstant: 40),
+            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 8),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            pencilChance3.trailingAnchor.constraint(equalTo: tfPass.trailingAnchor, constant: -15),
-            pencilChance3.centerYAnchor.constraint(equalTo: tfPass.centerYAnchor),
+            pencilChance3.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -15),
+            pencilChance3.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor),
             
             exitButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             exitButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30)
@@ -342,6 +397,5 @@ class ProfileScreen: UIView {
             
         ])
     }
-    
     
 }

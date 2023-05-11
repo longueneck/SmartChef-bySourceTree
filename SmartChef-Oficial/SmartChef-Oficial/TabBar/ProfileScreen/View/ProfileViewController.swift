@@ -31,17 +31,16 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         profileScreen?.setupDelegate(delegate: self)
-        profileScreen?.tfName.delegate = self
-        profileScreen?.tfEmail.delegate = self
-        profileScreen?.tfPass.delegate = self
+        profileScreen?.nameTextField.delegate = self
+        profileScreen?.emailTextField.delegate = self
+        profileScreen?.passwordTextField.delegate = self
+    
     }
-    
-    
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        profileScreen?.tfName.resignFirstResponder()
-        profileScreen?.tfEmail.resignFirstResponder()
-        profileScreen?.tfPass.resignFirstResponder()
+        profileScreen?.nameTextField.resignFirstResponder()
+        profileScreen?.emailTextField.resignFirstResponder()
+        profileScreen?.passwordTextField.resignFirstResponder()
     }
     
     func showPicker(){
@@ -49,13 +48,11 @@ class ProfileViewController: UIViewController{
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
         configuration.selectionLimit = 0
-        
-        
+                        
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true)
-        
-        
+               
     }
 }
 
@@ -69,10 +66,12 @@ extension ProfileViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         textField.layer.borderWidth = 0
+        textField.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
     }
 }
 
