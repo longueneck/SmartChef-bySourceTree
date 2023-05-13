@@ -4,7 +4,6 @@ protocol RegisterScreenProtocol: AnyObject{
     
     func registerButton()
     func tapToBack()
-    
 }
 
 class RegisterScreen: UIView {
@@ -169,7 +168,6 @@ class RegisterScreen: UIView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-      
     }
     
     required init?(coder: NSCoder) {
@@ -212,10 +210,7 @@ class RegisterScreen: UIView {
     
     @objc func tapToBack(){
         registerScreenProtocol?.tapToBack()
-
     }
-    
-   
     
     func setConstraints(){
         NSLayoutConstraint.activate([
@@ -267,7 +262,6 @@ class RegisterScreen: UIView {
             createButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
             createButton.heightAnchor.constraint(equalToConstant: 45),
             createButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            
             
         ])
     }

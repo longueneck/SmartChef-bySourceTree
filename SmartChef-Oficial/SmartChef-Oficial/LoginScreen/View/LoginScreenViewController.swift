@@ -24,6 +24,12 @@ class LoginScreenViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        loginScreen.loginTextField.text = ""
+        loginScreen.passwordTextField.text = ""
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         loginScreen.loginTextField.resignFirstResponder()
         loginScreen.passwordTextField.resignFirstResponder()
@@ -73,7 +79,6 @@ extension LoginScreenViewController: UITextFieldDelegate{
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
-            
         }
     }
     

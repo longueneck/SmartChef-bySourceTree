@@ -14,11 +14,9 @@ class RegisterScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
         self.register.delegate(delegate: self)
         addDelegateToTextFields()
         viewModel.turnButtonOff(button: register.createButton)
-        
     }
     
     private func addDelegateToTextFields(){
@@ -49,7 +47,6 @@ class RegisterScreenViewController: UIViewController {
         viewModel.confirmEmpty(textField: register.confirmPasswordTextfield)
         viewModel.passEmpty(textField: register.passwordTextfield)
     }
-    
 }
 
 extension RegisterScreenViewController: RegisterScreenProtocol{
@@ -63,9 +60,6 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-   
-
 
 extension RegisterScreenViewController: UITextFieldDelegate{
     
@@ -84,7 +78,6 @@ extension RegisterScreenViewController: UITextFieldDelegate{
                 passEmpty()
             }
         }else{
-            
             viewModel.turnButtonOff(button: register.createButton)
         }
     }
@@ -95,27 +88,22 @@ extension RegisterScreenViewController: UITextFieldDelegate{
               textField.layer.borderColor = UIColor.red.cgColor
                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
                         textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-                  
                })
                return false
-              
            }
            return true
        }
     
         func textFieldDidBeginEditing(_ textField: UITextField) {
             textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
-            
         }
         
         func textFieldDidEndEditing(_ textField: UITextField) {
             textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-            
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
-            
         }
     }
     
