@@ -5,6 +5,7 @@ class HomeViewController: UIViewController {
     var homeViewModel: HomeViewModel = HomeViewModel()
     var homeScreen: HomeScreen?
     var wrapperView: WrapperViewAnimation?
+    var discover: DiscoverViewController?
     
     override func loadView() {
         self.homeScreen = HomeScreen()
@@ -91,11 +92,7 @@ extension HomeViewController: InsertedIngredientsViewCellProtocol{
 extension HomeViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == " " && textField == homeScreen?.addIngredientTextField {
-//            homeScreen?.addIngredientTextField.layer.borderColor = UIColor.red.cgColor
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-//                self.homeScreen?.addIngredientTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-            
+        if string == " " && textField == homeScreen?.addIngredientTextField {    
             return false
         }
         
@@ -130,6 +127,8 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: HomeScreenProtocol{
     func goToSearch(){
+        var enviaDados = homeViewModel.getAllSelectedIngredientsAsString()
+        let discoverVC = DiscoverViewModel(selectedIngredients: enviaDados)
         navigationController?.pushViewController(DiscoverViewController(), animated: true)
     }
 }

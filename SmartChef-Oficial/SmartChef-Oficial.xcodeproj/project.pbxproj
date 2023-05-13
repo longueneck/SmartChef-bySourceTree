@@ -74,6 +74,7 @@
 		63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787529D5410200658E88 /* DiscoverViewController.swift */; };
 		63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787729D5410200658E88 /* DiscoverScreen.swift */; };
 		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
+		63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */; };
 		63E9FFFE29F85C84000F81B3 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9FFFD29F85C84000F81B3 /* RecipeModel.swift */; };
 		C4CC787729F846140055DC8A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* RecipeViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 		63C6787529D5410200658E88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		63C6787729D5410200658E88 /* DiscoverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreen.swift; sourceTree = "<group>"; };
 		63C6787929D5410200658E88 /* DiscoverStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStackView.swift; sourceTree = "<group>"; };
+		63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		63E9FFFD29F85C84000F81B3 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		C4CC787629F846140055DC8A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -601,10 +603,19 @@
 		63C6787629D5410200658E88 /* DiscoverScreen */ = {
 			isa = PBXGroup;
 			children = (
+				63D75E2F2A0FC24300B57C03 /* ViewModel */,
 				C4CC786F29F83B640055DC8A /* Cell */,
-				C4CC785D29F838A90055DC8A /* view */,
+				C4CC785D29F838A90055DC8A /* View */,
 			);
 			path = DiscoverScreen;
+			sourceTree = "<group>";
+		};
+		63D75E2F2A0FC24300B57C03 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		63E9FFFF29F85D77000F81B3 /* Stackview */ = {
@@ -689,21 +700,13 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		C4CC785D29F838A90055DC8A /* view */ = {
-			isa = PBXGroup;
-			children = (
-				C4CC785E29F838B00055DC8A /* Screen */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		C4CC785E29F838B00055DC8A /* Screen */ = {
+		C4CC785D29F838A90055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				63C6787729D5410200658E88 /* DiscoverScreen.swift */,
 				63C6787529D5410200658E88 /* DiscoverViewController.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC786129F839F40055DC8A /* View */ = {
@@ -881,6 +884,7 @@
 				6308BCEC29C0E3CA00104398 /* RecipeViewController.swift in Sources */,
 				6328C32629CE2A1A00727FDA /* LunchCollectionViewCell.swift in Sources */,
 				6308BCF329C0E8E500104398 /* RecipeScreenCollectionViewCell.swift in Sources */,
+				63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */,
 				631C70BE29CD4D8A00074D35 /* HotRecipeStackView.swift in Sources */,
 				63398A7629EEBE05009B154A /* IngredientsModel.swift in Sources */,
 				631C70C429CD4D8A00074D35 /* BreakfastCollectionViewCell.swift in Sources */,

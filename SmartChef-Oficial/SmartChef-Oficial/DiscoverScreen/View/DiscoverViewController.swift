@@ -4,7 +4,8 @@ import UIKit
 class DiscoverViewController: UIViewController{
     
     var discoverScreen: DiscoverScreen?
-    
+    var viewModel: DiscoverViewModel?
+  
     override func loadView() {
         self.discoverScreen = DiscoverScreen()
         self.view = self.discoverScreen
@@ -25,7 +26,7 @@ class DiscoverViewController: UIViewController{
 
 extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,9 +44,8 @@ extension DiscoverViewController: DiscoverScreenProtocol{
     func backToPage() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
+
 
 
 

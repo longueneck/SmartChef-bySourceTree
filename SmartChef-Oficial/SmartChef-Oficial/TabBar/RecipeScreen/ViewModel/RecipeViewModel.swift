@@ -11,9 +11,6 @@ class RecipeViewModel{
         recipeDATA()
     }
     
-    //MARK: MOCK
-    //Add ingredients to the MOCK list
-    
     func recipeDATA(){
         
         recipeList.append(RecipeModel(image: "pizza.jpg", name: "Pizza de Frango", ingredients: ["Frango", "Queijo", "Presunto"], time: 35, prepair: "Misture tudo, jogue no forno e espere ficar pronta"))
@@ -24,10 +21,6 @@ class RecipeViewModel{
         recipeList.append(RecipeModel(image: "coxinha.jpg", name: "Pão de Queijo", ingredients: ["Queijo", "Polvilho", "Presunto"], time: 25, prepair: "Misture tudo, jogue no forno e espere ficar pronta"))
     }
     
-    //-------------------------------------------------------------------------------
-    //MARK: : : MAIN RECIPE LIST : : :
-    
-    //Return all ingredients from the Main list
     func getAllRecipes() -> [RecipeModel]{
         return recipeList
     }

@@ -68,6 +68,11 @@ class HomeViewModel{
         return selectedIngredients
     }
     
+    func getAllSelectedIngredientsAsString() -> String {
+        return selectedIngredients.map { $0.nameIngredient ?? "" }.joined(separator: ", ")
+    }
+
+    
     //Count how many ingredients are inside to the selected list
     func countSelectedIngredients() -> Int{
         selectedIngredients.count

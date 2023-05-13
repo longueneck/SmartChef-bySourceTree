@@ -34,5 +34,6 @@ class SearchTextField: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+        
 }
 
