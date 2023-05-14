@@ -186,7 +186,7 @@
 			path = TranslateByLocalization;
 			sourceTree = "<group>";
 		};
-		6308BCEA29C0E3A500104398 /* RecipeScreen */ = {
+		6308BCEA29C0E3A500104398 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
 				63E9FFFF29F85D77000F81B3 /* Stackview */,
@@ -194,7 +194,7 @@
 				C4CC786129F839F40055DC8A /* View */,
 				C4CC786429F83A170055DC8A /* ViewModel */,
 			);
-			path = RecipeScreen;
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		631C70A729CD4D8A00074D35 /* Meals */ = {
@@ -546,14 +546,14 @@
 			path = "SmartChef-Oficial";
 			sourceTree = "<group>";
 		};
-		638E44F929C01B5E00BA3A0B /* HomeScreen */ = {
+		638E44F929C01B5E00BA3A0B /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
 				C4CC785929F837AA0055DC8A /* View */,
 				C4CC785829F837A40055DC8A /* ViewModel */,
 				C4CC787129F83BBE0055DC8A /* Cell */,
 			);
-			path = HomeScreen;
+			path = RecipeScreen;
 			sourceTree = "<group>";
 		};
 		638E44FF29C01F5500BA3A0B /* TabBar */ = {
@@ -562,8 +562,8 @@
 				C4CC785C29F837F20055DC8A /* TabBar */,
 				638E451829C023FB00BA3A0B /* ProfileScreen */,
 				63C6786529D462DB00658E88 /* FavoriteScreen */,
-				6308BCEA29C0E3A500104398 /* RecipeScreen */,
-				638E44F929C01B5E00BA3A0B /* HomeScreen */,
+				6308BCEA29C0E3A500104398 /* HomeScreen */,
+				638E44F929C01B5E00BA3A0B /* RecipeScreen */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -715,19 +715,11 @@
 		C4CC786129F839F40055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC786E29F83AF50055DC8A /* OtherScreen */,
-				C4CC786229F839FA0055DC8A /* RecipeScreen */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C4CC786229F839FA0055DC8A /* RecipeScreen */ = {
-			isa = PBXGroup;
-			children = (
 				6308BCEE29C0E41E00104398 /* HomeScreen.swift */,
 				6308BCEB29C0E3CA00104398 /* HomeViewController.swift */,
+				C4CC786E29F83AF50055DC8A /* OtherScreen */,
 			);
-			path = RecipeScreen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC786429F83A170055DC8A /* ViewModel */ = {
