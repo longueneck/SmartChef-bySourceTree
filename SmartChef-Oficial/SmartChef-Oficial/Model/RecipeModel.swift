@@ -6,7 +6,6 @@ struct RecipeModel{
     var image: String
     var name: String
     var ingredients: [String]
-    var type: String
     var time: Int
     var prepair: String
     
