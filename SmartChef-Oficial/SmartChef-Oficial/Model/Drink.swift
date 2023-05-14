@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct DrinkModel{
+struct Drink{
     
     var drinkImage: String
     

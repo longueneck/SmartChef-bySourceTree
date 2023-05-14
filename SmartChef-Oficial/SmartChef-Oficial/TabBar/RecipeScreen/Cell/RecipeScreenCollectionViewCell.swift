@@ -3,7 +3,7 @@ import UIKit
 class RecipeScreenCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "RecipeScreenCollectionViewCell"
-    var data: [RecipeModel] = []
+    var data: [Recipe] = []
     
     lazy var picture: UIImageView = {
         let image = UIImageView()
@@ -21,7 +21,7 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
-    public func setupCell(data: RecipeModel){
+    public func setupCell(data: Recipe){
         self.picture.image = UIImage(named: data.image)
     }
     

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct RecipeModel{
+struct Recipe{
     
     var image: String
     var name: String

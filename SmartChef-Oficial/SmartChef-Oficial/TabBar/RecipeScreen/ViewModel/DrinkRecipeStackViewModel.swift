@@ -2,10 +2,10 @@ import Foundation
 
 class DrinkRecipeStackViewModel{
     
-    private var importView: RecipeViewModel = RecipeViewModel()
-    private var drinkRecipeList: [RecipeModel] = []
-    private var selectedDrinkRecipe: [DrinkModel] = []
-    private var drinkRecipeSearch: [DrinkModel] = []
+    private var importView: HomeViewModel = HomeViewModel()
+    private var drinkRecipeList: [Recipe] = []
+    private var selectedDrinkRecipe: [Drink] = []
+    private var drinkRecipeSearch: [Drink] = []
     
     init(){
         loadDrinkRecipe()
@@ -18,17 +18,17 @@ class DrinkRecipeStackViewModel{
         
         drinkRecipeList =
     [
-        RecipeModel.init(image: "limonada", name: "Limonada", ingredients: ["Agua", "Limao"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-        RecipeModel.init(image: "refrigerante", name: "Suco de Laranja", ingredients: ["Agua", "Laranja"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-        RecipeModel.init(image: "expresso", name: "Suco de Morango", ingredients: ["Agua", "Morango"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-        RecipeModel.init(image: "suco", name: "Suco de Uva", ingredients: ["Agua", "Uva"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+        Recipe.init(image: "limonada", name: "Limonada", ingredients: ["Agua", "Limao"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+        Recipe.init(image: "refrigerante", name: "Suco de Laranja", ingredients: ["Agua", "Laranja"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+        Recipe.init(image: "expresso", name: "Suco de Morango", ingredients: ["Agua", "Morango"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+        Recipe.init(image: "suco", name: "Suco de Uva", ingredients: ["Agua", "Uva"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
     ]
     }
     
     //-------------------------------------------------------------------------------
     //MARK: : : MAIN RECIPE LIST : : :
     
-    func getAllDrinkRecipes(index: Int) -> RecipeModel{
+    func getAllDrinkRecipes(index: Int) -> Recipe{
         return drinkRecipeList[index]
     }
     

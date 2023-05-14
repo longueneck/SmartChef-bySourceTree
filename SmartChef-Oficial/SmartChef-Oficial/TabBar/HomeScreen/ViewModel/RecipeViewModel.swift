@@ -1,11 +1,11 @@
 import Foundation
 
-class HomeViewModel{
+class RecipeViewModel{
     
-    private var importView: IngredientsModel?
-    private var ingredientList: [IngredientsModel] = []
-    private var selectedIngredients: [IngredientsModel] = []
-    private var ingredientSearch: [IngredientsModel] = []
+    private var importView: Ingredient?
+    private var ingredientList: [Ingredient] = []
+    private var selectedIngredients: [Ingredient] = []
+    private var ingredientSearch: [Ingredient] = []
     
     init(){
         ingredientDATA()
@@ -15,33 +15,33 @@ class HomeViewModel{
     //Add ingredients to the MOCK list
     
     func ingredientDATA(){
-        ingredientList.append(IngredientsModel(nameIngredient: "Feijão"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Cebola"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Cenoura"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Tomate"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Alho"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Batata"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Salsinha"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Pimentão"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Pimenta-do-reino"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Orégano"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Manjericão"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Queijo parmesão"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Molho de soja"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Azeite de oliva"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Vinagre balsâmico"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Açúcar"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Farinha de trigo"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Fermento em pó"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Ovo"))
-        ingredientList.append(IngredientsModel(nameIngredient: "Leite"))
+        ingredientList.append(Ingredient(nameIngredient: "Feijão"))
+        ingredientList.append(Ingredient(nameIngredient: "Cebola"))
+        ingredientList.append(Ingredient(nameIngredient: "Cenoura"))
+        ingredientList.append(Ingredient(nameIngredient: "Tomate"))
+        ingredientList.append(Ingredient(nameIngredient: "Alho"))
+        ingredientList.append(Ingredient(nameIngredient: "Batata"))
+        ingredientList.append(Ingredient(nameIngredient: "Salsinha"))
+        ingredientList.append(Ingredient(nameIngredient: "Pimentão"))
+        ingredientList.append(Ingredient(nameIngredient: "Pimenta-do-reino"))
+        ingredientList.append(Ingredient(nameIngredient: "Orégano"))
+        ingredientList.append(Ingredient(nameIngredient: "Manjericão"))
+        ingredientList.append(Ingredient(nameIngredient: "Queijo parmesão"))
+        ingredientList.append(Ingredient(nameIngredient: "Molho de soja"))
+        ingredientList.append(Ingredient(nameIngredient: "Azeite de oliva"))
+        ingredientList.append(Ingredient(nameIngredient: "Vinagre balsâmico"))
+        ingredientList.append(Ingredient(nameIngredient: "Açúcar"))
+        ingredientList.append(Ingredient(nameIngredient: "Farinha de trigo"))
+        ingredientList.append(Ingredient(nameIngredient: "Fermento em pó"))
+        ingredientList.append(Ingredient(nameIngredient: "Ovo"))
+        ingredientList.append(Ingredient(nameIngredient: "Leite"))
     }
     
     //-------------------------------------------------------------------------------
     //MARK: : : MAIN LIST : : :
     
     //Return all ingredients from the Main list
-    func getAllIngredients() -> [IngredientsModel]{
+    func getAllIngredients() -> [Ingredient]{
         return ingredientList
     }
     
@@ -64,7 +64,7 @@ class HomeViewModel{
     }
     
     //Return all of ingredients from selected list
-    var getAllSelectedIngredients: [IngredientsModel] {
+    var getAllSelectedIngredients: [Ingredient] {
         return selectedIngredients
     }
     
@@ -87,12 +87,12 @@ class HomeViewModel{
     //MARK: : : SEARCH INGREDIENT LIST : : :
     
     //Add ingredient to search list
-    func addIngredientSearch(ingredient: IngredientsModel) {
+    func addIngredientSearch(ingredient: Ingredient) {
         ingredientSearch.append(ingredient)
     }
     
     //Return all of ingredients from selected list
-    var getIngredientSearch: [IngredientsModel] {
+    var getIngredientSearch: [Ingredient] {
         return ingredientSearch
     }
     

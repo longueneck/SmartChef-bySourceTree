@@ -1,4 +1,4 @@
 
-struct IngredientsModel{
+struct Ingredient{
     var nameIngredient: String?
 }

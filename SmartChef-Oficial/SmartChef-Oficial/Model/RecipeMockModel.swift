@@ -8,7 +8,7 @@ enum RecipesType {
     case candys
 }
 
-struct RecipesMockModel {
+struct RecipesMock {
     let name: String
     let type: RecipesType
     let description: String

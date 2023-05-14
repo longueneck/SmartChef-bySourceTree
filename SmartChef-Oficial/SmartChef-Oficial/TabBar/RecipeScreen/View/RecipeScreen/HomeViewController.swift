@@ -17,7 +17,7 @@ class HomeViewController: UIViewController{
     //MARK: Instanciando
     var wrapperView: WrapperViewAnimation?
     var recipe: HomeScreen?
-    private var recipeViewModel: RecipeViewModel = RecipeViewModel()
+    private var recipeViewModel: HomeViewModel = HomeViewModel()
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
 

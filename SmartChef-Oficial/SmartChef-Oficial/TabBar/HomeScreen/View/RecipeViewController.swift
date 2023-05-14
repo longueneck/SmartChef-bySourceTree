@@ -2,7 +2,7 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     
-    var homeViewModel: HomeViewModel = HomeViewModel()
+    var homeViewModel: RecipeViewModel = RecipeViewModel()
     var homeScreen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
     var discover: DiscoverViewController?
