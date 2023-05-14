@@ -127,8 +127,13 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: HomeScreenProtocol{
     func goToSearch(){
-        var enviaDados = homeViewModel.getAllSelectedIngredientsAsString()
-        let discoverVC = DiscoverViewModel(selectedIngredients: enviaDados)
-        navigationController?.pushViewController(DiscoverViewController(), animated: true)
+        let enviaDados = homeViewModel.getAllSelectedIngredientsAsString()
+        
+        let discoverVM = DiscoverViewModel(selectedIngredients: enviaDados)
+        let discoverVC = DiscoverViewController()
+        discoverVM.selectedIngredients = enviaDados
+        discoverVC.viewModel = discoverVM
+        
+        navigationController?.pushViewController(discoverVC, animated: true)
     }
 }

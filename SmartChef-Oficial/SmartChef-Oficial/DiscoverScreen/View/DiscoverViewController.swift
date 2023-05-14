@@ -3,6 +3,7 @@ import UIKit
 
 class DiscoverViewController: UIViewController{
     
+    
     var discoverScreen: DiscoverScreen?
     var viewModel: DiscoverViewModel?
   
@@ -26,12 +27,14 @@ class DiscoverViewController: UIViewController{
 
 extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+       
+        return viewModel?.selectedArray()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoverCollectionViewCell", for: indexPath) as! DiscoverCollectionViewCell
         cell.configShadow()
+        cell.lbIngredients.text = viewModel?.selectedArray()?[indexPath.row] ?? ""
         return cell
     }
     
