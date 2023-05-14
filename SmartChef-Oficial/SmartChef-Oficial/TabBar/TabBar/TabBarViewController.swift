@@ -2,8 +2,8 @@ import UIKit
 
 class MyTabBarController: UITabBarController{
     
-    var mainScreen = HomeViewController()
-    var recipes = RecipeViewController()
+    var mainScreen = RecipeViewController()
+    var recipes = HomeViewController()
     var favorite = FavoriteViewController()
     var profile = ProfileViewController()
     
@@ -12,7 +12,7 @@ class MyTabBarController: UITabBarController{
         self.setupTabBarController()
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         profile.setupDelegate(delegate: self)
-        recipes.setupDelegate(delegate: self)
+        mainScreen.setupDelegate(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
