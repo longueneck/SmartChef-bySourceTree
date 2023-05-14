@@ -9,7 +9,7 @@ enum RecipeType {
     case candys
 }
 
-struct Recipes {
+struct Recipes: Hashable {
     let name: String
     let type: RecipeType
     let description: String

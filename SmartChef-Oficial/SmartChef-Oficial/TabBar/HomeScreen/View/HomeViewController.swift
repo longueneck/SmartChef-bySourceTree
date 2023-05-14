@@ -17,8 +17,11 @@ class HomeViewController: UIViewController{
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
     
+    private var randomRecipes: [Recipes] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        setupInitialView()
     }
     
     override func loadView() {
@@ -40,6 +43,14 @@ class HomeViewController: UIViewController{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         recipe?.tfSearchRecipe.resignFirstResponder()
     }
+    
+    func setupInitialView() {
+        randomRecipes = homeViewModel.generateRandomRecipes()
+        let indexPath = IndexPath(item: 0, section: 0)
+        recipe?.collectionRecipe.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        recipe?.collectionRecipe.reloadData()
+    }
+        
     
     func drinkImage(){
         
@@ -77,8 +88,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        cell?.setupCell(recipe: homeViewModel.randomRecipes[indexPath.row])
-        print(homeViewModel.randomRecipes)
+        cell?.setupCell(recipe: randomRecipes[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
 }

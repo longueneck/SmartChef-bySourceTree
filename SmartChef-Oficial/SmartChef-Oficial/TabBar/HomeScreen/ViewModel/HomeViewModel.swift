@@ -8,10 +8,6 @@ class HomeViewModel{
     private var recipeSearch: [Recipes] = []
     var hotRecipes: [Recipes] = []
     
-    public var randomRecipes: [Recipes] {
-        return generateRandomRecipes()
-    }
-    
     init(){
         loadRecipesData()
     }
@@ -45,16 +41,16 @@ class HomeViewModel{
     }
     
     func generateRandomRecipes() -> [Recipes] {
-        var randomRecipes: [Recipes] = []
+        var randomRecipes: Set<Recipes> = []
         
-        for i in 1...5 {
+        while randomRecipes.count < 5 {
             if let randomElement = hotRecipes.randomElement() {
-                randomRecipes.append(randomElement)
+                randomRecipes.insert(randomElement)
             }
         }
-        return randomRecipes
+        return Array(randomRecipes)
     }
-    
+        
     public func getRecipe(indexPath: IndexPath) -> Recipes {
         return hotRecipes[indexPath.row]
     }

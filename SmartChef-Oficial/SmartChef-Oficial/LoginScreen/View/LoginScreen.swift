@@ -66,6 +66,7 @@ class LoginScreen: UIView {
         login.layer.shadowOffset = CGSize(width: 0, height: 2)
         login.layer.shadowRadius = 2
         login.keyboardType = .emailAddress
+        login.text = "KevinLongueneck@gmail.com"
         login.autocapitalizationType = .none
         login.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
@@ -97,6 +98,7 @@ class LoginScreen: UIView {
         pass.layer.shadowOffset = CGSize(width: 0, height: 2)
         pass.layer.shadowRadius = 2
         pass.isSecureTextEntry = true
+        pass.text = "123456"
         pass.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: pass.frame.height))
         pass.leftView = paddingView
