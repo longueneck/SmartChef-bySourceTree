@@ -2,21 +2,21 @@ import Foundation
 import UIKit
 
     //MARK: Protocolo do Botao
-protocol RecipeViewControllerProtocol: AnyObject{
+protocol HomeViewControllerProtocol: AnyObject{
     
     func navToScreen()
 }
 
-class RecipeViewController: UIViewController{
+class HomeViewController: UIViewController{
     
-    weak private var delegate: RecipeViewControllerProtocol?
-    func setupDelegate(delegate: RecipeViewControllerProtocol){
+    weak private var delegate: HomeViewControllerProtocol?
+    func setupDelegate(delegate: HomeViewControllerProtocol){
         self.delegate = delegate
     }
     
     //MARK: Instanciando
     var wrapperView: WrapperViewAnimation?
-    var recipe: RecipeScreen?
+    var recipe: HomeScreen?
     private var recipeViewModel: RecipeViewModel = RecipeViewModel()
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
@@ -24,7 +24,7 @@ class RecipeViewController: UIViewController{
     
     //MARK: Carregando a tela
     override func loadView() {
-        self.recipe = RecipeScreen()
+        self.recipe = HomeScreen()
         self.view = recipe
     }
     
@@ -69,7 +69,7 @@ class RecipeViewController: UIViewController{
     }
 }
 
-extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipeViewModel.countRecipes()
@@ -89,7 +89,7 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 //MARK: EXTENSIONS StackView
-extension RecipeViewController: RecipeStackViewProtocol{
+extension HomeViewController: RecipeStackViewProtocol{
     func tapGoToTypeRecipe(_ sender: MyCustomButton){
         var vc = HotMealsViewController()
         vc.dataHotMeal =
@@ -106,7 +106,7 @@ extension RecipeViewController: RecipeStackViewProtocol{
 }
 
 //MARK: EXTENSIONS TextFieldDelegate
-extension RecipeViewController: UITextFieldDelegate{
+extension HomeViewController: UITextFieldDelegate{
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
         wrapperView?.startANimation()
@@ -126,7 +126,7 @@ extension RecipeViewController: UITextFieldDelegate{
 }
 
 //MARK: EXTENSIONS Protocolo de Button Action
-extension RecipeViewController: RecipeScreenProtocol{
+extension HomeViewController: HomeScreenProtocol{
     func tapToMain() {
         delegate?.navToScreen()
     }

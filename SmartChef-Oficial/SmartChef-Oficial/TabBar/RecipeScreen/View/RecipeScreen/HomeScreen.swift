@@ -1,15 +1,15 @@
 import UIKit
 
-protocol RecipeScreenProtocol: AnyObject{
+protocol HomeScreenProtocol: AnyObject{
     
     func tapToMain()
 }
 
-class RecipeScreen: UIView {
+class HomeScreen: UIView {
     
-    weak private var recipeScreenProtocol: RecipeScreenProtocol?
+    weak private var recipeScreenProtocol: HomeScreenProtocol?
     
-    func delegate(delegate: RecipeScreenProtocol){
+    func delegate(delegate: HomeScreenProtocol){
         self.recipeScreenProtocol = delegate
     }
     

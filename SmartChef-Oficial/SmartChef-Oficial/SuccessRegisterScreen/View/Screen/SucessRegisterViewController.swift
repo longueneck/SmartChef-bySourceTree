@@ -4,7 +4,7 @@ import UIKit
 class SucessRegisterViewController: UIViewController {
     
     var sucess: SucessRegisterScreen?
-    var recipe: RecipeScreen?
+    var recipe: HomeScreen?
     var recebeDado: String = ""
     
     override func loadView() {

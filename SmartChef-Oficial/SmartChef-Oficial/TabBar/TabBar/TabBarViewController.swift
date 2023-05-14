@@ -2,8 +2,8 @@ import UIKit
 
 class MyTabBarController: UITabBarController{
     
-    var mainScreen = RecipeViewController()
-    var recipes = HomeViewController()
+    var mainScreen = HomeViewController()
+    var recipes = RecipeViewController()
     var favorite = FavoriteViewController()
     var profile = ProfileViewController()
     
@@ -55,7 +55,7 @@ class MyTabBarController: UITabBarController{
     
 }
 
-extension MyTabBarController: RecipeViewControllerProtocol{
+extension MyTabBarController: HomeViewControllerProtocol{
     
     func navToScreen() {
         self.selectedIndex = 0

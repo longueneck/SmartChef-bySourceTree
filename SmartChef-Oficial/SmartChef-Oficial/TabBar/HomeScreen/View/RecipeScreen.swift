@@ -1,15 +1,15 @@
 import Foundation
 import UIKit
 
-protocol HomeScreenProtocol: AnyObject{
+protocol RecipeScreenProtocol: AnyObject{
     func goToSearch()
 }
 
-class HomeScreen: UIView {
+class RecipeScreen: UIView {
     
-    weak private var homeScreenProtocol: HomeScreenProtocol?
+    weak private var homeScreenProtocol: RecipeScreenProtocol?
     
-    func delegate(delegate: HomeScreenProtocol){
+    func delegate(delegate: RecipeScreenProtocol){
         self.homeScreenProtocol = delegate
     }
     

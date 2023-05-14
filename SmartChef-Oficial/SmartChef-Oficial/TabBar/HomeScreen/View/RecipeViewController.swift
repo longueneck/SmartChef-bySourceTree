@@ -1,14 +1,14 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class RecipeViewController: UIViewController {
     
     var homeViewModel: HomeViewModel = HomeViewModel()
-    var homeScreen: HomeScreen?
+    var homeScreen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
     var discover: DiscoverViewController?
     
     override func loadView() {
-        self.homeScreen = HomeScreen()
+        self.homeScreen = RecipeScreen()
         self.view = self.homeScreen
     }
     
@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case homeScreen?.searchedTableView:
@@ -81,7 +81,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: InsertedIngredientsViewCellProtocol{
+extension RecipeViewController: InsertedIngredientsViewCellProtocol{
     
     func removeIngredients(index: Int) {
         homeViewModel.deleteSelectedIngredient(index: index)
@@ -89,7 +89,7 @@ extension HomeViewController: InsertedIngredientsViewCellProtocol{
     }
 }
 
-extension HomeViewController: UITextFieldDelegate{
+extension RecipeViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == " " && textField == homeScreen?.addIngredientTextField {    
@@ -125,7 +125,7 @@ extension HomeViewController: UITextFieldDelegate{
     }
 }
 
-extension HomeViewController: HomeScreenProtocol{
+extension RecipeViewController: RecipeScreenProtocol{
     func goToSearch(){
         let enviaDados = homeViewModel.getAllSelectedIngredientsAsString()
         
