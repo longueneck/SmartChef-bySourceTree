@@ -12,7 +12,6 @@ class HotRecipeStackView: UIStackView {
             option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
             let buttonImage = UIImage(named: "suco")
             option1.setImage(buttonImage, for: .normal)
-            
             return option1
         }()
         
@@ -26,7 +25,6 @@ class HotRecipeStackView: UIStackView {
             option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
             let buttonImage = UIImage(named: "cha")
             option2.setImage(buttonImage, for: .normal)
-            
             return option2
         }()
         

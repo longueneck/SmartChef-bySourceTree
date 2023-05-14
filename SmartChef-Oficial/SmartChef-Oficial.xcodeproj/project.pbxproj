@@ -158,9 +158,9 @@
 		631C70A829CD4D8A00074D35 /* HotMeals */ = {
 			isa = PBXGroup;
 			children = (
-				631C70A929CD4D8A00074D35 /* StackVIews */,
-				631C70AB29CD4D8A00074D35 /* Cell */,
 				631C70AD29CD4D8A00074D35 /* View */,
+				631C70AB29CD4D8A00074D35 /* Cell */,
+				631C70A929CD4D8A00074D35 /* StackVIews */,
 			);
 			path = HotMeals;
 			sourceTree = "<group>";
