@@ -1,13 +1,24 @@
 import Foundation
 import UIKit
 
-struct Recipe{
-    
-    var image: String
-    var name: String
-    var ingredients: [String]
-    var time: Int
-    var prepair: String
-    
+enum RecipeType {
+    case hot
+    case breakfast
+    case snack
+    case dinner
+    case candys
 }
+
+struct Recipes {
+    let name: String
+    let type: RecipeType
+    let description: String
+    let image: String
+    let timingToCook: String
+    let prepareLevel: String
+}
+
+
+  
+
 

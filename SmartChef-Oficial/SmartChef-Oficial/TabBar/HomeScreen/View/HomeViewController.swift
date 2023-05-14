@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-    //MARK: Protocolo do Botao
+
 protocol HomeViewControllerProtocol: AnyObject{
     
     func navToScreen()
@@ -10,25 +10,22 @@ protocol HomeViewControllerProtocol: AnyObject{
 class HomeViewController: UIViewController{
     
     weak private var delegate: HomeViewControllerProtocol?
-    func setupDelegate(delegate: HomeViewControllerProtocol){
-        self.delegate = delegate
-    }
+    private var homeViewModel: HomeViewModel = HomeViewModel()
     
-    //MARK: Instanciando
-    var wrapperView: WrapperViewAnimation?
     var recipe: HomeScreen?
-    private var recipeViewModel: HomeViewModel = HomeViewModel()
+    var wrapperView: WrapperViewAnimation?
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
-
     
-    //MARK: Carregando a tela
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func loadView() {
         self.recipe = HomeScreen()
         self.view = recipe
     }
     
-    //MARK: Carrega configs e elementos
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -40,10 +37,13 @@ class HomeViewController: UIViewController{
         drinkImage()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        recipe?.tfSearchRecipe.resignFirstResponder()
+    }
+    
     func drinkImage(){
         
         guard let subviews = self.recipe?.stack2.subviews else {
-            print("Deu merda")
             return
         }
         
@@ -60,19 +60,15 @@ class HomeViewController: UIViewController{
         wrapperView = WrapperViewAnimation(target: screen.tfSearchRecipe)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        recipe?.tfSearchRecipe.resignFirstResponder()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+    func setupDelegate(delegate: HomeViewControllerProtocol){
+        self.delegate = delegate
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recipeViewModel.countRecipes()
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,17 +77,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        if let image = UIImage(named: recipeViewModel.loadCurrentRecipeSearch(indexPath: indexPath)) {
-            cell?.picture.image = image
-        }
+        cell?.setupCell(recipe: homeViewModel.randomRecipes[indexPath.row])
+        print(homeViewModel.randomRecipes)
         return cell ?? UICollectionViewCell()
     }
 }
 
-//MARK: EXTENSIONS StackView
 extension HomeViewController: RecipeStackViewProtocol{
     func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        var vc = HotMealsViewController()
+        let vc = HotMealsViewController()
         vc.dataHotMeal =
         [
             HotRecipes(nameImage: "lasanha"),
@@ -105,7 +99,6 @@ extension HomeViewController: RecipeStackViewProtocol{
     }
 }
 
-//MARK: EXTENSIONS TextFieldDelegate
 extension HomeViewController: UITextFieldDelegate{
         
     func textFieldDidBeginEditing(_ textField: UITextField) {

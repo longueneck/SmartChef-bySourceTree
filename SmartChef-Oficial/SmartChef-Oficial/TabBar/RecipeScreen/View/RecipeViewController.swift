@@ -2,7 +2,7 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     
-    var homeViewModel: RecipeViewModel = RecipeViewModel()
+    var recipeViewModel: RecipeViewModel = RecipeViewModel()
     var homeScreen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
     var discover: DiscoverViewController?
@@ -46,9 +46,9 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case homeScreen?.searchedTableView:
             homeScreen?.addIngredientTextField.text = ""
             homeScreen?.removeSearchTableView()
-            homeViewModel.addSelectedIngredient(indexPath: indexPath)
+            recipeViewModel.addSelectedIngredient(indexPath: indexPath)
             homeScreen?.insertedIngredientTableView.reloadData()
-            print(homeViewModel.countSelectedIngredients())
+            print(recipeViewModel.countSelectedIngredients())
             break
         default:
             break
@@ -58,9 +58,9 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case homeScreen?.searchedTableView:
-            return homeViewModel.countIngredientSearch()
+            return recipeViewModel.countIngredientSearch()
         default:
-            return homeViewModel.countSelectedIngredients()
+            return recipeViewModel.countSelectedIngredients()
         }
     }
     
@@ -68,14 +68,14 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
         case homeScreen?.searchedTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchTextField.identifier, for: indexPath) as? SearchTextField
-            cell?.searchedIngredientLabel.text = homeViewModel.loadCurrentIngredientSearch(indexPath: indexPath)
+            cell?.searchedIngredientLabel.text = recipeViewModel.loadCurrentIngredientSearch(indexPath: indexPath)
             return cell ?? UITableViewCell()
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: IngredientsTableViewCell.identifier, for: indexPath) as? IngredientsTableViewCell
             cell?.buttonTwo.tag = indexPath.row
             cell?.ingredientsCellProtocol = self
-            cell?.lbIngredients.text = homeViewModel.loadCurrentNameIngredient(indexPath: indexPath)
+            cell?.lbIngredients.text = recipeViewModel.loadCurrentNameIngredient(indexPath: indexPath)
             return cell ?? UITableViewCell()
         }
     }
@@ -84,7 +84,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
 extension RecipeViewController: InsertedIngredientsViewCellProtocol{
     
     func removeIngredients(index: Int) {
-        homeViewModel.deleteSelectedIngredient(index: index)
+        recipeViewModel.deleteSelectedIngredient(index: index)
         homeScreen?.insertedIngredientTableView.reloadData()
     }
 }
@@ -102,7 +102,7 @@ extension RecipeViewController: UITextFieldDelegate{
         print(updatedText)
         if !updatedText.isEmpty {
             homeScreen?.addSearchTableView()
-            homeViewModel.filterIngredients(with: updatedText)
+            recipeViewModel.filterIngredients(with: updatedText)
             homeScreen?.searchedTableView.reloadData()
         }
         return true
@@ -127,7 +127,7 @@ extension RecipeViewController: UITextFieldDelegate{
 
 extension RecipeViewController: RecipeScreenProtocol{
     func goToSearch(){
-        let enviaDados = homeViewModel.getAllSelectedIngredientsAsString()
+        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
         
         let discoverVM = DiscoverViewModel(selectedIngredients: enviaDados)
         let discoverVC = DiscoverViewController()

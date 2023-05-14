@@ -3,7 +3,7 @@ import Foundation
 class DrinkRecipeStackViewModel{
     
     private var importView: HomeViewModel = HomeViewModel()
-    private var drinkRecipeList: [Recipe] = []
+    private var drinkRecipeList: [Drink] = []
     private var selectedDrinkRecipe: [Drink] = []
     private var drinkRecipeSearch: [Drink] = []
     
@@ -15,14 +15,14 @@ class DrinkRecipeStackViewModel{
         
         drinkRecipeList =
         [
-            Recipe.init(image: "limonada", name: "Limonada", ingredients: ["Agua", "Limao"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-            Recipe.init(image: "refrigerante", name: "Suco de Laranja", ingredients: ["Agua", "Laranja"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-            Recipe.init(image: "expresso", name: "Suco de Morango", ingredients: ["Agua", "Morango"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
-            Recipe.init(image: "suco", name: "Suco de Uva", ingredients: ["Agua", "Uva"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+            Drink.init(image: "limonada", name: "Limonada", ingredients: ["Agua", "Limao"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+            Drink.init(image: "refrigerante", name: "Suco de Laranja", ingredients: ["Agua", "Laranja"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+            Drink.init(image: "expresso", name: "Suco de Morango", ingredients: ["Agua", "Morango"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
+            Drink.init(image: "suco", name: "Suco de Uva", ingredients: ["Agua", "Uva"], time: 5, prepair: "Esprema o limao adicione a agua e beba"),
         ]
     }
     
-    func getAllDrinkRecipes(index: Int) -> Recipe{
+    func getAllDrinkRecipes(index: Int) -> Drink{
         return drinkRecipeList[index]
     }
     

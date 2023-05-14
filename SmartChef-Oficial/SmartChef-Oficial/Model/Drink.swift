@@ -3,7 +3,10 @@ import UIKit
 
 struct Drink{
     
-    var drinkImage: String
+    var image: String
+    var name: String
+    var ingredients: [String]
+    var time: Int
+    var prepair: String
     
 }
-
