@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C45F57B2A11AD27003CC6C8 /* recipesSmart.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C45F57A2A11AD27003CC6C8 /* recipesSmart.json */; };
 		63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63035C2729DB9CCE006B6F83 /* Localizable.strings */; };
 		6307066529E2FBD000D61DAF /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307066429E2FBD000D61DAF /* SearchTextField.swift */; };
 		6308BCEC29C0E3CA00104398 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6308BCEB29C0E3CA00104398 /* HomeViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C45F57A2A11AD27003CC6C8 /* recipesSmart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipesSmart.json; path = ../../../../Desktop/recipesSmart.json; sourceTree = "<group>"; };
 		63035C2629DB9CCE006B6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6307066429E2FBD000D61DAF /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		6308BCEB29C0E3CA00104398 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				638E44EC29C0173C00BA3A0B /* Assets.xcassets */,
 				638E44EE29C0173C00BA3A0B /* LaunchScreen.storyboard */,
 				6398100729D5E6DE004503B8 /* Nice Sugar.ttf */,
+				0C45F57A2A11AD27003CC6C8 /* recipesSmart.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */,
 				638E44ED29C0173C00BA3A0B /* Assets.xcassets in Resources */,
 				6398100829D5E704004503B8 /* Nice Sugar.ttf in Resources */,
+				0C45F57B2A11AD27003CC6C8 /* recipesSmart.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
