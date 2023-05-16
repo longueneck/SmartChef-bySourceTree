@@ -1,7 +1,6 @@
 import UIKit
 
 protocol HomeScreenProtocol: AnyObject{
-    
     func tapToMain()
 }
 
@@ -20,7 +19,6 @@ class HomeScreen: UIView {
         initial.font = UIFont(name: "Nice Sugar", size: 18)
         initial.numberOfLines = 0
         initial.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
         return initial
     }()
     
@@ -44,7 +42,6 @@ class HomeScreen: UIView {
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        
         return separator
     }()
     
@@ -54,7 +51,6 @@ class HomeScreen: UIView {
         stack.distribution = .fillEqually
         stack.axis = .horizontal
         stack.spacing = 12
-        
         return stack
     }()
     
@@ -69,7 +65,6 @@ class HomeScreen: UIView {
         layout.scrollDirection = .horizontal
         collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
         collection.setCollectionViewLayout(layout, animated: true)
-        
         return collection
     }()
     
@@ -82,7 +77,6 @@ class HomeScreen: UIView {
         ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         ingredients.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
-        
         return ingredients
     }()
     
@@ -92,7 +86,6 @@ class HomeScreen: UIView {
         stack.distribution = .fillEqually
         stack.axis = .horizontal
         stack.spacing = 12
-        
         return stack
     }()
     
@@ -166,5 +159,4 @@ class HomeScreen: UIView {
             
         ])
     }
-    
 }
