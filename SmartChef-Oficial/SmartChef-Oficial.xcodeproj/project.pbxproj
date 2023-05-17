@@ -18,6 +18,7 @@
 		631C70C029CD4D8A00074D35 /* HotMealsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70AE29CD4D8A00074D35 /* HotMealsScreen.swift */; };
 		631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70B229CD4D8A00074D35 /* HotMealsViewController.swift */; };
 		631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */; };
+		632054362A140E0B004DB224 /* ProjectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632054352A140E0B004DB224 /* ProjectColor.swift */; };
 		63398A7629EEBE05009B154A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63398A7529EEBE05009B154A /* Ingredient.swift */; };
 		63398A7829EEBE7C009B154A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63398A7729EEBE7C009B154A /* RecipeViewModel.swift */; };
 		63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */; };
@@ -74,6 +75,7 @@
 		631C70AE29CD4D8A00074D35 /* HotMealsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMealsScreen.swift; sourceTree = "<group>"; };
 		631C70B229CD4D8A00074D35 /* HotMealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMealsViewController.swift; sourceTree = "<group>"; };
 		631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		632054352A140E0B004DB224 /* ProjectColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColor.swift; sourceTree = "<group>"; };
 		63398A7529EEBE05009B154A /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		63398A7729EEBE7C009B154A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperViewAnimation.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				634E7F5829CB8015003996DD /* UIView.swift */,
 				634E7F5329CB7CCA003996DD /* Sizes.swift */,
 				63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */,
+				632054352A140E0B004DB224 /* ProjectColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				637C37432A11B6A600CE7C4F /* PrepairCollectionViewCell.swift in Sources */,
 				639DE0A129C3683000A0F37A /* RecipeStackView.swift in Sources */,
 				6307066529E2FBD000D61DAF /* SearchTextField.swift in Sources */,
+				632054362A140E0B004DB224 /* ProjectColor.swift in Sources */,
 				63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */,
 				638E451B29C0241A00BA3A0B /* ProfileScreen.swift in Sources */,
 				63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */,
