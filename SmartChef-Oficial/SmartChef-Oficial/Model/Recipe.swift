@@ -14,6 +14,8 @@ struct Recipes: Codable, Hashable {
     let description: String
     let image: String
     let ingredients: [String]
+    let amount: [String]
+    let portion: String
     let prepareMode: String
     let timingToCook: String
     let prepareLevel: String
