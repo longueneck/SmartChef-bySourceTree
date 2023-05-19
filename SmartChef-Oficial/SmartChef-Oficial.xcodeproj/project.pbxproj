@@ -1,0 +1,899 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C45F57D2A11C65A003CC6C8 /* recipesSmart.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C45F57C2A11C65A003CC6C8 /* recipesSmart.json */; };
+		63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63035C2729DB9CCE006B6F83 /* Localizable.strings */; };
+		6307066529E2FBD000D61DAF /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307066429E2FBD000D61DAF /* SearchTextField.swift */; };
+		6308BCEC29C0E3CA00104398 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6308BCEB29C0E3CA00104398 /* HomeViewController.swift */; };
+		6308BCEF29C0E41E00104398 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6308BCEE29C0E41E00104398 /* HomeScreen.swift */; };
+		6308BCF329C0E8E500104398 /* RecipeScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6308BCF229C0E8E500104398 /* RecipeScreenCollectionViewCell.swift */; };
+		631C70BE29CD4D8A00074D35 /* HotRecipeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70AA29CD4D8A00074D35 /* HotRecipeStackView.swift */; };
+		631C70BF29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70AC29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift */; };
+		631C70C029CD4D8A00074D35 /* HotMealsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70AE29CD4D8A00074D35 /* HotMealsScreen.swift */; };
+		631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C70B229CD4D8A00074D35 /* HotMealsViewController.swift */; };
+		631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */; };
+		632054362A140E0B004DB224 /* ProjectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632054352A140E0B004DB224 /* ProjectColor.swift */; };
+		63398A7629EEBE05009B154A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63398A7529EEBE05009B154A /* Ingredient.swift */; };
+		63398A7829EEBE7C009B154A /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63398A7729EEBE7C009B154A /* RecipeViewModel.swift */; };
+		63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */; };
+		634E7F5429CB7CCA003996DD /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E7F5329CB7CCA003996DD /* Sizes.swift */; };
+		634E7F5929CB8015003996DD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E7F5829CB8015003996DD /* UIView.swift */; };
+		636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */; };
+		636C60A929F970A600C300C9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A829F970A600C300C9 /* Drink.swift */; };
+		636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */; };
+		637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637145C32A0829D600A8C72F /* RegisterViewModel.swift */; };
+		63723F272A17BE0F00A88CF4 /* DrinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63723F262A17BE0F00A88CF4 /* DrinkCollectionViewCell.swift */; };
+		637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */; };
+		637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */; };
+		637C37432A11B6A600CE7C4F /* PrepairCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C37422A11B6A600CE7C4F /* PrepairCollectionViewCell.swift */; };
+		638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E329C0173A00BA3A0B /* AppDelegate.swift */; };
+		638E44E629C0173A00BA3A0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E529C0173A00BA3A0B /* SceneDelegate.swift */; };
+		638E44E829C0173A00BA3A0B /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44E729C0173A00BA3A0B /* RecipeViewController.swift */; };
+		638E44ED29C0173C00BA3A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638E44EC29C0173C00BA3A0B /* Assets.xcassets */; };
+		638E44F029C0173C00BA3A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638E44EE29C0173C00BA3A0B /* LaunchScreen.storyboard */; };
+		638E44FC29C01BDA00BA3A0B /* RecipeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44FB29C01BDA00BA3A0B /* RecipeScreen.swift */; };
+		638E44FE29C01C0700BA3A0B /* InsertedIngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E44FD29C01C0700BA3A0B /* InsertedIngredientViewCell.swift */; };
+		638E450129C01F8600BA3A0B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E450029C01F8600BA3A0B /* TabBarViewController.swift */; };
+		638E450729C0217100BA3A0B /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E450629C0217100BA3A0B /* LoginScreenViewController.swift */; };
+		638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E450829C0218D00BA3A0B /* LoginScreen.swift */; };
+		638E450F29C0228200BA3A0B /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E450E29C0228200BA3A0B /* RegisterScreen.swift */; };
+		638E451129C022B300BA3A0B /* SucessRegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E451029C022B300BA3A0B /* SucessRegisterScreen.swift */; };
+		638E451329C022C700BA3A0B /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E451229C022C700BA3A0B /* RegisterScreenViewController.swift */; };
+		638E451529C022DF00BA3A0B /* SucessRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E451429C022DF00BA3A0B /* SucessRegisterViewController.swift */; };
+		638E451B29C0241A00BA3A0B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E451A29C0241A00BA3A0B /* ProfileScreen.swift */; };
+		638E451D29C0242D00BA3A0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E451C29C0242D00BA3A0B /* ProfileViewController.swift */; };
+		6398100829D5E704004503B8 /* Nice Sugar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6398100729D5E6DE004503B8 /* Nice Sugar.ttf */; };
+		639DE0A129C3683000A0F37A /* RecipeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639DE0A029C3683000A0F37A /* RecipeStackView.swift */; };
+		63A6B7FE29C62E51002521EC /* DrinksStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B7FD29C62E51002521EC /* DrinksStackView.swift */; };
+		63C6786729D463ED00658E88 /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6786629D463ED00658E88 /* FavoriteScreen.swift */; };
+		63C6786929D463FC00658E88 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6786829D463FC00658E88 /* FavoriteViewController.swift */; };
+		63C6786C29D47E5D00658E88 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6786B29D47E5D00658E88 /* FavoriteCollectionViewCell.swift */; };
+		63C6786F29D52F3A00658E88 /* StarsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6786E29D52F3A00658E88 /* StarsStackView.swift */; };
+		63C6787A29D5410200658E88 /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787329D5410200658E88 /* DiscoverCollectionViewCell.swift */; };
+		63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787529D5410200658E88 /* DiscoverViewController.swift */; };
+		63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787729D5410200658E88 /* DiscoverScreen.swift */; };
+		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
+		63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */; };
+		63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9FFFD29F85C84000F81B3 /* Recipe.swift */; };
+		C4CC787729F846140055DC8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* HomeViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C45F57C2A11C65A003CC6C8 /* recipesSmart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipesSmart.json; path = "SmartChef-Oficial/recipesSmart.json"; sourceTree = SOURCE_ROOT; };
+		63035C2629DB9CCE006B6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6307066429E2FBD000D61DAF /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		6308BCEB29C0E3CA00104398 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6308BCEE29C0E41E00104398 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		6308BCF229C0E8E500104398 /* RecipeScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		631C70AA29CD4D8A00074D35 /* HotRecipeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotRecipeStackView.swift; sourceTree = "<group>"; };
+		631C70AC29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMealsCollectionViewCell.swift; sourceTree = "<group>"; };
+		631C70AE29CD4D8A00074D35 /* HotMealsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMealsScreen.swift; sourceTree = "<group>"; };
+		631C70B229CD4D8A00074D35 /* HotMealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotMealsViewController.swift; sourceTree = "<group>"; };
+		631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		632054352A140E0B004DB224 /* ProjectColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColor.swift; sourceTree = "<group>"; };
+		63398A7529EEBE05009B154A /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		63398A7729EEBE7C009B154A /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperViewAnimation.swift; sourceTree = "<group>"; };
+		634E7F5329CB7CCA003996DD /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
+		634E7F5829CB8015003996DD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeStackViewModel.swift; sourceTree = "<group>"; };
+		636C60A829F970A600C300C9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
+		637145C32A0829D600A8C72F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		63723F262A17BE0F00A88CF4 /* DrinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCollectionViewCell.swift; sourceTree = "<group>"; };
+		637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairScreen.swift; sourceTree = "<group>"; };
+		637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewController.swift; sourceTree = "<group>"; };
+		637C37422A11B6A600CE7C4F /* PrepairCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairCollectionViewCell.swift; sourceTree = "<group>"; };
+		638E44E029C0173A00BA3A0B /* SmartChef-Oficial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SmartChef-Oficial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		638E44E329C0173A00BA3A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		638E44E529C0173A00BA3A0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		638E44E729C0173A00BA3A0B /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		638E44EC29C0173C00BA3A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		638E44EF29C0173C00BA3A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		638E44F129C0173C00BA3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638E44FB29C01BDA00BA3A0B /* RecipeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScreen.swift; sourceTree = "<group>"; };
+		638E44FD29C01C0700BA3A0B /* InsertedIngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertedIngredientViewCell.swift; sourceTree = "<group>"; };
+		638E450029C01F8600BA3A0B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		638E450629C0217100BA3A0B /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		638E450829C0218D00BA3A0B /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		638E450E29C0228200BA3A0B /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		638E451029C022B300BA3A0B /* SucessRegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessRegisterScreen.swift; sourceTree = "<group>"; };
+		638E451229C022C700BA3A0B /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
+		638E451429C022DF00BA3A0B /* SucessRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessRegisterViewController.swift; sourceTree = "<group>"; };
+		638E451A29C0241A00BA3A0B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		638E451C29C0242D00BA3A0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6398100729D5E6DE004503B8 /* Nice Sugar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nice Sugar.ttf"; sourceTree = "<group>"; };
+		639DE0A029C3683000A0F37A /* RecipeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStackView.swift; sourceTree = "<group>"; };
+		63A6B7FD29C62E51002521EC /* DrinksStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksStackView.swift; sourceTree = "<group>"; };
+		63C6786629D463ED00658E88 /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
+		63C6786829D463FC00658E88 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		63C6786B29D47E5D00658E88 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		63C6786E29D52F3A00658E88 /* StarsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsStackView.swift; sourceTree = "<group>"; };
+		63C6787329D5410200658E88 /* DiscoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewCell.swift; sourceTree = "<group>"; };
+		63C6787529D5410200658E88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		63C6787729D5410200658E88 /* DiscoverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreen.swift; sourceTree = "<group>"; };
+		63C6787929D5410200658E88 /* DiscoverStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStackView.swift; sourceTree = "<group>"; };
+		63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		63E9FFFD29F85C84000F81B3 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		C4CC787629F846140055DC8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		638E44DD29C0173A00BA3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63035C1C29DB8A1B006B6F83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63398A7529EEBE05009B154A /* Ingredient.swift */,
+				63E9FFFD29F85C84000F81B3 /* Recipe.swift */,
+				636C60A829F970A600C300C9 /* Drink.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63035C2229DB9C98006B6F83 /* TranslateByLocalization */ = {
+			isa = PBXGroup;
+			children = (
+				63035C2729DB9CCE006B6F83 /* Localizable.strings */,
+			);
+			path = TranslateByLocalization;
+			sourceTree = "<group>";
+		};
+		6308BCEA29C0E3A500104398 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				63E9FFFF29F85D77000F81B3 /* Stackview */,
+				C4CC787529F83CD90055DC8A /* Cell */,
+				C4CC786129F839F40055DC8A /* View */,
+				C4CC786429F83A170055DC8A /* ViewModel */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		631C70A829CD4D8A00074D35 /* HotMeals */ = {
+			isa = PBXGroup;
+			children = (
+				631C70AD29CD4D8A00074D35 /* View */,
+				631C70AB29CD4D8A00074D35 /* Cell */,
+				631C70A929CD4D8A00074D35 /* StackVIews */,
+			);
+			path = HotMeals;
+			sourceTree = "<group>";
+		};
+		631C70A929CD4D8A00074D35 /* StackVIews */ = {
+			isa = PBXGroup;
+			children = (
+				631C70AA29CD4D8A00074D35 /* HotRecipeStackView.swift */,
+			);
+			path = StackVIews;
+			sourceTree = "<group>";
+		};
+		631C70AB29CD4D8A00074D35 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				631C70AC29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		631C70AD29CD4D8A00074D35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				631C70AE29CD4D8A00074D35 /* HotMealsScreen.swift */,
+				631C70B229CD4D8A00074D35 /* HotMealsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		634E7F5229CB7CA2003996DD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				634E7F5829CB8015003996DD /* UIView.swift */,
+				634E7F5329CB7CCA003996DD /* Sizes.swift */,
+				63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */,
+				632054352A140E0B004DB224 /* ProjectColor.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC785529F8377F0055DC8A /* View */,
+			);
+			path = SuccessRegisterScreen;
+			sourceTree = "<group>";
+		};
+		635E857129DCB79C00DF1FCB /* StackViews */ = {
+			isa = PBXGroup;
+			children = (
+				63C6786E29D52F3A00658E88 /* StarsStackView.swift */,
+				63C6787929D5410200658E88 /* DiscoverStackView.swift */,
+			);
+			path = StackViews;
+			sourceTree = "<group>";
+		};
+		637145C52A0829E200A8C72F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				631E7AA12A070AD8005EDE16 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		637145C62A0829F600A8C72F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				637145C32A0829D600A8C72F /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		637C373B2A11A8B400CE7C4F /* PrepairScreen */ = {
+			isa = PBXGroup;
+			children = (
+				637C37412A11B68000CE7C4F /* Cell */,
+				637C373C2A11A8BC00CE7C4F /* View */,
+			);
+			path = PrepairScreen;
+			sourceTree = "<group>";
+		};
+		637C373C2A11A8BC00CE7C4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */,
+				637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		637C37412A11B68000CE7C4F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				637C37422A11B6A600CE7C4F /* PrepairCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		638E44D729C0173A00BA3A0B = {
+			isa = PBXGroup;
+			children = (
+				638E44E229C0173A00BA3A0B /* SmartChef-Oficial */,
+				638E44E129C0173A00BA3A0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		638E44E129C0173A00BA3A0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				638E44E029C0173A00BA3A0B /* SmartChef-Oficial.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
+			isa = PBXGroup;
+			children = (
+				63035C1C29DB8A1B006B6F83 /* Model */,
+				638E44FF29C01F5500BA3A0B /* TabBar */,
+				638E450429C0215600BA3A0B /* LoginScreen */,
+				638E450D29C0226400BA3A0B /* RegisterScreen */,
+				635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */,
+				637C373B2A11A8B400CE7C4F /* PrepairScreen */,
+				631C70A829CD4D8A00074D35 /* HotMeals */,
+				63C6787629D5410200658E88 /* DiscoverScreen */,
+				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
+				634E7F5229CB7CA2003996DD /* Utils */,
+				635E857129DCB79C00DF1FCB /* StackViews */,
+				C4CC784B29F835640055DC8A /* Resources */,
+				638E44F129C0173C00BA3A0B /* Info.plist */,
+			);
+			path = "SmartChef-Oficial";
+			sourceTree = "<group>";
+		};
+		638E44F929C01B5E00BA3A0B /* RecipeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC785929F837AA0055DC8A /* View */,
+				C4CC785829F837A40055DC8A /* ViewModel */,
+				C4CC787129F83BBE0055DC8A /* Cell */,
+			);
+			path = RecipeScreen;
+			sourceTree = "<group>";
+		};
+		638E44FF29C01F5500BA3A0B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC785C29F837F20055DC8A /* TabBar */,
+				638E451829C023FB00BA3A0B /* ProfileScreen */,
+				63C6786529D462DB00658E88 /* FavoriteScreen */,
+				6308BCEA29C0E3A500104398 /* HomeScreen */,
+				638E44F929C01B5E00BA3A0B /* RecipeScreen */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		638E450429C0215600BA3A0B /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				637145C52A0829E200A8C72F /* ViewModel */,
+				C4CC784C29F836D80055DC8A /* View */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		638E450D29C0226400BA3A0B /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				637145C62A0829F600A8C72F /* ViewModel */,
+				C4CC785029F837090055DC8A /* View */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		638E451829C023FB00BA3A0B /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC786A29F83A6A0055DC8A /* View */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		63C6786529D462DB00658E88 /* FavoriteScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC787229F83BF30055DC8A /* Cell */,
+				C4CC786529F83A230055DC8A /* View */,
+			);
+			path = FavoriteScreen;
+			sourceTree = "<group>";
+		};
+		63C6787629D5410200658E88 /* DiscoverScreen */ = {
+			isa = PBXGroup;
+			children = (
+				63D75E2F2A0FC24300B57C03 /* ViewModel */,
+				C4CC786F29F83B640055DC8A /* Cell */,
+				C4CC785D29F838A90055DC8A /* View */,
+			);
+			path = DiscoverScreen;
+			sourceTree = "<group>";
+		};
+		63D75E2F2A0FC24300B57C03 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63E9FFFF29F85D77000F81B3 /* Stackview */ = {
+			isa = PBXGroup;
+			children = (
+				639DE0A029C3683000A0F37A /* RecipeStackView.swift */,
+				63A6B7FD29C62E51002521EC /* DrinksStackView.swift */,
+				636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */,
+			);
+			path = Stackview;
+			sourceTree = "<group>";
+		};
+		C4CC784B29F835640055DC8A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				638E44E329C0173A00BA3A0B /* AppDelegate.swift */,
+				638E44E529C0173A00BA3A0B /* SceneDelegate.swift */,
+				638E44EC29C0173C00BA3A0B /* Assets.xcassets */,
+				638E44EE29C0173C00BA3A0B /* LaunchScreen.storyboard */,
+				6398100729D5E6DE004503B8 /* Nice Sugar.ttf */,
+				0C45F57C2A11C65A003CC6C8 /* recipesSmart.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C4CC784C29F836D80055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
+				638E450829C0218D00BA3A0B /* LoginScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC785029F837090055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E450E29C0228200BA3A0B /* RegisterScreen.swift */,
+				638E451229C022C700BA3A0B /* RegisterScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC785529F8377F0055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E451029C022B300BA3A0B /* SucessRegisterScreen.swift */,
+				638E451429C022DF00BA3A0B /* SucessRegisterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC785829F837A40055DC8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63398A7729EEBE7C009B154A /* RecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4CC785929F837AA0055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E44FB29C01BDA00BA3A0B /* RecipeScreen.swift */,
+				638E44E729C0173A00BA3A0B /* RecipeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC785C29F837F20055DC8A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				638E450029C01F8600BA3A0B /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C4CC785D29F838A90055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63C6787729D5410200658E88 /* DiscoverScreen.swift */,
+				63C6787529D5410200658E88 /* DiscoverViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC786129F839F40055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6308BCEE29C0E41E00104398 /* HomeScreen.swift */,
+				6308BCEB29C0E3CA00104398 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC786429F83A170055DC8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC787629F846140055DC8A /* HomeViewModel.swift */,
+				636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4CC786529F83A230055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC786829F83A370055DC8A /* Screen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC786829F83A370055DC8A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				63C6786629D463ED00658E88 /* FavoriteScreen.swift */,
+				63C6786829D463FC00658E88 /* FavoriteViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		C4CC786A29F83A6A0055DC8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				638E451A29C0241A00BA3A0B /* ProfileScreen.swift */,
+				638E451C29C0242D00BA3A0B /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CC786F29F83B640055DC8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				63C6787329D5410200658E88 /* DiscoverCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C4CC787129F83BBE0055DC8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6307066429E2FBD000D61DAF /* SearchTextField.swift */,
+				638E44FD29C01C0700BA3A0B /* InsertedIngredientViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C4CC787229F83BF30055DC8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				63C6786B29D47E5D00658E88 /* FavoriteCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C4CC787529F83CD90055DC8A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6308BCF229C0E8E500104398 /* RecipeScreenCollectionViewCell.swift */,
+				63723F262A17BE0F00A88CF4 /* DrinkCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		638E44DF29C0173A00BA3A0B /* SmartChef-Oficial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 638E44F429C0173C00BA3A0B /* Build configuration list for PBXNativeTarget "SmartChef-Oficial" */;
+			buildPhases = (
+				638E44DC29C0173A00BA3A0B /* Sources */,
+				638E44DD29C0173A00BA3A0B /* Frameworks */,
+				638E44DE29C0173A00BA3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartChef-Oficial";
+			productName = "SmartChef-Oficial";
+			productReference = 638E44E029C0173A00BA3A0B /* SmartChef-Oficial.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		638E44D829C0173A00BA3A0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					638E44DF29C0173A00BA3A0B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 638E44DB29C0173A00BA3A0B /* Build configuration list for PBXProject "SmartChef-Oficial" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 638E44D729C0173A00BA3A0B;
+			productRefGroup = 638E44E129C0173A00BA3A0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				638E44DF29C0173A00BA3A0B /* SmartChef-Oficial */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		638E44DE29C0173A00BA3A0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638E44F029C0173C00BA3A0B /* LaunchScreen.storyboard in Resources */,
+				63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */,
+				638E44ED29C0173C00BA3A0B /* Assets.xcassets in Resources */,
+				6398100829D5E704004503B8 /* Nice Sugar.ttf in Resources */,
+				0C45F57D2A11C65A003CC6C8 /* recipesSmart.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		638E44DC29C0173A00BA3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638E44FE29C01C0700BA3A0B /* InsertedIngredientViewCell.swift in Sources */,
+				638E450729C0217100BA3A0B /* LoginScreenViewController.swift in Sources */,
+				634E7F5929CB8015003996DD /* UIView.swift in Sources */,
+				638E451129C022B300BA3A0B /* SucessRegisterScreen.swift in Sources */,
+				638E44FC29C01BDA00BA3A0B /* RecipeScreen.swift in Sources */,
+				63723F272A17BE0F00A88CF4 /* DrinkCollectionViewCell.swift in Sources */,
+				6308BCEC29C0E3CA00104398 /* HomeViewController.swift in Sources */,
+				637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */,
+				6308BCF329C0E8E500104398 /* RecipeScreenCollectionViewCell.swift in Sources */,
+				63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */,
+				631C70BE29CD4D8A00074D35 /* HotRecipeStackView.swift in Sources */,
+				63398A7629EEBE05009B154A /* Ingredient.swift in Sources */,
+				634E7F5429CB7CCA003996DD /* Sizes.swift in Sources */,
+				63A6B7FE29C62E51002521EC /* DrinksStackView.swift in Sources */,
+				6308BCEF29C0E41E00104398 /* HomeScreen.swift in Sources */,
+				63C6786929D463FC00658E88 /* FavoriteViewController.swift in Sources */,
+				636C60A929F970A600C300C9 /* Drink.swift in Sources */,
+				636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */,
+				631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */,
+				637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */,
+				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
+				637C37432A11B6A600CE7C4F /* PrepairCollectionViewCell.swift in Sources */,
+				639DE0A129C3683000A0F37A /* RecipeStackView.swift in Sources */,
+				6307066529E2FBD000D61DAF /* SearchTextField.swift in Sources */,
+				632054362A140E0B004DB224 /* ProjectColor.swift in Sources */,
+				63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */,
+				638E451B29C0241A00BA3A0B /* ProfileScreen.swift in Sources */,
+				63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */,
+				638E450F29C0228200BA3A0B /* RegisterScreen.swift in Sources */,
+				637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */,
+				631C70C029CD4D8A00074D35 /* HotMealsScreen.swift in Sources */,
+				63C6787A29D5410200658E88 /* DiscoverCollectionViewCell.swift in Sources */,
+				63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */,
+				636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */,
+				63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */,
+				638E44E829C0173A00BA3A0B /* RecipeViewController.swift in Sources */,
+				638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */,
+				638E451D29C0242D00BA3A0B /* ProfileViewController.swift in Sources */,
+				638E451529C022DF00BA3A0B /* SucessRegisterViewController.swift in Sources */,
+				63398A7829EEBE7C009B154A /* RecipeViewModel.swift in Sources */,
+				C4CC787729F846140055DC8A /* HomeViewModel.swift in Sources */,
+				631C70BF29CD4D8A00074D35 /* HotMealsCollectionViewCell.swift in Sources */,
+				638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */,
+				63C6786C29D47E5D00658E88 /* FavoriteCollectionViewCell.swift in Sources */,
+				631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */,
+				638E450129C01F8600BA3A0B /* TabBarViewController.swift in Sources */,
+				638E451329C022C700BA3A0B /* RegisterScreenViewController.swift in Sources */,
+				63C6786729D463ED00658E88 /* FavoriteScreen.swift in Sources */,
+				63C6786F29D52F3A00658E88 /* StarsStackView.swift in Sources */,
+				638E44E629C0173A00BA3A0B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		63035C2729DB9CCE006B6F83 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63035C2629DB9CCE006B6F83 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		638E44EE29C0173C00BA3A0B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				638E44EF29C0173C00BA3A0B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		638E44F229C0173C00BA3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		638E44F329C0173C00BA3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		638E44F529C0173C00BA3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4G729SMP5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SmartChef-Oficial/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SmartChef;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "KevinLongue.SmartChef-Oficial";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		638E44F629C0173C00BA3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4G729SMP5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SmartChef-Oficial/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SmartChef;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "KevinLongue.SmartChef-Oficial";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		638E44DB29C0173A00BA3A0B /* Build configuration list for PBXProject "SmartChef-Oficial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638E44F229C0173C00BA3A0B /* Debug */,
+				638E44F329C0173C00BA3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		638E44F429C0173C00BA3A0B /* Build configuration list for PBXNativeTarget "SmartChef-Oficial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638E44F529C0173C00BA3A0B /* Debug */,
+				638E44F629C0173C00BA3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 638E44D829C0173A00BA3A0B /* Project object */;
+}
