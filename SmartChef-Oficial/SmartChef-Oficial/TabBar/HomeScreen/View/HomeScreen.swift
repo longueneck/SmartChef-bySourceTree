@@ -57,7 +57,6 @@ class HomeScreen: UIView {
     lazy var collectionRecipe: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.layer.cornerRadius = 10
         collection.backgroundColor = .clear
         collection.showsVerticalScrollIndicator = false
         collection.delaysContentTouches = false
@@ -80,6 +79,32 @@ class HomeScreen: UIView {
         return ingredients
     }()
     
+    lazy var collectionDrinks: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = .clear
+        collection.showsVerticalScrollIndicator = false
+        collection.delaysContentTouches = false
+        let layout = UICollectionViewFlowLayout.init()
+        layout.scrollDirection = .horizontal
+        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
+        collection.setCollectionViewLayout(layout, animated: true)
+        return collection
+    }()
+    
+    lazy var collectionDrinks2: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = .clear
+        collection.showsVerticalScrollIndicator = false
+        collection.delaysContentTouches = false
+        let layout = UICollectionViewFlowLayout.init()
+        layout.scrollDirection = .horizontal
+        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
+        collection.setCollectionViewLayout(layout, animated: true)
+        return collection
+    }()
+    
     lazy var stack2: DrinksStackView = {
         let stack = DrinksStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +113,7 @@ class HomeScreen: UIView {
         stack.spacing = 12
         return stack
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -102,6 +127,12 @@ class HomeScreen: UIView {
     public func collectionDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
         collectionRecipe.delegate = delegate
         collectionRecipe.dataSource = dataSource
+        
+        collectionDrinks.delegate = delegate
+        collectionDrinks.dataSource = dataSource
+        
+        collectionDrinks2.delegate = delegate
+        collectionDrinks2.dataSource = dataSource
     }
     
     private func addViews(){
@@ -113,6 +144,8 @@ class HomeScreen: UIView {
         self.addSubview(self.stack1)
         self.addSubview(self.withMyIngredients)
         self.addSubview(self.stack2)
+        self.addSubview(self.collectionDrinks)
+        self.addSubview(self.collectionDrinks2)
 
     }
     
@@ -142,10 +175,10 @@ class HomeScreen: UIView {
             stack1.topAnchor.constraint(equalTo: yellowSeparator.bottomAnchor, constant: 20),
             stack1.heightAnchor.constraint(equalToConstant: 75),
             
-            collectionRecipe.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            collectionRecipe.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             collectionRecipe.topAnchor.constraint(equalTo: stack1.bottomAnchor, constant: 10),
-            collectionRecipe.heightAnchor.constraint(equalToConstant: 130),
+            collectionRecipe.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionRecipe.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            collectionRecipe.heightAnchor.constraint(equalToConstant: 180),
             
             withMyIngredients.topAnchor.constraint(equalTo: collectionRecipe.bottomAnchor, constant: 10),
             withMyIngredients.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
@@ -156,6 +189,16 @@ class HomeScreen: UIView {
             stack2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
             stack2.topAnchor.constraint(equalTo: withMyIngredients.bottomAnchor, constant: 20),
             stack2.heightAnchor.constraint(equalToConstant: 80),
+            
+            collectionDrinks.topAnchor.constraint(equalTo: stack2.bottomAnchor, constant: 20),
+            collectionDrinks.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionDrinks.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -15),
+            collectionDrinks.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25),
+            
+            collectionDrinks2.topAnchor.constraint(equalTo: stack2.bottomAnchor, constant: 20),
+            collectionDrinks2.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: 15),
+            collectionDrinks2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -55),
+            collectionDrinks2.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25),
             
         ])
     }

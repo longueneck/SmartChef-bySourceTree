@@ -82,9 +82,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return 5
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let spacing: CGFloat = 25 // Define o espaçamento desejado entre as células
+        return UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+    }
+
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        }
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth = screenWidth * 0.75
+        let height = collectionView.frame.height
+        return CGSize(width: cellWidth, height: height)
+        
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
@@ -95,17 +106,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension HomeViewController: RecipeStackViewProtocol{
     func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        let vc = HotMealsViewController()
-        vc.dataHotMeal =
-        [
-            HotRecipes(nameImage: "lasanha"),
-            HotRecipes(nameImage: "coxinha"),
-            HotRecipes(nameImage: "costela"),
-            HotRecipes(nameImage: "strogonoff"),
-            HotRecipes(nameImage: "bolinhodearroz"),
-            
-        ]
-        navigationController?.pushViewController(vc, animated: true)
+        
+     
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

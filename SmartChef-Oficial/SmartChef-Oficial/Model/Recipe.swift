@@ -18,11 +18,3 @@ struct Recipes: Codable, Hashable {
     let timingToCook: String
     let prepareLevel: String
 }
-
-
-
-
-
-  
-
-

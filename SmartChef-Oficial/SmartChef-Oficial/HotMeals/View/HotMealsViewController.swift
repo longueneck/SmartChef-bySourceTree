@@ -20,9 +20,7 @@ class HotMealsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         hotMeal?.collectionDelegate(delegate: self, dataSource: self)
-      
         self.hotMeal?.delegate(delegate: self)
-        
     }
    
 }

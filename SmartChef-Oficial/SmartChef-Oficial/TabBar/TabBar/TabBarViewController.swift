@@ -35,7 +35,6 @@ class MyTabBarController: UITabBarController{
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .white
       
-        
         guard let items = tabBar.items else{return}
         
         items[0].image = UIImage(systemName: "house.fill")
@@ -52,7 +51,6 @@ class MyTabBarController: UITabBarController{
         
         self.selectedIndex = 0
     }
-    
 }
 
 extension MyTabBarController: HomeViewControllerProtocol{
