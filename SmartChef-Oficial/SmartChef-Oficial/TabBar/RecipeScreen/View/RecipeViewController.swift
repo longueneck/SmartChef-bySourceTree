@@ -17,6 +17,7 @@ class RecipeViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         setInitialConfigs()
         setTableViewDelegate()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
