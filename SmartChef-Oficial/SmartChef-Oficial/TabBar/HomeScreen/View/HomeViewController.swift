@@ -34,27 +34,27 @@ class HomeViewController: UIViewController{
         self.view.backgroundColor = .white
         recipe?.collectionDelegate(delegate: self, dataSource: self)
         recipe?.delegate(delegate: self)
-        recipe?.stack1.delegate(delegate: self)
-        recipe?.tfSearchRecipe.delegate = self
+        recipe?.typeRecipeStackView.delegate(delegate: self)
+        recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
         drinkImage()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        recipe?.tfSearchRecipe.resignFirstResponder()
+        recipe?.searchRecipeTextField.resignFirstResponder()
     }
     
     func setupInitialView() {
         randomRecipes = homeViewModel.generateRandomRecipes()
         let indexPath = IndexPath(item: 0, section: 0)
-        recipe?.collectionRecipe.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        recipe?.collectionRecipe.reloadData()
+        recipe?.firstCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        recipe?.firstCollectionView.reloadData()
     }
         
     
     func drinkImage(){
         
-        guard let subviews = self.recipe?.stack2.subviews else {
+        guard let subviews = self.recipe?.drinksCollectionView.subviews else {
             return
         }
         
@@ -66,9 +66,9 @@ class HomeViewController: UIViewController{
     }
     
     func inicializeConfigs() {
-        recipe?.tfSearchRecipe.delegate = self
+        recipe?.searchRecipeTextField.delegate = self
         guard let screen = recipe else { return }
-        wrapperView = WrapperViewAnimation(target: screen.tfSearchRecipe)
+        wrapperView = WrapperViewAnimation(target: screen.searchRecipeTextField)
     }
     
     func setupDelegate(delegate: HomeViewControllerProtocol){

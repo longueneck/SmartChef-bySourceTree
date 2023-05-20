@@ -9,9 +9,7 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
-        image.backgroundColor = .blue
-        
+        image.contentMode = .scaleAspectFill        
         return image
     }()
     
@@ -23,6 +21,8 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
     
     public func setupCell(recipe: Recipes){
         self.picture.image = UIImage(named: recipe.image)
+        self.layer.cornerRadius = 20
+        self.layer.masksToBounds = true
     }
     
     required init?(coder: NSCoder) {

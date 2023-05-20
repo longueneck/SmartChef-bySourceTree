@@ -117,19 +117,19 @@ class RecipeStackView: UIStackView {
         NSLayoutConstraint.activate([
             
             
-            recipeType1.heightAnchor.constraint(equalToConstant: 70),
+            recipeType1.heightAnchor.constraint(equalToConstant: 55),
             recipeType1.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType2.heightAnchor.constraint(equalToConstant: 70),
+            recipeType2.heightAnchor.constraint(equalToConstant: 55),
             recipeType2.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType3.heightAnchor.constraint(equalToConstant: 70),
+            recipeType3.heightAnchor.constraint(equalToConstant: 55),
             recipeType3.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType4.heightAnchor.constraint(equalToConstant: 70),
+            recipeType4.heightAnchor.constraint(equalToConstant: 55),
             recipeType4.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType5.heightAnchor.constraint(equalToConstant: 70),
+            recipeType5.heightAnchor.constraint(equalToConstant: 55),
             recipeType5.widthAnchor.constraint(equalToConstant: 55),
         ])
         
