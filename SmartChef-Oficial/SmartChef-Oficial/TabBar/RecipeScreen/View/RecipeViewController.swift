@@ -1,7 +1,7 @@
 import UIKit
 
-class RecipeViewController: UIViewController {
-    
+class RecipeViewController: UIViewController{
+
     var recipeViewModel: RecipeViewModel = RecipeViewModel()
     var homeScreen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
@@ -10,6 +10,7 @@ class RecipeViewController: UIViewController {
     override func loadView() {
         self.homeScreen = RecipeScreen()
         self.view = self.homeScreen
+       
     }
     
     override func viewDidLoad() {
@@ -17,11 +18,16 @@ class RecipeViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         setInitialConfigs()
         setTableViewDelegate()
-       
+        recipeViewModel.callAlertControllError = {error in
+            print("ERRO NA API")
+        }
+
+        recipeViewModel.ingredientDATA()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -57,12 +63,14 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch tableView {
         case homeScreen?.searchedTableView:
             return recipeViewModel.countIngredientSearch()
         default:
             return recipeViewModel.countSelectedIngredients()
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

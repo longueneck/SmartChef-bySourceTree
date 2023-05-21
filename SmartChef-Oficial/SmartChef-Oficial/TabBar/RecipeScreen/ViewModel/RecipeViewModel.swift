@@ -6,9 +6,10 @@ class RecipeViewModel{
     private var ingredientList: [Ingredient] = []
     private var selectedIngredients: [Ingredient] = []
     private var ingredientSearch: [Ingredient] = []
+    public var callAlertControllError: ((Error) -> Void)?
     
     init(){
-        ingredientDATA()
+ 
     }
     
     func ingredientDATA(){
@@ -22,7 +23,7 @@ class RecipeViewModel{
                     self?.ingredientList.append(Ingredient(name: name))
                 }
             }else{
-                print(error)
+                self?.callAlertControllError?(error!)
             }
         }
     }
