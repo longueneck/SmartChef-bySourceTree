@@ -85,7 +85,7 @@ class RecipeViewModel{
             ingredientSearch = getAllIngredients()
         } else {
             ingredientSearch = getAllIngredients().filter({
-                return ($0.name ?? "").lowercased().contains(searchText.lowercased())
+                return ($0.name ?? "").lowercased().hasPrefix(searchText.lowercased())
             })
         }
     }

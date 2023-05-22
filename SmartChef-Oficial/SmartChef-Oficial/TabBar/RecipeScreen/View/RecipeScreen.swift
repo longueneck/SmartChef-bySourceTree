@@ -132,6 +132,8 @@ class RecipeScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     public func setupCategoriesTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         searchedTableView.delegate = delegate
         searchedTableView.dataSource = dataSource
