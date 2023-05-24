@@ -30,6 +30,7 @@
 		636C60A929F970A600C300C9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A829F970A600C300C9 /* Drink.swift */; };
 		636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */; };
 		636D2C472A1D801300FFF763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 636D2C462A1D801300FFF763 /* GoogleService-Info.plist */; };
+		636D2C4B2A1D954500FFF763 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D2C4A2A1D954500FFF763 /* Alert.swift */; };
 		637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637145C32A0829D600A8C72F /* RegisterViewModel.swift */; };
 		637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */; };
 		637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */; };
@@ -94,6 +95,7 @@
 		636C60A829F970A600C300C9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
 		636D2C462A1D801300FFF763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		636D2C4A2A1D954500FFF763 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		637145C32A0829D600A8C72F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairScreen.swift; sourceTree = "<group>"; };
 		637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,14 @@
 			path = StackViews;
 			sourceTree = "<group>";
 		};
+		636D2C492A1D951F00FFF763 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				636D2C4A2A1D954500FFF763 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		637145C52A0829E200A8C72F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +334,7 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
+				636D2C492A1D951F00FFF763 /* Alert */,
 				6342575E2A19529F0028240E /* Service */,
 				637C373B2A11A8B400CE7C4F /* PrepairScreen */,
 				631C70A829CD4D8A00074D35 /* HotMeals */,
@@ -724,6 +735,7 @@
 				63C6786929D463FC00658E88 /* FavoriteViewController.swift in Sources */,
 				636C60A929F970A600C300C9 /* Drink.swift in Sources */,
 				636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */,
+				636D2C4B2A1D954500FFF763 /* Alert.swift in Sources */,
 				631C70C229CD4D8A00074D35 /* HotMealsViewController.swift in Sources */,
 				637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */,
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
