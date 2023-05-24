@@ -29,6 +29,7 @@
 		636C60A729F966F900C300C9 /* DrinkRecipeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */; };
 		636C60A929F970A600C300C9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60A829F970A600C300C9 /* Drink.swift */; };
 		636C60AB29F9F3E700C300C9 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */; };
+		636D2C472A1D801300FFF763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 636D2C462A1D801300FFF763 /* GoogleService-Info.plist */; };
 		637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637145C32A0829D600A8C72F /* RegisterViewModel.swift */; };
 		637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */; };
 		637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */; };
@@ -62,11 +63,15 @@
 		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
 		63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */; };
 		63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9FFFD29F85C84000F81B3 /* Recipe.swift */; };
+		91940C5E441088ADF6032A35 /* Pods_SmartChef_Oficial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1388567CA4D5E40E351991E5 /* Pods_SmartChef_Oficial.framework */; };
 		C4CC787729F846140055DC8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC787629F846140055DC8A /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C45F57C2A11C65A003CC6C8 /* recipesSmart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipesSmart.json; path = "SmartChef-Oficial/recipesSmart.json"; sourceTree = SOURCE_ROOT; };
+		1388567CA4D5E40E351991E5 /* Pods_SmartChef_Oficial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartChef_Oficial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E093E512AC1340629CB36A0 /* Pods-SmartChef-Oficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChef-Oficial.release.xcconfig"; path = "Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial.release.xcconfig"; sourceTree = "<group>"; };
+		2CF34810ABD1C472C89AEE1A /* Pods-SmartChef-Oficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChef-Oficial.debug.xcconfig"; path = "Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial.debug.xcconfig"; sourceTree = "<group>"; };
 		63035C2629DB9CCE006B6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6307066429E2FBD000D61DAF /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		6308BCEB29C0E3CA00104398 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 		636C60A629F966F900C300C9 /* DrinkRecipeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeStackViewModel.swift; sourceTree = "<group>"; };
 		636C60A829F970A600C300C9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
+		636D2C462A1D801300FFF763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		637145C32A0829D600A8C72F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairScreen.swift; sourceTree = "<group>"; };
 		637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewController.swift; sourceTree = "<group>"; };
@@ -131,12 +137,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91940C5E441088ADF6032A35 /* Pods_SmartChef_Oficial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48BCC89506FC202A80CA6DD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1388567CA4D5E40E351991E5 /* Pods_SmartChef_Oficial.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63035C1C29DB8A1B006B6F83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +308,8 @@
 			children = (
 				638E44E229C0173A00BA3A0B /* SmartChef-Oficial */,
 				638E44E129C0173A00BA3A0B /* Products */,
+				71E7FF7F99863089A48AEE1E /* Pods */,
+				48BCC89506FC202A80CA6DD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,6 +367,7 @@
 		638E450429C0215600BA3A0B /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				636D2C462A1D801300FFF763 /* GoogleService-Info.plist */,
 				637145C52A0829E200A8C72F /* ViewModel */,
 				C4CC784C29F836D80055DC8A /* View */,
 			);
@@ -408,6 +426,15 @@
 				636C60AA29F9F3E700C300C9 /* MyCustomButton.swift */,
 			);
 			path = Stackview;
+			sourceTree = "<group>";
+		};
+		71E7FF7F99863089A48AEE1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CF34810ABD1C472C89AEE1A /* Pods-SmartChef-Oficial.debug.xcconfig */,
+				1E093E512AC1340629CB36A0 /* Pods-SmartChef-Oficial.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		C4CC784B29F835640055DC8A /* Resources */ = {
@@ -568,9 +595,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 638E44F429C0173C00BA3A0B /* Build configuration list for PBXNativeTarget "SmartChef-Oficial" */;
 			buildPhases = (
+				AFAB7C42E02885264ABA821E /* [CP] Check Pods Manifest.lock */,
 				638E44DC29C0173A00BA3A0B /* Sources */,
 				638E44DD29C0173A00BA3A0B /* Frameworks */,
 				638E44DE29C0173A00BA3A0B /* Resources */,
+				21E1408713114314C531D16D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -621,6 +650,7 @@
 			files = (
 				638E44F029C0173C00BA3A0B /* LaunchScreen.storyboard in Resources */,
 				63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */,
+				636D2C472A1D801300FFF763 /* GoogleService-Info.plist in Resources */,
 				638E44ED29C0173C00BA3A0B /* Assets.xcassets in Resources */,
 				6398100829D5E704004503B8 /* Nice Sugar.ttf in Resources */,
 				0C45F57D2A11C65A003CC6C8 /* recipesSmart.json in Resources */,
@@ -628,6 +658,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21E1408713114314C531D16D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFAB7C42E02885264ABA821E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartChef-Oficial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		638E44DC29C0173A00BA3A0B /* Sources */ = {
@@ -828,6 +900,7 @@
 		};
 		638E44F529C0173C00BA3A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CF34810ABD1C472C89AEE1A /* Pods-SmartChef-Oficial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -861,6 +934,7 @@
 		};
 		638E44F629C0173C00BA3A0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E093E512AC1340629CB36A0 /* Pods-SmartChef-Oficial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
