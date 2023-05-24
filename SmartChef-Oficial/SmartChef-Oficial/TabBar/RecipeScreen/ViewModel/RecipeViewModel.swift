@@ -84,9 +84,13 @@ class RecipeViewModel{
         if searchText.isEmpty {
             ingredientSearch = getAllIngredients()
         } else {
-            ingredientSearch = getAllIngredients().filter({
-                return ($0.name ?? "").lowercased().hasPrefix(searchText.lowercased())
-            })
+            ingredientSearch = getAllIngredients().filter { ingredient in
+                let name = ingredient.name?.lowercased() ?? ""
+                let searchTextWithoutDiacritics = searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                
+                return name.localizedStandardContains(searchTextWithoutDiacritics)
+            }
         }
     }
+
 }
