@@ -166,8 +166,8 @@ class RegisterScreen: UIView {
         addViews()
         setConstraints()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -189,20 +189,20 @@ class RegisterScreen: UIView {
         self.addSubview(createButton)
     }
     
-    @objc func keyboardWillShow(notification: Notification) {
-        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardHeight = keyboardSize.cgRectValue.height
-        
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = -(keyboardHeight / 2)
-        }
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = 0
-        }
-    }
+//    @objc func keyboardWillShow(notification: Notification) {
+//        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+//        let keyboardHeight = keyboardSize.cgRectValue.height
+//
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = -(keyboardHeight / 2)
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: Notification) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = 0
+//        }
+//    }
     
     @objc func tapToRegister(){
         registerScreenProtocol?.registerButton()

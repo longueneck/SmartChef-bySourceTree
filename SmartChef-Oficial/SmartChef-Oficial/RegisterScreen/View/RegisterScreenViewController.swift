@@ -1,3 +1,4 @@
+
 import Foundation
 import UIKit
 import FirebaseAuth
@@ -59,13 +60,13 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
     }
     
     func registerButton() {
-        
-        let email: String = self.register.emailTextField.text ?? ""
-        let password: String = self.register.passwordTextfield.text ?? ""
-        
+
         let vc = SucessRegisterViewController()
-        vc.recebeDado = register.emailTextField.text ?? ""
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.recebeDado = viewModel.getEmail(email: register.emailTextField)
+        
+        let email: String = viewModel.getEmail(email: register.emailTextField)
+        let password: String = viewModel.getPass(pass: register.passwordTextfield)
+        
         self.auth?.createUser(withEmail: email , password: password, completion: { result, error in
                 
             if error != nil{
@@ -76,7 +77,7 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
         
         })
         
-        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }

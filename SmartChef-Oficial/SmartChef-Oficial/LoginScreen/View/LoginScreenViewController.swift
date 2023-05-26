@@ -1,9 +1,15 @@
+
 import UIKit
+import FirebaseAuth
+
 
 class LoginScreenViewController: UIViewController {
     
     var viewModel: LoginViewModel = LoginViewModel()
     var loginScreen: LoginScreen = LoginScreen()
+    var alert: Alert?
+    var auth: Auth = Auth.auth()
+    
     
     override func loadView() {
         self.loginScreen = LoginScreen()
@@ -17,6 +23,7 @@ class LoginScreenViewController: UIViewController {
         loginScreen.delegate(delegate: self)
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
         self.viewModel = LoginViewModel()
+        self.alert = Alert(controller: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +33,7 @@ class LoginScreenViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        loginScreen.loginTextField.text = ""
-        loginScreen.passwordTextField.text = ""
+        viewModel.resetTextFields(emailTextField: loginScreen.loginTextField, passTextField: loginScreen.passwordTextField)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,7 +51,7 @@ extension LoginScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-      if viewModel.validateLoginButton(email: loginScreen.loginTextField.text ?? "", password: loginScreen.passwordTextField.text ?? ""){
+        if viewModel.validateLoginButton(email: viewModel.getEmail(email: loginScreen.loginTextField), password: viewModel.getPass(pass: loginScreen.passwordTextField)){
             viewModel.turnButtonEnable(button: loginScreen.loginButton)
         }else{
             viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
@@ -56,39 +62,61 @@ extension LoginScreenViewController: UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          
+        
         if string == " " && textField == loginScreen.loginTextField{
-               loginScreen.loginTextField.layer.borderColor = UIColor.red.cgColor
-               DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
-                   self.loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-               })
-               return false
-              
-           }
-           return true
-       }
-   
-        
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
+            loginScreen.loginTextField.layer.borderColor = UIColor.red.cgColor
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
+                self.loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+            })
+            return false
+            
         }
-        
-        func textFieldDidEndEditing(_ textField: UITextField) {
-            textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-        }
-        
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-        }
+        return true
     }
     
-    extension LoginScreenViewController: LoginScreenProtocol{
-        func actionRegister() {
-            self.navigationController?.pushViewController(RegisterScreenViewController(), animated: true)
-        }
-        
-        func actionButton() {
-            self.navigationController?.pushViewController(MyTabBarController(), animated: true)
-        }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+}
+
+extension LoginScreenViewController: LoginScreenProtocol{
+    func actionRegister() {
+        
+        self.navigationController?.pushViewController(RegisterScreenViewController(), animated: true)
+    }
+    
+    func actionButton() {
+        
+        guard self.loginScreen != nil else {return}
+        
+        let email = viewModel.getEmail(email: loginScreen.loginTextField)
+        let pass = viewModel.getPass(pass: loginScreen.passwordTextField)
+        
+        self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
+            if error != nil{
+                print("Atenção dados incorretos, verifique e tente novamente")
+            }else{
+                if usuario == nil{
+                    print("Por favor, ensira seu email")
+                }else{
+                    print("Parabens, usuario logado com sucesso")
+                    self.navigationController?.pushViewController(MyTabBarController(), animated: true)
+                }
+            }
+            
+            
+            
+        }
+        )
+    }
+}
 

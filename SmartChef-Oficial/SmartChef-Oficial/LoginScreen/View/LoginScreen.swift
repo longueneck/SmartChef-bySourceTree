@@ -1,3 +1,4 @@
+
 import UIKit
 
 protocol LoginScreenProtocol: AnyObject {
@@ -66,7 +67,6 @@ class LoginScreen: UIView {
         login.layer.shadowOffset = CGSize(width: 0, height: 2)
         login.layer.shadowRadius = 2
         login.keyboardType = .emailAddress
-        login.text = "KevinLongueneck@gmail.com"
         login.autocapitalizationType = .none
         login.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
@@ -98,7 +98,6 @@ class LoginScreen: UIView {
         pass.layer.shadowOffset = CGSize(width: 0, height: 2)
         pass.layer.shadowRadius = 2
         pass.isSecureTextEntry = true
-        pass.text = "123456"
         pass.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: pass.frame.height))
         pass.leftView = paddingView
@@ -139,6 +138,13 @@ class LoginScreen: UIView {
         reset.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return reset
     }()
+    
+//    lazy var loginStackView: UIStackView ={
+//        let loginStack = UIStackView()
+//        loginStack.translatesAutoresizingMaskIntoConstraints = false
+//        loginStack.
+//        return loginStack
+//    }()
     
     lazy var appleIconImage: UIButton = {
         let apple = UIButton()
@@ -207,8 +213,8 @@ class LoginScreen: UIView {
         configSuperViews()
         addConstraints()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -232,20 +238,20 @@ class LoginScreen: UIView {
         self.addSubview(self.signInButton)
     }
     
-    @objc func keyboardWillShow(notification: Notification) {
-        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardHeight = keyboardSize.cgRectValue.height
-        
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = -(keyboardHeight / 2)
-        }
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = 0
-        }
-    }
+//    @objc func keyboardWillShow(notification: Notification) {
+//        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+//        let keyboardHeight = keyboardSize.cgRectValue.height
+//
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = -(keyboardHeight / 2)
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: Notification) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = 0
+//        }
+//    }
 
     
     @objc func tappedLoginButton(){

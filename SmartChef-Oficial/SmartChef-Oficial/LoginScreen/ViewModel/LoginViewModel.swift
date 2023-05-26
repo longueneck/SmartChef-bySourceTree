@@ -36,7 +36,13 @@ class LoginViewModel {
         return textField.text == ""
         }
     
+    public func getEmail(email: UITextField)-> String{
+        return email.text ?? ""
+    }
     
+    public func getPass(pass: UITextField)-> String{
+        return pass.text ?? ""
+    }
     
 }
 
