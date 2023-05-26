@@ -24,16 +24,18 @@ class LoginScreenViewController: UIViewController {
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
         self.viewModel = LoginViewModel()
         self.alert = Alert(controller: self)
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        viewModel.resetData(view: loginScreen)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel.resetTextFields(emailTextField: loginScreen.loginTextField, passTextField: loginScreen.passwordTextField)
+        viewModel.resetDataTextField(email: loginScreen.loginTextField, pass: loginScreen.passwordTextField)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
