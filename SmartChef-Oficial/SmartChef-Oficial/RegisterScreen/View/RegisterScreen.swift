@@ -79,6 +79,7 @@ class RegisterScreen: UIView {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.backgroundColor = .white
+        textfield.autocapitalizationType = .none
         textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         textfield.layer.borderWidth = 2
         textfield.layer.cornerRadius = 10
@@ -88,7 +89,6 @@ class RegisterScreen: UIView {
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
         textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        textfield.autocapitalizationType = .sentences
         textfield.keyboardType = .emailAddress
         return textfield
     }()
