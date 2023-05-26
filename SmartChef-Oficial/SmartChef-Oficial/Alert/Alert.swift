@@ -9,7 +9,7 @@ class Alert: NSObject{
         self.controller = controller
     }
     
-    func goAlert(title: String, message: String, completion: (()-> Void)? = nil){
+    func getAlert(title: String, message: String, completion: (()-> Void)? = nil){
         let alerControlller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelar = UIAlertAction(title: "OK", style: .cancel) { acao in completion?()
         }

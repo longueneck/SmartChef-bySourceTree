@@ -103,12 +103,11 @@ extension LoginScreenViewController: LoginScreenProtocol{
         
         self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
             if error != nil{
-                print("Atenção dados incorretos, verifique e tente novamente")
+                self.alert?.getAlert(title: "Atenção", message: "Email e/ou senha incorretos, tente novamente")
             }else{
                 if usuario == nil{
-                    print("Por favor, ensira seu email")
+                    self.alert?.getAlert(title: "Atenção", message: "Por favor, insira seu email e tente novamente")
                 }else{
-                    print("Parabens, usuario logado com sucesso")
                     self.navigationController?.pushViewController(MyTabBarController(), animated: true)
                 }
             }
