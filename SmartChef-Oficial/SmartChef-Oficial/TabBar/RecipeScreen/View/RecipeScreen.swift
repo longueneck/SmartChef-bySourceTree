@@ -125,14 +125,11 @@ class RecipeScreen: UIView {
         
         setElements()
         addConstraintsConfig()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     public func setupCategoriesTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         searchedTableView.delegate = delegate

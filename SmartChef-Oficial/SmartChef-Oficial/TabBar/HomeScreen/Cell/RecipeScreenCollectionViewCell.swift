@@ -23,6 +23,8 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         self.picture.image = UIImage(named: recipe.image)
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
+        
+      
     }
     
     required init?(coder: NSCoder) {

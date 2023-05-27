@@ -52,61 +52,49 @@ class HomeScreen: UIView {
         return search
     }()
     
-    lazy var typeRecipeStackView: RecipeStackView = {
-        let stack = RecipeStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
-        stack.axis = .horizontal
-        stack.spacing = 12
-        return stack
+    lazy var mainTableView: UITableView = {
+        let tView:UITableView = UITableView()
+        tView.translatesAutoresizingMaskIntoConstraints = false
+        tView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
+        tView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
+//        tView.register(SearchTextField.self, forCellReuseIdentifier: SearchTextField.identifier)
+//        tView.register(SearchTextField.self, forCellReuseIdentifier: SearchTextField.identifier)
+        tView.separatorStyle = .none
+        tView.backgroundColor = UIColor.red
+        tView.layer.cornerRadius = 20
+        tView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        return tView
     }()
-    
-    lazy var firstCollectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .clear
-        collection.layer.shadowColor = UIColor.black.cgColor
-        collection.layer.shadowOpacity = 0.1
-        collection.layer.shadowOffset = CGSize(width: 0, height: 2)
-        collection.layer.shadowRadius = 2
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.delaysContentTouches = false
-        let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = .horizontal
-        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
-        collection.setCollectionViewLayout(layout, animated: true)
-        collection.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        return collection
-    }()
-    
-    lazy var myIngredientsButton: UIButton = {
-        let ingredients = UIButton()
-        ingredients.translatesAutoresizingMaskIntoConstraints = false
-        ingredients.layer.cornerRadius = 8
-        ingredients.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
-        ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        ingredients.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
-        return ingredients
-    }()
-    
-    lazy var drinksCollectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
-        let layout = UICollectionViewFlowLayout.init()
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.layer.cornerRadius = 10
-        collection.backgroundColor = .clear
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.delaysContentTouches = false
-        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
-        collection.setCollectionViewLayout(layout, animated: true)
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-        return collection
-    }()
+
+//
+//    lazy var myIngredientsButton: UIButton = {
+//        let ingredients = UIButton()
+//        ingredients.translatesAutoresizingMaskIntoConstraints = false
+//        ingredients.layer.cornerRadius = 8
+//        ingredients.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+//        ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
+//        ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
+//        ingredients.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+//        ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+//        return ingredients
+//    }()
+//
+//    lazy var drinksCollectionView: UICollectionView = {
+//        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
+//        let layout = UICollectionViewFlowLayout.init()
+//        collection.translatesAutoresizingMaskIntoConstraints = false
+//        collection.layer.cornerRadius = 10
+//        collection.backgroundColor = .clear
+//        collection.showsVerticalScrollIndicator = false
+//        collection.showsHorizontalScrollIndicator = false
+//        collection.delaysContentTouches = false
+//        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
+//        collection.setCollectionViewLayout(layout, animated: true)
+//        layout.scrollDirection = .horizontal
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+//        return collection
+//    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,23 +106,16 @@ class HomeScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
         
-    public func collectionDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
-        firstCollectionView.delegate = delegate
-        firstCollectionView.dataSource = dataSource
-        
-        drinksCollectionView.delegate = delegate
-        drinksCollectionView.dataSource = dataSource
+    public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+        mainTableView.delegate = delegate
+        mainTableView.dataSource = dataSource
     }
     
     private func addViews(){
         self.addSubview(self.yellowSeparatorView)
-        self.addSubview(self.firstCollectionView)
         self.addSubview(self.initialLabel)
         self.addSubview(self.searchRecipeTextField)
-        
-        self.addSubview(self.typeRecipeStackView)
-        self.addSubview(self.myIngredientsButton)
-        self.addSubview(self.drinksCollectionView)
+        self.addSubview(self.mainTableView)
     }
     
     @objc func goToMain(){
@@ -147,37 +128,32 @@ class HomeScreen: UIView {
             yellowSeparatorView.topAnchor.constraint(equalTo: self.topAnchor, constant: -30),
             yellowSeparatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             yellowSeparatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            yellowSeparatorView.bottomAnchor.constraint(equalTo: searchRecipeTextField.bottomAnchor, constant: 25),
+            yellowSeparatorView.bottomAnchor.constraint(equalTo: searchRecipeTextField.bottomAnchor, constant: 10),
             
             initialLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Sizes.GlobalPage.topSpace),
             initialLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             initialLabel.trailingAnchor.constraint(equalTo:trailingAnchor, constant: -45),
             
             searchRecipeTextField.topAnchor.constraint(equalTo: initialLabel.bottomAnchor, constant: 20),
-            searchRecipeTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            searchRecipeTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            searchRecipeTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            searchRecipeTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             searchRecipeTextField.heightAnchor.constraint(equalToConstant: 45),
             
-            typeRecipeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            typeRecipeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            typeRecipeStackView.topAnchor.constraint(equalTo: yellowSeparatorView.bottomAnchor, constant: 20),
-            typeRecipeStackView.heightAnchor.constraint(equalToConstant: 65),
-            
-            firstCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            firstCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            firstCollectionView.topAnchor.constraint(equalTo: typeRecipeStackView.bottomAnchor, constant: 10),
-            firstCollectionView.heightAnchor.constraint(equalToConstant: 200),
-            
-            myIngredientsButton.topAnchor.constraint(equalTo: firstCollectionView.bottomAnchor, constant: 10),
-            myIngredientsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            myIngredientsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-            myIngredientsButton.heightAnchor.constraint(equalToConstant: 45),
-            
-            drinksCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            drinksCollectionView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
-            drinksCollectionView.topAnchor.constraint(equalTo: myIngredientsButton.bottomAnchor, constant: 20),
-            drinksCollectionView.heightAnchor.constraint(equalToConstant: 150),
-            
+            mainTableView.topAnchor.constraint(equalTo: yellowSeparatorView.bottomAnchor),
+            mainTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                        
+//            myIngredientsButton.topAnchor.constraint(equalTo: firstCollectionView.bottomAnchor, constant: 10),
+//            myIngredientsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+//            myIngredientsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+//            myIngredientsButton.heightAnchor.constraint(equalToConstant: 45),
+//
+//            drinksCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            drinksCollectionView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
+//            drinksCollectionView.topAnchor.constraint(equalTo: myIngredientsButton.bottomAnchor, constant: 20),
+//            drinksCollectionView.heightAnchor.constraint(equalToConstant: 150),
+//
         ])
     }
     

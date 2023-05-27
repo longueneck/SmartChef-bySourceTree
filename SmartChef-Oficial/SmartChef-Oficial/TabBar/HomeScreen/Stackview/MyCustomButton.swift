@@ -17,6 +17,5 @@ class MyCustomButton: UIButton{
   
     var screen: ScreensTypeOfRecipe = .recipeType1
     
-    
 }
 

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController{
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
     
-    private var randomRecipes: [Recipes] = []
+     var randomRecipes: [Recipes] = []
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -32,12 +32,10 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        recipe?.collectionDelegate(delegate: self, dataSource: self)
-        recipe?.delegate(delegate: self)
-        recipe?.typeRecipeStackView.delegate(delegate: self)
+        recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
-        drinkImage()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,21 +45,6 @@ class HomeViewController: UIViewController{
     func setupInitialView() {
         randomRecipes = homeViewModel.generateRandomRecipes()
         let indexPath = IndexPath(item: 0, section: 0)
-        recipe?.firstCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        recipe?.firstCollectionView.reloadData()
-    }
-        
-    func drinkImage(){
-        
-        guard let subviews = self.recipe?.drinksCollectionView.subviews else {
-            return
-        }
-        
-        for index in 0..<subviews.count where ((subviews[index] as? UIButton) != nil) {
-            let button = subviews[index] as! UIButton
-            let image = drinkViewModel.getAllDrinkRecipes(index: index).image
-            button.setImage(UIImage(named: image), for: .normal)
-        }
     }
     
     func inicializeConfigs() {
@@ -72,26 +55,6 @@ class HomeViewController: UIViewController{
     
     func setupDelegate(delegate: HomeViewControllerProtocol){
         self.delegate = delegate
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = 250
-        let height = collectionView.frame.height
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
-        cell?.setupCell(recipe: randomRecipes[indexPath.row])
-        return cell ?? UICollectionViewCell()
     }
 }
 
@@ -135,8 +98,43 @@ extension HomeViewController: HomeScreenProtocol{
     func tapToMain() {
         delegate?.navToScreen()
     }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5  }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath)
+            break
+        case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath)
+            break
+//        case 2:
+//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType3", for: indexPath)
+//            // Configurar a célula do tipo 3
+//            break
+//        case 3:
+//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType4", for: indexPath)
+//            // Configurar a célula do tipo 4
+//            break
+//        case 4:
+//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType5", for: indexPath)
+//            // Configurar a célula do tipo 5
+//            break
+        default:
+            cell = UITableViewCell()
+            break
+        }
+        
+        return cell
+    }
+
     
     
 }
-
 
