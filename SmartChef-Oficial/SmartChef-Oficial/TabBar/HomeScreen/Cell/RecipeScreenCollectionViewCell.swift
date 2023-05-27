@@ -23,8 +23,6 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         self.picture.image = UIImage(named: recipe.image)
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
-//        self.widthAnchor.constraint(equalToConstant: 250).isActive = true
-
     }
     
     required init?(coder: NSCoder) {
