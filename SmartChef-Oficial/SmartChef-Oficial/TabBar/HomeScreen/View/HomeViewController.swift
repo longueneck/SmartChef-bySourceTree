@@ -51,7 +51,6 @@ class HomeViewController: UIViewController{
         recipe?.firstCollectionView.reloadData()
     }
         
-    
     func drinkImage(){
         
         guard let subviews = self.recipe?.drinksCollectionView.subviews else {
@@ -83,8 +82,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        }
+        let width: CGFloat = 250
+        let height = collectionView.frame.height
+        
+        return CGSize(width: width, height: height)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
