@@ -62,23 +62,14 @@ class HomeScreen: UIView {
         tView.separatorStyle = .none
         tView.backgroundColor = UIColor.red
         tView.layer.cornerRadius = 20
+        tView.allowsSelection = false
         tView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         tView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
         return tView
     }()
 
 //
-//    lazy var myIngredientsButton: UIButton = {
-//        let ingredients = UIButton()
-//        ingredients.translatesAutoresizingMaskIntoConstraints = false
-//        ingredients.layer.cornerRadius = 8
-//        ingredients.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-//        ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
-//        ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-//        ingredients.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
-//        return ingredients
-//    }()
+//   
 //
 //    lazy var drinksCollectionView: UICollectionView = {
 //        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
@@ -144,10 +135,7 @@ class HomeScreen: UIView {
             mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
                         
-//            myIngredientsButton.topAnchor.constraint(equalTo: firstCollectionView.bottomAnchor, constant: 10),
-//            myIngredientsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-//            myIngredientsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-//            myIngredientsButton.heightAnchor.constraint(equalToConstant: 45),
+
 //
 //            drinksCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
 //            drinksCollectionView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),

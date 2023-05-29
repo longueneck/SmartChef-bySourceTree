@@ -23,9 +23,9 @@ class firstUITableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         self.addSubview(self.typeRecipeStackView)
         NSLayoutConstraint.activate([
-            typeRecipeStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            typeRecipeStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            typeRecipeStackView.topAnchor.constraint(equalTo: topAnchor),
+            typeRecipeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            typeRecipeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            typeRecipeStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             typeRecipeStackView.heightAnchor.constraint(equalToConstant: 65)
         ])
     }

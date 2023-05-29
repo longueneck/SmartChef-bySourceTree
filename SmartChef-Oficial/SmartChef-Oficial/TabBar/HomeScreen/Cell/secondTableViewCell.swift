@@ -49,7 +49,7 @@ class secondUITableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             firstCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             firstCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            firstCollectionView.topAnchor.constraint(equalTo: topAnchor),
+            firstCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             firstCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

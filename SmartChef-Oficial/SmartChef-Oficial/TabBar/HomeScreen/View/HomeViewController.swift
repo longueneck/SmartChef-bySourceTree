@@ -104,6 +104,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5  }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0{
+            return 75
+        }
+        if indexPath.row == 1{
+            return 200
+        }
+            return 0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
@@ -114,10 +124,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath)
             break
-//        case 2:
-//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType3", for: indexPath)
-//            // Configurar a célula do tipo 3
-//            break
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath)
+            // Configurar a célula do tipo 3
+            break
 //        case 3:
 //            cell = tableView.dequeueReusableCell(withIdentifier: "CellType4", for: indexPath)
 //            // Configurar a célula do tipo 4
