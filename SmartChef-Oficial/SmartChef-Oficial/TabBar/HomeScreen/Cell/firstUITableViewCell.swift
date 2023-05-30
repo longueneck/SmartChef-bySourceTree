@@ -14,11 +14,7 @@ class firstUITableViewCell: UITableViewCell {
         stack.spacing = 12
         return stack
     }()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.addSubview(self.typeRecipeStackView)

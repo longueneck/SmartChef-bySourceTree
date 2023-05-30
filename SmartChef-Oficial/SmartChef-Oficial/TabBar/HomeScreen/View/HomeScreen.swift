@@ -1,17 +1,6 @@
 import UIKit
 
-protocol HomeScreenProtocol: AnyObject{
-    
-    func tapToMain()
-}
-
 class HomeScreen: UIView {
-    
-    weak private var recipeScreenProtocol: HomeScreenProtocol?
-    
-    func delegate(delegate: HomeScreenProtocol){
-        self.recipeScreenProtocol = delegate
-    }
     
     lazy var yellowSeparatorView: UIView = {
         let separator = UIView()
@@ -24,7 +13,6 @@ class HomeScreen: UIView {
         separator.layer.shadowRadius = 4
         return separator
     }()
-    
     
     lazy var initialLabel: UILabel = {
         let initial = UILabel()
@@ -57,8 +45,8 @@ class HomeScreen: UIView {
         tView.translatesAutoresizingMaskIntoConstraints = false
         tView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
         tView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
-//        tView.register(SearchTextField.self, forCellReuseIdentifier: SearchTextField.identifier)
-//        tView.register(SearchTextField.self, forCellReuseIdentifier: SearchTextField.identifier)
+        tView.register(thirdUITableViewCell.self, forCellReuseIdentifier: thirdUITableViewCell.identifier)
+        tView.register(fourthUITableViewCell.self, forCellReuseIdentifier: fourthUITableViewCell.identifier)
         tView.separatorStyle = .none
         tView.backgroundColor = UIColor.red
         tView.layer.cornerRadius = 20
@@ -67,26 +55,7 @@ class HomeScreen: UIView {
         tView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
         return tView
     }()
-
-//
-//   
-//
-//    lazy var drinksCollectionView: UICollectionView = {
-//        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
-//        let layout = UICollectionViewFlowLayout.init()
-//        collection.translatesAutoresizingMaskIntoConstraints = false
-//        collection.layer.cornerRadius = 10
-//        collection.backgroundColor = .clear
-//        collection.showsVerticalScrollIndicator = false
-//        collection.showsHorizontalScrollIndicator = false
-//        collection.delaysContentTouches = false
-//        collection.register(RecipeScreenCollectionViewCell.self, forCellWithReuseIdentifier: RecipeScreenCollectionViewCell.identifier)
-//        collection.setCollectionViewLayout(layout, animated: true)
-//        layout.scrollDirection = .horizontal
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-//        return collection
-//    }()
-    
+       
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -107,10 +76,6 @@ class HomeScreen: UIView {
         self.addSubview(self.initialLabel)
         self.addSubview(self.searchRecipeTextField)
         self.addSubview(self.mainTableView)
-    }
-    
-    @objc func goToMain(){
-        recipeScreenProtocol?.tapToMain()
     }
     
     private func addConstraints(){
@@ -135,13 +100,6 @@ class HomeScreen: UIView {
             mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
                         
-
-//
-//            drinksCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            drinksCollectionView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
-//            drinksCollectionView.topAnchor.constraint(equalTo: myIngredientsButton.bottomAnchor, constant: 20),
-//            drinksCollectionView.heightAnchor.constraint(equalToConstant: 150),
-//
         ])
     }
     

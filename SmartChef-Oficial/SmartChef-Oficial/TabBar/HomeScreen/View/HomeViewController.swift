@@ -93,8 +93,7 @@ extension HomeViewController: UITextFieldDelegate{
     }
 }
 
-//MARK: EXTENSIONS Protocolo de Button Action
-extension HomeViewController: HomeScreenProtocol{
+extension HomeViewController: thirdTableViewCellProtocol{
     func tapToMain() {
         delegate?.navToScreen()
     }
@@ -102,7 +101,7 @@ extension HomeViewController: HomeScreenProtocol{
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5  }
+        return 4  }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
@@ -110,6 +109,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         if indexPath.row == 1{
             return 200
+        }
+        if indexPath.row == 2{
+            return 45
+        }
+        if indexPath.row == 3{
+            return 150
         }
             return 0
     }
@@ -119,32 +124,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell ?? UITableViewCell()
             break
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
             break
         case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath)
-            // Configurar a célula do tipo 3
+            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath) as? thirdUITableViewCell ?? UITableViewCell()
             break
-//        case 3:
-//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType4", for: indexPath)
-//            // Configurar a célula do tipo 4
-//            break
-//        case 4:
-//            cell = tableView.dequeueReusableCell(withIdentifier: "CellType5", for: indexPath)
-//            // Configurar a célula do tipo 5
-//            break
+        case 3:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fourthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            break
         default:
             cell = UITableViewCell()
             break
         }
-        
         return cell
     }
-
-    
-    
 }
 

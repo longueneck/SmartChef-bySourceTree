@@ -1,12 +1,12 @@
 import UIKit
 
-class secondUITableViewCell: UITableViewCell {
+class fourthUITableViewCell: UITableViewCell {
     
     var viewModel: HomeViewModel = HomeViewModel()
     
-    static var identifier = "secondUITableViewCell"
+    static var identifier = "fourthUITableViewCell"
     
-    lazy var firstCollectionView: UICollectionView = {
+    lazy var oneCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .clear
@@ -28,7 +28,7 @@ class secondUITableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(self.firstCollectionView)
+        self.contentView.addSubview(self.oneCollectionView)
         configDelegate()
     }
     
@@ -37,23 +37,23 @@ class secondUITableViewCell: UITableViewCell {
     }
     
     private func configDelegate(){
-        firstCollectionView.delegate = self
-        firstCollectionView.dataSource = self
+        oneCollectionView.delegate = self
+        oneCollectionView.dataSource = self
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         NSLayoutConstraint.activate([
-            firstCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            firstCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            firstCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            firstCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            oneCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            oneCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            oneCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            oneCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
 
-extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension fourthUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.generateRandomRecipes().count
