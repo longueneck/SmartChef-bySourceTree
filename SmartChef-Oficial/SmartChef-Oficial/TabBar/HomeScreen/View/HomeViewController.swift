@@ -105,7 +105,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
-            return 75
+            return 130
         }
         if indexPath.row == 1{
             return 200
@@ -114,6 +114,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             return 45
         }
         if indexPath.row == 3{
+            return 170
+        }
+        if indexPath.row == 4{
             return 150
         }
             return 0
@@ -134,6 +137,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             break
         case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: "fourthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            break
+        case 4:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fifthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
             break
         default:
             cell = UITableViewCell()

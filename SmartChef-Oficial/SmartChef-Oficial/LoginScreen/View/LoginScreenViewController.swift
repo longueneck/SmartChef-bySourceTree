@@ -19,12 +19,11 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
-        addTfToDelegate()
-        loginScreen.delegate(delegate: self)
-        viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
         self.viewModel = LoginViewModel()
         self.alert = Alert(controller: self)
-     
+        loginScreen.delegate(delegate: self)
+        addTfToDelegate()
+        viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {

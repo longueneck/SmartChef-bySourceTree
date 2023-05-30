@@ -21,7 +21,7 @@ class thirdUITableViewCell: UITableViewCell {
            let ingredients = UIButton()
            ingredients.translatesAutoresizingMaskIntoConstraints = false
            ingredients.layer.cornerRadius = 8
-           ingredients.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        ingredients.backgroundColor = Color.Global.yellowBase
            ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
            ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
            ingredients.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -39,7 +39,7 @@ class thirdUITableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             myIngredientsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             myIngredientsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            myIngredientsButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            myIngredientsButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             myIngredientsButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }

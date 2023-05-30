@@ -5,7 +5,7 @@ class HomeScreen: UIView {
     lazy var yellowSeparatorView: UIView = {
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        separator.backgroundColor = Color.Global.yellowBase
         separator.layer.cornerRadius = 20
         separator.layer.shadowColor = UIColor.black.cgColor
         separator.layer.shadowOpacity = 0.5

@@ -6,6 +6,15 @@ class secondUITableViewCell: UITableViewCell {
     
     static var identifier = "secondUITableViewCell"
     
+    lazy var firstLabel: UILabel = {
+        let text = UILabel()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "Mais Visitadas"
+        text.font = UIFont(name: "Nice Sugar", size: 18)
+        text.textColor = Color.Global.brownBase
+    return text
+    }()
+    
     lazy var firstCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +37,7 @@ class secondUITableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addSubview(self.firstLabel)
         self.contentView.addSubview(self.firstCollectionView)
         configDelegate()
     }
@@ -45,9 +55,14 @@ class secondUITableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         NSLayoutConstraint.activate([
+            
+            firstLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            firstLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            firstLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            
             firstCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             firstCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            firstCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            firstCollectionView.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
             firstCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

@@ -34,8 +34,7 @@ class MyTabBarController: UITabBarController{
         self.tabBar.itemPositioning = .centered
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .white
-      
-        
+    
         guard let items = tabBar.items else{return}
         
         items[0].image = UIImage(systemName: "house.fill")
@@ -44,7 +43,7 @@ class MyTabBarController: UITabBarController{
         items[1].image = UIImage(systemName: "book.fill")
         items[1].title = "Receitas"
         
-        items[2].image = UIImage(systemName: "bookmark.fill")
+        items[2].image = UIImage(systemName: "heart.fill")
         items[2].title = "Favoritos"
         
         items[3].image = UIImage(systemName: "person.fill")
@@ -52,7 +51,6 @@ class MyTabBarController: UITabBarController{
         
         self.selectedIndex = 0
     }
-    
 }
 
 extension MyTabBarController: HomeViewControllerProtocol{

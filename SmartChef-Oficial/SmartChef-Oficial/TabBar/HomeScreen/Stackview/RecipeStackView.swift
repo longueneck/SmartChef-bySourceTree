@@ -18,11 +18,11 @@ class RecipeStackView: UIStackView {
         let hot = MyCustomButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
         hot.screen = .recipeType1
-        hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        hot.tintColor = .white
         hot.layer.cornerRadius = 8
         hot.contentMode = .scaleAspectFit
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        let buttonImage = UIImage(named: "hot")
+        let buttonImage = UIImage(systemName: "flame")
         hot.setImage(buttonImage, for: .normal)
         hot.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
