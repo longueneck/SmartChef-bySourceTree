@@ -43,4 +43,9 @@ class thirdUITableViewCell: UITableViewCell {
             myIngredientsButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
+    
+    
+    
+    
+    
 }
