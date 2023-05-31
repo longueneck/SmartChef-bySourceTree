@@ -27,6 +27,7 @@ class HomeViewController: UIViewController{
     override func loadView() {
         self.recipe = HomeScreen()
         self.view = recipe
+        
     }
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController{
         recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
+        setDelegateToCell()
         
     }
     
@@ -56,7 +58,25 @@ class HomeViewController: UIViewController{
     func setupDelegate(delegate: HomeViewControllerProtocol){
         self.delegate = delegate
     }
+    
+    func setDelegateToCell(){
+        if let references = recipe?.cellReferences{
+            references.forEach { cell in
+            switch cell{
+            case is FirstUITableViewCell:
+                let firstUITableViewCell = cell as! FirstUITableViewCell
+                firstUITableViewCell.typeRecipeStackView.delegate(delegate: self)
+                break
+            default:
+                break
+            }
+            }
+        }
+    }
+    
 }
+
+
 
 extension HomeViewController: RecipeStackViewProtocol{
     func tapGoToTypeRecipe(_ sender: MyCustomButton){
@@ -127,7 +147,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? FirstUITableViewCell ?? UITableViewCell()
             break
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()

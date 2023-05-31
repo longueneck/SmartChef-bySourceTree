@@ -1,6 +1,6 @@
 import UIKit
 
-class firstUITableViewCell: UITableViewCell {
+class FirstUITableViewCell: UITableViewCell {
     
     var homeScreen: HomeScreen?
     
@@ -15,7 +15,7 @@ class firstUITableViewCell: UITableViewCell {
     return text
     }()
     
-    lazy var typeRecipeStackView: RecipeStackView = {
+    var typeRecipeStackView: RecipeStackView = {
         let stack = RecipeStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
@@ -23,7 +23,7 @@ class firstUITableViewCell: UITableViewCell {
         stack.spacing = 12
         return stack
     }()
-  
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.addSubview(self.firstLabel)

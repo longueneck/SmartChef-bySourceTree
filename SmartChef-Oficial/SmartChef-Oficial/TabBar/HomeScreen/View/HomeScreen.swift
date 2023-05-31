@@ -2,6 +2,8 @@ import UIKit
 
 class HomeScreen: UIView {
     
+    var cellReferences: [UITableViewCell] = []
+    
     lazy var yellowSeparatorView: UIView = {
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
@@ -43,10 +45,13 @@ class HomeScreen: UIView {
     lazy var mainTableView: UITableView = {
         let tView:UITableView = UITableView()
         tView.translatesAutoresizingMaskIntoConstraints = false
-        tView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
+        tView.register(FirstUITableViewCell.self, forCellReuseIdentifier: FirstUITableViewCell.identifier)
         tView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
         tView.register(thirdUITableViewCell.self, forCellReuseIdentifier: thirdUITableViewCell.identifier)
         tView.register(fourthUITableViewCell.self, forCellReuseIdentifier: fourthUITableViewCell.identifier)
+        if let cell = tView.dequeueReusableCell(withIdentifier: FirstUITableViewCell.identifier){
+            cellReferences.append(cell)
+        }
         tView.separatorStyle = .none
         tView.backgroundColor = UIColor.red
         tView.layer.cornerRadius = 20
@@ -65,7 +70,7 @@ class HomeScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         mainTableView.delegate = delegate
         mainTableView.dataSource = dataSource

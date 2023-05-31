@@ -1,6 +1,4 @@
-
 import UIKit
-
 
 protocol RecipeStackViewProtocol:AnyObject{
     func tapGoToTypeRecipe(_ sender: MyCustomButton)
