@@ -1,15 +1,13 @@
-
 import UIKit
 
-
 protocol RecipeStackViewProtocol:AnyObject{
-    func tapGoToTypeRecipe(_ sender: MyCustomButton)
+    func tapGoToTypeRecipe()
 }
 
 class RecipeStackView: UIStackView {
     
     weak private var delegate:RecipeStackViewProtocol?
-    
+
     func delegate(delegate:RecipeStackViewProtocol){
         self.delegate = delegate
     }
@@ -18,11 +16,11 @@ class RecipeStackView: UIStackView {
         let hot = MyCustomButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
         hot.screen = .recipeType1
-        hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        hot.tintColor = .white
         hot.layer.cornerRadius = 8
         hot.contentMode = .scaleAspectFit
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        let buttonImage = UIImage(named: "hot")
+        let buttonImage = UIImage(systemName: "flame")
         hot.setImage(buttonImage, for: .normal)
         hot.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
         
@@ -90,10 +88,8 @@ class RecipeStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addViews()
         addConstraints()
-        
     }
     
     required init(coder: NSCoder) {
@@ -109,28 +105,29 @@ class RecipeStackView: UIStackView {
     }
     
     @objc private func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        self.delegate?.tapGoToTypeRecipe(sender)
+        self.delegate?.tapGoToTypeRecipe()
+            print("Passou no @OBJC")
     }
     
     private func addConstraints(){
         
         NSLayoutConstraint.activate([
             
-            
-            recipeType1.heightAnchor.constraint(equalToConstant: 70),
+            recipeType1.heightAnchor.constraint(equalToConstant: 55),
             recipeType1.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType2.heightAnchor.constraint(equalToConstant: 70),
+            recipeType2.heightAnchor.constraint(equalToConstant: 55),
             recipeType2.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType3.heightAnchor.constraint(equalToConstant: 70),
+            recipeType3.heightAnchor.constraint(equalToConstant: 55),
             recipeType3.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType4.heightAnchor.constraint(equalToConstant: 70),
+            recipeType4.heightAnchor.constraint(equalToConstant: 55),
             recipeType4.widthAnchor.constraint(equalToConstant: 55),
             
-            recipeType5.heightAnchor.constraint(equalToConstant: 70),
+            recipeType5.heightAnchor.constraint(equalToConstant: 55),
             recipeType5.widthAnchor.constraint(equalToConstant: 55),
+        
         ])
         
         

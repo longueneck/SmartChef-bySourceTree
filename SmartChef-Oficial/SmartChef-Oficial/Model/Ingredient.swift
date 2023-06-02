@@ -1,4 +1,4 @@
 
-struct Ingredient{
-    var nameIngredient: String?
+struct Ingredient: Codable{
+    var name: String?
 }

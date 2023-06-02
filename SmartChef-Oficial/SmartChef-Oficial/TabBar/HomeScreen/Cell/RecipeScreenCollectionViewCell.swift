@@ -10,7 +10,8 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
-        image.backgroundColor = .blue
+
+
         return image
     }()
     
@@ -22,6 +23,10 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
     
     public func setupCell(recipe: Recipes){
         self.picture.image = UIImage(named: recipe.image)
+        self.layer.cornerRadius = 20
+        self.layer.masksToBounds = true
+        
+      
     }
     
     required init?(coder: NSCoder) {
@@ -31,10 +36,10 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
     private func setConstraints(){
         NSLayoutConstraint.activate([
         
-            picture.topAnchor.constraint(equalTo: self.topAnchor),
-            picture.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            picture.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            picture.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            picture.topAnchor.constraint(equalTo:topAnchor),
+            picture.leadingAnchor.constraint(equalTo:leadingAnchor),
+            picture.bottomAnchor.constraint(equalTo:bottomAnchor),
+            picture.trailingAnchor.constraint(equalTo:trailingAnchor),
             
         ])
     }

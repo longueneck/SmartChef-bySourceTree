@@ -1,7 +1,11 @@
+
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class RegisterScreenViewController: UIViewController {
+    
+    var auth: Auth?
     
     var register: RegisterScreen = RegisterScreen()
     var viewModel: RegisterViewModel = RegisterViewModel()
@@ -17,6 +21,7 @@ class RegisterScreenViewController: UIViewController {
         self.register.delegate(delegate: self)
         addDelegateToTextFields()
         viewModel.turnButtonOff(button: register.createButton)
+        self.auth = Auth.auth()
     }
     
     private func addDelegateToTextFields(){
@@ -55,9 +60,25 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
     }
     
     func registerButton() {
+
         let vc = SucessRegisterViewController()
-        vc.recebeDado = register.emailTextField.text ?? ""
+        vc.recebeDado = viewModel.getEmail(email: register.emailTextField)
+        
+        let email: String = viewModel.getEmail(email: register.emailTextField)
+        let password: String = viewModel.getPass(pass: register.passwordTextfield)
+        
+        self.auth?.createUser(withEmail: email , password: password, completion: { result, error in
+                
+            if error != nil{
+                print("Erro ao cadastrar")
+            }else{
+                print("Sucesso ao cadastrar")
+            }
+        
+        })
+        
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 

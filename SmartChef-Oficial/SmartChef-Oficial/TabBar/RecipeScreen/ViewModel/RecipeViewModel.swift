@@ -6,32 +6,26 @@ class RecipeViewModel{
     private var ingredientList: [Ingredient] = []
     private var selectedIngredients: [Ingredient] = []
     private var ingredientSearch: [Ingredient] = []
+    public var callAlertControllError: ((Error) -> Void)?
     
     init(){
-        ingredientDATA()
+ 
     }
     
     func ingredientDATA(){
-        ingredientList.append(Ingredient(nameIngredient: "Feijão"))
-        ingredientList.append(Ingredient(nameIngredient: "Cebola"))
-        ingredientList.append(Ingredient(nameIngredient: "Cenoura"))
-        ingredientList.append(Ingredient(nameIngredient: "Tomate"))
-        ingredientList.append(Ingredient(nameIngredient: "Alho"))
-        ingredientList.append(Ingredient(nameIngredient: "Batata"))
-        ingredientList.append(Ingredient(nameIngredient: "Salsinha"))
-        ingredientList.append(Ingredient(nameIngredient: "Pimentão"))
-        ingredientList.append(Ingredient(nameIngredient: "Pimenta-do-reino"))
-        ingredientList.append(Ingredient(nameIngredient: "Orégano"))
-        ingredientList.append(Ingredient(nameIngredient: "Manjericão"))
-        ingredientList.append(Ingredient(nameIngredient: "Queijo parmesão"))
-        ingredientList.append(Ingredient(nameIngredient: "Molho de soja"))
-        ingredientList.append(Ingredient(nameIngredient: "Azeite de oliva"))
-        ingredientList.append(Ingredient(nameIngredient: "Vinagre balsâmico"))
-        ingredientList.append(Ingredient(nameIngredient: "Açúcar"))
-        ingredientList.append(Ingredient(nameIngredient: "Farinha de trigo"))
-        ingredientList.append(Ingredient(nameIngredient: "Fermento em pó"))
-        ingredientList.append(Ingredient(nameIngredient: "Ovo"))
-        ingredientList.append(Ingredient(nameIngredient: "Leite"))
+        
+        let productsFromAPI = ProductsAPI()
+        productsFromAPI.getAllProducts { [weak self]recipes, error in
+            if error == nil{
+                guard let recipes = recipes else {return}
+                for recipe in recipes{
+                    guard let name = recipe.name else {return}
+                    self?.ingredientList.append(Ingredient(name: name))
+                }
+            }else{
+                self?.callAlertControllError?(error!)
+            }
+        }
     }
     
     func getAllIngredients() -> [Ingredient]{
@@ -47,7 +41,7 @@ class RecipeViewModel{
     }
     
     func loadCurrentNameIngredient(indexPath: IndexPath) -> String {
-        return selectedIngredients[indexPath.row].nameIngredient ?? ""
+        return selectedIngredients[indexPath.row].name ?? ""
     }
     
     var getAllSelectedIngredients: [Ingredient] {
@@ -55,7 +49,7 @@ class RecipeViewModel{
     }
     
     func getAllSelectedIngredientsAsString() -> String {
-        return selectedIngredients.map { $0.nameIngredient ?? "" }.joined(separator: ", ")
+        return selectedIngredients.map { $0.name ?? "" }.joined(separator: ", ")
     }
     
     func countSelectedIngredients() -> Int{
@@ -75,7 +69,7 @@ class RecipeViewModel{
     }
     
     public func loadCurrentIngredientSearch(indexPath: IndexPath) -> String {
-        return ingredientSearch[indexPath.row].nameIngredient ?? ""
+        return ingredientSearch[indexPath.row].name ?? ""
     }
     
     func countIngredientSearch() -> Int {
@@ -90,9 +84,12 @@ class RecipeViewModel{
         if searchText.isEmpty {
             ingredientSearch = getAllIngredients()
         } else {
-            ingredientSearch = getAllIngredients().filter({
-                return ($0.nameIngredient ?? "").lowercased().contains(searchText.lowercased())
-            })
+            ingredientSearch = getAllIngredients().filter { ingredient in
+                let name = ingredient.name?.lowercased() ?? ""
+                let searchTextWithoutDiacritics = searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                
+                return name.localizedStandardContains(searchTextWithoutDiacritics)
+            }
         }
     }
 }

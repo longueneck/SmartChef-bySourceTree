@@ -9,7 +9,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         super.init(frame: frame)
         addSubView()
         addConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -58,20 +57,15 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         return stack
     }()
     
-    
-    
     lazy var bookMark:UIButton = {
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "bookmark.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        config.image = UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
-//        config.imagePadding = 8.0
         let button2 = UIButton(configuration: config)
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.isSelected = true
-//        button2.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button2.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         button2.addTarget(self, action: #selector(tapToSaveFavorite), for: .touchUpInside)
-      
         return button2
     }()
 
@@ -114,12 +108,13 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     
     @objc private func tapToSaveFavorite(){
         if bookMark.isSelected {
-            bookMark.configuration?.image = UIImage(systemName: "bookmark")
+            bookMark.configuration?.image = UIImage(systemName: "heart")
+            bookMark.backgroundColor = .none
             bookMark.isSelected = false
             
         } else {
             
-            bookMark.configuration?.image = UIImage(systemName: "bookmark.fill")
+            bookMark.configuration?.image = UIImage(systemName: "heart.fill")
             bookMark.isSelected = true
         }
     }

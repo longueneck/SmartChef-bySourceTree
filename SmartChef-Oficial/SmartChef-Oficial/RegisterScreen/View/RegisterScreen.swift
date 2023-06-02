@@ -79,6 +79,7 @@ class RegisterScreen: UIView {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.backgroundColor = .white
+        textfield.autocapitalizationType = .none
         textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         textfield.layer.borderWidth = 2
         textfield.layer.cornerRadius = 10
@@ -88,7 +89,6 @@ class RegisterScreen: UIView {
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
         textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        textfield.autocapitalizationType = .sentences
         textfield.keyboardType = .emailAddress
         return textfield
     }()
@@ -166,8 +166,8 @@ class RegisterScreen: UIView {
         addViews()
         setConstraints()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -189,20 +189,20 @@ class RegisterScreen: UIView {
         self.addSubview(createButton)
     }
     
-    @objc func keyboardWillShow(notification: Notification) {
-        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardHeight = keyboardSize.cgRectValue.height
-        
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = -(keyboardHeight / 2)
-        }
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        UIView.animate(withDuration: 0.3) {
-            self.frame.origin.y = 0
-        }
-    }
+//    @objc func keyboardWillShow(notification: Notification) {
+//        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+//        let keyboardHeight = keyboardSize.cgRectValue.height
+//
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = -(keyboardHeight / 2)
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: Notification) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.frame.origin.y = 0
+//        }
+//    }
     
     @objc func tapToRegister(){
         registerScreenProtocol?.registerButton()

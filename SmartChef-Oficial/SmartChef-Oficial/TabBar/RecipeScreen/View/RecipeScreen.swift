@@ -125,7 +125,6 @@ class RecipeScreen: UIView {
         
         setElements()
         addConstraintsConfig()
-        
     }
     
     required init?(coder: NSCoder) {

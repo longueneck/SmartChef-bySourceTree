@@ -55,4 +55,13 @@ class RegisterViewModel{
         textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
         
     }
+    
+    public func getEmail(email: UITextField)-> String{
+        return email.text ?? ""
+    }
+    
+    public func getPass(pass: UITextField)-> String{
+        return pass.text ?? ""
+    }
+    
 }

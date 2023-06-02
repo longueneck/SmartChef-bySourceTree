@@ -8,6 +8,8 @@ protocol HomeViewControllerProtocol: AnyObject{
 }
 
 class HomeViewController: UIViewController{
+   
+    
     
     weak private var delegate: HomeViewControllerProtocol?
     private var homeViewModel: HomeViewModel = HomeViewModel()
@@ -17,7 +19,7 @@ class HomeViewController: UIViewController{
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
     
-    private var randomRecipes: [Recipes] = []
+     var randomRecipes: [Recipes] = []
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -32,49 +34,31 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        recipe?.collectionDelegate(delegate: self, dataSource: self)
-        recipe?.delegate(delegate: self)
-        recipe?.stack1.delegate(delegate: self)
-        recipe?.tfSearchRecipe.delegate = self
+        recipe?.setTableViewDelegate(delegate: self, dataSource: self)
+        recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
-        drinkImage()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        recipe?.tfSearchRecipe.resignFirstResponder()
+        recipe?.searchRecipeTextField.resignFirstResponder()
     }
     
     func setupInitialView() {
         randomRecipes = homeViewModel.generateRandomRecipes()
         let indexPath = IndexPath(item: 0, section: 0)
-        recipe?.collectionRecipe.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        recipe?.collectionRecipe.reloadData()
-    }
-        
-    
-    func drinkImage(){
-        
-        guard let subviews = self.recipe?.stack2.subviews else {
-            return
-        }
-        
-        for index in 0..<subviews.count where ((subviews[index] as? UIButton) != nil) {
-            let button = subviews[index] as! UIButton
-            let image = drinkViewModel.getAllDrinkRecipes(index: index).image
-            button.setImage(UIImage(named: image), for: .normal)
-        }
     }
     
     func inicializeConfigs() {
-        recipe?.tfSearchRecipe.delegate = self
+        recipe?.searchRecipeTextField.delegate = self
         guard let screen = recipe else { return }
-        wrapperView = WrapperViewAnimation(target: screen.tfSearchRecipe)
+        wrapperView = WrapperViewAnimation(target: screen.searchRecipeTextField)
     }
     
     func setupDelegate(delegate: HomeViewControllerProtocol){
         self.delegate = delegate
     }
 }
+
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -112,6 +96,7 @@ extension HomeViewController: RecipeStackViewProtocol{
     }
 }
 
+
 extension HomeViewController: UITextFieldDelegate{
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -131,13 +116,77 @@ extension HomeViewController: UITextFieldDelegate{
     }
 }
 
-//MARK: EXTENSIONS Protocolo de Button Action
-extension HomeViewController: HomeScreenProtocol{
+
+extension HomeViewController: thirdTableViewCellProtocol{
     func tapToMain() {
         delegate?.navToScreen()
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4  }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0{
+            return 130
+        }
+        if indexPath.row == 1{
+            return 200
+        }
+        if indexPath.row == 2{
+            return 45
+        }
+        if indexPath.row == 3{
+            return 170
+        }
+        if indexPath.row == 4{
+            return 150
+        }
+            return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        
+        switch indexPath.row {
+        case 0:
+            if let cell2 = tableView.dequeueReusableCell(withIdentifier: FirstUITableViewCell.identifier, for: indexPath) as? FirstUITableViewCell {
+                
+                cell2.delegate = self
+                return cell2
+            }
+                        
+                
+            
+            
+        case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
+            break
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath) as? thirdUITableViewCell ?? UITableViewCell()
+            break
+        case 3:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fourthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            break
+        case 4:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fifthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            break
+        default:
+            cell = UITableViewCell()
+            break
+        }
+
+        return cell
+        
+    }
+}
+
+extension HomeViewController: FirstUITableViewCellProtocol{
+    func goToAnotherScreen() {
+        navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }
     
     
 }
-
 

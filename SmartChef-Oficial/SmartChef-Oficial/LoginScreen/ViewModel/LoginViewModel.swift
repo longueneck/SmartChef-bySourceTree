@@ -36,7 +36,23 @@ class LoginViewModel {
         return textField.text == ""
         }
     
+    public func getEmail(email: UITextField)-> String{
+        return email.text ?? ""
+    }
     
+    public func getPass(pass: UITextField)-> String{
+        return pass.text ?? ""
+    }
+    
+    public func resetDataTextField(email: UITextField, pass: UITextField){
+        email.text = ""
+        pass.text = ""
+    
+    }
+    
+    public func resetData(view: UIView){
+        view.reloadInputViews()
+    }
     
 }
 
