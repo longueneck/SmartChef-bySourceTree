@@ -1,13 +1,13 @@
 import UIKit
 
 protocol RecipeStackViewProtocol:AnyObject{
-    func tapGoToTypeRecipe(_ sender: MyCustomButton)
+    func tapGoToTypeRecipe()
 }
 
 class RecipeStackView: UIStackView {
     
     weak private var delegate:RecipeStackViewProtocol?
-    
+
     func delegate(delegate:RecipeStackViewProtocol){
         self.delegate = delegate
     }
@@ -88,10 +88,8 @@ class RecipeStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addViews()
         addConstraints()
-        
     }
     
     required init(coder: NSCoder) {
@@ -107,13 +105,13 @@ class RecipeStackView: UIStackView {
     }
     
     @objc private func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        self.delegate?.tapGoToTypeRecipe(sender)
+        self.delegate?.tapGoToTypeRecipe()
+            print("Passou no @OBJC")
     }
     
     private func addConstraints(){
         
         NSLayoutConstraint.activate([
-            
             
             recipeType1.heightAnchor.constraint(equalToConstant: 55),
             recipeType1.widthAnchor.constraint(equalToConstant: 55),
@@ -129,6 +127,7 @@ class RecipeStackView: UIStackView {
             
             recipeType5.heightAnchor.constraint(equalToConstant: 55),
             recipeType5.widthAnchor.constraint(equalToConstant: 55),
+        
         ])
         
         

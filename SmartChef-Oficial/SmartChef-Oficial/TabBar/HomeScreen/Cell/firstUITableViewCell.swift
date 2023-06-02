@@ -1,8 +1,14 @@
 import UIKit
 
+protocol FirstUITableViewCellProtocol: AnyObject{
+    
+    func goToAnotherScreen()
+    
+}
+
 class FirstUITableViewCell: UITableViewCell {
     
-    var homeScreen: HomeScreen?
+    public weak var delegate: FirstUITableViewCellProtocol?
     
     static var identifier = "firstUITableViewCell"
     
@@ -28,6 +34,7 @@ class FirstUITableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         self.addSubview(self.firstLabel)
         self.addSubview(self.typeRecipeStackView)
+        self.typeRecipeStackView.delegate(delegate: self)
         NSLayoutConstraint.activate([
             
             firstLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
@@ -40,4 +47,14 @@ class FirstUITableViewCell: UITableViewCell {
             typeRecipeStackView.heightAnchor.constraint(equalToConstant: 65)
         ])
     }
+}
+
+extension FirstUITableViewCell: RecipeStackViewProtocol{
+    func tapGoToTypeRecipe() {
+        print("FDPPPPP")
+        delegate?.goToAnotherScreen()
+    }
+    
+    
+    
 }

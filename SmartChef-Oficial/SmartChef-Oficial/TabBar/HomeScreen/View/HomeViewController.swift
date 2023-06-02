@@ -8,6 +8,8 @@ protocol HomeViewControllerProtocol: AnyObject{
 }
 
 class HomeViewController: UIViewController{
+   
+    
     
     weak private var delegate: HomeViewControllerProtocol?
     private var homeViewModel: HomeViewModel = HomeViewModel()
@@ -27,7 +29,6 @@ class HomeViewController: UIViewController{
     override func loadView() {
         self.recipe = HomeScreen()
         self.view = recipe
-        
     }
     
     override func viewDidLoad() {
@@ -36,8 +37,6 @@ class HomeViewController: UIViewController{
         recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
-        setDelegateToCell()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,41 +57,25 @@ class HomeViewController: UIViewController{
     func setupDelegate(delegate: HomeViewControllerProtocol){
         self.delegate = delegate
     }
-    
-    func setDelegateToCell(){
-        if let references = recipe?.cellReferences{
-            references.forEach { cell in
-            switch cell{
-            case is FirstUITableViewCell:
-                let firstUITableViewCell = cell as! FirstUITableViewCell
-                firstUITableViewCell.typeRecipeStackView.delegate(delegate: self)
-                break
-            default:
-                break
-            }
-            }
-        }
-    }
-    
 }
 
 
 
-extension HomeViewController: RecipeStackViewProtocol{
-    func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        let vc = HotMealsViewController()
-        vc.dataHotMeal =
-        [
-            HotRecipes(nameImage: "lasanha"),
-            HotRecipes(nameImage: "coxinha"),
-            HotRecipes(nameImage: "costela"),
-            HotRecipes(nameImage: "strogonoff"),
-            HotRecipes(nameImage: "bolinhodearroz"),
-            
-        ]
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
+//extension HomeViewController: RecipeStackViewProtocol{
+//    func tapGoToTypeRecipe(_ sender: MyCustomButton){
+//        let vc = HotMealsViewController()
+//        vc.dataHotMeal =
+//        [
+//            HotRecipes(nameImage: "lasanha"),
+//            HotRecipes(nameImage: "coxinha"),
+//            HotRecipes(nameImage: "costela"),
+//            HotRecipes(nameImage: "strogonoff"),
+//            HotRecipes(nameImage: "bolinhodearroz"),
+//
+//        ]
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+//}
 
 extension HomeViewController: UITextFieldDelegate{
         
@@ -112,6 +95,7 @@ extension HomeViewController: UITextFieldDelegate{
         return true
     }
 }
+
 
 extension HomeViewController: thirdTableViewCellProtocol{
     func tapToMain() {
@@ -143,12 +127,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
+        var cell = UITableViewCell()
         
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? FirstUITableViewCell ?? UITableViewCell()
-            break
+            if let cell2 = tableView.dequeueReusableCell(withIdentifier: FirstUITableViewCell.identifier, for: indexPath) as? FirstUITableViewCell {
+                
+                cell2.delegate = self
+                return cell2
+            }
+                        
+                
+            
+            
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
             break
@@ -165,7 +156,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             cell = UITableViewCell()
             break
         }
+
         return cell
+        
     }
+}
+
+extension HomeViewController: FirstUITableViewCellProtocol{
+    func goToAnotherScreen() {
+        navigationController?.pushViewController(HotMealsViewController(), animated: true)
+    }
+    
+    
 }
 
