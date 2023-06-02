@@ -1,5 +1,12 @@
 import UIKit
 
+
+
+protocol HomeScreenProtocol: AnyObject{
+    func tapToMain()
+}
+
+
 class HomeScreen: UIView {
     
     var cellReferences: [UITableViewCell] = []
@@ -42,6 +49,7 @@ class HomeScreen: UIView {
         return search
     }()
     
+
     lazy var mainTableView: UITableView = {
         let tView:UITableView = UITableView()
         tView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +69,7 @@ class HomeScreen: UIView {
         return tView
     }()
        
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -70,11 +79,12 @@ class HomeScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         mainTableView.delegate = delegate
         mainTableView.dataSource = dataSource
-    }
+
     
     private func addViews(){
         self.addSubview(self.yellowSeparatorView)
@@ -86,10 +96,12 @@ class HomeScreen: UIView {
     private func addConstraints(){
         NSLayoutConstraint.activate([
             
+
             yellowSeparatorView.topAnchor.constraint(equalTo: self.topAnchor, constant: -30),
             yellowSeparatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             yellowSeparatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
             yellowSeparatorView.bottomAnchor.constraint(equalTo: searchRecipeTextField.bottomAnchor, constant: 10),
+
             
             initialLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Sizes.GlobalPage.topSpace),
             initialLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
@@ -105,7 +117,7 @@ class HomeScreen: UIView {
             mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
                         
+
         ])
     }
-    
 }

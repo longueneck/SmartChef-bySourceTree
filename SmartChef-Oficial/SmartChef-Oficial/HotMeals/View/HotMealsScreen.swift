@@ -32,36 +32,7 @@ class HotMealScreen: UIView {
         return imageType
     }()
     
-    lazy var backButton: UIButton = {
-        let back = UIButton()
-        back.translatesAutoresizingMaskIntoConstraints = false
-        back.setImage(UIImage(systemName: "arrowshape.backward.fill"), for: .normal)
-        back.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        back.layer.cornerRadius = 8
-        back.contentMode = .scaleAspectFit
-        back.backgroundColor = .white
-        back.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
-        
-        return back
-    }()
-    
-    lazy var tfSearchRecipe: UITextField = {
-        let search = UITextField()
-        search.translatesAutoresizingMaskIntoConstraints = false
-        search.backgroundColor = .white
-        search.placeholder = "Pesquise por receitas"
-        search.layer.shadowColor = UIColor.black.cgColor
-        search.layer.shadowOpacity = 0.1
-        search.layer.shadowOffset = CGSize(width: 0, height: 2)
-        search.layer.shadowRadius = 2
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: search.frame.height))
-        search.leftView = paddingView
-        search.leftViewMode = .always
-        search.layer.cornerRadius = 10
-        return search
-    }()
-    
-    lazy var backGroundWhite: UIView = {
+    lazy var yellowView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -69,15 +40,7 @@ class HotMealScreen: UIView {
         return view
     }()
     
-    lazy var ballsSeparator: UIImageView = {
-        let separator = UIImageView()
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.image = UIImage(named: "balls2")
-        separator.contentMode = .scaleAspectFill
-        
-        return separator
-    }()
-    
+
     lazy var lbMostVisited: UILabel = {
         let page = UILabel()
         page.translatesAutoresizingMaskIntoConstraints = false
@@ -160,10 +123,8 @@ class HotMealScreen: UIView {
     {
         self.addSubview(self.lbPageName)
         self.addSubview(self.imagePageType)
-        self.addSubview(self.backButton)
-        self.addSubview(self.tfSearchRecipe)
-        self.addSubview(self.backGroundWhite)
-        self.addSubview(self.ballsSeparator)
+        
+        self.addSubview(self.yellowView)
         self.addSubview(self.lbMostVisited)
         self.addSubview(self.imageStar)
         self.addSubview(self.lbFriends)
@@ -172,50 +133,29 @@ class HotMealScreen: UIView {
         self.addSubview(self.stackRecipes)
     }
     
-    @objc func tappedBackButton(){
-        self.delegate?.actionBackButton()
-        print("CLICOU")
-    }
-    
-    func configTextFieldDelegate(delegate: UITextFieldDelegate){
-        self.tfSearchRecipe.delegate = delegate
-    }
-    
     private func addConstraints(){
         NSLayoutConstraint.activate([
-            
-            backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
-            backButton.heightAnchor.constraint(equalToConstant: 35),
-            backButton.widthAnchor.constraint(equalToConstant: 35),
-            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            
-            
+     
+            yellowView.topAnchor.constraint(equalTo: self.topAnchor),
+            yellowView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            yellowView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            yellowView.heightAnchor.constraint(equalToConstant: 180),
             
             lbPageName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            lbPageName.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            lbPageName.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             imagePageType.centerYAnchor.constraint(equalTo: lbPageName.centerYAnchor),
             imagePageType.leadingAnchor.constraint(equalTo: lbPageName.trailingAnchor, constant: 5),
             imagePageType.heightAnchor.constraint(equalToConstant: 20),
             imagePageType.widthAnchor.constraint(equalToConstant: 20),
             
-            tfSearchRecipe.topAnchor.constraint(equalTo: lbPageName.bottomAnchor, constant: 30),
-            tfSearchRecipe.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            tfSearchRecipe.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
-            tfSearchRecipe.heightAnchor.constraint(equalToConstant: 45),
+      
             
-            backGroundWhite.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backGroundWhite.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backGroundWhite.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            backGroundWhite.topAnchor.constraint(equalTo: tfSearchRecipe.bottomAnchor, constant: 30),
+         
             
-            ballsSeparator.heightAnchor.constraint(equalToConstant: 10),
-            ballsSeparator.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            ballsSeparator.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            ballsSeparator.centerYAnchor.constraint(equalTo: backGroundWhite.topAnchor),
             
             lbMostVisited.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            lbMostVisited.topAnchor.constraint(equalTo: ballsSeparator.bottomAnchor, constant: 25),
+            lbMostVisited.topAnchor.constraint(equalTo: self.bottomAnchor, constant: 25),
             
             imageStar.leadingAnchor.constraint(equalTo: lbMostVisited.trailingAnchor, constant: 5),
             imageStar.centerYAnchor.constraint(equalTo: lbMostVisited.centerYAnchor),

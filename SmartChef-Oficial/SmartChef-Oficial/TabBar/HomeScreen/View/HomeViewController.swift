@@ -60,22 +60,42 @@ class HomeViewController: UIViewController{
 }
 
 
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let spacing: CGFloat = 25 // Define o espaçamento desejado entre as células
+        return UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+    }
 
-//extension HomeViewController: RecipeStackViewProtocol{
-//    func tapGoToTypeRecipe(_ sender: MyCustomButton){
-//        let vc = HotMealsViewController()
-//        vc.dataHotMeal =
-//        [
-//            HotRecipes(nameImage: "lasanha"),
-//            HotRecipes(nameImage: "coxinha"),
-//            HotRecipes(nameImage: "costela"),
-//            HotRecipes(nameImage: "strogonoff"),
-//            HotRecipes(nameImage: "bolinhodearroz"),
-//
-//        ]
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth = screenWidth * 0.75
+        let height = collectionView.frame.height
+        return CGSize(width: cellWidth, height: height)
+        
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
+        cell?.setupCell(recipe: randomRecipes[indexPath.row])
+        return cell ?? UICollectionViewCell()
+    }
+}
+
+extension HomeViewController: RecipeStackViewProtocol{
+    func tapGoToTypeRecipe(_ sender: MyCustomButton){
+        
+     
 //        navigationController?.pushViewController(vc, animated: true)
-//    }
-//}
+    }
+}
+
 
 extension HomeViewController: UITextFieldDelegate{
         

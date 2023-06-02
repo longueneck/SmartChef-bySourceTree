@@ -18,15 +18,11 @@ class HotMealsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        self.view.backgroundColor = .white
         hotMeal?.collectionDelegate(delegate: self, dataSource: self)
-        self.hotMeal?.configTextFieldDelegate(delegate: self)
         self.hotMeal?.delegate(delegate: self)
-        
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        hotMeal?.tfSearchRecipe.resignFirstResponder()
-    }
+   
 }
 
 extension HotMealsViewController: UITextFieldDelegate{

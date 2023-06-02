@@ -18,9 +18,11 @@ class LoginScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
         self.viewModel = LoginViewModel()
         self.alert = Alert(controller: self)
+
         loginScreen.delegate(delegate: self)
         addTfToDelegate()
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
@@ -52,17 +54,20 @@ extension LoginScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
+
         if viewModel.validateLoginButton(email: viewModel.getEmail(email: loginScreen.loginTextField), password: viewModel.getPass(pass: loginScreen.passwordTextField)){
+
             viewModel.turnButtonEnable(button: loginScreen.loginButton)
         }else{
             viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
             if viewModel.isTextFieldEmpty(loginScreen.loginTextField){
-                loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+                loginScreen.loginTextField.layer.borderColor = ProjectColor.globalCGColor.yellowBase
             }
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
         
         if string == " " && textField == loginScreen.loginTextField{
             loginScreen.loginTextField.layer.borderColor = UIColor.red.cgColor
@@ -113,10 +118,9 @@ extension LoginScreenViewController: LoginScreenProtocol{
                 }
             }
             
-            
-            
         }
         )
     }
+
 }
 

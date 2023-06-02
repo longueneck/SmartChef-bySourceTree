@@ -17,7 +17,9 @@ class LoginScreen: UIView {
     lazy var gbYellowView: UIView = {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
+
         background.backgroundColor = Color.Global.yellowBase
+
         return background
     }()
     
@@ -50,7 +52,9 @@ class LoginScreen: UIView {
         loginText.translatesAutoresizingMaskIntoConstraints = false
         loginText.text = "Usuário"
         loginText.font = UIFont.boldSystemFont(ofSize: 17)
+
         loginText.textColor = Color.Global.brownBase
+
         return loginText
     }()
     
@@ -61,14 +65,18 @@ class LoginScreen: UIView {
         login.textColor = UIColor.black
         login.backgroundColor = .white
         login.layer.borderWidth = 2
+
         login.layer.borderColor = Color.GlobalCGColor.yellowBaseCG
+
         login.layer.shadowColor = UIColor.black.cgColor
         login.layer.shadowOpacity = 0.1
         login.layer.shadowOffset = CGSize(width: 0, height: 2)
         login.layer.shadowRadius = 2
         login.keyboardType = .emailAddress
         login.autocapitalizationType = .none
+
         login.textColor = Color.Global.brownBase
+
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
         login.leftView = paddingView
         login.leftViewMode = .always
@@ -80,7 +88,9 @@ class LoginScreen: UIView {
         password.translatesAutoresizingMaskIntoConstraints = false
         password.text = "Senha"
         password.font = UIFont.boldSystemFont(ofSize: 17)
+
         password.textColor = Color.Global.brownBase
+
         return password
     }()
     
@@ -92,13 +102,17 @@ class LoginScreen: UIView {
         pass.backgroundColor = .white
         pass.textColor = UIColor.black
         pass.layer.borderWidth = 2
+
         pass.layer.borderColor = Color.GlobalCGColor.yellowBaseCG
+
         pass.layer.shadowColor = UIColor.black.cgColor
         pass.layer.shadowOpacity = 0.1
         pass.layer.shadowOffset = CGSize(width: 0, height: 2)
         pass.layer.shadowRadius = 2
         pass.isSecureTextEntry = true
+
         pass.textColor = Color.Global.brownBase
+
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: pass.frame.height))
         pass.leftView = paddingView
         pass.leftViewMode = .always
@@ -110,7 +124,9 @@ class LoginScreen: UIView {
         reset.translatesAutoresizingMaskIntoConstraints = false
         reset.text = "Recupere sua senha"
         reset.font = UIFont.boldSystemFont(ofSize: 14)
+
         reset.textColor = Color.Global.brownBase
+
         return reset
     }()
     
@@ -118,8 +134,10 @@ class LoginScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Entrar", for: .normal)
+
         button.setTitleColor(Color.Global.brownBase, for: .normal)
         button.backgroundColor = Color.Global.yellowBase
+
         button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.1
@@ -135,15 +153,17 @@ class LoginScreen: UIView {
         reset.translatesAutoresizingMaskIntoConstraints = false
         reset.text = "Ou conecte-se com"
         reset.font = UIFont.boldSystemFont(ofSize: 14)
+
         reset.textColor = Color.Global.brownBase
+
         return reset
     }()
     
     lazy var appleIconImage: UIButton = {
         let apple = UIButton()
         apple.translatesAutoresizingMaskIntoConstraints = false
-        apple.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        apple.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        apple.setTitleColor(ProjectColor.global.brownBase, for: .normal)
+        apple.backgroundColor = ProjectColor.global.yellowBase
         apple.layer.cornerRadius = 10
         apple.layer.shadowColor = UIColor.black.cgColor
         apple.layer.shadowOpacity = 0.1
@@ -156,8 +176,8 @@ class LoginScreen: UIView {
     lazy var googleIconImage: UIButton = {
         let google = UIButton()
         google.translatesAutoresizingMaskIntoConstraints = false
-        google.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        google.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        google.setTitleColor(ProjectColor.global.brownBase, for: .normal)
+        google.backgroundColor = ProjectColor.global.yellowBase
         google.layer.cornerRadius = 10
         google.layer.shadowColor = UIColor.black.cgColor
         google.layer.shadowOpacity = 0.1
@@ -170,8 +190,10 @@ class LoginScreen: UIView {
     lazy var facebookIconImage: UIButton = {
         let facebook = UIButton()
         facebook.translatesAutoresizingMaskIntoConstraints = false
+
         facebook.setTitleColor(Color.Global.brownBase, for: .normal)
         facebook.backgroundColor = Color.Global.yellowBase
+
         facebook.layer.cornerRadius = 10
         facebook.layer.shadowColor = UIColor.black.cgColor
         facebook.layer.shadowOpacity = 0.1
@@ -185,6 +207,7 @@ class LoginScreen: UIView {
         let entrar = UIButton()
         entrar.translatesAutoresizingMaskIntoConstraints = false
         entrar.setTitle("Inscreva-se", for: .normal)
+
         entrar.setTitleColor(Color.Global.brownBase, for: .normal)
         entrar.backgroundColor = .white
         entrar.layer.borderWidth = 2
@@ -205,14 +228,13 @@ class LoginScreen: UIView {
         
         configSuperViews()
         addConstraints()
-
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configSuperViews(){
+    private func configSuperViews(){
         self.addSubview(self.gbYellowView)
         self.addSubview(self.initialLogoImage)
         self.addSubview(self.suspenseView)

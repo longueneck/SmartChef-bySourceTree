@@ -3,7 +3,9 @@ import UIKit
 class DrinkCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "DrinkCollectionViewCell"
+
     var data: [Recipes] = []
+
     
     lazy var picture: UIImageView = {
         let image = UIImageView()
@@ -19,13 +21,12 @@ class DrinkCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
+
     public func setupCell(recipe: Recipes){
         self.picture.image = UIImage(named: recipe.image)
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
         
-      
-    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,6 +35,7 @@ class DrinkCollectionViewCell: UICollectionViewCell {
     private func setConstraints(){
         NSLayoutConstraint.activate([
         
+
             picture.topAnchor.constraint(equalTo:topAnchor),
             picture.leadingAnchor.constraint(equalTo:leadingAnchor),
             picture.bottomAnchor.constraint(equalTo:bottomAnchor),
@@ -41,6 +43,5 @@ class DrinkCollectionViewCell: UICollectionViewCell {
             
         ])
     }
-    
-    
+
 }

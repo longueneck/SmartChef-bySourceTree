@@ -34,7 +34,7 @@ class MyTabBarController: UITabBarController{
         self.tabBar.itemPositioning = .centered
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .white
-    
+      
         guard let items = tabBar.items else{return}
         
         items[0].image = UIImage(systemName: "house.fill")

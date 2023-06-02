@@ -5,8 +5,8 @@ class LoginViewModel {
     
     public func resetTextFields(emailTextField: UITextField, passTextField: UITextField){
         if emailTextField.state.isEmpty && passTextField.state.isEmpty {
-            emailTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-            passTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+            emailTextField.layer.borderColor = ProjectColor.globalCGColor.yellowBase
+            passTextField.layer.borderColor = ProjectColor.globalCGColor.yellowBase
         }
     }
     

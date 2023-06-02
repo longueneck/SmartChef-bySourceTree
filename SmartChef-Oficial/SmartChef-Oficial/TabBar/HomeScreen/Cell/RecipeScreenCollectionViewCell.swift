@@ -10,6 +10,8 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
+
+
         return image
     }()
     
@@ -41,6 +43,4 @@ class RecipeScreenCollectionViewCell: UICollectionViewCell {
             
         ])
     }
-    
-    
 }
