@@ -58,22 +58,6 @@ class HomeViewController: UIViewController{
     }
 }
 
-extension HomeViewController: RecipeStackViewProtocol{
-    func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        let vc = HotMealsViewController()
-        vc.dataHotMeal =
-        [
-            HotRecipes(nameImage: "lasanha"),
-            HotRecipes(nameImage: "coxinha"),
-            HotRecipes(nameImage: "costela"),
-            HotRecipes(nameImage: "strogonoff"),
-            HotRecipes(nameImage: "bolinhodearroz"),
-            
-        ]
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
 extension HomeViewController: UITextFieldDelegate{
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -123,11 +107,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
+        var cell = UITableViewCell()
         
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell ?? UITableViewCell()
+            if let cell2 = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell {
+                
+                cell2.delegate = self
+                return cell2
+            }
             break
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
@@ -147,5 +135,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return cell
     }
+}
+
+extension HomeViewController: firstUITableViewCellProtocol{
+    func goToAhotherView() {
+        navigationController?.pushViewController(HotMealsViewController(), animated: true)
+    }
+    
+    
 }
 

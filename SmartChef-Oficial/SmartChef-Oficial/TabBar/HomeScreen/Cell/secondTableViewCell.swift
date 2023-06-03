@@ -85,5 +85,11 @@ extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeScreenCollectionViewCell.identifier, for: indexPath) as? RecipeScreenCollectionViewCell
         cell?.setupCell(recipe: viewModel.generateRandomRecipes()[indexPath.row])
         return cell ?? UICollectionViewCell()
+    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+        
     }
 }

@@ -2,17 +2,13 @@
 import UIKit
 
 
-protocol RecipeStackViewProtocol:AnyObject{
-    func tapGoToTypeRecipe(_ sender: MyCustomButton)
+protocol RecipeStackViewDelegate:AnyObject{
+    func tapGoToTypeRecipe()
 }
 
 class RecipeStackView: UIStackView {
     
-    weak private var delegate:RecipeStackViewProtocol?
-    
-    func delegate(delegate:RecipeStackViewProtocol){
-        self.delegate = delegate
-    }
+    var delegate:RecipeStackViewDelegate?
     
     lazy var recipeType1: MyCustomButton = {
         let hot = MyCustomButton()
@@ -24,8 +20,7 @@ class RecipeStackView: UIStackView {
         hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(systemName: "flame")
         hot.setImage(buttonImage, for: .normal)
-        hot.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
-        
+        hot.addTarget(self, action: #selector(self.tapGoToTypeRecipe), for: .touchUpInside)
         return hot
     }()
     
@@ -39,8 +34,7 @@ class RecipeStackView: UIStackView {
         option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "cafe")
         option1.setImage(buttonImage, for: .normal)
-        option1.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
-        
+        option1.addTarget(self, action: #selector(self.tapGoToTypeRecipe), for: .touchUpInside)
         return option1
     }()
     
@@ -54,8 +48,7 @@ class RecipeStackView: UIStackView {
         option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "lanche")
         option2.setImage(buttonImage, for: .normal)
-        option2.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
-        
+        option2.addTarget(self, action: #selector(self.tapGoToTypeRecipe), for: .touchUpInside)
         return option2
     }()
     
@@ -68,8 +61,7 @@ class RecipeStackView: UIStackView {
         option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "pratos")
         option3.setImage(buttonImage, for: .normal)
-        option3.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
-        
+        option3.addTarget(self, action: #selector(self.tapGoToTypeRecipe), for: .touchUpInside)
         return option3
     }()
     
@@ -83,17 +75,14 @@ class RecipeStackView: UIStackView {
         option4.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         let buttonImage = UIImage(named: "sobremesa")
         option4.setImage(buttonImage, for: .normal)
-        option4.addTarget(self, action: #selector(self.tapGoToTypeRecipe(_:)), for: .touchUpInside)
-        
+        option4.addTarget(self, action: #selector(self.tapGoToTypeRecipe), for: .touchUpInside)
         return option4
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addViews()
         addConstraints()
-        
     }
     
     required init(coder: NSCoder) {
@@ -108,8 +97,9 @@ class RecipeStackView: UIStackView {
         self.addArrangedSubview(self.recipeType5)
     }
     
-    @objc private func tapGoToTypeRecipe(_ sender: MyCustomButton){
-        self.delegate?.tapGoToTypeRecipe(sender)
+    @objc private func tapGoToTypeRecipe(){
+        self.delegate?.tapGoToTypeRecipe()
+        print("Passou aqui no OBJC")
     }
     
     private func addConstraints(){
