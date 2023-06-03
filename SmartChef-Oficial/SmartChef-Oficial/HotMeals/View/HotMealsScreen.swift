@@ -15,7 +15,7 @@ class HotMealScreen: UIView {
     lazy var lbPageName: UILabel = {
         let page = UILabel()
         page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Receitas Populares"
+        page.text = String.popularRecipesTitle
         page.font = UIFont.boldSystemFont(ofSize: 18)
         page.numberOfLines = 0
         page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -26,7 +26,7 @@ class HotMealScreen: UIView {
     lazy var imagePageType: UIImageView = {
         let imageType = UIImageView()
         imageType.translatesAutoresizingMaskIntoConstraints = false
-        imageType.image = UIImage(named: "hot")
+        imageType.image = UIImage(named: String.hotImage)
         imageType.contentMode = .scaleAspectFill
         
         return imageType
@@ -35,7 +35,7 @@ class HotMealScreen: UIView {
     lazy var backButton: UIButton = {
         let back = UIButton()
         back.translatesAutoresizingMaskIntoConstraints = false
-        back.setImage(UIImage(systemName: "arrowshape.backward.fill"), for: .normal)
+        back.setImage(UIImage(systemName: String.setaVoltar), for: .normal)
         back.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         back.layer.cornerRadius = 8
         back.contentMode = .scaleAspectFit
@@ -49,7 +49,7 @@ class HotMealScreen: UIView {
         let search = UITextField()
         search.translatesAutoresizingMaskIntoConstraints = false
         search.backgroundColor = .white
-        search.placeholder = "Pesquise por receitas"
+        search.placeholder = String.searchRecipePlaceholder
         search.layer.shadowColor = UIColor.black.cgColor
         search.layer.shadowOpacity = 0.1
         search.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -72,7 +72,7 @@ class HotMealScreen: UIView {
     lazy var ballsSeparator: UIImageView = {
         let separator = UIImageView()
         separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.image = UIImage(named: "balls2")
+        separator.image = UIImage(named: String.balls)
         separator.contentMode = .scaleAspectFill
         
         return separator
@@ -81,7 +81,7 @@ class HotMealScreen: UIView {
     lazy var lbMostVisited: UILabel = {
         let page = UILabel()
         page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Mais visitadas"
+        page.text = String.moreVisits
         page.font = UIFont.boldSystemFont(ofSize: 16)
         page.numberOfLines = 0
         page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -92,7 +92,7 @@ class HotMealScreen: UIView {
     lazy var imageStar: UIImageView = {
         let star = UIImageView()
         star.translatesAutoresizingMaskIntoConstraints = false
-        star.image = UIImage(systemName: "star.fill")
+        star.image = UIImage(systemName: String.star)
         star.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return star
     }()
@@ -115,7 +115,7 @@ class HotMealScreen: UIView {
     lazy var lbFriends: UILabel = {
         let friends = UILabel()
         friends.translatesAutoresizingMaskIntoConstraints = false
-        friends.text = "Aproveite com os amigos"
+        friends.text = String.enjoyWithFriends
         friends.font = UIFont.boldSystemFont(ofSize: 16)
         friends.numberOfLines = 0
         friends.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -126,7 +126,7 @@ class HotMealScreen: UIView {
     lazy var imageFriends: UIImageView = {
         let friend = UIImageView()
         friend.translatesAutoresizingMaskIntoConstraints = false
-        friend.image = UIImage(systemName: "person.3.fill")
+        friend.image = UIImage(systemName: String.person3)
         friend.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return friend
     }()
