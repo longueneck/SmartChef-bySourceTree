@@ -214,7 +214,7 @@ class ProfileScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func AddViews(){
+    private func AddViews() {
         self.addSubview(self.cancelButton)
         self.addSubview(self.saveButton)
         self.addSubview(self.backgroundMainView)
@@ -253,14 +253,14 @@ class ProfileScreen: UIView {
         }
     }
     
-    private func disableAllTextFields(){
+    private func disableAllTextFields() {
         self.nameTextField.isEnabled = false
         self.passwordTextField.isEnabled = false
         self.emailTextField.isEnabled = false
     }
     
-    func chooseTextFieldEnable(textField: UITextField){
-        switch textField{
+    func chooseTextFieldEnable(textField: UITextField) {
+        switch textField {
         case self.nameTextField:
             
             self.nameTextField.isEnabled = true
@@ -293,23 +293,23 @@ class ProfileScreen: UIView {
         chooseTextFieldEnable(textField: self.passwordTextField)
     }
     
-    @objc private func tappedExitButton(){
+    @objc private func tappedExitButton() {
         profileScreenProtocol?.tapToExit()
     }
     
-    @objc private func tappetCancelButton(){
+    @objc private func tappetCancelButton() {
         profileScreenProtocol?.tapToCancel()
     }
     
-    @objc private func tappedSaveButton(){
+    @objc private func tappedSaveButton() {
         profileScreenProtocol?.tapToSave()
     }
     
-    @objc private func tapchooseImage(){
+    @objc private func tapchooseImage() {
         profileScreenProtocol?.tapToChangeImage()
     }
     
-    private func setConstraint(){
+    private func setConstraint() {
         NSLayoutConstraint.activate([
             
             cancelButton.topAnchor.constraint(equalTo: backgroundMainView.topAnchor),
