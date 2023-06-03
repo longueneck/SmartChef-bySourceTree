@@ -19,10 +19,10 @@ class PrepairViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepair?.collectionDelegate(delegate: self, dataSource: self)
+        
         self.view.backgroundColor = .white
     }
     
-   
     
 }
 
