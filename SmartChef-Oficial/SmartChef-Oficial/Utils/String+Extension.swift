@@ -64,6 +64,21 @@ extension String {
     static let SymbolMinus = "minus.circle"
     
     
+    //MARK: profile
+    static let cancel = "Cancelar"
+    static let save = "Salvar"
+    static let smile = "sorria"
+    static let changeImage = "Alterar imagem"
+    static let nameLabel = "Nome"
+    static let enterYourFullName = "Insira seu nome completo"
+    static let pencilImage = "pencil"
+    static let exibTitleButton = "Sair"
+    static let passwordPlaceholder = "Insira sua senha"
+    static let emailPlaceholder = "Insira seu Email"
+    static let emailTitleLabel = "Email"
+    static let passwordTitleLabel = "Senha"
+    
+    
     
     
     
