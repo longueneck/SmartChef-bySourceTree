@@ -4,6 +4,10 @@ struct PrepairRecipes{
     var nameImage: String
 }
 
+protocol PrepairCollectionViewCellProtocol{
+    func tapToSaveFavorite()
+}
+
 class PrepairCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "PrepairCollectionViewCell"
@@ -21,11 +25,21 @@ class PrepairCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
+    lazy var favorite: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = Color.Global.yellowBase
+        button.backgroundColor = .red
+        button.clipsToBounds = true
+        return button
+    }()
+    
         lazy var recipeNameLabel: UILabel = {
             let page = UILabel()
             page.translatesAutoresizingMaskIntoConstraints = false
             page.text = "Name Recipe"
-            page.font = UIFont.systemFont(ofSize: 17)
+            page.font = UIFont(name: "Nice Sugar", size: 20)
             page.numberOfLines = 0
             page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
             return page
@@ -101,33 +115,50 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     func addSubViews(){
         self.contentView.addSubview(self.recipePrepairImage)
         self.contentView.addSubview(self.recipeNameLabel)
+        self.contentView.addSubview(self.favorite)
         self.contentView.addSubview(self.typeRecipeLabel)
         self.contentView.addSubview(self.timingToCook)
         self.contentView.addSubview(self.descriptionRecipeLabel)
-        self.contentView.addSubview(self.ingredientsRecipeLabel)//
+        self.contentView.addSubview(self.ingredientsRecipeLabel)
         self.contentView.addSubview(self.prepareModeLabel)
         self.contentView.addSubview(self.prepairLevelLabel)
         
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     public func setupCell(data: PrepairRecipes){
         self.recipePrepairImage.image = UIImage(named: data.nameImage)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @objc func tapToFavorite(){
+        if favorite.isSelected{
+            favorite.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
+            favorite.isSelected = true
+        }else{
+            favorite.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
+            favorite.isSelected = false
+        }
     }
 
     private func setConstraints(){
         NSLayoutConstraint.activate([
 
-            recipePrepairImage.topAnchor.constraint(equalTo: self.topAnchor),
-            recipePrepairImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            recipePrepairImage.topAnchor.constraint(equalTo: topAnchor),
+            recipePrepairImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             recipePrepairImage.heightAnchor.constraint(equalToConstant: 200),
-            recipePrepairImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            recipePrepairImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            recipeNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             recipeNameLabel.topAnchor.constraint(equalTo: recipePrepairImage.bottomAnchor, constant: 15),
+            recipeNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            
+            favorite.topAnchor.constraint(equalTo: recipePrepairImage.bottomAnchor, constant: 15),
+            favorite.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            favorite.widthAnchor.constraint(equalToConstant: 30),
+            favorite.heightAnchor.constraint(equalToConstant: 30),
             
             typeRecipeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             typeRecipeLabel.topAnchor.constraint(equalTo: recipeNameLabel.bottomAnchor, constant: 15),

@@ -33,29 +33,18 @@ class PrepairScreen: UIView {
     
     private func addViews()
     {
-//        self.addSubview(self.recipePrepairImage)
-//        self.addSubview(self.recipeNameLabel)
+
         self.addSubview(self.collectionHot)
     }
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
             
-//            recipePrepairImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-//            recipePrepairImage.heightAnchor.constraint(equalToConstant: 180),
-//            recipePrepairImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            recipePrepairImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//
-//            recipeNameLabel.centerXAnchor.constraint(equalTo: recipePrepairImage.centerXAnchor),
-//            recipeNameLabel.topAnchor.constraint(equalTo: recipePrepairImage.bottomAnchor, constant: 15),
-
-            collectionHot.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            collectionHot.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
             collectionHot.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionHot.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionHot.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-            
-         
-            
+        
         ])
     }
     
