@@ -1,9 +1,13 @@
 import UIKit
 
+protocol MostVisitedTableViewCellProtocol {
+    func tapToMostVisitedScreen()
+}
 
 class MostVisitedTableViewCell: UITableViewCell {
     
     var viewModel: HomeViewModel = HomeViewModel()
+    var mostVisitedDelegate: MostVisitedTableViewCellProtocol?
     
     static var identifier = "MostVisitedTableViewCell"
     
@@ -90,19 +94,7 @@ extension MostVisitedTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath {
-        case indexPath where indexPath.row == 0:
-            break
-        case indexPath where indexPath.row == 1:
-            break
-        case indexPath where indexPath.row == 2:
-            break
-        case indexPath where indexPath.row == 3:
-            break
-        case indexPath where indexPath.row == 4:
-            break
-        default:
-            break
+        mostVisitedDelegate?.tapToMostVisitedScreen()
         }
     }
-}
+

@@ -1,12 +1,11 @@
 import UIKit
 
 protocol CategoryTableViewCellProtocol{
-    func goToAhotherView()
+    func tapToCategoryScreen()
 }
 
 class CategoryTableViewCell: UITableViewCell {
-    
-    var delegate: CategoryTableViewCellProtocol?
+    var categoryDelegate: CategoryTableViewCellProtocol?
     var homeScreen: HomeScreen?
     var stackView: RecipeStackView?
     
@@ -51,7 +50,7 @@ class CategoryTableViewCell: UITableViewCell {
 
 extension CategoryTableViewCell: RecipeStackViewDelegate{
     func tapGoToTypeRecipe() {
-        delegate?.goToAhotherView()
+        categoryDelegate?.tapToCategoryScreen()
     }
     
 }

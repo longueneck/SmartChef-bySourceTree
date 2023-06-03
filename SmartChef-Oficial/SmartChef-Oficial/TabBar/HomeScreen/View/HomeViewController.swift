@@ -3,7 +3,6 @@ import UIKit
 
 
 protocol HomeViewControllerProtocol: AnyObject{
-    
     func navToScreen()
 }
 
@@ -69,7 +68,6 @@ class HomeViewController: UIViewController{
     
     func setupInitialView() {
         randomRecipes = homeViewModel.generateRandomRecipes()
-        let indexPath = IndexPath(item: 0, section: 0)
     }
     
     func inicializeConfigs() {
@@ -125,7 +123,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: celltype.identifier, for: indexPath)
         
         if let cell = cell as? CategoryTableViewCell {
-            cell.delegate = self
+            cell.categoryDelegate = self
+        }
+        
+        if let cell = cell as? MostVisitedTableViewCell {
+            cell.mostVisitedDelegate = self
         }
         
         return cell
@@ -133,10 +135,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension HomeViewController: CategoryTableViewCellProtocol{
-    func goToAhotherView() {
+    func tapToCategoryScreen() {
         navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }
-    
-    
+}
+
+extension HomeViewController: MostVisitedTableViewCellProtocol {
+    func tapToMostVisitedScreen() {
+        self.navigationController?.pushViewController(PrepairViewController(), animated: true)
+    }
 }
 
