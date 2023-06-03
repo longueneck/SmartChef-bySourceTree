@@ -28,6 +28,16 @@ extension String {
     static let refrigeratorImageButton = "refrigerante"
     
     
+    //MARK: DiscoverScreen
+    static let discoverRecipeTitle = "< Descubrir Receitas >"
+    //DiscoverCell
+    static let bread = "pao"
+    static let RecipeNameTitle = "Nome da Receita"
+    static let forkImage = "fork.knife"
+    static let timeImage = "timer"
+    static let min = "40min"
+    
+    
     
     
     
