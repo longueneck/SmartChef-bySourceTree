@@ -19,6 +19,15 @@ extension String {
     static let star = "star.fill"
     static let enjoyWithFriends = "Aproveite com os amigos"
     static let person3 = "person.3.fill"
+    //HotMealsCell
+    static let hamburgerImage = "hamburger"
+    //HotRecipeStackView
+    static let juiceImageButton = "suco"
+    static let teaImageButton = "cha"
+    static let expressImageButton = "expresso"
+    static let refrigeratorImageButton = "refrigerante"
+    
+    
     
     
     

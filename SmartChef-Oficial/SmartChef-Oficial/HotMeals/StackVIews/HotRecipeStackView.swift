@@ -10,7 +10,7 @@ class HotRecipeStackView: UIStackView {
             option1.clipsToBounds = true
             option1.imageView?.contentMode = .scaleAspectFill
             option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-            let buttonImage = UIImage(named: "suco")
+            let buttonImage = UIImage(named: String.juiceImageButton)
             option1.setImage(buttonImage, for: .normal)
             return option1
         }()
@@ -23,7 +23,7 @@ class HotRecipeStackView: UIStackView {
             option2.imageView?.contentMode = .scaleAspectFill
             option2.clipsToBounds = true
             option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-            let buttonImage = UIImage(named: "cha")
+            let buttonImage = UIImage(named: String.teaImageButton)
             option2.setImage(buttonImage, for: .normal)
             return option2
         }()
@@ -36,7 +36,7 @@ class HotRecipeStackView: UIStackView {
             option3.imageView?.contentMode = .scaleAspectFill
             option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
             option3.clipsToBounds = true
-            let buttonImage = UIImage(named: "expresso")
+            let buttonImage = UIImage(named: String.expressImageButton)
             option3.setImage(buttonImage, for: .normal)
             
             return option3
@@ -50,7 +50,7 @@ class HotRecipeStackView: UIStackView {
             option4.imageView?.contentMode = .scaleAspectFill
             option4.clipsToBounds = true
             option4.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-            let buttonImage = UIImage(named: "refrigerante")
+            let buttonImage = UIImage(named: String.refrigeratorImageButton)
             option4.setImage(buttonImage, for: .normal)
             
             return option4

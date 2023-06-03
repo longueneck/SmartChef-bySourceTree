@@ -34,9 +34,7 @@ extension HotMealsViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-        
     }
-
 }
 
 extension HotMealsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -52,7 +50,6 @@ extension HotMealsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotMealsCollectionViewCell.identifier, for: indexPath) as? HotMealsCollectionViewCell
         cell?.setupCell(data: dataHotMeal[indexPath.row])
-        
         return cell ?? UICollectionViewCell()
     }
 }
@@ -60,7 +57,6 @@ extension HotMealsViewController: UICollectionViewDelegate, UICollectionViewData
 extension HotMealsViewController: HotMealScreenProtocol{
     
     func actionBackButton() {
-        
         self.navigationController?.popViewController(animated: true)
     }
 }
