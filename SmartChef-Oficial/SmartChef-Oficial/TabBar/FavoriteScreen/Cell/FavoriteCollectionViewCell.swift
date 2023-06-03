@@ -25,7 +25,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         return image
     }()
     
-    lazy var lbIngredients:UILabel = {
+    lazy var lbIngredients: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = String.FavoriteRecipes
@@ -43,7 +43,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         return stack
     }()
     
-    lazy var bookMark:UIButton = {
+    lazy var bookMark: UIButton = {
         var config = UIButton.Configuration.plain()
         config.image = UIImage(systemName: String.heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
@@ -54,7 +54,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         button.addTarget(self, action: #selector(tapToSaveFavorite), for: .touchUpInside)
         return button
     }()
-
+    
     lazy var timerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         return label
     }()
     
-    func configShadow(){
+    func configShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.layer.shadowOpacity = 0.4
@@ -80,7 +80,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         self.layer.masksToBounds = false
     }
     
-    private func addSubView(){
+    private func addSubView() {
         self.contentView.addSubview(self.viewGLobal)
         self.contentView.addSubview(self.lbIngredients)
         self.contentView.addSubview(self.bookMark)
@@ -90,7 +90,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         self.contentView.addSubview(self.stack1)
     }
     
-    @objc private func tapToSaveFavorite(){
+    @objc private func tapToSaveFavorite() {
         if bookMark.isSelected {
             bookMark.configuration?.image = UIImage(systemName: String.heart)
             bookMark.backgroundColor = .none
@@ -111,38 +111,38 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints(){
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             
-        viewGLobal.topAnchor.constraint(equalTo: self.topAnchor),
-        viewGLobal.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        viewGLobal.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-        viewGLobal.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            viewGLobal.topAnchor.constraint(equalTo: self.topAnchor),
+            viewGLobal.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            viewGLobal.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            viewGLobal.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-        imageRecipe.widthAnchor.constraint(equalToConstant: 80),
-        imageRecipe.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-        imageRecipe.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-        imageRecipe.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-        imageRecipe.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageRecipe.widthAnchor.constraint(equalToConstant: 80),
+            imageRecipe.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            imageRecipe.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            imageRecipe.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            imageRecipe.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-        lbIngredients.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor, constant: 7),
-        lbIngredients.topAnchor.constraint(equalTo: imageRecipe.topAnchor),
-
-        stack1.bottomAnchor.constraint(equalTo: imageRecipe.bottomAnchor,constant: -8),
-        stack1.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor, constant: 8),
-        stack1.widthAnchor.constraint(equalToConstant: 100),
-        stack1.heightAnchor.constraint(equalToConstant: 18),
-        
-        timerImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        timerImage.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor,constant: 7),
-        
-        lbTimer.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 3),
-        lbTimer.centerYAnchor.constraint(equalTo: timerImage.centerYAnchor),
-        
-        bookMark.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        bookMark.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-        bookMark.heightAnchor.constraint(equalToConstant: 50),
-        bookMark.widthAnchor.constraint(equalToConstant: 35),
+            lbIngredients.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor, constant: 7),
+            lbIngredients.topAnchor.constraint(equalTo: imageRecipe.topAnchor),
+            
+            stack1.bottomAnchor.constraint(equalTo: imageRecipe.bottomAnchor,constant: -8),
+            stack1.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor, constant: 8),
+            stack1.widthAnchor.constraint(equalToConstant: 100),
+            stack1.heightAnchor.constraint(equalToConstant: 18),
+            
+            timerImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            timerImage.leadingAnchor.constraint(equalTo: imageRecipe.trailingAnchor,constant: 7),
+            
+            lbTimer.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 3),
+            lbTimer.centerYAnchor.constraint(equalTo: timerImage.centerYAnchor),
+            
+            bookMark.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            bookMark.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            bookMark.heightAnchor.constraint(equalToConstant: 50),
+            bookMark.widthAnchor.constraint(equalToConstant: 35),
         ])
     }
 }

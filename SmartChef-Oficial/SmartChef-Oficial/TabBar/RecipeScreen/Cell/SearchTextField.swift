@@ -2,7 +2,7 @@ import UIKit
 
 class SearchTextField: UITableViewCell {
     
-    static var identifier = "CategoryUITableViewCell"
+    static var identifier = String(describing: SearchTextField.self)
     
     lazy var searchedIngredientLabel:UILabel = {
         let label = UILabel()
@@ -11,20 +11,15 @@ class SearchTextField: UITableViewCell {
         return label
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(searchedIngredientLabel)
+        addSubViews()
+        setConstraints()
         backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-        NSLayoutConstraint.activate([
-            searchedIngredientLabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
-            searchedIngredientLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -8),
-            searchedIngredientLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
-            searchedIngredientLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -8)
-        ])
+    }
+    
+    private func addSubViews() {
+        contentView.addSubview(searchedIngredientLabel)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +29,14 @@ class SearchTextField: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-        
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            searchedIngredientLabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
+            searchedIngredientLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -8),
+            searchedIngredientLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 8),
+            searchedIngredientLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -8)
+        ])
+    }
 }
 

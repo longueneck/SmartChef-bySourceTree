@@ -58,6 +58,11 @@ extension String {
 
     
     
+    //MARK: Recipe
+    
+    //RecipeScreen
+    static let SymbolMinus = "minus.circle"
+    
     
     
     
