@@ -6,7 +6,8 @@ struct HotRecipes{
 
 class HotMealsCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "HotMealsCollectionViewCell"
+    static let identifier = String(describing: HotMealsCollectionViewCell.self)
+    
     var data: [HotRecipes] = []
 
     lazy var images: UIImageView = {
