@@ -17,7 +17,6 @@ class HotMealsCollectionViewCell: UICollectionViewCell {
         image.image = UIImage(named: String.hamburgerImage)
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .blue
-
         return image
     }()
 
@@ -45,6 +44,9 @@ class HotMealsCollectionViewCell: UICollectionViewCell {
 
         ])
     }
-
-
+    
+    public func setupCell() {
+        
+    }
+    
 }

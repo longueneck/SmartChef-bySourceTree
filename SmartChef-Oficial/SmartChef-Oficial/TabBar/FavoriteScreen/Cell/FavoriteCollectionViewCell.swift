@@ -3,48 +3,35 @@ import UIKit
 
 class FavoriteCollectionViewCell: UICollectionViewCell{
     
-    static let identifier = "FavoriteCollectionViewCell"
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubView()
-        addConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    static let identifier = String(describing: FavoriteCollectionViewCell.self)
     
     lazy var viewGLobal: UIView = {
-        let name = UIView()
-        name.translatesAutoresizingMaskIntoConstraints = false
-        name.backgroundColor = .white
-        name.layer.borderWidth = 1
-        name.layer.borderColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1).cgColor
-        name.layer.cornerRadius = 10
-        
-        return name
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1).cgColor
+        view.layer.cornerRadius = 10
+        return view
     }()
     
     lazy var imageRecipe: UIImageView = {
-        let name = UIImageView()
-        name.translatesAutoresizingMaskIntoConstraints = false
-        name.image = UIImage(named: "expresso")
-        name.layer.cornerRadius = 10
-        name.contentMode = .scaleAspectFill
-        name.clipsToBounds = true
-        
-        return name
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: String.expressImage)
+        image.layer.cornerRadius = 10
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
     }()
     
     lazy var lbIngredients:UILabel = {
-        let label1 = UILabel()
-        label1.translatesAutoresizingMaskIntoConstraints = false
-        label1.text = "Receitas Favoritadas"
-        label1.font = UIFont.boldSystemFont(ofSize: 16)
-        label1.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
-        return label1
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.FavoriteRecipes
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var stack1: StarsStackView = {
@@ -53,38 +40,36 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         stack.distribution = .fillEqually
         stack.axis = .horizontal
         stack.spacing = 1
-        
         return stack
     }()
     
     lazy var bookMark:UIButton = {
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        config.image = UIImage(systemName: String.heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
-        let button2 = UIButton(configuration: config)
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        button2.isSelected = true
-        button2.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        button2.addTarget(self, action: #selector(tapToSaveFavorite), for: .touchUpInside)
-        return button2
+        let button = UIButton(configuration: config)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isSelected = true
+        button.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        button.addTarget(self, action: #selector(tapToSaveFavorite), for: .touchUpInside)
+        return button
     }()
 
-    lazy var timerImage:UIImageView = {
+    lazy var timerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "timer")
+        image.image = UIImage(systemName: String.timeImage)
         image.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         return image
     }()
     
-    lazy var lbTimer:UILabel = {
-        let lbtimer = UILabel()
-        lbtimer.translatesAutoresizingMaskIntoConstraints = false
-        lbtimer.text = "40min"
-        lbtimer.font = UIFont.boldSystemFont(ofSize: 16)
-        lbtimer.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
-        return lbtimer
+    lazy var lbTimer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.min
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     func configShadow(){
@@ -95,7 +80,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         self.layer.masksToBounds = false
     }
     
-    func addSubView(){
+    private func addSubView(){
         self.contentView.addSubview(self.viewGLobal)
         self.contentView.addSubview(self.lbIngredients)
         self.contentView.addSubview(self.bookMark)
@@ -103,23 +88,30 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         self.contentView.addSubview(self.timerImage)
         self.contentView.addSubview(self.lbTimer)
         self.contentView.addSubview(self.stack1)
-        
     }
     
     @objc private func tapToSaveFavorite(){
         if bookMark.isSelected {
-            bookMark.configuration?.image = UIImage(systemName: "heart")
+            bookMark.configuration?.image = UIImage(systemName: String.heart)
             bookMark.backgroundColor = .none
             bookMark.isSelected = false
-            
         } else {
-            
-            bookMark.configuration?.image = UIImage(systemName: "heart.fill")
+            bookMark.configuration?.image = UIImage(systemName: String.heartFill)
             bookMark.isSelected = true
         }
     }
     
-    func addConstraints(){
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubView()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setConstraints(){
         NSLayoutConstraint.activate([
             
         viewGLobal.topAnchor.constraint(equalTo: self.topAnchor),
@@ -151,7 +143,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
         bookMark.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         bookMark.heightAnchor.constraint(equalToConstant: 50),
         bookMark.widthAnchor.constraint(equalToConstant: 35),
-        
         ])
     }
 }

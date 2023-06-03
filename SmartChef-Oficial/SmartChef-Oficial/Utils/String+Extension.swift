@@ -24,7 +24,7 @@ extension String {
     //HotRecipeStackView
     static let juiceImageButton = "suco"
     static let teaImageButton = "cha"
-    static let expressImageButton = "expresso"
+    static let expressImage = "expresso"
     static let refrigeratorImageButton = "refrigerante"
     
     
@@ -47,6 +47,21 @@ extension String {
     static let ingredientsRecipeLabel = "Array of Ingredients Recipe"
     static let prepairRecipeLabel = "Prepair Mode Recipe"
     static let levelLabel = "Level"
+    
+    
+    //MARK: Favorite
+    
+    //FavoriteCell
+    static let FavoriteRecipes = "Receitas Favoritadas"
+    static let heartFill = "heart.fill"
+    static let heart = "heart."
+
+    
+    
+    
+    
+    
+    
     
     
     

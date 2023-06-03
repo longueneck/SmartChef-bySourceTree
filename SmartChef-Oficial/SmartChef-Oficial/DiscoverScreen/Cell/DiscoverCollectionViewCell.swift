@@ -5,17 +5,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     
     static let identifier = String(describing: DiscoverCollectionViewCell.self)
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubView()
-        addConstraints()
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     lazy var viewGLobal: UIView = {
         let name = UIView()
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +12,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         name.layer.borderWidth = 1
         name.layer.borderColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1).cgColor
         name.layer.cornerRadius = 10
-        
         return name
     }()
     
@@ -34,17 +22,15 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
-        
         return name
     }()
     
-    lazy var lbIngredients:UILabel = {
+    lazy var lbIngredients: UILabel = {
         let label1 = UILabel()
         label1.translatesAutoresizingMaskIntoConstraints = false
         label1.text = String.RecipeNameTitle
         label1.font = UIFont.boldSystemFont(ofSize: 16)
         label1.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
         return label1
     }()
     
@@ -54,21 +40,18 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         stack.distribution = .fillEqually
         stack.axis = .horizontal
         stack.spacing = 1
-        
         return stack
     }()
     
-    lazy var bookMark:UIButton = {
+    lazy var bookMark: UIButton = {
         let button2 = UIButton()
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.setImage(UIImage(systemName: String.forkImage), for: .normal)
         button2.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        
         return button2
     }()
 
-    
-    lazy var timerImage:UIImageView = {
+    lazy var timerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: String.timeImage)
@@ -76,17 +59,16 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         return image
     }()
     
-    lazy var lbTimer:UILabel = {
+    lazy var lbTimer: UILabel = {
         let lbtimer = UILabel()
         lbtimer.translatesAutoresizingMaskIntoConstraints = false
         lbtimer.text = String.min
         lbtimer.font = UIFont.boldSystemFont(ofSize: 16)
         lbtimer.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
         return lbtimer
     }()
     
-    func configShadow(){
+    func configShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.layer.shadowOpacity = 0.4
@@ -94,7 +76,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         self.layer.masksToBounds = false
     }
     
-    func addSubView(){
+    private func addSubView() {
         self.contentView.addSubview(self.viewGLobal)
         self.contentView.addSubview(self.lbIngredients)
         self.contentView.addSubview(self.bookMark)
@@ -102,12 +84,23 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         self.contentView.addSubview(self.timerImage)
         self.contentView.addSubview(self.lbTimer)
         self.contentView.addSubview(self.stack1)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubView()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setupCell() {
         
     }
     
-    
-    
-    func addConstraints(){
+    private func setConstraints(){
         NSLayoutConstraint.activate([
             
         viewGLobal.topAnchor.constraint(equalTo: self.topAnchor),
@@ -139,8 +132,6 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
         bookMark.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         bookMark.heightAnchor.constraint(equalToConstant: 35),
         bookMark.widthAnchor.constraint(equalToConstant: 35),
-        
-        
         ])
     }
 }

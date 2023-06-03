@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 protocol InsertedIngredientsViewCellProtocol {
-    
     func removeIngredients(index: Int)
 }
 

@@ -88,8 +88,4 @@ extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
-        
-    }
 }
