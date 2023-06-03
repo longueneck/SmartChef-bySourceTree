@@ -6,14 +6,14 @@ struct PrepairRecipes{
 
 class PrepairCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "PrepairCollectionViewCell"
+    static let identifier = String(describing: PrepairCollectionViewCell.self)
     var data: [PrepairRecipes] = []
 
     lazy var recipePrepairImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "hamburger")
+        image.image = UIImage(named: String.hamburgerImage)
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .blue
         image.clipsToBounds = true
@@ -22,83 +22,82 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     }()
     
         lazy var recipeNameLabel: UILabel = {
-            let page = UILabel()
-            page.translatesAutoresizingMaskIntoConstraints = false
-            page.text = "Name Recipe"
-            page.font = UIFont.systemFont(ofSize: 17)
-            page.numberOfLines = 0
-            page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-            return page
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = String.nameRecipeLabel
+            label.font = UIFont.systemFont(ofSize: 17)
+            label.numberOfLines = 0
+            label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+            return label
         }()
     
     lazy var typeRecipeLabel: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Type Recipe"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.typeRecipeLabel
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var timingToCook: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "40 min"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.min
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var descriptionRecipeLabel: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Description Recipe"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.descriptonRecipeLabel
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var ingredientsRecipeLabel: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Array of Ingredients Recipe"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.ingredientsRecipeLabel
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var prepareModeLabel: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Prepair Mode Recipe"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.prepairRecipeLabel
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var prepairLevelLabel: UILabel = {
-        let page = UILabel()
-        page.translatesAutoresizingMaskIntoConstraints = false
-        page.text = "Level"
-        page.font = UIFont.systemFont(ofSize: 17)
-        page.numberOfLines = 0
-        page.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return page
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.levelLabel
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubViews()
         setConstraints()
     }
     
-    func addSubViews(){
+    private func addSubViews(){
         self.contentView.addSubview(self.recipePrepairImage)
         self.contentView.addSubview(self.recipeNameLabel)
         self.contentView.addSubview(self.typeRecipeLabel)
@@ -107,11 +106,10 @@ class PrepairCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(self.ingredientsRecipeLabel)//
         self.contentView.addSubview(self.prepareModeLabel)
         self.contentView.addSubview(self.prepairLevelLabel)
-        
     }
 
     public func setupCell(data: PrepairRecipes){
-        self.recipePrepairImage.image = UIImage(named: data.nameImage)
+        recipePrepairImage.image = UIImage(named: data.nameImage)
     }
 
     required init?(coder: NSCoder) {
@@ -149,7 +147,5 @@ class PrepairCollectionViewCell: UICollectionViewCell {
             
         ])
     }
-
-
 }
 

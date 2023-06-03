@@ -38,6 +38,15 @@ extension String {
     static let min = "40min"
     
     
+    //MARK: Prepair
+    
+    //PrepairCell
+    static let nameRecipeLabel = "Name Recipe"
+    static let typeRecipeLabel = "Type Recipe"
+    static let descriptonRecipeLabel = "Description Recipe"
+    static let ingredientsRecipeLabel = "Array of Ingredients Recipe"
+    static let prepairRecipeLabel = "Prepair Mode Recipe"
+    static let levelLabel = "Level"
     
     
     
