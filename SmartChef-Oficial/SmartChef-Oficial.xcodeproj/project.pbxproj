@@ -561,18 +561,10 @@
 		C4CC786529F83A230055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC786829F83A370055DC8A /* Screen */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C4CC786829F83A370055DC8A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
 				63C6786629D463ED00658E88 /* FavoriteScreen.swift */,
 				63C6786829D463FC00658E88 /* FavoriteViewController.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C4CC786A29F83A6A0055DC8A /* View */ = {

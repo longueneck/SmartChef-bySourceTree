@@ -3,7 +3,7 @@ import UIKit
 class PrepairScreen: UIView {
     
     lazy var collectionHot: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init() )
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.layer.cornerRadius = 10
         collection.backgroundColor = .clear
@@ -15,6 +15,21 @@ class PrepairScreen: UIView {
         collection.setCollectionViewLayout(layout, animated: true)
         return collection
     }()
+    
+//    lazy var collectionView: UICollectionView = {
+//            let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout:
+//                                                UICollectionViewLayout.init())
+//            collection.translatesAutoresizingMaskIntoConstraints = false
+//            collection.showsHorizontalScrollIndicator = false
+//            collection.backgroundColor = .clear
+//            collection.delaysContentTouches = false
+//            collection.register(FamousCollectionViewCell.self, forCellWithReuseIdentifier: FamousCollectionViewCell.identifier)
+//            let layout :UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+//            layout.scrollDirection = .horizontal
+//            layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+//            collection.setCollectionViewLayout(layout, animated: false)
+//            return collection
+//        }()
       
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,29 +48,18 @@ class PrepairScreen: UIView {
     
     private func addViews()
     {
-//        self.addSubview(self.recipePrepairImage)
-//        self.addSubview(self.recipeNameLabel)
+
         self.addSubview(self.collectionHot)
     }
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
             
-//            recipePrepairImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-//            recipePrepairImage.heightAnchor.constraint(equalToConstant: 180),
-//            recipePrepairImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            recipePrepairImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//
-//            recipeNameLabel.centerXAnchor.constraint(equalTo: recipePrepairImage.centerXAnchor),
-//            recipeNameLabel.topAnchor.constraint(equalTo: recipePrepairImage.bottomAnchor, constant: 15),
-
-            collectionHot.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            collectionHot.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
             collectionHot.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionHot.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionHot.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-            
-         
-            
+            collectionHot.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50)
+        
         ])
     }
     
