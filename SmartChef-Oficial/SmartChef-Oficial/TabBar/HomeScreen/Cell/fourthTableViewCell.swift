@@ -1,10 +1,10 @@
 import UIKit
 
-class fourthUITableViewCell: UITableViewCell {
+class RecommendDrinkTableViewCell: UITableViewCell {
     
     var viewModel: HomeViewModel = HomeViewModel()
     
-    static var identifier = "fourthUITableViewCell"
+    static var identifier = "RecommendDrinkTableViewCell"
     
     lazy var firstLabel: UILabel = {
         let text = UILabel()
@@ -73,7 +73,7 @@ class fourthUITableViewCell: UITableViewCell {
     }
 }
 
-extension fourthUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension RecommendDrinkTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.generateRandomRecipes().count

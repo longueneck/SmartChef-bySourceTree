@@ -5,7 +5,7 @@ protocol thirdTableViewCellProtocol: AnyObject{
     func tapToMain()
 }
 
-class thirdUITableViewCell: UITableViewCell {
+class ChooseIngredientsTableViewCell: UITableViewCell {
     
     weak private var viewCellProtocol: thirdTableViewCellProtocol?
     
@@ -15,7 +15,7 @@ class thirdUITableViewCell: UITableViewCell {
     
     var homeScreen: HomeScreen?
     
-    static var identifier = "thirdUITableViewCell"
+    static var identifier = "ChooseIngredientsTableViewCell"
     
     lazy var myIngredientsButton: UIButton = {
            let ingredients = UIButton()

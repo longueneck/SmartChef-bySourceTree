@@ -1,10 +1,11 @@
 import UIKit
 
-class secondUITableViewCell: UITableViewCell {
+
+class MostVisitedTableViewCell: UITableViewCell {
     
     var viewModel: HomeViewModel = HomeViewModel()
     
-    static var identifier = "secondUITableViewCell"
+    static var identifier = "MostVisitedTableViewCell"
     
     lazy var firstLabel: UILabel = {
         let text = UILabel()
@@ -68,7 +69,7 @@ class secondUITableViewCell: UITableViewCell {
     }
 }
 
-extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension MostVisitedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.generateRandomRecipes().count
@@ -89,7 +90,19 @@ extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
-        
+        switch indexPath {
+        case indexPath where indexPath.row == 0:
+            break
+        case indexPath where indexPath.row == 1:
+            break
+        case indexPath where indexPath.row == 2:
+            break
+        case indexPath where indexPath.row == 3:
+            break
+        case indexPath where indexPath.row == 4:
+            break
+        default:
+            break
+        }
     }
 }

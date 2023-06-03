@@ -7,6 +7,31 @@ protocol HomeViewControllerProtocol: AnyObject{
     func navToScreen()
 }
 
+enum CellType: Int {
+    case category = 0
+    case mostVisited = 1
+    case chooseIngredients = 2
+    case recomendDrinks = 3
+    
+    var identifier: String {
+        switch self {
+        case .category: return CategoryTableViewCell.identifier
+        case .mostVisited: return MostVisitedTableViewCell.identifier
+        case .chooseIngredients: return ChooseIngredientsTableViewCell.identifier
+        case .recomendDrinks: return RecommendDrinkTableViewCell.identifier
+        }
+    }
+    
+    var size: CGFloat {
+        switch self {
+        case .category: return 130
+        case .mostVisited: return 200
+        case .chooseIngredients: return 45
+        case .recomendDrinks: return 170
+        }
+    }
+}
+
 class HomeViewController: UIViewController{
     
     weak private var delegate: HomeViewControllerProtocol?
@@ -88,56 +113,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         return 4  }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
-            return 130
-        }
-        if indexPath.row == 1{
-            return 200
-        }
-        if indexPath.row == 2{
-            return 45
-        }
-        if indexPath.row == 3{
-            return 170
-        }
-        if indexPath.row == 4{
-            return 150
-        }
-            return 0
+        
+        guard let celltype = CellType(rawValue: indexPath.row) else {return CGFloat()}
+        return celltype.size
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
         
-        switch indexPath.row {
-        case 0:
-            if let cell2 = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell {
-                
-                cell2.delegate = self
-                return cell2
-            }
-            break
-        case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
-            break
-        case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath) as? thirdUITableViewCell ?? UITableViewCell()
-            break
-        case 3:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fourthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
-            break
-        case 4:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fifthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
-            break
-        default:
-            cell = UITableViewCell()
-            break
+        guard let celltype = CellType(rawValue: indexPath.row) else {return UITableViewCell()}
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: celltype.identifier, for: indexPath)
+        
+        if let cell = cell as? CategoryTableViewCell {
+            cell.delegate = self
         }
+        
         return cell
     }
 }
 
-extension HomeViewController: firstUITableViewCellProtocol{
+extension HomeViewController: CategoryTableViewCellProtocol{
     func goToAhotherView() {
         navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }

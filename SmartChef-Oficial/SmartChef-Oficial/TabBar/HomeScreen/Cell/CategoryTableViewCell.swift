@@ -1,17 +1,16 @@
 import UIKit
 
-protocol firstUITableViewCellProtocol{
+protocol CategoryTableViewCellProtocol{
     func goToAhotherView()
 }
 
-class firstUITableViewCell: UITableViewCell {
+class CategoryTableViewCell: UITableViewCell {
     
-    var delegate: firstUITableViewCellProtocol?
-    
+    var delegate: CategoryTableViewCellProtocol?
     var homeScreen: HomeScreen?
     var stackView: RecipeStackView?
     
-    static var identifier = "firstUITableViewCell"
+    static let identifier = "CategoryTableViewCell"
     
     lazy var firstLabel: UILabel = {
         let text = UILabel()
@@ -50,7 +49,7 @@ class firstUITableViewCell: UITableViewCell {
     }
 }
 
-extension firstUITableViewCell: RecipeStackViewDelegate{
+extension CategoryTableViewCell: RecipeStackViewDelegate{
     func tapGoToTypeRecipe() {
         delegate?.goToAhotherView()
     }
