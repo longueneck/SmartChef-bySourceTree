@@ -1,10 +1,15 @@
 import UIKit
 
+protocol RecommendDrinkTableViewCellProtocol: AnyObject {
+    func tapToRecommendScreen()
+}
+
 class RecommendDrinkTableViewCell: UITableViewCell {
     
-    var viewModel: HomeViewModel = HomeViewModel()
-    
     static var identifier = "RecommendDrinkTableViewCell"
+    weak var recommendDelegate: RecommendDrinkTableViewCellProtocol?
+    
+    var viewModel: HomeViewModel = HomeViewModel()
     
     lazy var firstLabel: UILabel = {
         let text = UILabel()
@@ -90,5 +95,9 @@ extension RecommendDrinkTableViewCell: UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell
         cell?.setupCell(recipe: viewModel.generateRandomRecipes()[indexPath.row])
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        recommendDelegate?.tapToRecommendScreen()
     }
 }

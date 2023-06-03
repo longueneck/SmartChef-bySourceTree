@@ -1,20 +1,12 @@
 import UIKit
 
-protocol thirdTableViewCellProtocol: AnyObject{
-    
-    func tapToMain()
+protocol ChooseIngredientsDelegate: AnyObject {
+    func tapToSearchRecipes()
 }
 
 class ChooseIngredientsTableViewCell: UITableViewCell {
     
-    weak private var viewCellProtocol: thirdTableViewCellProtocol?
-    
-    func delegate(delegate: thirdTableViewCellProtocol){
-        self.viewCellProtocol = delegate
-    }
-    
-    var homeScreen: HomeScreen?
-    
+    var chooseIngredientsDelegate: ChooseIngredientsDelegate?
     static var identifier = "ChooseIngredientsTableViewCell"
     
     lazy var myIngredientsButton: UIButton = {
@@ -25,17 +17,18 @@ class ChooseIngredientsTableViewCell: UITableViewCell {
            ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
            ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
            ingredients.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-           ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+           ingredients.addTarget(self, action: #selector(tapToMainView), for: .touchUpInside)
            return ingredients
        }()
     
-    @objc func goToMain(){
-        viewCellProtocol?.tapToMain()
+    @objc func tapToMainView(){
+        chooseIngredientsDelegate?.tapToSearchRecipes()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.addSubview(self.myIngredientsButton)
+        addSubview(self.myIngredientsButton)
+        
         NSLayoutConstraint.activate([
             myIngredientsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             myIngredientsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),

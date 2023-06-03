@@ -100,12 +100,6 @@ extension HomeViewController: UITextFieldDelegate{
     }
 }
 
-extension HomeViewController: thirdTableViewCellProtocol{
-    func tapToMain() {
-        delegate?.navToScreen()
-    }
-}
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4  }
@@ -130,7 +124,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.mostVisitedDelegate = self
         }
         
+        if let cell = cell as? ChooseIngredientsTableViewCell {
+            cell.chooseIngredientsDelegate = self
+        }
+        
+        if let cell = cell as? RecommendDrinkTableViewCell {
+            cell.recommendDelegate = self
+        }
+        
         return cell
+    }
+}
+
+extension HomeViewController: ChooseIngredientsDelegate {
+    func tapToSearchRecipes() {
+        tabBarController?.selectedIndex = 1
     }
 }
 
@@ -142,7 +150,12 @@ extension HomeViewController: CategoryTableViewCellProtocol{
 
 extension HomeViewController: MostVisitedTableViewCellProtocol {
     func tapToMostVisitedScreen() {
-        self.navigationController?.pushViewController(PrepairViewController(), animated: true)
+        navigationController?.pushViewController(PrepairViewController(), animated: true)
     }
 }
 
+extension HomeViewController: RecommendDrinkTableViewCellProtocol {
+    func tapToRecommendScreen() {
+        navigationController?.pushViewController(PrepairViewController(), animated: true)
+    }
+}
