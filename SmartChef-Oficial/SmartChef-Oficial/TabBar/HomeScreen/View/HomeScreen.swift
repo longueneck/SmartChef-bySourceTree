@@ -17,68 +17,68 @@ class HomeScreen: UIView {
     lazy var initialLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = 
-        label.font = UIFont(name: "Nice Sugar", size: 18)
+        label.text = String.discoverNewRecipes
+        label.font = UIFont(name: String.niceSugarFont, size: 18)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
     }()
     
     lazy var searchRecipeTextField: UITextField = {
-        let search = UITextField()
-        search.translatesAutoresizingMaskIntoConstraints = false
-        search.placeholder = "  Pesquise por receitas"
-        search.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        search.layer.shadowColor = UIColor.black.cgColor
-        search.layer.shadowOpacity = 0.1
-        search.layer.shadowOffset = CGSize(width: 0, height: 2)
-        search.layer.shadowRadius = 2
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: search.frame.height))
-        search.leftView = paddingView
-        search.leftViewMode = .always
-        search.layer.cornerRadius = 10
-        return search
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = String.searchForRecipes
+        textField.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowOpacity = 0.1
+        textField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        textField.layer.shadowRadius = 2
+        textField.leftViewMode = .always
+        textField.layer.cornerRadius = 10
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = paddingView
+        return textField
     }()
     
     lazy var mainTableView: UITableView = {
-        let tView:UITableView = UITableView()
-        tView.translatesAutoresizingMaskIntoConstraints = false
-        tView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
-        tView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
-        tView.register(thirdUITableViewCell.self, forCellReuseIdentifier: thirdUITableViewCell.identifier)
-        tView.register(fourthUITableViewCell.self, forCellReuseIdentifier: fourthUITableViewCell.identifier)
-        tView.separatorStyle = .none
-        tView.backgroundColor = UIColor.red
-        tView.layer.cornerRadius = 20
-        tView.allowsSelection = false
-        tView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        tView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
-        return tView
+        let tableView:UITableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
+        tableView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
+        tableView.register(thirdUITableViewCell.self, forCellReuseIdentifier: thirdUITableViewCell.identifier)
+        tableView.register(fourthUITableViewCell.self, forCellReuseIdentifier: fourthUITableViewCell.identifier)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.red
+        tableView.layer.cornerRadius = 20
+        tableView.allowsSelection = false
+        tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        tableView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        return tableView
     }()
-       
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addViews()
-        addConstraints()
+        addSubViews()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         mainTableView.delegate = delegate
         mainTableView.dataSource = dataSource
     }
     
-    private func addViews(){
+    private func addSubViews(){
         self.addSubview(self.yellowSeparatorView)
         self.addSubview(self.initialLabel)
         self.addSubview(self.searchRecipeTextField)
         self.addSubview(self.mainTableView)
     }
     
-    private func addConstraints(){
+    private func setConstraints(){
         NSLayoutConstraint.activate([
             
             yellowSeparatorView.topAnchor.constraint(equalTo: self.topAnchor, constant: -30),
@@ -99,8 +99,6 @@ class HomeScreen: UIView {
             mainTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                        
         ])
     }
-    
 }
