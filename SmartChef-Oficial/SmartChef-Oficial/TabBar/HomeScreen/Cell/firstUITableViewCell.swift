@@ -6,20 +6,20 @@ protocol firstUITableViewCellProtocol{
 
 class firstUITableViewCell: UITableViewCell {
     
+    static var identifier = String(describing: firstUITableViewCell.self)
+    
     var delegate: firstUITableViewCellProtocol?
     
     var homeScreen: HomeScreen?
     var stackView: RecipeStackView?
     
-    static var identifier = "firstUITableViewCell"
-    
     lazy var firstLabel: UILabel = {
-        let text = UILabel()
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Categorias"
-        text.font = UIFont(name: "Nice Sugar", size: 18)
-        text.textColor = Color.Global.brownBase
-    return text
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.CategoriasLabel
+        label.font = UIFont(name: String.niceSugarFont, size: 18)
+        label.textColor = Color.Global.brownBase
+        return label
     }()
     
     lazy var typeRecipeStackView: RecipeStackView = {
@@ -30,12 +30,20 @@ class firstUITableViewCell: UITableViewCell {
         stack.spacing = 12
         return stack
     }()
-  
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        typeRecipeStackView.delegate = self
+        addSubViews()
+        configConstraints()
+    }
+    
+    private func addSubViews() {
         self.addSubview(self.firstLabel)
         self.addSubview(self.typeRecipeStackView)
-        typeRecipeStackView.delegate = self
+    }
+    
+    private func configConstraints() {
         NSLayoutConstraint.activate([
             
             firstLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
@@ -54,5 +62,4 @@ extension firstUITableViewCell: RecipeStackViewDelegate{
     func tapGoToTypeRecipe() {
         delegate?.goToAhotherView()
     }
-    
 }

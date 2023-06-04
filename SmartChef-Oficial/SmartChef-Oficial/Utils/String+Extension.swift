@@ -81,6 +81,12 @@ extension String {
     
     
     
+    //MARK: Home
+    
+    //firstUITableViewCell
+    static let CategoriasLabel = "Categorias"
+    static let niceSugarFont = "Nice Sugar"
+    
     
     
     
