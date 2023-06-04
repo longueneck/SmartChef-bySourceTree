@@ -1,11 +1,12 @@
 import UIKit
 
-protocol thirdTableViewCellProtocol: AnyObject{
-    
+protocol thirdTableViewCellProtocol: AnyObject {
     func tapToMain()
 }
 
 class thirdUITableViewCell: UITableViewCell {
+    
+    static var identifier = String(describing: thirdUITableViewCell.self)
     
     weak private var viewCellProtocol: thirdTableViewCellProtocol?
     
@@ -15,19 +16,17 @@ class thirdUITableViewCell: UITableViewCell {
     
     var homeScreen: HomeScreen?
     
-    static var identifier = "thirdUITableViewCell"
-    
     lazy var myIngredientsButton: UIButton = {
-           let ingredients = UIButton()
-           ingredients.translatesAutoresizingMaskIntoConstraints = false
-           ingredients.layer.cornerRadius = 8
-        ingredients.backgroundColor = Color.Global.yellowBase
-           ingredients.setTitle("Receitas com meus ingredientes", for: .normal)
-           ingredients.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-           ingredients.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-           ingredients.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
-           return ingredients
-       }()
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 8
+        button.backgroundColor = Color.Global.yellowBase
+        button.setTitle("Receitas com meus ingredientes", for: .normal)
+        button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+        return button
+    }()
     
     @objc func goToMain(){
         viewCellProtocol?.tapToMain()
@@ -43,9 +42,4 @@ class thirdUITableViewCell: UITableViewCell {
             myIngredientsButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
-    
-    
-    
-    
-    
 }
