@@ -6,7 +6,7 @@ protocol thirdTableViewCellProtocol: AnyObject {
 
 class thirdUITableViewCell: UITableViewCell {
     
-    static var identifier = String(describing: thirdUITableViewCell.self)
+    static let identifier = String(describing: thirdUITableViewCell.self)
     
     weak private var viewCellProtocol: thirdTableViewCellProtocol?
     

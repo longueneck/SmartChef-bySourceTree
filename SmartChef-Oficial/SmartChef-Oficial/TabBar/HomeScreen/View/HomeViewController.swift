@@ -1,9 +1,7 @@
 import Foundation
 import UIKit
 
-
 protocol HomeViewControllerProtocol: AnyObject{
-    
     func navToScreen()
 }
 
@@ -17,7 +15,7 @@ class HomeViewController: UIViewController{
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
     
-     var randomRecipes: [Recipes] = []
+    var randomRecipes: [Recipes] = []
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -59,15 +57,15 @@ class HomeViewController: UIViewController{
 }
 
 extension HomeViewController: UITextFieldDelegate{
-        
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         wrapperView?.startANimation()
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         wrapperView?.reverseAnimation()
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text, !text.isEmpty {
@@ -85,25 +83,26 @@ extension HomeViewController: thirdTableViewCellProtocol{
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4  }
+        return 4
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
             return 130
         }
         if indexPath.row == 1{
-            return 200
+            return 230
         }
         if indexPath.row == 2{
             return 45
         }
         if indexPath.row == 3{
-            return 170
+            return 250
         }
         if indexPath.row == 4{
-            return 200
+            return 150
         }
-            return 0
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,23 +110,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch indexPath.row {
         case 0:
-            if let cell2 = tableView.dequeueReusableCell(withIdentifier: "firstUITableViewCell", for: indexPath) as? firstUITableViewCell {
+            if let cell2 = tableView.dequeueReusableCell(withIdentifier: firstUITableViewCell.identifier, for: indexPath) as? firstUITableViewCell {
                 
                 cell2.delegate = self
                 return cell2
             }
             break
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "secondUITableViewCell", for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: secondUITableViewCell.identifier, for: indexPath) as? secondUITableViewCell ?? UITableViewCell()
             break
         case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: "thirdUITableViewCell", for: indexPath) as? thirdUITableViewCell ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: thirdUITableViewCell.identifier, for: indexPath) as? thirdUITableViewCell ?? UITableViewCell()
             break
         case 3:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fourthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: fourthUITableViewCell.identifier, for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
             break
         case 4:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fifthUITableViewCell", for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: fifthUITableViewCell.identefier, for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
             break
         default:
             cell = UITableViewCell()
@@ -141,7 +140,5 @@ extension HomeViewController: firstUITableViewCellProtocol{
     func goToAhotherView() {
         navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }
-    
-    
 }
 

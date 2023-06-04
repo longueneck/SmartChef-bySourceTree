@@ -2,7 +2,7 @@ import UIKit
 
 class fourthUITableViewCell: UITableViewCell {
     
-    static var identifier = String(describing: fourthUITableViewCell.self)
+    static let identifier = String(describing: fourthUITableViewCell.self)
     
     var viewModel: HomeViewModel = HomeViewModel()
     
@@ -14,7 +14,6 @@ class fourthUITableViewCell: UITableViewCell {
         label.textColor = Color.Global.brownBase
         return label
     }()
-    
     
     lazy var oneCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
@@ -85,8 +84,8 @@ extension fourthUITableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = 250
-//        let height = collectionView.frame.height
-        return CGSize(width: width, height: 250)
+        let height = collectionView.frame.height
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

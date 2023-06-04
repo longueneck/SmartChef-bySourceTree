@@ -27,6 +27,6 @@ class DrinkRecipeStackViewModel{
     }
     
     func countDrinkRecipes() -> Int{
-        drinkRecipeList.count
+        drinkRecipeList.endIndex
     }
 }

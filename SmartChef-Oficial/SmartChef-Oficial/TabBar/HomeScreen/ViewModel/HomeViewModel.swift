@@ -28,7 +28,7 @@ class HomeViewModel{
     }
     
     func countRecipes() -> Int{
-        hotRecipes.count
+        hotRecipes.endIndex
     }
     
     public func loadCurrentRecipeSearch(indexPath: IndexPath) -> String {
@@ -49,6 +49,5 @@ class HomeViewModel{
     public func getRecipe(indexPath: IndexPath) -> Recipes {
         return hotRecipes[indexPath.row]
     }
-    
 }
 

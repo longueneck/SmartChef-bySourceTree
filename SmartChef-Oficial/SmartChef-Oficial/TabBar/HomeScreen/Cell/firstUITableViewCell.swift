@@ -6,7 +6,7 @@ protocol firstUITableViewCellProtocol{
 
 class firstUITableViewCell: UITableViewCell {
     
-    static var identifier = String(describing: firstUITableViewCell.self)
+    static let identifier = String(describing: firstUITableViewCell.self)
     
     var delegate: firstUITableViewCellProtocol?
     

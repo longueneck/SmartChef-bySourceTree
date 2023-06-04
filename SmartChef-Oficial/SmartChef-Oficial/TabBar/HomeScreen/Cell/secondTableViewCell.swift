@@ -2,7 +2,7 @@ import UIKit
 
 class secondUITableViewCell: UITableViewCell {
     
-    static var identifier = String(describing: secondUITableViewCell.self)
+    static let identifier = String(describing: secondUITableViewCell.self)
     
     var viewModel: HomeViewModel = HomeViewModel()
     
