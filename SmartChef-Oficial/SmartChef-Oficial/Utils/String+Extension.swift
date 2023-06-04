@@ -50,8 +50,7 @@ extension String {
     
     
     //MARK: Favorite
-    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
-    static let searchForRecipes = "  Pesquise por receitas"
+    
     
     //FavoriteCell
     static let FavoriteRecipes = "Receitas Favoritadas"
@@ -84,6 +83,9 @@ extension String {
     
     
     //MARK: Home
+    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
+    static let searchForRecipes = "  Pesquise por receitas"
+    static let recipeIngredientsTitle = "Receitas com meus ingredientes"
     
     //firstUITableViewCell
     static let CategoriasLabel = "Categorias"
