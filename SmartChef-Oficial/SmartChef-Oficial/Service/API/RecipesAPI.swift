@@ -3,7 +3,7 @@ import Foundation
 
 class RecipesAPI{
     
-    private let recipeURL = "recipes"
+    private let recipeURL = "recipe"
     
     func getAllProducts(closure: @escaping([Ingredient]? , APIErrors?) -> Void ){
         guard let url = URL(string: "\(StaticSession.baseURL)\(recipeURL)") else {
