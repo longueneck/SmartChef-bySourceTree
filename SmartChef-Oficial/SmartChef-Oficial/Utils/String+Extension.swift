@@ -87,9 +87,10 @@ extension String {
     static let searchForRecipes = "  Pesquise por receitas"
     static let recipeIngredientsTitle = "Receitas com meus ingredientes"
     
-    //firstUITableViewCell
+    //homeCells
     static let CategoriasLabel = "Categorias"
     static let niceSugarFont = "Nice Sugar"
+    static let tryTheseDrinks = "Experimente estas bebidas"
     
     
     

@@ -2,25 +2,25 @@ import UIKit
 
 class fourthUITableViewCell: UITableViewCell {
     
+    static var identifier = String(describing: fourthUITableViewCell.self)
+    
     var viewModel: HomeViewModel = HomeViewModel()
     
-    static var identifier = "fourthUITableViewCell"
-    
     lazy var firstLabel: UILabel = {
-        let text = UILabel()
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Experimente estas bebidas"
-        text.font = UIFont(name: "Nice Sugar", size: 18)
-        text.textColor = Color.Global.brownBase
-    return text
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String.tryTheseDrinks
+        label.font = UIFont(name: String.niceSugarFont, size: 18)
+        label.textColor = Color.Global.brownBase
+        return label
     }()
     
     
     lazy var oneCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-            layout.minimumLineSpacing = 10
-            layout.minimumInteritemSpacing = 10
-            layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init())
         collection.register(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: DrinkCollectionViewCell.identifier)
         collection.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
@@ -38,10 +38,13 @@ class fourthUITableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubViews()
+        configDelegate()
+    }
+    
+    private func addSubViews() {
         self.addSubview(self.firstLabel)
         self.contentView.addSubview(self.oneCollectionView)
-
-        configDelegate()
     }
     
     required init?(coder: NSCoder) {
@@ -56,7 +59,10 @@ class fourthUITableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+        configConstraints()
+    }
+    
+    private func configConstraints() {
         NSLayoutConstraint.activate([
             
             firstLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
@@ -67,8 +73,6 @@ class fourthUITableViewCell: UITableViewCell {
             oneCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             oneCollectionView.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
             oneCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-           
         ])
     }
 }
@@ -80,15 +84,16 @@ extension fourthUITableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width * 0.7
-        let height = collectionView.frame.height * 1
-        
-        return CGSize(width: width, height: height)
+        let width: CGFloat = 250
+//        let height = collectionView.frame.height
+        return CGSize(width: width, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell
-        cell?.setupCell(recipe: viewModel.generateRandomRecipes()[indexPath.row])
-        return cell ?? UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.setupCell(recipe: viewModel.generateRandomRecipes()[indexPath.row])
+        return cell
     }
 }
