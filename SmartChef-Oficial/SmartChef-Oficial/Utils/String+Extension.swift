@@ -50,6 +50,7 @@ extension String {
     
     
     //MARK: Favorite
+    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
     
     //FavoriteCell
     static let FavoriteRecipes = "Receitas Favoritadas"

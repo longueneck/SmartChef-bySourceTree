@@ -3,25 +3,25 @@ import UIKit
 class HomeScreen: UIView {
     
     lazy var yellowSeparatorView: UIView = {
-        let separator = UIView()
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.backgroundColor = Color.Global.yellowBase
-        separator.layer.cornerRadius = 20
-        separator.layer.shadowColor = UIColor.black.cgColor
-        separator.layer.shadowOpacity = 0.5
-        separator.layer.shadowOffset = CGSize(width: 2, height: 2)
-        separator.layer.shadowRadius = 4
-        return separator
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Color.Global.yellowBase
+        view.layer.cornerRadius = 20
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 2, height: 2)
+        view.layer.shadowRadius = 4
+        return view
     }()
     
     lazy var initialLabel: UILabel = {
-        let initial = UILabel()
-        initial.translatesAutoresizingMaskIntoConstraints = false
-        initial.text = "Descubra novas eceitas e divirta-se na cozinha!"
-        initial.font = UIFont(name: "Nice Sugar", size: 18)
-        initial.numberOfLines = 0
-        initial.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        return initial
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = 
+        label.font = UIFont(name: "Nice Sugar", size: 18)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        return label
     }()
     
     lazy var searchRecipeTextField: UITextField = {
