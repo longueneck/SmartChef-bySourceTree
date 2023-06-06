@@ -97,10 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             return 45
         }
         if indexPath.row == 3{
-            return 250
-        }
-        if indexPath.row == 4{
-            return 150
+            return 170
         }
         return 0
     }
@@ -124,9 +121,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             break
         case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: fourthUITableViewCell.identifier, for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
-            break
-        case 4:
-            cell = tableView.dequeueReusableCell(withIdentifier: fifthUITableViewCell.identefier, for: indexPath) as? fourthUITableViewCell ?? UITableViewCell()
             break
         default:
             cell = UITableViewCell()
