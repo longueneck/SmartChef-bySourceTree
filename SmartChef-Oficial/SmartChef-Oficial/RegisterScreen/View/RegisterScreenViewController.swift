@@ -1,5 +1,3 @@
-
-import Foundation
 import UIKit
 import FirebaseAuth
 
@@ -73,12 +71,9 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
                 print("Erro ao cadastrar")
             }else{
                 print("Sucesso ao cadastrar")
+                self.navigationController?.pushViewController(vc, animated: true)
             }
-        
         })
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 

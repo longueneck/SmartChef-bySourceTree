@@ -3,6 +3,7 @@ import OSLog
 
 class RecipeViewController: UIViewController{
     
+    var emptyState: EmptyStateView?
     var recipeViewModel: RecipeViewModel = RecipeViewModel()
     var screen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
@@ -44,11 +45,26 @@ class RecipeViewController: UIViewController{
         wrapperView = WrapperViewAnimation(target: screen.addIngredientTextField)
     }
     
+    func showEmptyState() {
+            if emptyState == nil {
+                emptyState = EmptyStateView(frame: (screen?.insertedIngredientTableView.bounds)!)
+                emptyState?.imageView.image = UIImage(named: "logo")
+                screen?.insertedIngredientTableView.addSubview(emptyState!)
+                screen?.insertedIngredientTableView.separatorStyle = .none
+            }
+            emptyState?.isHidden = false
+        }
+        
+        func hideEmptyState() {
+            emptyState?.isHidden = true
+            screen?.insertedIngredientTableView.separatorStyle = .singleLine
+        }
+    
 
     public func errorAPI(_ error: Error){
         print(error)
         let osLog = OSLog(subsystem: "KevinLongue", category: "RecipeViewController")
-        os_log("Teste xereca", log: osLog)
+        
         
         DispatchQueue.main.async {
             
@@ -89,7 +105,6 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return recipeViewModel.countSelectedIngredients()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,6 +129,7 @@ extension RecipeViewController: InsertedIngredientsViewCellProtocol{
     func removeIngredients(index: Int) {
         recipeViewModel.deleteSelectedIngredient(index: index)
         screen?.insertedIngredientTableView.reloadData()
+        showEmptyState()
     }
 }
 

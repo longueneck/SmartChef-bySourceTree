@@ -1,10 +1,3 @@
-//
-//  Enum+String.swift
-//  SmartChef-Oficial
-//
-//  Created by Gabriel Mors  on 03/06/23.
-//
-
 import Foundation
 
 extension String {
@@ -27,7 +20,6 @@ extension String {
     static let expressImage = "expresso"
     static let refrigeratorImageButton = "refrigerante"
     
-    
     //MARK: DiscoverScreen
     static let discoverRecipeTitle = "< Descubrir Receitas >"
     //DiscoverCell
@@ -37,9 +29,7 @@ extension String {
     static let timeImage = "timer"
     static let min = "40min"
     
-    
     //MARK: Prepair
-    
     //PrepairCell
     static let nameRecipeLabel = "Name Recipe"
     static let typeRecipeLabel = "Type Recipe"
@@ -48,22 +38,15 @@ extension String {
     static let prepairRecipeLabel = "Prepair Mode Recipe"
     static let levelLabel = "Level"
     
-    
     //MARK: Favorite
-    
-    
     //FavoriteCell
     static let FavoriteRecipes = "Receitas Favoritadas"
     static let heartFill = "heart.fill"
     static let heart = "heart."
 
-    
-    
     //MARK: Recipe
-    
     //RecipeScreen
     static let SymbolMinus = "minus.circle"
-    
     
     //MARK: profile
     static let cancel = "Cancelar"
@@ -79,24 +62,20 @@ extension String {
     static let emailTitleLabel = "Email"
     static let passwordTitleLabel = "Senha"
     
-    
-    
-    
     //MARK: Home
     static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
     static let searchForRecipes = "  Pesquise por receitas"
     static let recipeIngredientsTitle = "Receitas com meus ingredientes"
-    
     //homeCells
     static let CategoriasLabel = "Categorias"
     static let niceSugarFont = "Nice Sugar"
     static let tryTheseDrinks = "Experimente estas bebidas"
-    
-    
-    
-    
-    
+       
     //MARK: Titles
     static let ok = "OK"
+    
+    
+    
+    
     
 }

@@ -1,15 +1,5 @@
-//
-//  fifthUITableViewCell.swift
-//  SmartChef-Oficial
-//
-//  Created by Kevin Longue on 30/05/23.
-//
-
-import Foundation
+import UIKit
 
 class fifthUITableViewCell {
-    
     static let identefier: String = String(describing: fifthUITableViewCell.self)
-    
-    
 }

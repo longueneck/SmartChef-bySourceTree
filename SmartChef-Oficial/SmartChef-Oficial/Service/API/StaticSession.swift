@@ -1,10 +1,10 @@
-import Foundation
+import UIKit
 
 class StaticSession{
     
     static var configuration: URLSessionConfiguration{
             let config = URLSessionConfiguration.default
-//        config.httpAdditionalHeaders = ["":""]
+
         return config
     }
     

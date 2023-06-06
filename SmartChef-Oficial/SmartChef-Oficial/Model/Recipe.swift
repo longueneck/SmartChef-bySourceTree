@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 enum RecipeType: String, Codable {
     case hot = "hot"
