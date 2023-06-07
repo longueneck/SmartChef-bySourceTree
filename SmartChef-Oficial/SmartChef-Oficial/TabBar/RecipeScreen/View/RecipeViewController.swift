@@ -1,5 +1,5 @@
 import UIKit
-import OSLog
+
 
 class RecipeViewController: UIViewController{
     
@@ -63,23 +63,18 @@ class RecipeViewController: UIViewController{
 
     public func errorAPI(_ error: Error){
         print(error)
-        let osLog = OSLog(subsystem: "KevinLongue", category: "RecipeViewController")
-        
-        
         DispatchQueue.main.async {
             
 #if DEBUG
-            let alert: UIAlertController = UIAlertController(title: "API Error", message: error.localizedDescription, preferredStyle: .alert)
+            let alert: UIAlertController = UIAlertController(title: String.errorAPIDebug, message: error.localizedDescription, preferredStyle: .alert)
 #else
-            let alert: UIAlertController = UIAlertController(title: "Poxa Vida", message: "Parece que o Chef está dormindo agora 😴", preferredStyle: .alert)
+            let alert: UIAlertController = UIAlertController(title: String.errorAPIRelease, message: String.errorAPIReleaseMessage, preferredStyle: .alert)
 #endif
-            let okAction = UIAlertAction(title: "OK", style: .default)
+            let okAction = UIAlertAction(title: String.ok, style: .default)
             alert.addAction(okAction)
             self.present(alert, animated: true)
         }
     }
-
-    
 }
 
 extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {

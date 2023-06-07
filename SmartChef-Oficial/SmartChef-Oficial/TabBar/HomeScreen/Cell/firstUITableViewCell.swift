@@ -16,7 +16,7 @@ class firstUITableViewCell: UITableViewCell {
     lazy var firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.CategoriasLabel
+        label.text = String.categoriasLabel
         label.font = UIFont(name: String.niceSugarFont, size: 18)
         label.textColor = Color.Global.brownBase
         return label

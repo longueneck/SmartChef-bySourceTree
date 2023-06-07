@@ -25,7 +25,7 @@ class IngredientsTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         button.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        button.setImage(UIImage(systemName: String.SymbolMinus), for: .normal)
+        button.setImage(UIImage(systemName: String.symbolMinus), for: .normal)
         button.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         button.addTarget(self, action: #selector(removeIngredient(_:)), for: .touchUpInside)
         return button

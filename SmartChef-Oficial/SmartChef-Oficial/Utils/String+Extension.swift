@@ -2,6 +2,10 @@ import Foundation
 
 extension String {
     
+    //#1
+    //MARK
+    
+    
     //MARK: HotMeals
     static let popularRecipesTitle = "Receitas Populares"
     static let setaVoltar = "arrowshape.backward.fill"
@@ -40,13 +44,17 @@ extension String {
     
     //MARK: Favorite
     //FavoriteCell
-    static let FavoriteRecipes = "Receitas Favoritadas"
+    static let favoriteRecipes = "Receitas Favoritadas"
     static let heartFill = "heart.fill"
     static let heart = "heart."
 
     //MARK: Recipe
     //RecipeScreen
-    static let SymbolMinus = "minus.circle"
+    static let symbolMinus = "minus.circle"
+    //RecipeViewController
+    static let errorAPIDebug = "API Conection Error"
+    static let errorAPIRelease = "Poxa Vida"
+    static let errorAPIReleaseMessage = "Parece que o Chef está dormindo agora 😴"
     
     //MARK: profile
     static let cancel = "Cancelar"
@@ -67,15 +75,13 @@ extension String {
     static let searchForRecipes = "  Pesquise por receitas"
     static let recipeIngredientsTitle = "Receitas com meus ingredientes"
     //homeCells
-    static let CategoriasLabel = "Categorias"
+    static let categoriasLabel = "Categorias"
     static let niceSugarFont = "Nice Sugar"
     static let tryTheseDrinks = "Experimente estas bebidas"
        
     //MARK: Titles
     static let ok = "OK"
     
-    
-    
-    
+    //MARK: VoidStrings
     
 }

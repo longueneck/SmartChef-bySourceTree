@@ -259,6 +259,7 @@
 		634E7F5229CB7CA2003996DD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				636D2C4A2A1D954500FFF763 /* Alert.swift */,
 				634E7F5829CB8015003996DD /* UIView.swift */,
 				634E7F5329CB7CCA003996DD /* Sizes.swift */,
 				63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */,
@@ -285,14 +286,6 @@
 				63C6787929D5410200658E88 /* DiscoverStackView.swift */,
 			);
 			path = StackViews;
-			sourceTree = "<group>";
-		};
-		636D2C492A1D951F00FFF763 /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				636D2C4A2A1D954500FFF763 /* Alert.swift */,
-			);
-			path = Alert;
 			sourceTree = "<group>";
 		};
 		637145C52A0829E200A8C72F /* ViewModel */ = {
@@ -358,7 +351,6 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
-				636D2C492A1D951F00FFF763 /* Alert */,
 				6342575E2A19529F0028240E /* Service */,
 				637C373B2A11A8B400CE7C4F /* PrepairScreen */,
 				631C70A829CD4D8A00074D35 /* HotMeals */,

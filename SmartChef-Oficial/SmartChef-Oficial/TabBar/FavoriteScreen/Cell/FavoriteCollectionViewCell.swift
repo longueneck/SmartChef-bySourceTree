@@ -28,7 +28,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var lbIngredients: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.FavoriteRecipes
+        label.text = String.favoriteRecipes
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label

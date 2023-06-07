@@ -13,26 +13,22 @@ extension UIColor {
             gradientLayer.render(in: context)
             let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            
+
             return UIColor(patternImage: gradientImage ?? UIImage())
         }
-        
         return nil
     }
 }
 
 class Color {
     
-    
-    
-    
     enum Global{
         
         static var yellowBase = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         
-//        static var yellowBaseGradient: UIColor? {
-//                    return UIColor.gradientColor(colors: [yellowBase, darkYellow], startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 1, y: 1))
-//                }
+        static var yellowBaseGradient: UIColor? {
+                    return UIColor.gradientColor(colors: [yellowBase, darkYellow], startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 1, y: 1))
+                }
         static var darkYellow = UIColor(red: 255/255, green: 116/255, blue: 49/255, alpha: 1)
         
         static var lightYellow = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
@@ -54,5 +50,4 @@ class Color {
         static var whiteCG = UIColor.white.cgColor
         
     }
-    
 }
