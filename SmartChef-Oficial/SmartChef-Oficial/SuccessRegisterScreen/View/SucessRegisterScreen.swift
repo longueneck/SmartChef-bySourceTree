@@ -14,7 +14,7 @@ class SucessRegisterScreen: UIView {
         self.sucessRegisterScreenProtocol = delegate
     }
     
-    var labelBemVindo: UILabel = {
+    lazy var labelBemVindo: UILabel = {
         let welcomeLabel = UILabel()
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         welcomeLabel.text = "Bem Vindo!"
@@ -24,7 +24,7 @@ class SucessRegisterScreen: UIView {
         return welcomeLabel
     }()
     
-    var imageLogo: UIImageView = {
+    lazy var imageLogo: UIImageView = {
         let imagem = UIImageView()
         imagem.translatesAutoresizingMaskIntoConstraints = false
         imagem.image = UIImage(named: "logoAmarela.png")
@@ -33,7 +33,7 @@ class SucessRegisterScreen: UIView {
         return imagem
     }()
     
-    var messageCreatedAccount: UILabel = {
+    lazy var messageCreatedAccount: UILabel = {
         let message = UILabel()
         message.translatesAutoresizingMaskIntoConstraints = false
         message.text = "Enviamos seus dados cadastrais para o email abaixo"
@@ -47,7 +47,7 @@ class SucessRegisterScreen: UIView {
         return message
     }()
     
-    var messageEmailSend: UILabel = {
+    lazy var messageEmailSend: UILabel = {
         let messageEmail = UILabel()
         messageEmail.translatesAutoresizingMaskIntoConstraints = false
         messageEmail.text = "exemplo@gmail.com"
@@ -57,7 +57,7 @@ class SucessRegisterScreen: UIView {
         return messageEmail
     }()
     
-    var goToLogin: UIButton = {
+    lazy var goToLogin: UIButton = {
         let goTo = UIButton()
         goTo.translatesAutoresizingMaskIntoConstraints = false
         goTo.setTitle("Entrar", for: .normal)
