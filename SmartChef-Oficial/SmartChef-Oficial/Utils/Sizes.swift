@@ -16,8 +16,6 @@ class Sizes{
         static var heightGlobal = 45
         
     }
-    
-   
-    }
+}
     
 
