@@ -17,8 +17,8 @@ class RegisterScreen: UIView {
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "arrowshape.turn.up.backward.fill"), for: .normal)
-        button.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        button.setImage(UIImage(systemName: .arrowShape), for: .normal)
+        button.tintColor = .brownBase
         button.addTarget(self, action: #selector(tapToBack), for: .touchUpInside)
         return button
     }()
@@ -26,27 +26,27 @@ class RegisterScreen: UIView {
     lazy var createAccountLabel: UILabel = {
         let welcome = UILabel()
         welcome.translatesAutoresizingMaskIntoConstraints = false
-        welcome.text = "Crie sua conta >"
-        welcome.font = UIFont(name: "Nice Sugar", size: 24)
-        welcome.textColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
+        welcome.text = .createAccount
+        welcome.font = .sugarFont24
+        welcome.textColor = .yellowBase
         return welcome
     }()
     
     lazy var textPresentLabel: UILabel = {
         let text = UILabel()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Cozinhe com ingredientes da sua dispensa"
-        text.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        text.font = UIFont(name: "Nice Sugar", size: 14)
+        text.text = .sloganRegister
+        text.textColor = .brownBase
+        text.font = .sugarFont14
         return text
     }()
     
     lazy var usernameLabel: UILabel = {
         let textPresentation = UILabel()
         textPresentation.translatesAutoresizingMaskIntoConstraints = false
-        textPresentation.text = "Nome de usuário"
-        textPresentation.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        textPresentation.font = UIFont.systemFont(ofSize: 17)
+        textPresentation.text = .userNameRegister
+        textPresentation.textColor = .brownBase
+        textPresentation.font = .systemFont17
         return textPresentation
     }()
     
@@ -54,7 +54,7 @@ class RegisterScreen: UIView {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.backgroundColor = .white
-        textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textfield.layer.borderColor = UIColor.yellowBaseCG
         textfield.layer.borderWidth = 2
         textfield.borderStyle = .roundedRect
         textfield.layer.cornerRadius = 10
@@ -62,25 +62,25 @@ class RegisterScreen: UIView {
         textfield.layer.shadowOpacity = 0.1
         textfield.layer.shadowOffset = CGSize(width: 0, height: 2)
         textfield.layer.shadowRadius = 2
-        textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        textfield.textColor = .brownBase
         return textfield
     }()
     
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "E-mail"
-        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.text = .emailRegister
+        label.textColor = .brownBase
+        label.font = .systemFont17
         return label
     }()
     
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.backgroundColor = .white
+        textfield.backgroundColor = .whiteBase
         textfield.autocapitalizationType = .none
-        textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textfield.layer.borderColor = UIColor.yellowBaseCG
         textfield.layer.borderWidth = 2
         textfield.layer.cornerRadius = 10
         textfield.layer.shadowColor = UIColor.black.cgColor
@@ -88,7 +88,7 @@ class RegisterScreen: UIView {
         textfield.layer.shadowOffset = CGSize(width: 0, height: 2)
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
-        textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        textfield.textColor = .brownBase
         textfield.keyboardType = .emailAddress
         return textfield
     }()
@@ -96,17 +96,17 @@ class RegisterScreen: UIView {
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Senha"
-        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.text = .passwordRegister
+        label.textColor = .brownBase
+        label.font = .systemFont17
         return label
     }()
     
     lazy var passwordTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.backgroundColor = .white
-        textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textfield.backgroundColor = .whiteBase
+        textfield.layer.borderColor = UIColor.yellowBaseCG
         textfield.layer.borderWidth = 2
         textfield.layer.cornerRadius = 10
         textfield.layer.shadowColor = UIColor.black.cgColor
@@ -115,24 +115,24 @@ class RegisterScreen: UIView {
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
         textfield.isSecureTextEntry = true
-        textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        textfield.textColor = .brownBase
         return textfield
     }()
     
     lazy var confirmPasswordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Confirmar senha"
-        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.text = .confirmPassRegister
+        label.textColor = .brownBase
+        label.font = .systemFont17
         return label
     }()
     
     lazy var confirmPasswordTextfield: UITextField = {
         let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.backgroundColor = .white
-        textfield.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textfield.backgroundColor = .whiteBase
+        textfield.layer.borderColor = UIColor.yellowBaseCG
         textfield.layer.borderWidth = 2
         textfield.layer.cornerRadius = 10
         textfield.layer.shadowColor = UIColor.black.cgColor
@@ -141,22 +141,22 @@ class RegisterScreen: UIView {
         textfield.layer.shadowRadius = 2
         textfield.borderStyle = .roundedRect
         textfield.isSecureTextEntry = true
-        textfield.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        textfield.textColor = .brownBase
         return textfield
     }()
     
     lazy var createButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Criar conta", for: .normal)
-        button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1), for: .normal)
-        button.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        button.setTitle(.createButton, for: .normal)
+        button.setTitleColor(.brownBase, for: .normal)
+        button.backgroundColor = .yellowBase
         button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.1
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = .boldFont18
         button.addTarget(self, action: #selector(tapToRegister), for: .touchUpInside)
         return button
     }()
@@ -165,13 +165,10 @@ class RegisterScreen: UIView {
         super.init(frame: frame)
         addViews()
         setConstraints()
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
     func addViews() {
@@ -188,21 +185,6 @@ class RegisterScreen: UIView {
         self.addSubview(confirmPasswordTextfield)
         self.addSubview(createButton)
     }
-    
-//    @objc func keyboardWillShow(notification: Notification) {
-//        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-//        let keyboardHeight = keyboardSize.cgRectValue.height
-//
-//        UIView.animate(withDuration: 0.3) {
-//            self.frame.origin.y = -(keyboardHeight / 2)
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(notification: Notification) {
-//        UIView.animate(withDuration: 0.3) {
-//            self.frame.origin.y = 0
-//        }
-//    }
     
     @objc func tapToRegister(){
         registerScreenProtocol?.registerButton()

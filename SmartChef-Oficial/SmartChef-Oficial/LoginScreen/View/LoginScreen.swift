@@ -17,14 +17,14 @@ class LoginScreen: UIView {
     lazy var gbYellowView: UIView = {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.backgroundColor = Color.Global.yellowBase
+        background.backgroundColor = .yellowBase
         return background
     }()
     
     lazy var initialLogoImage: UIImageView = {
         let logoImage = UIImageView()
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "logoBranca.png")
+        logoImage.image = UIImage(named: .whiteBrandImage)
         logoImage.contentMode = .scaleAspectFit
         logoImage.layer.shadowColor = UIColor.black.cgColor
         logoImage.layer.shadowOpacity = 0.3
@@ -36,7 +36,7 @@ class LoginScreen: UIView {
     lazy var suspenseView: UIView = {
         let separation = UIView()
         separation.translatesAutoresizingMaskIntoConstraints = false
-        separation.backgroundColor = .white
+        separation.backgroundColor = .whiteBase
         separation.layer.cornerRadius = 10
         separation.layer.shadowColor = UIColor.black.cgColor
         separation.layer.shadowOpacity = 0.3
@@ -48,9 +48,9 @@ class LoginScreen: UIView {
     lazy var loginLabel: UILabel = {
         let loginText = UILabel()
         loginText.translatesAutoresizingMaskIntoConstraints = false
-        loginText.text = "Usuário"
-        loginText.font = UIFont.boldSystemFont(ofSize: 17)
-        loginText.textColor = Color.Global.brownBase
+        loginText.text = .userText
+        loginText.font = .boldFont17
+        loginText.textColor = .brownBase
         return loginText
     }()
     
@@ -58,17 +58,16 @@ class LoginScreen: UIView {
         let login = UITextField()
         login.translatesAutoresizingMaskIntoConstraints = false
         login.layer.cornerRadius = 10
-        login.textColor = UIColor.black
-        login.backgroundColor = .white
+        login.textColor = .blackBase
+        login.backgroundColor = .whiteBase
         login.layer.borderWidth = 2
-        login.layer.borderColor = Color.GlobalCGColor.yellowBaseCG
+        login.layer.borderColor = .yellowBaseCG
         login.layer.shadowColor = UIColor.black.cgColor
         login.layer.shadowOpacity = 0.1
         login.layer.shadowOffset = CGSize(width: 0, height: 2)
         login.layer.shadowRadius = 2
         login.keyboardType = .emailAddress
         login.autocapitalizationType = .none
-        login.textColor = Color.Global.brownBase
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
         login.leftView = paddingView
         login.leftViewMode = .always
@@ -78,9 +77,9 @@ class LoginScreen: UIView {
     lazy var passwordLabel: UILabel = {
         let password = UILabel()
         password.translatesAutoresizingMaskIntoConstraints = false
-        password.text = "Senha"
-        password.font = UIFont.boldSystemFont(ofSize: 17)
-        password.textColor = Color.Global.brownBase
+        password.text = .passwordText
+        password.font = .boldFont17
+        password.textColor = .brownBase
         return password
     }()
     
@@ -89,16 +88,16 @@ class LoginScreen: UIView {
         let pass = UITextField()
         pass.translatesAutoresizingMaskIntoConstraints = false
         pass.layer.cornerRadius = 10
-        pass.backgroundColor = .white
-        pass.textColor = UIColor.black
+        pass.backgroundColor = .whiteBase
+        pass.textColor = .blackBase
         pass.layer.borderWidth = 2
-        pass.layer.borderColor = Color.GlobalCGColor.yellowBaseCG
+        pass.layer.borderColor = .yellowBaseCG
         pass.layer.shadowColor = UIColor.black.cgColor
         pass.layer.shadowOpacity = 0.1
         pass.layer.shadowOffset = CGSize(width: 0, height: 2)
         pass.layer.shadowRadius = 2
         pass.isSecureTextEntry = true
-        pass.textColor = Color.Global.brownBase
+        pass.textColor = .brownBase
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: pass.frame.height))
         pass.leftView = paddingView
         pass.leftViewMode = .always
@@ -108,24 +107,24 @@ class LoginScreen: UIView {
     lazy var resetPassLabel: UILabel = {
         let reset = UILabel()
         reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.text = "Recupere sua senha"
-        reset.font = UIFont.boldSystemFont(ofSize: 14)
-        reset.textColor = Color.Global.brownBase
+        reset.text = .resetpassword
+        reset.font = .boldFont14
+        reset.textColor = .brownBase
         return reset
     }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Entrar", for: .normal)
-        button.setTitleColor(Color.Global.brownBase, for: .normal)
-        button.backgroundColor = Color.Global.yellowBase
+        button.setTitle(.setTitleLoginButton, for: .normal)
+        button.setTitleColor(.brownBase, for: .normal)
+        button.backgroundColor = .yellowBase
         button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.1
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = .boldFont18
         button.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
         return button
     }()
@@ -133,68 +132,68 @@ class LoginScreen: UIView {
     lazy var textConectLabel: UILabel = {
         let reset = UILabel()
         reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.text = "Ou conecte-se com"
-        reset.font = UIFont.boldSystemFont(ofSize: 14)
-        reset.textColor = Color.Global.brownBase
+        reset.text = .alternativeConnection
+        reset.font = .boldFont14
+        reset.textColor = .brownBase
         return reset
     }()
     
     lazy var appleIconImage: UIButton = {
         let apple = UIButton()
         apple.translatesAutoresizingMaskIntoConstraints = false
-        apple.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        apple.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        apple.setTitleColor(.brownBase, for: .normal)
+        apple.backgroundColor = .yellowBase
         apple.layer.cornerRadius = 10
         apple.layer.shadowColor = UIColor.black.cgColor
         apple.layer.shadowOpacity = 0.1
         apple.layer.shadowOffset = CGSize(width: 0, height: 2)
         apple.layer.shadowRadius = 2
-        apple.setImage(UIImage(named: "appleicon.png"), for: .normal)
+        apple.setImage(.appleIconConnect, for: .normal)
         return apple
     }()
     
     lazy var googleIconImage: UIButton = {
         let google = UIButton()
         google.translatesAutoresizingMaskIntoConstraints = false
-        google.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        google.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        google.setTitleColor(.brownBase, for: .normal)
+        google.backgroundColor = .yellowBase
         google.layer.cornerRadius = 10
         google.layer.shadowColor = UIColor.black.cgColor
         google.layer.shadowOpacity = 0.1
         google.layer.shadowOffset = CGSize(width: 0, height: 2)
         google.layer.shadowRadius = 2
-        google.setImage(UIImage(named: "googleicon.png"), for: .normal)
+        google.setImage(.googleIconConnect, for: .normal)
         return google
     }()
     
     lazy var facebookIconImage: UIButton = {
         let facebook = UIButton()
         facebook.translatesAutoresizingMaskIntoConstraints = false
-        facebook.setTitleColor(Color.Global.brownBase, for: .normal)
-        facebook.backgroundColor = Color.Global.yellowBase
+        facebook.setTitleColor(.brownBase, for: .normal)
+        facebook.backgroundColor = .yellowBase
         facebook.layer.cornerRadius = 10
         facebook.layer.shadowColor = UIColor.black.cgColor
         facebook.layer.shadowOpacity = 0.1
         facebook.layer.shadowOffset = CGSize(width: 0, height: 2)
         facebook.layer.shadowRadius = 2
-        facebook.setImage(UIImage(named: "faceicon.png"), for: .normal)
+        facebook.setImage(.facebookIconConnect, for: .normal)
         return facebook
     }()
     
     lazy var signInButton: UIButton = {
         let entrar = UIButton()
         entrar.translatesAutoresizingMaskIntoConstraints = false
-        entrar.setTitle("Inscreva-se", for: .normal)
-        entrar.setTitleColor(Color.Global.brownBase, for: .normal)
-        entrar.backgroundColor = .white
+        entrar.setTitle(.signInText, for: .normal)
+        entrar.setTitleColor(.brownBase, for: .normal)
+        entrar.backgroundColor = .whiteBase
         entrar.layer.borderWidth = 2
-        entrar.layer.borderColor = Color.GlobalCGColor.yellowBaseCG
+        entrar.layer.borderColor = .yellowBaseCG
         entrar.layer.cornerRadius = 10
         entrar.layer.shadowColor = UIColor.black.cgColor
         entrar.layer.shadowOpacity = 0.1
         entrar.layer.shadowOffset = CGSize(width: 0, height: 2)
         entrar.layer.shadowRadius = 2
-        entrar.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        entrar.titleLabel?.font = .boldFont18
         entrar.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         return entrar
     }()
@@ -202,17 +201,15 @@ class LoginScreen: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configSuperViews()
         addConstraints()
-
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configSuperViews(){
+    func configSuperViews() {
         self.addSubview(self.gbYellowView)
         self.addSubview(self.initialLogoImage)
         self.addSubview(self.suspenseView)

@@ -43,10 +43,10 @@ class HomeScreen: UIView {
     lazy var mainTableView: UITableView = {
         let tableView:UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(firstUITableViewCell.self, forCellReuseIdentifier: firstUITableViewCell.identifier)
-        tableView.register(secondUITableViewCell.self, forCellReuseIdentifier: secondUITableViewCell.identifier)
-        tableView.register(thirdUITableViewCell.self, forCellReuseIdentifier: thirdUITableViewCell.identifier)
-        tableView.register(fourthUITableViewCell.self, forCellReuseIdentifier: fourthUITableViewCell.identifier)
+        tableView.register(RecipeTypeTableViewCell.self, forCellReuseIdentifier: RecipeTypeTableViewCell.identifier)
+        tableView.register(RandomRecipeTableViewCell.self, forCellReuseIdentifier: RandomRecipeTableViewCell.identifier)
+        tableView.register(InsertIngredientsTableViewCell.self, forCellReuseIdentifier: InsertIngredientsTableViewCell.identifier)
+        tableView.register(RandomDrinksTableViewCell.self, forCellReuseIdentifier: RandomDrinksTableViewCell.identifier)
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.red
         tableView.layer.cornerRadius = 20

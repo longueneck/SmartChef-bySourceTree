@@ -12,6 +12,8 @@ class HomeViewModel{
         loadRecipesData()
     }
     
+    #warning("RESOLVER POSTERIORMENTE")
+    //ALOCAR DENTRO DA SERVICE =======>
     func loadRecipesData(){
         guard let jsonURL = Bundle.main.url(forResource: "recipesSmart.json", withExtension: "") else {
             print("ERRO PRA RECUPERAR URL")
@@ -26,6 +28,7 @@ class HomeViewModel{
             print("Erro ao decodificar Json: \(error)")
         }
     }
+    //============================ <<<
     
     func countRecipes() -> Int{
         hotRecipes.endIndex

@@ -1,8 +1,8 @@
 import UIKit
 
-class fourthUITableViewCell: UITableViewCell {
+class RandomDrinksTableViewCell: UITableViewCell {
     
-    static let identifier = String(describing: fourthUITableViewCell.self)
+    static let identifier = String(describing: RandomDrinksTableViewCell.self)
     
     var viewModel: HomeViewModel = HomeViewModel()
     
@@ -10,8 +10,8 @@ class fourthUITableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = String.tryTheseDrinks
-        label.font = UIFont(name: String.niceSugarFont, size: 18)
-        label.textColor = Color.Global.brownBase
+        label.font = .sugarFont18
+        label.textColor = .brownBase
         return label
     }()
     
@@ -76,7 +76,7 @@ class fourthUITableViewCell: UITableViewCell {
     }
 }
 
-extension fourthUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension RandomDrinksTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.generateRandomRecipes().count

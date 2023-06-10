@@ -18,7 +18,7 @@ class LoginScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
+        self.view.backgroundColor = .lightYellow
         self.viewModel = LoginViewModel()
         self.alert = Alert(controller: self)
         loginScreen.delegate(delegate: self)
@@ -51,13 +51,13 @@ class LoginScreenViewController: UIViewController {
 extension LoginScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        
+    
         if viewModel.validateLoginButton(email: viewModel.getEmail(email: loginScreen.loginTextField), password: viewModel.getPass(pass: loginScreen.passwordTextField)){
             viewModel.turnButtonEnable(button: loginScreen.loginButton)
         }else{
             viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
             if viewModel.isTextFieldEmpty(loginScreen.loginTextField){
-                loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+                loginScreen.loginTextField.layer.borderColor = UIColor.yellowBaseCG
             }
         }
     }
@@ -67,7 +67,7 @@ extension LoginScreenViewController: UITextFieldDelegate{
         if string == " " && textField == loginScreen.loginTextField{
             loginScreen.loginTextField.layer.borderColor = UIColor.red.cgColor
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
-                self.loginScreen.loginTextField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+                self.loginScreen.loginTextField.layer.borderColor = UIColor.yellowBaseCG
             })
             return false
             
@@ -77,11 +77,11 @@ extension LoginScreenViewController: UITextFieldDelegate{
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.brownBaseCG
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.yellowBaseCG
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -91,12 +91,10 @@ extension LoginScreenViewController: UITextFieldDelegate{
 
 extension LoginScreenViewController: LoginScreenProtocol{
     func actionRegister() {
-        
         self.navigationController?.pushViewController(RegisterScreenViewController(), animated: true)
     }
     
     func actionButton() {
-        
         guard self.loginScreen != nil else {return}
         
         let email = viewModel.getEmail(email: loginScreen.loginTextField)
@@ -104,17 +102,14 @@ extension LoginScreenViewController: LoginScreenProtocol{
         
         self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
             if error != nil{
-                self.alert?.getAlert(title: "Atenção", message: "Email e/ou senha incorretos, tente novamente")
+                self.alert?.getAlert(title: .titleAlert, message: .messageAlertOne)
             }else{
                 if usuario == nil{
-                    self.alert?.getAlert(title: "Atenção", message: "Por favor, insira seu email e tente novamente")
+                    self.alert?.getAlert(title: .titleAlert, message: .messageAlertTwo)
                 }else{
                     self.navigationController?.pushViewController(MyTabBarController(), animated: true)
                 }
             }
-            
-            
-            
         }
         )
     }

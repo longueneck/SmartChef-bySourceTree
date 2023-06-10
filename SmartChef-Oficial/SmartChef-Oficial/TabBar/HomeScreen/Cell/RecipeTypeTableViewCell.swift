@@ -4,9 +4,9 @@ protocol firstUITableViewCellProtocol{
     func goToAhotherView()
 }
 
-class firstUITableViewCell: UITableViewCell {
+class RecipeTypeTableViewCell: UITableViewCell {
     
-    static let identifier = String(describing: firstUITableViewCell.self)
+    static let identifier = String(describing: RecipeTypeTableViewCell.self)
     
     var delegate: firstUITableViewCellProtocol?
     
@@ -17,8 +17,8 @@ class firstUITableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = String.categoriasLabel
-        label.font = UIFont(name: String.niceSugarFont, size: 18)
-        label.textColor = Color.Global.brownBase
+        label.font = .sugarFont18
+        label.textColor = .brownBase
         return label
     }()
     
@@ -58,7 +58,7 @@ class firstUITableViewCell: UITableViewCell {
     }
 }
 
-extension firstUITableViewCell: RecipeStackViewDelegate{
+extension RecipeTypeTableViewCell: RecipeStackViewDelegate{
     func tapGoToTypeRecipe() {
         delegate?.goToAhotherView()
     }

@@ -2,8 +2,33 @@ import Foundation
 
 extension String {
     
-    //#1
-    //MARK
+    //MARK: LOGIN
+    //View
+    static let userText = "Usuário"
+    static let resetpassword = "Recupere sua senha"
+    static let setTitleLoginButton = "Entrar"
+    static let alternativeConnection = "Ou conecte-se com"
+    static let passwordText = "Senha"
+    static let signInText = "Inscreva-se"
+    //Alert
+    static let titleAlert = "Atenção"
+    static let messageAlertOne = "Email e/ou senha incorretos, tente novamente"
+    static let messageAlertTwo = "Por favor, insira seu email e tente novamente"
+      
+    //MARK: REGISTER
+    //View
+    static let createAccount = "Crie sua conta >"
+    static let sloganRegister = "Cozinhe com ingredientes da sua dispensa"
+    static let userNameRegister = "Nome de usuário"
+    static let emailRegister = "E-mail"
+    static let passwordRegister = "Senha"
+    static let confirmPassRegister = "Confirmar senha"
+    static let createButton = "Criar conta"
+    static let fatalErrorInit = "init(coder:) has not been implemented"
+    
+    
+    
+    
     
     
     //MARK: HotMeals
@@ -11,7 +36,6 @@ extension String {
     static let setaVoltar = "arrowshape.backward.fill"
     static let hotImage = "hot"
     static let searchRecipePlaceholder = "Pesquise por receitas"
-    static let balls = "balls2"
     static let moreVisits = "Mais visitadas"
     static let star = "star.fill"
     static let enjoyWithFriends = "Aproveite com os amigos"

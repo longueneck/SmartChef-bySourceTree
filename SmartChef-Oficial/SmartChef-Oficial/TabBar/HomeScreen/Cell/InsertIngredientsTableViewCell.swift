@@ -4,9 +4,9 @@ protocol thirdTableViewCellProtocol: AnyObject {
     func tapToMain()
 }
 
-class thirdUITableViewCell: UITableViewCell {
+class InsertIngredientsTableViewCell: UITableViewCell {
     
-    static let identifier = String(describing: thirdUITableViewCell.self)
+    static let identifier = String(describing: InsertIngredientsTableViewCell.self)
     
     weak private var viewCellProtocol: thirdTableViewCellProtocol?
     
@@ -20,15 +20,15 @@ class thirdUITableViewCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 8
-        button.backgroundColor = Color.Global.yellowBase
-        button.setTitle(String.recipeIngredientsTitle, for: .normal)
-        button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.backgroundColor = .yellowBase
+        button.setTitle(.recipeIngredientsTitle, for: .normal)
+        button.setTitleColor(.brownBase, for: .normal)
+        button.titleLabel?.font = .boldFont17
         button.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
         return button
     }()
     
-    @objc func goToMain(){
+    @objc func goToMain() {
         viewCellProtocol?.tapToMain()
     }
     

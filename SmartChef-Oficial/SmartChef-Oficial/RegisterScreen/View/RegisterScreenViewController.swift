@@ -4,7 +4,6 @@ import FirebaseAuth
 class RegisterScreenViewController: UIViewController {
     
     var auth: Auth?
-    
     var register: RegisterScreen = RegisterScreen()
     var viewModel: RegisterViewModel = RegisterViewModel()
     
@@ -22,7 +21,7 @@ class RegisterScreenViewController: UIViewController {
         self.auth = Auth.auth()
     }
     
-    private func addDelegateToTextFields(){
+    private func addDelegateToTextFields() {
         register.userTextField.delegate = self
         register.emailTextField.delegate = self
         register.passwordTextfield.delegate = self

@@ -1,24 +1,24 @@
 import UIKit
 
-class secondUITableViewCell: UITableViewCell {
+class RandomRecipeTableViewCell: UITableViewCell {
     
-    static let identifier = String(describing: secondUITableViewCell.self)
+    static let identifier = String(describing: RandomRecipeTableViewCell.self)
     
     var viewModel: HomeViewModel = HomeViewModel()
     
     lazy var firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.moreVisits
-        label.font = UIFont(name: String.niceSugarFont, size: 18)
-        label.textColor = Color.Global.brownBase
+        label.text = .moreVisits
+        label.font = .sugarFont18
+        label.textColor = .brownBase
         return label
     }()
     
     lazy var firstCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: .init() )
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .clear
+        collection.backgroundColor = .clearColor
         collection.layer.shadowColor = UIColor.black.cgColor
         collection.layer.shadowOpacity = 0.1
         collection.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -70,7 +70,7 @@ class secondUITableViewCell: UITableViewCell {
     }
 }
 
-extension secondUITableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension RandomRecipeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.generateRandomRecipes().count
