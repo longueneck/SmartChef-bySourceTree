@@ -17,7 +17,7 @@ class RecipeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
+        self.view.backgroundColor = .lightYellow
         setInitialConfigs()
         setTableViewDelegate()
         recipeViewModel.callAlertControllError = self.errorAPI(_:)
@@ -45,32 +45,33 @@ class RecipeViewController: UIViewController{
         wrapperView = WrapperViewAnimation(target: screen.addIngredientTextField)
     }
     
+#warning("RESOLVER EMPTY STATE")
     func showEmptyState() {
-            if emptyState == nil {
-                emptyState = EmptyStateView(frame: (screen?.insertedIngredientTableView.bounds)!)
-                emptyState?.imageView.image = UIImage(named: "logo")
-                screen?.insertedIngredientTableView.addSubview(emptyState!)
-                screen?.insertedIngredientTableView.separatorStyle = .none
-            }
-            emptyState?.isHidden = false
+        if emptyState == nil {
+            emptyState = EmptyStateView(frame: (screen?.insertedIngredientTableView.bounds)!)
+            emptyState?.imageView.image = UIImage(named: "logo")
+            screen?.insertedIngredientTableView.addSubview(emptyState!)
+            screen?.insertedIngredientTableView.separatorStyle = .none
         }
-        
-        func hideEmptyState() {
-            emptyState?.isHidden = true
-            screen?.insertedIngredientTableView.separatorStyle = .singleLine
-        }
+        emptyState?.isHidden = false
+    }
     
-
+    func hideEmptyState() {
+        emptyState?.isHidden = true
+        screen?.insertedIngredientTableView.separatorStyle = .singleLine
+    }
+    
+    
     public func errorAPI(_ error: Error){
         print(error)
         DispatchQueue.main.async {
             
 #if DEBUG
-            let alert: UIAlertController = UIAlertController(title: String.errorAPIDebug, message: error.localizedDescription, preferredStyle: .alert)
+            let alert: UIAlertController = UIAlertController(title: .errorAPIDebug, message: error.localizedDescription, preferredStyle: .alert)
 #else
-            let alert: UIAlertController = UIAlertController(title: String.errorAPIRelease, message: String.errorAPIReleaseMessage, preferredStyle: .alert)
+            let alert: UIAlertController = UIAlertController(title: StringMagica.errorAPIRelease, message: .errorAPIReleaseMessage, preferredStyle: .alert)
 #endif
-            let okAction = UIAlertAction(title: String.ok, style: .default)
+            let okAction = UIAlertAction(title: .ok, style: .default)
             alert.addAction(okAction)
             self.present(alert, animated: true)
         }
@@ -164,10 +165,10 @@ extension RecipeViewController: UITextFieldDelegate{
     }
 }
 
-extension RecipeViewController: RecipeScreenProtocol{
-    func goToSearch(){
-        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
+extension RecipeViewController: RecipeScreenProtocol {
+    func goToSearch() {
         
+        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
         let discoverVM = DiscoverViewModel(selectedIngredients: enviaDados)
         let discoverVC = DiscoverViewController()
         discoverVM.selectedIngredients = enviaDados

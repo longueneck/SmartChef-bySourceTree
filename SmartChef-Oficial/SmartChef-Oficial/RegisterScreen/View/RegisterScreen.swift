@@ -17,7 +17,7 @@ class RegisterScreen: UIView {
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: .arrowShape), for: .normal)
+        button.setImage(.arrowShape, for: .normal)
         button.tintColor = .brownBase
         button.addTarget(self, action: #selector(tapToBack), for: .touchUpInside)
         return button
@@ -209,22 +209,22 @@ class RegisterScreen: UIView {
         }
     
     public func passCorrect(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 28/255, green: 155/255, blue: 54/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.greenCorrectCG
     }
     public func confirmCorrect(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 28/255, green: 155/255, blue: 54/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.greenCorrectCG
     }
     public func passWorse(textField: UITextField){
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderColor = UIColor.redIncorrectCG
     }
     public func confirWorse(textField: UITextField){
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderColor = UIColor.redIncorrectCG
     }
     public func passEmpty(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.yellowBaseCG
     }
     public func confirmEmpty(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor.yellowBaseCG
         
     }
     

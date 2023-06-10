@@ -18,7 +18,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: String.expressImage)
+        image.image = UIImage(named: StringMagica.expressImage)
         image.layer.cornerRadius = 10
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -28,7 +28,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var lbIngredients: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.favoriteRecipes
+        label.text = StringMagica.favoriteRecipes
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
@@ -45,7 +45,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     
     lazy var bookMark: UIButton = {
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: String.heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        config.image = UIImage(systemName: StringMagica.heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
         let button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var timerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: String.timeImage)
+        image.image = UIImage(systemName: StringMagica.timeImage)
         image.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         return image
     }()
@@ -66,7 +66,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     lazy var lbTimer: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.min
+        label.text = StringMagica.min
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
@@ -92,11 +92,11 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     
     @objc private func tapToSaveFavorite() {
         if bookMark.isSelected {
-            bookMark.configuration?.image = UIImage(systemName: String.heart)
+            bookMark.configuration?.image = UIImage(systemName: StringMagica.heart)
             bookMark.backgroundColor = .none
             bookMark.isSelected = false
         } else {
-            bookMark.configuration?.image = UIImage(systemName: String.heartFill)
+            bookMark.configuration?.image = UIImage(systemName: StringMagica.heartFill)
             bookMark.isSelected = true
         }
     }

@@ -23,17 +23,17 @@ class DrinkCollectionViewCell: UICollectionViewCell {
         self.addSubview(self.picture)
     }
     
-    public func setupCell(recipe: Recipes){
+    public func setupCell(recipe: Recipes) {
         self.picture.image = UIImage(named: recipe.image)
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
-    private func setConstraints(){
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             
             picture.topAnchor.constraint(equalTo:topAnchor),

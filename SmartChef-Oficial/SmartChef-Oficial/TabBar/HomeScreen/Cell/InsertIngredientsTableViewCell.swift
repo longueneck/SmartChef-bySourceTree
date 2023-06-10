@@ -19,7 +19,7 @@ class InsertIngredientsTableViewCell: UITableViewCell {
     lazy var myIngredientsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
         button.backgroundColor = .yellowBase
         button.setTitle(.recipeIngredientsTitle, for: .normal)
         button.setTitleColor(.brownBase, for: .normal)

@@ -14,7 +14,7 @@ class HotMealsCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: String.hamburgerImage)
+        image.image = UIImage(named: StringMagica.hamburgerImage)
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .blue
         return image

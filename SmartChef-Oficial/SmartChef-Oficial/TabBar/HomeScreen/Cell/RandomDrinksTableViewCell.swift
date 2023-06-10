@@ -9,7 +9,7 @@ class RandomDrinksTableViewCell: UITableViewCell {
     lazy var firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.tryTheseDrinks
+        label.text = .tryTheseDrinks
         label.font = .sugarFont18
         label.textColor = .brownBase
         return label
@@ -47,7 +47,7 @@ class RandomDrinksTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
     private func configDelegate(){

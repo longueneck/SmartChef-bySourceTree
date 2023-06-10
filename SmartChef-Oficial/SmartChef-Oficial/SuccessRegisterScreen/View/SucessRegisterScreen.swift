@@ -17,9 +17,9 @@ class SucessRegisterScreen: UIView {
     lazy var labelBemVindo: UILabel = {
         let welcomeLabel = UILabel()
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        welcomeLabel.text = "Bem Vindo!"
-        welcomeLabel.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
-        welcomeLabel.font = UIFont(name: "Purple Smile.ttf", size: 48)
+        welcomeLabel.text = .welcome
+        welcomeLabel.textColor = .brownBase
+        welcomeLabel.font = .sugarFont48
         welcomeLabel.textAlignment = .center
         return welcomeLabel
     }()
@@ -27,7 +27,7 @@ class SucessRegisterScreen: UIView {
     lazy var imageLogo: UIImageView = {
         let imagem = UIImageView()
         imagem.translatesAutoresizingMaskIntoConstraints = false
-        imagem.image = UIImage(named: "logoAmarela.png")
+        imagem.image = .yellowBrandImage
         imagem.contentMode = .scaleAspectFit
         
         return imagem
@@ -36,9 +36,9 @@ class SucessRegisterScreen: UIView {
     lazy var messageCreatedAccount: UILabel = {
         let message = UILabel()
         message.translatesAutoresizingMaskIntoConstraints = false
-        message.text = "Enviamos seus dados cadastrais para o email abaixo"
-        message.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
-        message.font = UIFont.systemFont(ofSize: 17)
+        message.text = .sendLabel
+        message.textColor = .brownBase
+        message.font = .systemFont17
         message.numberOfLines = 0
         message.lineBreakMode = .byWordWrapping
         message.textAlignment = .center
@@ -50,9 +50,9 @@ class SucessRegisterScreen: UIView {
     lazy var messageEmailSend: UILabel = {
         let messageEmail = UILabel()
         messageEmail.translatesAutoresizingMaskIntoConstraints = false
-        messageEmail.text = "exemplo@gmail.com"
-        messageEmail.textColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
-        messageEmail.font = UIFont.boldSystemFont(ofSize: 20)
+        messageEmail.text = .exampleEmail
+        messageEmail.textColor = .brownBase
+        messageEmail.font = .boldFont18
         messageEmail.textAlignment = .center
         return messageEmail
     }()
@@ -60,11 +60,11 @@ class SucessRegisterScreen: UIView {
     lazy var goToLogin: UIButton = {
         let goTo = UIButton()
         goTo.translatesAutoresizingMaskIntoConstraints = false
-        goTo.setTitle("Entrar", for: .normal)
-        goTo.setTitleColor(UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1), for: .normal)
-        goTo.backgroundColor = UIColor(red: 69/255, green: 48/255, blue: 22/255, alpha: 1)
+        goTo.setTitle(.setTitleLoginButton2, for: .normal)
+        goTo.setTitleColor(UIColor.yellowBase, for: .normal)
+        goTo.backgroundColor = .brownBase
         goTo.layer.cornerRadius = 10
-        goTo.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        goTo.titleLabel?.font = .boldFont18
         goTo.layer.shadowColor = UIColor.black.cgColor
         goTo.layer.shadowOpacity = 0.1
         goTo.layer.shadowOffset = CGSize(width: 0, height: 2)

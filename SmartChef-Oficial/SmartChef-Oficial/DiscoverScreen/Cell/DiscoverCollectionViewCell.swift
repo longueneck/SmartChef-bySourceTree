@@ -18,7 +18,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var imageRecipe: UIImageView = {
         let name = UIImageView()
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.image = UIImage(named: String.bread)
+        name.image = UIImage(named: StringMagica.bread)
         name.layer.cornerRadius = 10
         name.contentMode = .scaleAspectFill
         name.clipsToBounds = true
@@ -28,7 +28,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var lbIngredients: UILabel = {
         let label1 = UILabel()
         label1.translatesAutoresizingMaskIntoConstraints = false
-        label1.text = String.RecipeNameTitle
+        label1.text = StringMagica.RecipeNameTitle
         label1.font = UIFont.boldSystemFont(ofSize: 16)
         label1.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label1
@@ -46,7 +46,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var bookMark: UIButton = {
         let button2 = UIButton()
         button2.translatesAutoresizingMaskIntoConstraints = false
-        button2.setImage(UIImage(systemName: String.forkImage), for: .normal)
+        button2.setImage(UIImage(systemName: StringMagica.forkImage), for: .normal)
         button2.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         return button2
     }()
@@ -54,7 +54,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var timerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: String.timeImage)
+        image.image = UIImage(systemName: StringMagica.timeImage)
         image.tintColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
         return image
     }()
@@ -62,7 +62,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell{
     lazy var lbTimer: UILabel = {
         let lbtimer = UILabel()
         lbtimer.translatesAutoresizingMaskIntoConstraints = false
-        lbtimer.text = String.min
+        lbtimer.text = StringMagica.min
         lbtimer.font = UIFont.boldSystemFont(ofSize: 16)
         lbtimer.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return lbtimer

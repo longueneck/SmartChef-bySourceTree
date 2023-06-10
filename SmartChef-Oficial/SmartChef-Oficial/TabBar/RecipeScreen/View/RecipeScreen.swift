@@ -15,7 +15,7 @@ class RecipeScreen: UIView {
     lazy var yellowTopView: UIView = {
         let topYellow = UIView()
         topYellow.translatesAutoresizingMaskIntoConstraints = false
-        topYellow.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        topYellow.backgroundColor = .yellowBase
         topYellow.layer.cornerRadius = 20
         topYellow.layer.shadowColor = UIColor.black.cgColor
         topYellow.layer.shadowOpacity = 0.2
@@ -27,28 +27,28 @@ class RecipeScreen: UIView {
     lazy var letsCookLabel: UILabel = {
         let letsCook = UILabel()
         letsCook.translatesAutoresizingMaskIntoConstraints = false
-        letsCook.text = "<Vamos Cozinhar?>"
-        letsCook.textColor = .white
-        letsCook.font = UIFont(name: "Nice Sugar", size: 24)
+        letsCook.text = .letsCook
+        letsCook.textColor = .whiteBase
+        letsCook.font = .sugarFont24
         return letsCook
     }()
     
     lazy var startInsertLabel: UILabel = {
         let insert = UILabel()
         insert.translatesAutoresizingMaskIntoConstraints = false
-        insert.text = "Insira seus ingredientes"
-        insert.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        insert.text = .insertIngredient
+        insert.textColor = .brownBase
         insert.numberOfLines = 0
-        insert.font = UIFont(name: "Nice Sugar", size: 16)
+        insert.font = .sugarFont17
         return insert
     }()
     
     lazy var addIngredientTextField: UITextField = {
         let add = UITextField()
         add.translatesAutoresizingMaskIntoConstraints = false
-        add.backgroundColor = .white
-        add.placeholder = "Insira aqui"
-        add.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        add.backgroundColor = .whiteBase
+        add.placeholder = .insertHere
+        add.textColor = .brownBase
         add.layer.cornerRadius = 10
         add.layer.shadowColor = UIColor.black.cgColor
         add.layer.shadowOpacity = 0.1
@@ -61,7 +61,7 @@ class RecipeScreen: UIView {
     lazy var insertedIngredientTableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.backgroundColor = UIColor.white
+        table.backgroundColor = .whiteBase
         table.layer.cornerRadius = 12
         table.layer.shadowColor = UIColor.black.cgColor
         table.layer.shadowOpacity = 0.3
@@ -84,10 +84,10 @@ class RecipeScreen: UIView {
     lazy var searchButton:UIButton = {
         let search = UIButton()
         search.translatesAutoresizingMaskIntoConstraints = false
-        search.backgroundColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        search.backgroundColor = .brownBase
         search.layer.cornerRadius = 10
-        search.setTitle("Search", for: .normal)
-        search.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
+        search.setTitle(.search, for: .normal)
+        search.setTitleColor(.whiteBase, for: .normal)
         search.addTarget(self, action: #selector(tappedToSearch), for: .touchUpInside)
         return search
     }()
@@ -98,7 +98,7 @@ class RecipeScreen: UIView {
         tView.register(SearchTextField.self, forCellReuseIdentifier: SearchTextField.identifier)
         tView.layer.cornerRadius = 20
         tView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        tView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        tView.backgroundColor = .lightGray
         return tView
     }()
     
@@ -127,7 +127,7 @@ class RecipeScreen: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
     public func setupCategoriesTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){

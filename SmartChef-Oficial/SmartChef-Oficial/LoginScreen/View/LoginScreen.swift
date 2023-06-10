@@ -24,7 +24,7 @@ class LoginScreen: UIView {
     lazy var initialLogoImage: UIImageView = {
         let logoImage = UIImageView()
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: .whiteBrandImage)
+        logoImage.image = UIImage.whiteBrandImage
         logoImage.contentMode = .scaleAspectFit
         logoImage.layer.shadowColor = UIColor.black.cgColor
         logoImage.layer.shadowOpacity = 0.3
@@ -61,7 +61,7 @@ class LoginScreen: UIView {
         login.textColor = .blackBase
         login.backgroundColor = .whiteBase
         login.layer.borderWidth = 2
-        login.layer.borderColor = .yellowBaseCG
+        login.layer.borderColor = UIColor.yellowBaseCG
         login.layer.shadowColor = UIColor.black.cgColor
         login.layer.shadowOpacity = 0.1
         login.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -91,7 +91,7 @@ class LoginScreen: UIView {
         pass.backgroundColor = .whiteBase
         pass.textColor = .blackBase
         pass.layer.borderWidth = 2
-        pass.layer.borderColor = .yellowBaseCG
+        pass.layer.borderColor = UIColor.yellowBaseCG
         pass.layer.shadowColor = UIColor.black.cgColor
         pass.layer.shadowOpacity = 0.1
         pass.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -187,7 +187,7 @@ class LoginScreen: UIView {
         entrar.setTitleColor(.brownBase, for: .normal)
         entrar.backgroundColor = .whiteBase
         entrar.layer.borderWidth = 2
-        entrar.layer.borderColor = .yellowBaseCG
+        entrar.layer.borderColor = UIColor.yellowBaseCG
         entrar.layer.cornerRadius = 10
         entrar.layer.shadowColor = UIColor.black.cgColor
         entrar.layer.shadowOpacity = 0.1

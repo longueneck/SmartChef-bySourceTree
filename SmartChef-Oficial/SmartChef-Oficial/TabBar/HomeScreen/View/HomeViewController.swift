@@ -32,7 +32,6 @@ class HomeViewController: UIViewController{
         recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,7 +40,7 @@ class HomeViewController: UIViewController{
     
     func setupInitialView() {
         randomRecipes = homeViewModel.generateRandomRecipes()
-        let indexPath = IndexPath(item: 0, section: 0)
+        var indexPath = IndexPath(item: 0, section: 0)
     }
     
     func inicializeConfigs() {
@@ -121,9 +120,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: RandomDrinksTableViewCell.identifier, for: indexPath) as? RandomDrinksTableViewCell ?? UITableViewCell()
-            break
-        case 4:
-            cell = tableView.dequeueReusableCell(withIdentifier: fifthUITableViewCell.identefier, for: indexPath) as? RandomDrinksTableViewCell ?? UITableViewCell()
             break
         default:
             cell = UITableViewCell()

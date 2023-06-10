@@ -16,7 +16,7 @@ class RecipeTypeTableViewCell: UITableViewCell {
     lazy var firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.categoriasLabel
+        label.text = .categoriasLabel
         label.font = .sugarFont18
         label.textColor = .brownBase
         return label

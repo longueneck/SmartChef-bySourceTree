@@ -13,7 +13,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: String.hamburgerImage)
+        image.image = UIImage(named: StringMagica.hamburgerImage)
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .blue
         image.clipsToBounds = true
@@ -24,7 +24,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var recipeNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.nameRecipeLabel
+        label.text = StringMagica.nameRecipeLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -34,7 +34,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var typeRecipeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.typeRecipeLabel
+        label.text = StringMagica.typeRecipeLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -44,7 +44,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var timingToCook: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.min
+        label.text = StringMagica.min
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -54,7 +54,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var descriptionRecipeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.descriptonRecipeLabel
+        label.text = StringMagica.descriptonRecipeLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -64,7 +64,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var ingredientsRecipeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.ingredientsRecipeLabel
+        label.text = StringMagica.ingredientsRecipeLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -74,7 +74,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var prepareModeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.prepairRecipeLabel
+        label.text = StringMagica.prepairRecipeLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
@@ -84,7 +84,7 @@ class PrepairCollectionViewCell: UICollectionViewCell {
     lazy var prepairLevelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.levelLabel
+        label.text = StringMagica.levelLabel
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)

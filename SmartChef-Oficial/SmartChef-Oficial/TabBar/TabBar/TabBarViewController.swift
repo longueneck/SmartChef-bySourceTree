@@ -2,6 +2,13 @@ import UIKit
 
 class MyTabBarController: UITabBarController{
     
+    enum indexView: Int {
+        case home = 0
+        case recipes = 1
+        case favorite = 2
+        case profile = 3
+    }
+    
     var mainScreen = HomeViewController()
     var recipes = RecipeViewController()
     var favorite = FavoriteViewController()
@@ -10,7 +17,7 @@ class MyTabBarController: UITabBarController{
     override func viewDidLoad(){
         super.viewDidLoad()
         self.setupTabBarController()
-        self.view.backgroundColor = UIColor(red: 255/255, green: 230/255, blue: 181/255, alpha: 1)
+        self.view.backgroundColor = .lightYellow
         profile.setupDelegate(delegate: self)
         mainScreen.setupDelegate(delegate: self)
     }
@@ -28,48 +35,48 @@ class MyTabBarController: UITabBarController{
         let tela04 = UINavigationController(rootViewController: profile)
         
         self.setViewControllers([tela01, tela02, tela03, tela04], animated: false)
-        self.tabBar.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        self.tabBar.unselectedItemTintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        self.tabBar.tintColor = .white
+        self.tabBar.backgroundColor = .yellowBase
+        self.tabBar.unselectedItemTintColor = .brownBase
+        self.tabBar.tintColor = .whiteBase
         self.tabBar.itemPositioning = .centered
         self.tabBar.isTranslucent = false
-        self.tabBar.barTintColor = .white
-    
+        self.tabBar.barTintColor = .whiteBase
+        
         guard let items = tabBar.items else{return}
         
-        items[0].image = UIImage(systemName: "house.fill")
-        items[0].title = "Home"
-        
-        items[1].image = UIImage(systemName: "book.fill")
-        items[1].title = "Receitas"
-        
-        items[2].image = UIImage(systemName: "heart.fill")
-        items[2].title = "Favoritos"
-        
-        items[3].image = UIImage(systemName: "person.fill")
-        items[3].title = "Perfil"
-        
-        self.selectedIndex = 0
-    }
-}
-
-extension MyTabBarController: HomeViewControllerProtocol{
-    
-    func navToScreen() {
-        self.selectedIndex = 0
-    }
-}
-
-extension MyTabBarController: ProfileViewControllerProtocol{
-    func tapCancel() {
-        self.selectedIndex = 0
-    }
-    
-    func tapSave() {
-        self.selectedIndex = 0
-    }
-    
-    func tapExit() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-}
+        items[indexView.home.rawValue].image = .houseFill
+        items[indexView.home.rawValue].title = .caseHome
+              
+        items[indexView.recipes.rawValue].image = .bookFill
+        items[indexView.recipes.rawValue].title = .caseRecipe
+              
+        items[indexView.favorite.rawValue].image = .heartFill
+        items[indexView.favorite.rawValue].title = .caseFavorite
+              
+        items[indexView.profile.rawValue].image = .personFill
+        items[indexView.profile.rawValue].title = .caseProfile
+              
+        self.selectedIndex = indexView.home.rawValue
+              }
+              }
+              
+              extension MyTabBarController: HomeViewControllerProtocol{
+            
+            func navToScreen() {
+                self.selectedIndex = indexView.home.rawValue
+            }
+        }
+              
+              extension MyTabBarController: ProfileViewControllerProtocol{
+            func tapCancel() {
+                self.selectedIndex = indexView.home.rawValue
+            }
+            
+            func tapSave() {
+                self.selectedIndex = indexView.home.rawValue
+            }
+            
+            func tapExit() {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }

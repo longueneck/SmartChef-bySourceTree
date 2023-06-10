@@ -22,7 +22,7 @@ class DiscoverScreen: UIView {
     lazy var backButton: UIButton = {
         let back = UIButton()
         back.translatesAutoresizingMaskIntoConstraints = false
-        back.setImage(UIImage(systemName: String.setaVoltar), for: .normal)
+        back.setImage(UIImage(systemName: StringMagica.setaVoltar), for: .normal)
         back.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         back.layer.cornerRadius = 8
         back.contentMode = .scaleAspectFit
@@ -34,7 +34,7 @@ class DiscoverScreen: UIView {
     lazy var namePageLabel: UILabel = {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.text = String.discoverRecipeTitle
+        name.text = StringMagica.discoverRecipeTitle
         let locate = NSLocalizedString("discover_recipe", comment: "")
         name.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         name.font = UIFont(name: "Nice Sugar", size: 22)
@@ -44,7 +44,7 @@ class DiscoverScreen: UIView {
     lazy var imageBall: UIImageView = {
         let table = UIImageView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.image = UIImage(named: String.balls)
+        table.image = UIImage(named: .errorAPIDebug)
         table.contentMode = .scaleAspectFill
         
         return table

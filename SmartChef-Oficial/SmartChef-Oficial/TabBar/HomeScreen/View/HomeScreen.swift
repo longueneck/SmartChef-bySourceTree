@@ -17,18 +17,18 @@ class HomeScreen: UIView {
     lazy var initialLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String.discoverNewRecipes
-        label.font = UIFont(name: String.niceSugarFont, size: 18)
+        label.text = .discoverNewRecipes
+        label.font = .sugarFont18
         label.numberOfLines = 0
-        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        label.textColor = .brownBase
         return label
     }()
     
     lazy var searchRecipeTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = String.searchForRecipes
-        textField.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        textField.placeholder = .searchForRecipes
+        textField.backgroundColor = .lightGray
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOpacity = 0.1
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -48,11 +48,10 @@ class HomeScreen: UIView {
         tableView.register(InsertIngredientsTableViewCell.self, forCellReuseIdentifier: InsertIngredientsTableViewCell.identifier)
         tableView.register(RandomDrinksTableViewCell.self, forCellReuseIdentifier: RandomDrinksTableViewCell.identifier)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.red
         tableView.layer.cornerRadius = 20
         tableView.allowsSelection = false
         tableView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        tableView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        tableView.backgroundColor = .lightGray
         return tableView
     }()
     
@@ -66,19 +65,19 @@ class HomeScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+    public func setTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         mainTableView.delegate = delegate
         mainTableView.dataSource = dataSource
     }
     
-    private func addSubViews(){
+    private func addSubViews() {
         self.addSubview(self.yellowSeparatorView)
         self.addSubview(self.initialLabel)
         self.addSubview(self.searchRecipeTextField)
         self.addSubview(self.mainTableView)
     }
     
-    private func setConstraints(){
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             
             yellowSeparatorView.topAnchor.constraint(equalTo: self.topAnchor, constant: -30),

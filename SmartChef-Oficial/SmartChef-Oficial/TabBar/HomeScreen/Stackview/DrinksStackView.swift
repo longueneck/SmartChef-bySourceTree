@@ -9,11 +9,11 @@ class DrinksStackView: UIStackView {
     lazy var drinkRecipe1Button: UIButton = {
         let hot = UIButton()
         hot.translatesAutoresizingMaskIntoConstraints = false
-        hot.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        hot.tintColor = .brownBase
         hot.layer.cornerRadius = 8
         hot.clipsToBounds = true
         hot.imageView?.contentMode = .scaleAspectFill
-        hot.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        hot.backgroundColor = .yellowBase
         hot.addTarget(self, action: #selector(goToDrink1), for: .touchUpInside)
 
         return hot
@@ -22,21 +22,21 @@ class DrinksStackView: UIStackView {
     lazy var drink2: UIButton = {
         let option1 = UIButton()
         option1.translatesAutoresizingMaskIntoConstraints = false
-        option1.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        option1.tintColor = .brownBase
         option1.layer.cornerRadius = 8
         option1.imageView?.contentMode = .scaleAspectFill
         option1.clipsToBounds = true
-        option1.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        option1.backgroundColor = .yellowBase
         return option1
     }()
     
     lazy var drink3: UIButton = {
         let option2 = UIButton()
         option2.translatesAutoresizingMaskIntoConstraints = false
-        option2.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        option2.tintColor = .brownBase
         option2.layer.cornerRadius = 8
         option2.imageView?.contentMode = .scaleAspectFill
-        option2.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        option2.backgroundColor = .yellowBase
         option2.clipsToBounds = true
         return option2
     }()
@@ -44,11 +44,11 @@ class DrinksStackView: UIStackView {
     lazy var drink4: UIButton = {
         let option3 = UIButton()
         option3.translatesAutoresizingMaskIntoConstraints = false
-        option3.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        option3.tintColor = .brownBase
         option3.layer.cornerRadius = 8
         option3.imageView?.contentMode = .scaleAspectFill
         option3.clipsToBounds = true
-        option3.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
+        option3.backgroundColor = .yellowBase
         return option3
     }()
     

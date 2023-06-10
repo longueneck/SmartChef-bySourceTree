@@ -14,8 +14,8 @@ class IngredientsTableViewCell: UITableViewCell {
     lazy var lbIngredients: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        label.font = .boldFont17
+        label.textColor = .brownBase
         
         return label
     }()
@@ -24,9 +24,9 @@ class IngredientsTableViewCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
-        button.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1)
-        button.setImage(UIImage(systemName: String.symbolMinus), for: .normal)
-        button.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
+        button.backgroundColor = .yellowBase
+        button.setImage(UIImage(systemName: .symbolMinus), for: .normal)
+        button.tintColor = .brownBase
         button.addTarget(self, action: #selector(removeIngredient(_:)), for: .touchUpInside)
         return button
     }()
@@ -49,7 +49,7 @@ class IngredientsTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
     func setConstraints() {

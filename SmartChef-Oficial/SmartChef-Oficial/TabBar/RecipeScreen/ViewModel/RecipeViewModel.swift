@@ -9,7 +9,7 @@ class RecipeViewModel{
     public var callAlertControllError: ((Error) -> Void)?
     
     init(){
- 
+        
     }
     
     func ingredientDATA(){

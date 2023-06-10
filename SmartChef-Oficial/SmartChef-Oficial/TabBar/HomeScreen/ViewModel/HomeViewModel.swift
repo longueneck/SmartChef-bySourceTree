@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewModel{
+class HomeViewModel {
     
     private var importView: Recipes?
     private var recipeList: [Recipes] = []
@@ -9,28 +9,11 @@ class HomeViewModel{
     var hotRecipes: [Recipes] = []
     
     init(){
-        loadRecipesData()
+        let loadDataAPI = LoadDataAPI()
+        hotRecipes = loadDataAPI.loadRecipesData()
     }
     
-    #warning("RESOLVER POSTERIORMENTE")
-    //ALOCAR DENTRO DA SERVICE =======>
-    func loadRecipesData(){
-        guard let jsonURL = Bundle.main.url(forResource: "recipesSmart.json", withExtension: "") else {
-            print("ERRO PRA RECUPERAR URL")
-            return
-        }
-        
-        do {
-            let jsonData = try Data(contentsOf: jsonURL)
-            hotRecipes = try JSONDecoder().decode([Recipes].self, from: jsonData)
-        }
-        catch {
-            print("Erro ao decodificar Json: \(error)")
-        }
-    }
-    //============================ <<<
-    
-    func countRecipes() -> Int{
+    func countRecipes() -> Int {
         hotRecipes.endIndex
     }
     

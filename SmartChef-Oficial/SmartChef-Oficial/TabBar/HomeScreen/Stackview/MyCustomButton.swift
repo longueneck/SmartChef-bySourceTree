@@ -7,10 +7,7 @@ enum ScreensTypeOfRecipe{
     case recipeType3
     case recipeType4
     case recipeType5
-    
-  
     }
-    
 
 class MyCustomButton: UIButton{
   

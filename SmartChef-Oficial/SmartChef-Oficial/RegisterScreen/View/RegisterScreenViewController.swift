@@ -17,7 +17,7 @@ class RegisterScreenViewController: UIViewController {
         self.view.backgroundColor = .white
         self.register.delegate(delegate: self)
         addDelegateToTextFields()
-        viewModel.turnButtonOff(button: register.createButton)
+        register.turnButtonOff(button: register.createButton)
         self.auth = Auth.auth()
     }
     
@@ -36,18 +36,18 @@ class RegisterScreenViewController: UIViewController {
     }
     
     func passCorrect(){
-        viewModel.confirmCorrect(textField: register.confirmPasswordTextfield)
-        viewModel.passCorrect(textField: register.passwordTextfield)
+        register.confirmCorrect(textField: register.confirmPasswordTextfield)
+        register.passCorrect(textField: register.passwordTextfield)
     }
-    
+
     func passIncorrect(){
-        viewModel.confirWorse(textField: register.confirmPasswordTextfield)
-        viewModel.passWorse(textField: register.passwordTextfield)
+        register.confirWorse(textField: register.confirmPasswordTextfield)
+        register.passWorse(textField: register.passwordTextfield)
     }
-    
+
     func passEmpty(){
-        viewModel.confirmEmpty(textField: register.confirmPasswordTextfield)
-        viewModel.passEmpty(textField: register.passwordTextfield)
+        register.confirmEmpty(textField: register.confirmPasswordTextfield)
+        register.passEmpty(textField: register.passwordTextfield)
     }
 }
 
@@ -85,12 +85,12 @@ extension RegisterScreenViewController: UITextFieldDelegate{
             
             register.turnButtonOn(button: register.createButton)
             
-            if register.passIsEqual(
+            if viewModel.passIsEqual(
                 pass: register.passwordTextfield.text ?? "",
                 confirm: register.confirmPasswordTextfield.text ?? "") {
                 passCorrect()
                 
-            }else if !register.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
+            }else if !viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
                 
                 passIncorrect()
                 register.turnButtonOff(button: register.createButton)

@@ -12,5 +12,6 @@ extension UIFont {
     static let sugarFont17 = UIFont(name: "Nice Sugar", size: 17)
     static let sugarFont18 = UIFont(name: "Nice Sugar", size: 18)
     static let sugarFont24 = UIFont(name: "Nice Sugar", size: 24)
+    static let sugarFont48 = UIFont(name: "Nice Sugar", size: 48)
 }
 

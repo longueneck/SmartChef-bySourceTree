@@ -23,11 +23,41 @@ extension String {
     static let createButton = "Criar conta"
     static let fatalErrorInit = "init(coder:) has not been implemented"
     
+    //MARK: SUCCESS
+    static let welcome = "Bem Vindo!"
+    static let sendLabel = "Enviamos seus dados cadastrais para o email abaixo"
+    static let exampleEmail = "exemplo@gmail.com"
+    static let setTitleLoginButton2 = "Entrar"
+ 
+    //MARK: TABBAR
+    static let caseHome = "Home"
+    static let caseRecipe = "Receitas"
+    static let caseFavorite = "Favoritos"
+    static let caseProfile = "Perfil"
+    static let moreVisits = "Mais visitadas"
     
+    //MARK: HOME
+    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
+    static let searchForRecipes = "  Pesquise por receitas"
+    static let recipeIngredientsTitle = "Receitas com meus ingredientes"
+    static let categoriasLabel = "Categorias"
+    static let niceSugarFont = "Nice Sugar"
+    static let tryTheseDrinks = "Experimente estas bebidas"
+    
+    //MARK: RECIPE
+    static let letsCook = "<Vamos Cozinhar?>"
+    static let insertIngredient = "Insira seus ingredientes"
+    static let insertHere = "Insira aqui"
+    static let search = "Search"
+    static let symbolMinus = "minus.circle"
+    static let errorAPIDebug = "API Conection Error"
+    static let errorAPIRelease = "Poxa Vida"
+    static let errorAPIReleaseMessage = "Parece que o Chef está dormindo agora 😴"
+    static let ok = "OK"
 }
 
 
-class String: String {
+class StringMagica {
     
     
     //MARK: HotMeals
@@ -35,7 +65,7 @@ class String: String {
     static let setaVoltar = "arrowshape.backward.fill"
     static let hotImage = "hot"
     static let searchRecipePlaceholder = "Pesquise por receitas"
-    static let moreVisits = "Mais visitadas"
+   
     static let star = "star.fill"
     static let enjoyWithFriends = "Aproveite com os amigos"
     static let person3 = "person.3.fill"
@@ -71,13 +101,6 @@ class String: String {
     static let heartFill = "heart.fill"
     static let heart = "heart."
 
-    //MARK: Recipe
-    //RecipeScreen
-    static let symbolMinus = "minus.circle"
-    //RecipeViewController
-    static let errorAPIDebug = "API Conection Error"
-    static let errorAPIRelease = "Poxa Vida"
-    static let errorAPIReleaseMessage = "Parece que o Chef está dormindo agora 😴"
     
     //MARK: profile
     static let cancel = "Cancelar"
@@ -93,18 +116,5 @@ class String: String {
     static let emailTitleLabel = "Email"
     static let passwordTitleLabel = "Senha"
     
-    //MARK: Home
-    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
-    static let searchForRecipes = "  Pesquise por receitas"
-    static let recipeIngredientsTitle = "Receitas com meus ingredientes"
-    //homeCells
-    static let categoriasLabel = "Categorias"
-    static let niceSugarFont = "Nice Sugar"
-    static let tryTheseDrinks = "Experimente estas bebidas"
-       
-    //MARK: Titles
-    static let ok = "OK"
-    
-    //MARK: VoidStrings
     
 }

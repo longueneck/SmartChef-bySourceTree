@@ -15,7 +15,7 @@ class SearchTextField: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubViews()
         setConstraints()
-        backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        backgroundColor = .lightGray
     }
     
     private func addSubViews() {
