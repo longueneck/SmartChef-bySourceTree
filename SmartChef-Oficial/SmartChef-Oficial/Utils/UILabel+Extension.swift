@@ -3,20 +3,17 @@ import Foundation
 extension String {
     
     //MARK: LOGIN
-    //View
     static let userText = "Usuário"
     static let resetpassword = "Recupere sua senha"
     static let setTitleLoginButton = "Entrar"
     static let alternativeConnection = "Ou conecte-se com"
     static let passwordText = "Senha"
     static let signInText = "Inscreva-se"
-    //Alert
     static let titleAlert = "Atenção"
     static let messageAlertOne = "Email e/ou senha incorretos, tente novamente"
     static let messageAlertTwo = "Por favor, insira seu email e tente novamente"
-      
+    
     //MARK: REGISTER
-    //View
     static let createAccount = "Crie sua conta >"
     static let sloganRegister = "Cozinhe com ingredientes da sua dispensa"
     static let userNameRegister = "Nome de usuário"
@@ -27,8 +24,10 @@ extension String {
     static let fatalErrorInit = "init(coder:) has not been implemented"
     
     
-    
-    
+}
+
+
+class String: String {
     
     
     //MARK: HotMeals

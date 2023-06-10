@@ -22,39 +22,7 @@ class RegisterViewModel{
         return pass == confirm
     }
     
-    public func turnButtonOn(button: UIButton){
-        button.isEnabled = true
-        button.alpha = 1.0
-    }
     
-    public func turnButtonOff(button: UIButton){
-        button.isEnabled = false
-        button.alpha = 0.5
-    }
-    
-    func isTextFieldEmpty(_ textField1: UITextField, textField2: UITextField, textField3: UITextField, textField4: UITextField ) -> Bool {
-        return textField1.text == "" && textField2.text == "" && textField3.text == "" && textField4.text == ""
-        }
-    
-    public func passCorrect(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 28/255, green: 155/255, blue: 54/255, alpha: 1).cgColor
-    }
-    public func confirmCorrect(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 28/255, green: 155/255, blue: 54/255, alpha: 1).cgColor
-    }
-    public func passWorse(textField: UITextField){
-        textField.layer.borderColor = UIColor.red.cgColor
-    }
-    public func confirWorse(textField: UITextField){
-        textField.layer.borderColor = UIColor.red.cgColor
-    }
-    public func passEmpty(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-    }
-    public func confirmEmpty(textField: UITextField){
-        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
-        
-    }
     
     public func getEmail(email: UITextField)-> String{
         return email.text ?? ""

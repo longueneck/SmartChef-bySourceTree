@@ -55,7 +55,7 @@ class HomeViewController: UIViewController{
     }
 }
 
-extension HomeViewController: UITextFieldDelegate 
+extension HomeViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         wrapperView?.startANimation()
