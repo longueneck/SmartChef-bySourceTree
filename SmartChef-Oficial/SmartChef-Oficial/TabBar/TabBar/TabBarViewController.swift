@@ -9,7 +9,7 @@ class MyTabBarController: UITabBarController{
     }
     
     var recipes = RecipeViewController()
-    var favorite = FavoriteViewController()
+    var favorite = HomeViewController()
     var profile = ProfileViewController()
     
     override func viewDidLoad(){
