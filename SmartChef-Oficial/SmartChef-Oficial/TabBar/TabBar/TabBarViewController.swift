@@ -8,8 +8,8 @@ class MyTabBarController: UITabBarController{
         case profile = 2
     }
     
-    var recipes = RecipeViewController()
-    var favorite = HomeViewController()
+    var recipes = HomeViewController()
+    var favorite = NewFavoriteViewController()
     var profile = ProfileViewController()
     
     override func viewDidLoad(){

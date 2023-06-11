@@ -3,7 +3,7 @@ import UIKit
 class SucessRegisterViewController: UIViewController {
     
     var sucess: SucessRegisterScreen?
-    var recipe: HomeScreen?
+    var recipe: NewFavoriteScreen?
     var recebeDado: String = ""
     
     override func loadView() {

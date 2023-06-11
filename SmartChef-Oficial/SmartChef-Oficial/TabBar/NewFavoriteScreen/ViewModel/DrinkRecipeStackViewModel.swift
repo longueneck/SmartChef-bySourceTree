@@ -2,7 +2,7 @@ import UIKit
 
 class DrinkRecipeStackViewModel{
     
-    private var importView: HomeViewModel = HomeViewModel()
+    private var importView: NewFavoriteViewModel = NewFavoriteViewModel()
     private var drinkRecipeList: [Drink] = []
     private var selectedDrinkRecipe: [Drink] = []
     private var drinkRecipeSearch: [Drink] = []

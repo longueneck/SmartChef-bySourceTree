@@ -4,7 +4,7 @@ protocol RecipeScreenProtocol: AnyObject{
     func goToSearch()
 }
 
-class RecipeScreen: UIView {
+class HomeScreen: UIView {
     
     weak private var homeScreenProtocol: RecipeScreenProtocol?
     
@@ -73,6 +73,13 @@ class RecipeScreen: UIView {
         table.rowHeight = 51
         return table
     }()
+    
+    lazy var scrolView: UIScrollView = {
+            let scroll = UIScrollView()
+            scroll.translatesAutoresizingMaskIntoConstraints = false
+            scroll.isScrollEnabled = true
+            return scroll
+        }()
     
     lazy var backgroundView: UIView = {
         let white = UIView()

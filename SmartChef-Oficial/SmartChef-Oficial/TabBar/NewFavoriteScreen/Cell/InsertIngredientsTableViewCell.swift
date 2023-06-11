@@ -14,7 +14,7 @@ class InsertIngredientsTableViewCell: UITableViewCell {
         self.viewCellProtocol = delegate
     }
     
-    var homeScreen: HomeScreen?
+    var homeScreen: NewFavoriteScreen?
     
     lazy var myIngredientsButton: UIButton = {
         let button = UIButton()

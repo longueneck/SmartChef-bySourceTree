@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeScreen: UIView {
+class NewFavoriteScreen: UIView {
     
     lazy var yellowSeparatorView: UIView = {
         let view = UIView()

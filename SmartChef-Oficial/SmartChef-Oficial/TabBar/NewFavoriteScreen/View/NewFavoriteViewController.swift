@@ -4,12 +4,12 @@ protocol HomeViewControllerProtocol: AnyObject{
     func navToScreen()
 }
 
-class HomeViewController: UIViewController{
+class NewFavoriteViewController: UIViewController{
     
     weak private var delegate: HomeViewControllerProtocol?
-    private var homeViewModel: HomeViewModel = HomeViewModel()
+    private var homeViewModel: NewFavoriteViewModel = NewFavoriteViewModel()
     
-    var recipe: HomeScreen?
+    var recipe: NewFavoriteScreen?
     var wrapperView: WrapperViewAnimation?
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController{
     }
     
     override func loadView() {
-        self.recipe = HomeScreen()
+        self.recipe = NewFavoriteScreen()
         self.view = recipe
     }
     
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController{
     }
 }
 
-extension HomeViewController: UITextFieldDelegate {
+extension NewFavoriteViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         wrapperView?.startANimation()
@@ -78,13 +78,13 @@ extension HomeViewController: UITextFieldDelegate {
     }
 }
 
-extension HomeViewController: thirdTableViewCellProtocol{
+extension NewFavoriteViewController: thirdTableViewCellProtocol{
     func tapToMain() {
         delegate?.navToScreen()
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension NewFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -134,7 +134,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: firstUITableViewCellProtocol {
+extension NewFavoriteViewController: firstUITableViewCellProtocol {
     func goToAhotherView() {
         navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }

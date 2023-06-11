@@ -1,16 +1,16 @@
 import UIKit
 
 
-class RecipeViewController: UIViewController{
+class HomeViewController: UIViewController{
     
-    var screen: RecipeScreen?
+    var screen: HomeScreen?
     var emptyState: EmptyStateView?
-    var recipeViewModel: RecipeViewModel = RecipeViewModel()
+    var recipeViewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
     var discover: DiscoverViewController?
     
     override func loadView() {
-        self.screen = RecipeScreen()
+        self.screen = HomeScreen()
         self.view = self.screen
         
     }
@@ -79,7 +79,7 @@ class RecipeViewController: UIViewController{
     }
 }
 
-extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case screen?.searchedTableView:
@@ -121,7 +121,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension RecipeViewController: InsertedIngredientsViewCellProtocol{
+extension HomeViewController: InsertedIngredientsViewCellProtocol{
     
     func removeIngredients(index: Int) {
         recipeViewModel.deleteSelectedIngredient(index: index)
@@ -130,7 +130,7 @@ extension RecipeViewController: InsertedIngredientsViewCellProtocol{
     }
 }
 
-extension RecipeViewController: UITextFieldDelegate{
+extension HomeViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == " " && textField == screen?.addIngredientTextField {
@@ -166,7 +166,7 @@ extension RecipeViewController: UITextFieldDelegate{
     }
 }
 
-extension RecipeViewController: RecipeScreenProtocol {
+extension HomeViewController: RecipeScreenProtocol {
     func goToSearch() {
         
         let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()

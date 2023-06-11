@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewModel {
+class NewFavoriteViewModel {
     
     private var importView: Recipes?
     private var recipeList: [Recipes] = []

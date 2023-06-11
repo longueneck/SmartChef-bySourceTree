@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipeViewModel{
+class HomeViewModel{
     
     private var importView: Ingredient?
     private var ingredientList: [Ingredient] = []

@@ -10,7 +10,7 @@ class RecipeTypeTableViewCell: UITableViewCell {
     
     var delegate: firstUITableViewCellProtocol?
     
-    var homeScreen: HomeScreen?
+    var homeScreen: NewFavoriteScreen?
     var stackView: RecipeStackView?
     
     lazy var firstLabel: UILabel = {

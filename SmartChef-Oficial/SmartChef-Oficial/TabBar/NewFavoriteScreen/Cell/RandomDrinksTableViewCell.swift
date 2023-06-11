@@ -4,7 +4,7 @@ class RandomDrinksTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: RandomDrinksTableViewCell.self)
     
-    var viewModel: HomeViewModel = HomeViewModel()
+    var viewModel: NewFavoriteViewModel = NewFavoriteViewModel()
     
     lazy var firstLabel: UILabel = {
         let label = UILabel()
