@@ -116,6 +116,16 @@ class RecipeScreen: UIView {
         return segmentedControl
     }()
     
+    lazy var switchPresentationLabel: UILabel = {
+        let insert = UILabel()
+        insert.translatesAutoresizingMaskIntoConstraints = false
+        insert.text = "O que podemos usar?"
+        insert.textColor = .brownBase
+        insert.font = .sugarFont17
+        return insert
+    }()
+    
+    
     lazy var switchLabel1: UILabel = {
         let insert = UILabel()
         insert.translatesAutoresizingMaskIntoConstraints = false
@@ -229,7 +239,7 @@ class RecipeScreen: UIView {
         let switchControl = UISwitch()
         switchControl.translatesAutoresizingMaskIntoConstraints = false
         switchControl.isOn = false
-        switchControl.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+        switchControl.addTarget(self, action: #selector(allSelectedSwitchs(_:)), for: .valueChanged)
         switchControl.onTintColor = UIColor.yellowBase
         switchControl.thumbTintColor = UIColor.whiteBase
         switchControl.tintColor = .gray
@@ -243,6 +253,7 @@ class RecipeScreen: UIView {
         search.layer.cornerRadius = 10
         search.setTitle(.search, for: .normal)
         search.setTitleColor(.whiteBase, for: .normal)
+        search.titleLabel?.font = .sugarFont17
         search.addTarget(self, action: #selector(tappedToSearch), for: .touchUpInside)
         return search
     }()
@@ -305,6 +316,7 @@ class RecipeScreen: UIView {
         self.addSubview(self.manyPeopleLabel)
         self.addSubview(self.manyPeopleSegmentedControl)
         self.addSubview(self.insertedIngredientTableView)
+        self.addSubview(self.switchPresentationLabel)
         self.addSubview(self.switchLabel1)
         self.addSubview(self.mySwitch1)
         self.addSubview(self.switchLabel2)
@@ -325,6 +337,22 @@ class RecipeScreen: UIView {
             
         } else {
             print("Esta Desligado o Switch")
+        }
+    }
+    
+    @objc func allSelectedSwitchs(_ sender: UISwitch) {
+        if sender.isOn {
+            mySwitch1.setOn(true, animated: true)
+            mySwitch2.setOn(true, animated: true)
+            mySwitch3.setOn(true, animated: true)
+            mySwitch4.setOn(true, animated: true)
+            mySwitch5.setOn(true, animated: true)
+        } else {
+            mySwitch1.setOn(false, animated: true)
+            mySwitch2.setOn(false, animated: true)
+            mySwitch3.setOn(false, animated: true)
+            mySwitch4.setOn(false, animated: true)
+            mySwitch5.setOn(false, animated: true)
         }
     }
     
@@ -369,7 +397,10 @@ class RecipeScreen: UIView {
             manyPeopleSegmentedControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             manyPeopleSegmentedControl.topAnchor.constraint(equalTo: manyPeopleLabel.bottomAnchor, constant: 7),
             
-            mySwitch1.topAnchor.constraint(equalTo: manyPeopleSegmentedControl.bottomAnchor, constant: 20),
+            switchPresentationLabel.topAnchor.constraint(equalTo: manyPeopleSegmentedControl.bottomAnchor, constant: 20),
+            switchPresentationLabel.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 25),
+                        
+            mySwitch1.topAnchor.constraint(equalTo: switchPresentationLabel.bottomAnchor, constant: 7),
             mySwitch1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
             switchLabel1.centerYAnchor.constraint(equalTo: mySwitch1.centerYAnchor),

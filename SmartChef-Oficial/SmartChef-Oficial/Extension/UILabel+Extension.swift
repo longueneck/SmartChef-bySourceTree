@@ -48,7 +48,7 @@ extension String {
     static let letsCook = "<Vamos Cozinhar?>"
     static let insertIngredient = "Insira seus ingredientes"
     static let insertHere = "Insira aqui"
-    static let search = "Search"
+    static let search = "Gerar Receita"
     static let symbolMinus = "minus.circle"
     static let errorAPIDebug = "API Conection Error"
     static let errorAPIRelease = "Poxa Vida"
@@ -59,7 +59,7 @@ extension String {
     static let switch3 = "Micro-Ondas"
     static let switch4 = "Batedeira"
     static let switch5 = "Liquidificador"
-    static let switchAll = "Todos e mais alguns"
+    static let switchAll = "Todos"
     static let ok = "OK"
     
     //MARK: Favorite
