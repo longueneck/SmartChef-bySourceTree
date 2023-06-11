@@ -53,7 +53,20 @@ extension String {
     static let errorAPIDebug = "API Conection Error"
     static let errorAPIRelease = "Poxa Vida"
     static let errorAPIReleaseMessage = "Parece que o Chef está dormindo agora 😴"
+    static let manyPeople = "Para quantas pessoas?"
+    static let switch1 = "Fogão"
+    static let switch2 = "Forno"
+    static let switch3 = "Micro-Ondas"
+    static let switch4 = "Batedeira"
+    static let switch5 = "Liquidificador"
+    static let switchAll = "Todos e mais alguns"
     static let ok = "OK"
+    
+    //MARK: Favorite
+    static let favorite = "< Favoritos >"
+    
+    static let heartFill = "heart.fill"
+    static let heart = "heart."
 }
 
 
@@ -65,7 +78,7 @@ class StringMagica {
     static let setaVoltar = "arrowshape.backward.fill"
     static let hotImage = "hot"
     static let searchRecipePlaceholder = "Pesquise por receitas"
-   
+                static let favoriteRecipes = "Receitas Favoritadas"
     static let star = "star.fill"
     static let enjoyWithFriends = "Aproveite com os amigos"
     static let person3 = "person.3.fill"
@@ -95,12 +108,7 @@ class StringMagica {
     static let prepairRecipeLabel = "Prepair Mode Recipe"
     static let levelLabel = "Level"
     
-    //MARK: Favorite
-    //FavoriteCell
-    static let favoriteRecipes = "Receitas Favoritadas"
-    static let heartFill = "heart.fill"
-    static let heart = "heart."
-
+   
     
     //MARK: profile
     static let cancel = "Cancelar"

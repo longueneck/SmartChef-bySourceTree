@@ -9,7 +9,7 @@ class LoginScreenViewController: UIViewController {
     var loginScreen: LoginScreen = LoginScreen()
     var alert: Alert?
     var auth: Auth = Auth.auth()
-    
+    var loading: Loading?
     
     override func loadView() {
         self.loginScreen = LoginScreen()
@@ -20,8 +20,10 @@ class LoginScreenViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .lightYellow
         self.viewModel = LoginViewModel()
+        loading = Loading(viewController: self)
         self.alert = Alert(controller: self)
         loginScreen.delegate(delegate: self)
+        
         addTfToDelegate()
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
     }
@@ -70,12 +72,10 @@ extension LoginScreenViewController: UITextFieldDelegate{
                 self.loginScreen.loginTextField.layer.borderColor = UIColor.yellowBaseCG
             })
             return false
-            
         }
         return true
     }
-    
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.brownBaseCG
     }
@@ -99,15 +99,21 @@ extension LoginScreenViewController: LoginScreenProtocol{
         
         let email = viewModel.getEmail(email: loginScreen.loginTextField)
         let pass = viewModel.getPass(pass: loginScreen.passwordTextField)
-        
+        self.loading?.show(message: "< Acordando o Chef >")
         self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
+            
             if error != nil{
+                self.loading?.hide()
                 self.alert?.getAlert(title: .titleAlert, message: .messageAlertOne)
+            
             }else{
+                self.loading?.hide()
                 if usuario == nil{
                     self.alert?.getAlert(title: .titleAlert, message: .messageAlertTwo)
                 }else{
+                    
                     self.navigationController?.pushViewController(MyTabBarController(), animated: true)
+                    
                 }
             }
         }

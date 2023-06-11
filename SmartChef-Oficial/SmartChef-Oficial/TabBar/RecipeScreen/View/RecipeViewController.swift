@@ -3,9 +3,9 @@ import UIKit
 
 class RecipeViewController: UIViewController{
     
+    var screen: RecipeScreen?
     var emptyState: EmptyStateView?
     var recipeViewModel: RecipeViewModel = RecipeViewModel()
-    var screen: RecipeScreen?
     var wrapperView: WrapperViewAnimation?
     var discover: DiscoverViewController?
     
@@ -22,6 +22,7 @@ class RecipeViewController: UIViewController{
         setTableViewDelegate()
         recipeViewModel.callAlertControllError = self.errorAPI(_:)
         recipeViewModel.ingredientDATA()
+        screen?.delegate(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -177,3 +178,4 @@ extension RecipeViewController: RecipeScreenProtocol {
         navigationController?.pushViewController(discoverVC, animated: true)
     }
 }
+

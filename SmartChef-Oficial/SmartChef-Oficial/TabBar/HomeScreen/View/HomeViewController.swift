@@ -13,6 +13,9 @@ class HomeViewController: UIViewController{
     var wrapperView: WrapperViewAnimation?
     var stackView: DrinksStackView = DrinksStackView()
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
+    var loading: Loading?
+           
+    
     
     var randomRecipes: [Recipes] = []
     
@@ -29,9 +32,11 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .whiteBase
+        
         recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

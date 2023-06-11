@@ -8,10 +8,6 @@ class RecipeViewModel{
     private var ingredientSearch: [Ingredient] = []
     public var callAlertControllError: ((Error) -> Void)?
     
-    init(){
-        
-    }
-    
     func ingredientDATA(){
         
         let productsFromAPI = ProductsAPI()
@@ -79,7 +75,7 @@ class RecipeViewModel{
     func deleteIngredientSearch(index: Int) {
         ingredientSearch.remove(at: index)
     }
-    
+
     func filterIngredients(with searchText: String) {
         if searchText.isEmpty {
             ingredientSearch = getAllIngredients()

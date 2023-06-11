@@ -83,9 +83,9 @@ class HomeScreen: UIView {
             yellowSeparatorView.topAnchor.constraint(equalTo: self.topAnchor, constant: -30),
             yellowSeparatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             yellowSeparatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            yellowSeparatorView.bottomAnchor.constraint(equalTo: searchRecipeTextField.bottomAnchor, constant: 10),
+            yellowSeparatorView.heightAnchor.constraint(equalToConstant: 240),
             
-            initialLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Sizes.GlobalPage.topSpace),
+            initialLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: .topSpace),
             initialLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             initialLabel.trailingAnchor.constraint(equalTo:trailingAnchor, constant: -45),
             

@@ -45,7 +45,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     
     lazy var bookMark: UIButton = {
         var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: StringMagica.heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        config.image = UIImage(systemName: .heartFill, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         config.imagePlacement = .all
         let button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -92,11 +92,11 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     
     @objc private func tapToSaveFavorite() {
         if bookMark.isSelected {
-            bookMark.configuration?.image = UIImage(systemName: StringMagica.heart)
+            bookMark.configuration?.image = UIImage(systemName: .heart)
             bookMark.backgroundColor = .none
             bookMark.isSelected = false
         } else {
-            bookMark.configuration?.image = UIImage(systemName: StringMagica.heartFill)
+            bookMark.configuration?.image = UIImage(systemName: .heartFill)
             bookMark.isSelected = true
         }
     }
@@ -108,7 +108,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell{
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(.fatalErrorInit)
     }
     
     private func setConstraints() {
