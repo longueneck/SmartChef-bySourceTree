@@ -354,7 +354,7 @@ class HomeScreen: UIView {
             mySwitch3.setOn(true, animated: true)
             mySwitch4.setOn(true, animated: true)
             mySwitch5.setOn(true, animated: true)
-        } else {
+        } else if sender.isOn == false {
             mySwitch1.setOn(false, animated: true)
             mySwitch2.setOn(false, animated: true)
             mySwitch3.setOn(false, animated: true)
