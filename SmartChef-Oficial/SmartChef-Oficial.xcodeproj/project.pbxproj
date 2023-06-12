@@ -72,7 +72,7 @@
 		63C6787B29D5410200658E88 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787529D5410200658E88 /* DiscoverViewController.swift */; };
 		63C6787C29D5410200658E88 /* DiscoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787729D5410200658E88 /* DiscoverScreen.swift */; };
 		63C6787D29D5410200658E88 /* DiscoverStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6787929D5410200658E88 /* DiscoverStackView.swift */; };
-		63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */; };
+		63D75E312A0FC29D00B57C03 /* PrepairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D75E302A0FC29D00B57C03 /* PrepairViewModel.swift */; };
 		63D81D2F2A2638D500C86485 /* DrinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D81D2E2A2638D500C86485 /* DrinkCollectionViewCell.swift */; };
 		63D81D312A265E7700C86485 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D81D302A265E7700C86485 /* UIColor+Extension.swift */; };
 		63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9FFFD29F85C84000F81B3 /* Recipe.swift */; };
@@ -152,7 +152,7 @@
 		63C6787529D5410200658E88 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		63C6787729D5410200658E88 /* DiscoverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreen.swift; sourceTree = "<group>"; };
 		63C6787929D5410200658E88 /* DiscoverStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStackView.swift; sourceTree = "<group>"; };
-		63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		63D75E302A0FC29D00B57C03 /* PrepairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewModel.swift; sourceTree = "<group>"; };
 		63D81D2E2A2638D500C86485 /* DrinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		63D81D302A265E7700C86485 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63E9FFFD29F85C84000F81B3 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -198,15 +198,15 @@
 			path = TranslateByLocalization;
 			sourceTree = "<group>";
 		};
-		6308BCEA29C0E3A500104398 /* NewFavoriteScreen */ = {
+		6308BCEA29C0E3A500104398 /* FavoriteScreen */ = {
 			isa = PBXGroup;
 			children = (
-				63E9FFFF29F85D77000F81B3 /* Stackview */,
-				C4CC787529F83CD90055DC8A /* Cell */,
 				C4CC786129F839F40055DC8A /* View */,
 				C4CC786429F83A170055DC8A /* ViewModel */,
+				C4CC787529F83CD90055DC8A /* Cell */,
+				63E9FFFF29F85D77000F81B3 /* Stackview */,
 			);
-			path = NewFavoriteScreen;
+			path = FavoriteScreen;
 			sourceTree = "<group>";
 		};
 		631C70A829CD4D8A00074D35 /* HotMeals */ = {
@@ -266,6 +266,7 @@
 		634E7F5229CB7CA2003996DD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
 				6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */,
 				6389F2402A2FFC8C007FBE41 /* Loading.swift */,
 				636D2C4A2A1D954500FFF763 /* Alert.swift */,
@@ -310,8 +311,9 @@
 		637C373B2A11A8B400CE7C4F /* PrepairScreen */ = {
 			isa = PBXGroup;
 			children = (
-				637C37412A11B68000CE7C4F /* Cell */,
 				637C373C2A11A8BC00CE7C4F /* View */,
+				637C37412A11B68000CE7C4F /* Cell */,
+				63D75E2F2A0FC24300B57C03 /* ViewModel */,
 			);
 			path = PrepairScreen;
 			sourceTree = "<group>";
@@ -336,6 +338,7 @@
 		638E44D729C0173A00BA3A0B = {
 			isa = PBXGroup;
 			children = (
+				63A062062A377FC400C1D84D /* No Utilized */,
 				638E44E229C0173A00BA3A0B /* SmartChef-Oficial */,
 				638E44E129C0173A00BA3A0B /* Products */,
 				71E7FF7F99863089A48AEE1E /* Pods */,
@@ -354,19 +357,15 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
+				63035C1C29DB8A1B006B6F83 /* Model */,
+				638E450429C0215600BA3A0B /* LoginScreen */,
+				638E44FF29C01F5500BA3A0B /* TabBar */,
+				638E450D29C0226400BA3A0B /* RegisterScreen */,
+				635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */,
+				6342575E2A19529F0028240E /* Service */,
 				634E7F5229CB7CA2003996DD /* Utils */,
 				638F15D02A34FCC700504A0E /* Extension */,
-				6342575E2A19529F0028240E /* Service */,
 				637C373B2A11A8B400CE7C4F /* PrepairScreen */,
-				631C70A829CD4D8A00074D35 /* HotMeals */,
-				63C6787629D5410200658E88 /* DiscoverScreen */,
-				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
-				635E857129DCB79C00DF1FCB /* StackViews */,
-				63035C1C29DB8A1B006B6F83 /* Model */,
-				638E44FF29C01F5500BA3A0B /* TabBar */,
-				635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */,
-				638E450D29C0226400BA3A0B /* RegisterScreen */,
-				638E450429C0215600BA3A0B /* LoginScreen */,
 				C4CC784B29F835640055DC8A /* Resources */,
 				638E44F129C0173C00BA3A0B /* Info.plist */,
 				636D2C462A1D801300FFF763 /* GoogleService-Info.plist */,
@@ -374,23 +373,22 @@
 			path = "SmartChef-Oficial";
 			sourceTree = "<group>";
 		};
-		638E44F929C01B5E00BA3A0B /* HomeScreen2 */ = {
+		638E44F929C01B5E00BA3A0B /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
 				C4CC785929F837AA0055DC8A /* View */,
 				C4CC785829F837A40055DC8A /* ViewModel */,
 				C4CC787129F83BBE0055DC8A /* Cell */,
 			);
-			path = HomeScreen2;
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		638E44FF29C01F5500BA3A0B /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				C4CC785C29F837F20055DC8A /* TabBar */,
-				6308BCEA29C0E3A500104398 /* NewFavoriteScreen */,
-				638E44F929C01B5E00BA3A0B /* HomeScreen2 */,
-				63C6786529D462DB00658E88 /* FavoriteScreen */,
+				638E44F929C01B5E00BA3A0B /* HomeScreen */,
+				6308BCEA29C0E3A500104398 /* FavoriteScreen */,
 				638E451829C023FB00BA3A0B /* ProfileScreen */,
 			);
 			path = TabBar;
@@ -434,9 +432,20 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		63A062062A377FC400C1D84D /* No Utilized */ = {
+			isa = PBXGroup;
+			children = (
+				63C6787629D5410200658E88 /* DiscoverScreen */,
+				631C70A829CD4D8A00074D35 /* HotMeals */,
+				63C6786529D462DB00658E88 /* FavoriteScreen */,
+			);
+			path = "No Utilized";
+			sourceTree = "<group>";
+		};
 		63C6786529D462DB00658E88 /* FavoriteScreen */ = {
 			isa = PBXGroup;
 			children = (
+				635E857129DCB79C00DF1FCB /* StackViews */,
 				C4CC787229F83BF30055DC8A /* Cell */,
 				C4CC786529F83A230055DC8A /* View */,
 			);
@@ -446,7 +455,6 @@
 		63C6787629D5410200658E88 /* DiscoverScreen */ = {
 			isa = PBXGroup;
 			children = (
-				63D75E2F2A0FC24300B57C03 /* ViewModel */,
 				C4CC786F29F83B640055DC8A /* Cell */,
 				C4CC785D29F838A90055DC8A /* View */,
 			);
@@ -456,7 +464,7 @@
 		63D75E2F2A0FC24300B57C03 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				63D75E302A0FC29D00B57C03 /* DiscoverViewModel.swift */,
+				63D75E302A0FC29D00B57C03 /* PrepairViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -756,7 +764,7 @@
 				6308BCEC29C0E3CA00104398 /* NewFavoriteViewController.swift in Sources */,
 				637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */,
 				6308BCF329C0E8E500104398 /* RecipeScreenCollectionViewCell.swift in Sources */,
-				63D75E312A0FC29D00B57C03 /* DiscoverViewModel.swift in Sources */,
+				63D75E312A0FC29D00B57C03 /* PrepairViewModel.swift in Sources */,
 				631C70BE29CD4D8A00074D35 /* HotRecipeStackView.swift in Sources */,
 				63398A7629EEBE05009B154A /* Ingredient.swift in Sources */,
 				634E7F5429CB7CCA003996DD /* CGSize+Extension.swift in Sources */,

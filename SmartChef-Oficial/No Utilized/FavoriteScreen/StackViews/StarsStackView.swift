@@ -9,7 +9,6 @@ class StarsStackView: UIStackView {
         star.translatesAutoresizingMaskIntoConstraints = false
         star.setImage(UIImage(systemName: "star.fill"), for: .normal)
         star.tintColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
-        
         return star
     }()
     
@@ -18,7 +17,6 @@ class StarsStackView: UIStackView {
         star.translatesAutoresizingMaskIntoConstraints = false
         star.setImage(UIImage(systemName: "star.fill"), for: .normal)
         star.tintColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
-        
         return star
     }()
     
@@ -27,7 +25,6 @@ class StarsStackView: UIStackView {
         star.translatesAutoresizingMaskIntoConstraints = false
         star.setImage(UIImage(systemName: "star.fill"), for: .normal)
         star.tintColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
-        
         return star
     }()
     
@@ -36,7 +33,6 @@ class StarsStackView: UIStackView {
         star.translatesAutoresizingMaskIntoConstraints = false
         star.setImage(UIImage(systemName: "star.fill"), for: .normal)
         star.tintColor = UIColor(red: 255/255, green: 177/255, blue: 20/255, alpha: 1)
-        
         return star
     }()
     

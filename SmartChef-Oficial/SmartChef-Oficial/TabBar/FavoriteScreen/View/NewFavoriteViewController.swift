@@ -92,14 +92,12 @@ extension NewFavoriteViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 130
+            return 300
         case 1:
-            return 230
-        case 2:
             return 45
-        case 3:
+        case 2:
             return 170
-        case 4:
+        case 3:
             return 150
         default:
             return 0
@@ -111,19 +109,12 @@ extension NewFavoriteViewController: UITableViewDelegate, UITableViewDataSource 
         
         switch indexPath.row {
         case 0:
-            if let cell2 = tableView.dequeueReusableCell(withIdentifier: RecipeTypeTableViewCell.identifier, for: indexPath) as? RecipeTypeTableViewCell {
-                
-                cell2.delegate = self
-                return cell2
-            }
-            break
-        case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: RandomRecipeTableViewCell.identifier, for: indexPath) as? RandomRecipeTableViewCell ?? UITableViewCell()
             break
-        case 2:
+        case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: InsertIngredientsTableViewCell.identifier, for: indexPath) as? InsertIngredientsTableViewCell ?? UITableViewCell()
             break
-        case 3:
+        case 2:
             cell = tableView.dequeueReusableCell(withIdentifier: RandomDrinksTableViewCell.identifier, for: indexPath) as? RandomDrinksTableViewCell ?? UITableViewCell()
             break
         default:

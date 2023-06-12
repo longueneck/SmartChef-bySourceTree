@@ -1,6 +1,6 @@
 import UIKit
 
-class DiscoverViewModel{
+class PrepairViewModel{
    
     var selectedIngredients: String?
     

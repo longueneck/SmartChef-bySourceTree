@@ -341,27 +341,34 @@ class HomeScreen: UIView {
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         if sender.isOn {
-            
         } else {
-            print("Esta Desligado o Switch")
         }
     }
     
     @objc func allSelectedSwitchs(_ sender: UISwitch) {
         if sender.isOn {
-            mySwitch1.setOn(true, animated: true)
-            mySwitch2.setOn(true, animated: true)
-            mySwitch3.setOn(true, animated: true)
-            mySwitch4.setOn(true, animated: true)
-            mySwitch5.setOn(true, animated: true)
+           turnOnSwitchs()
         } else if sender.isOn == false {
-            mySwitch1.setOn(false, animated: true)
-            mySwitch2.setOn(false, animated: true)
-            mySwitch3.setOn(false, animated: true)
-            mySwitch4.setOn(false, animated: true)
-            mySwitch5.setOn(false, animated: true)
+           turnOffSwitchs()
         }
     }
+    
+    func turnOnSwitchs(){
+        mySwitch1.setOn(true, animated: true)
+        mySwitch2.setOn(true, animated: true)
+        mySwitch3.setOn(true, animated: true)
+        mySwitch4.setOn(true, animated: true)
+        mySwitch5.setOn(true, animated: true)
+    }
+    
+    func turnOffSwitchs(){
+        mySwitch1.setOn(false, animated: true)
+        mySwitch2.setOn(false, animated: true)
+        mySwitch3.setOn(false, animated: true)
+        mySwitch4.setOn(false, animated: true)
+        mySwitch5.setOn(false, animated: true)
+    }
+    
     
     @objc private func tappedToSearch(){
         homeScreenProtocol?.goToSearch()

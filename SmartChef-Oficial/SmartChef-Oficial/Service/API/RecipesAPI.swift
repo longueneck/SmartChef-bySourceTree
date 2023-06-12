@@ -8,7 +8,7 @@ class RecipesAPI{
         guard let url = URL(string: "\(StaticSession.baseURL)\(recipeURL)") else {
             closure(nil, APIErrors.urlPharse("ERRO DE URL"))
             return
-    }
+    }                       
         
         let task = StaticSession.session.dataTask(with: url) { (data, urlResponse, error) in
             if error == nil {
