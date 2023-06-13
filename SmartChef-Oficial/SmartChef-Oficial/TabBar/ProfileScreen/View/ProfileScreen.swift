@@ -18,7 +18,7 @@ class ProfileScreen: UIView {
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(StringMagica.cancel, for: .normal)
+        button.setTitle(.cancel, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(tappetCancelButton), for: .touchUpInside)
@@ -28,7 +28,7 @@ class ProfileScreen: UIView {
     lazy var saveButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(StringMagica.save, for: .normal)
+        button.setTitle(.save, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(tappedSaveButton), for: .touchUpInside)
@@ -53,7 +53,7 @@ class ProfileScreen: UIView {
         image.layer.cornerRadius = 70
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(named: StringMagica.smile)
+        image.image = UIImage(named: .smile)
         return image
     }()
     
@@ -72,7 +72,7 @@ class ProfileScreen: UIView {
     lazy var ballsImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: StringMagica.levelLabel)
+        image.image = UIImage(named: .levelLabel)
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -80,7 +80,7 @@ class ProfileScreen: UIView {
     lazy var changerPicButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(StringMagica.changeImage, for: .normal)
+        button.setTitle(.changeImage, for: .normal)
         button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.addTarget(self, action: #selector(tapchooseImage), for: .touchUpInside)
@@ -91,7 +91,7 @@ class ProfileScreen: UIView {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = StringMagica.nameLabel
+        label.text = .nameLabel
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
@@ -102,7 +102,7 @@ class ProfileScreen: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .white
         textField.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        textField.placeholder = StringMagica.enterYourFullName
+        textField.placeholder = .enterYourFullName
         textField.layer.cornerRadius = 10
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddinView
@@ -113,7 +113,7 @@ class ProfileScreen: UIView {
     lazy var pencilImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: StringMagica.pencilImage)
+        image.image = UIImage(systemName: .pencilImage)
         image.contentMode = .scaleAspectFit
         image.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil1(tapGestureRecognizer:)))
@@ -125,7 +125,7 @@ class ProfileScreen: UIView {
     lazy var emailLabel: UILabel = {
         let email = UILabel()
         email.translatesAutoresizingMaskIntoConstraints = false
-        email.text = StringMagica.emailTitleLabel
+        email.text = .emailTitleLabel
         email.font = UIFont.boldSystemFont(ofSize: 16)
         email.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return email
@@ -135,7 +135,7 @@ class ProfileScreen: UIView {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.backgroundColor = .white
-        email.placeholder = StringMagica.emailPlaceholder
+        email.placeholder = .emailPlaceholder
         email.layer.cornerRadius = 10
         email.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: email.frame.height))
@@ -147,7 +147,7 @@ class ProfileScreen: UIView {
     lazy var pencilChance2: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: StringMagica.pencilImage)
+        image.image = UIImage(systemName: .pencilImage)
         image.contentMode = .scaleAspectFit
         image.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil2(tapGestureRecognizer:)))
@@ -159,7 +159,7 @@ class ProfileScreen: UIView {
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = StringMagica.passwordTitleLabel
+        label.text = .passwordTitleLabel
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
@@ -169,7 +169,7 @@ class ProfileScreen: UIView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .white
-        textField.placeholder = StringMagica.passwordPlaceholder
+        textField.placeholder = .passwordPlaceholder
         textField.layer.cornerRadius = 10
         textField.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
@@ -181,7 +181,7 @@ class ProfileScreen: UIView {
     lazy var pencilChance3: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: StringMagica.pencilImage)
+        image.image = UIImage(systemName: .pencilImage)
         image.contentMode = .scaleAspectFit
         image.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editPencil3(tapGestureRecognizer:)))
@@ -193,7 +193,7 @@ class ProfileScreen: UIView {
     lazy var exitButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(StringMagica.exibTitleButton, for: .normal)
+        button.setTitle(.exibTitleButton, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(tappedExitButton), for: .touchUpInside)

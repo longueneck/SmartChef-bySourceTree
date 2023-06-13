@@ -12,7 +12,7 @@ enum APIErrors: Error{
 
 class ProductsAPI{
     
-    private let productsURL = "products"
+    private let productsURL = "ingredient"
     
     func getAllProducts(closure: @escaping([Ingredient]? , APIErrors?) -> Void ){
         guard let url = URL(string: "\(StaticSession.baseURL)\(productsURL)") else {

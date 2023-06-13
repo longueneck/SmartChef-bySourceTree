@@ -28,7 +28,7 @@ extension String {
     static let sendLabel = "Enviamos seus dados cadastrais para o email abaixo"
     static let exampleEmail = "exemplo@gmail.com"
     static let setTitleLoginButton2 = "Entrar"
- 
+    
     //MARK: TABBAR
     static let caseHome = "Home"
     static let caseRecipe = "Receitas"
@@ -67,48 +67,15 @@ extension String {
     
     static let heartFill = "heart.fill"
     static let heart = "heart."
-}
 
-
-class StringMagica {
-    
-    
-    //MARK: HotMeals
-    static let popularRecipesTitle = "Receitas Populares"
-    static let setaVoltar = "arrowshape.backward.fill"
-    static let hotImage = "hot"
-    static let searchRecipePlaceholder = "Pesquise por receitas"
-                static let favoriteRecipes = "Receitas Favoritadas"
-    static let star = "star.fill"
-    static let enjoyWithFriends = "Aproveite com os amigos"
-    static let person3 = "person.3.fill"
-    //HotMealsCell
-    static let hamburgerImage = "hamburger"
-    //HotRecipeStackView
-    static let juiceImageButton = "suco"
-    static let teaImageButton = "cha"
-    static let expressImage = "expresso"
-    static let refrigeratorImageButton = "refrigerante"
-    
-    //MARK: DiscoverScreen
-    static let discoverRecipeTitle = "< Descubrir Receitas >"
-    //DiscoverCell
-    static let bread = "pao"
-    static let RecipeNameTitle = "Nome da Receita"
-    static let forkImage = "fork.knife"
-    static let timeImage = "timer"
-    static let min = "40min"
-    
     //MARK: Prepair
-    //PrepairCell
+  
     static let nameRecipeLabel = "Name Recipe"
     static let typeRecipeLabel = "Type Recipe"
     static let descriptonRecipeLabel = "Description Recipe"
     static let ingredientsRecipeLabel = "Array of Ingredients Recipe"
     static let prepairRecipeLabel = "Prepair Mode Recipe"
     static let levelLabel = "Level"
-    
-   
     
     //MARK: profile
     static let cancel = "Cancelar"
@@ -123,6 +90,4 @@ class StringMagica {
     static let emailPlaceholder = "Insira seu Email"
     static let emailTitleLabel = "Email"
     static let passwordTitleLabel = "Senha"
-    
-    
 }

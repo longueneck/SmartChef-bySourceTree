@@ -15,8 +15,6 @@ class NewFavoriteViewController: UIViewController{
     var drinkViewModel: DrinkRecipeStackViewModel = DrinkRecipeStackViewModel()
     var loading: Loading?
            
-    
-    
     var randomRecipes: [Recipes] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +34,6 @@ class NewFavoriteViewController: UIViewController{
         recipe?.setTableViewDelegate(delegate: self, dataSource: self)
         recipe?.searchRecipeTextField.delegate = self
         inicializeConfigs()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -122,12 +119,6 @@ extension NewFavoriteViewController: UITableViewDelegate, UITableViewDataSource 
             break
         }
         return cell
-    }
-}
-
-extension NewFavoriteViewController: firstUITableViewCellProtocol {
-    func goToAhotherView() {
-        navigationController?.pushViewController(HotMealsViewController(), animated: true)
     }
 }
 

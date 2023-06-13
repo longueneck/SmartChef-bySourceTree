@@ -5,9 +5,9 @@ class HomeViewController: UIViewController{
     
     var screen: HomeScreen?
     var emptyState: EmptyStateView?
-    var viewModel: HomeViewModel?
+    var viewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
-    var discover: DiscoverViewController?
+   
     
     override func loadView() {
         self.screen = HomeScreen()
@@ -23,6 +23,16 @@ class HomeViewController: UIViewController{
         viewModel.callAlertControllError = self.errorAPI(_:)
         viewModel.ingredientDATA()
         screen?.delegate(delegate: self)
+        let service = TextGPTService()
+        service.generateRecipe(message: "Quanto e 2 + 2") { response, error in
+            if let response = response {
+                //NAO ESTA NA THREAD PRINCIPAL
+                debugPrint(response.choices.first?.message.content)
+            }else{
+                debugPrint(error)
+            }
+        }
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -168,7 +178,7 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: RecipeScreenProtocol {
     func goToSearch() {
-        
+    
 //        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
 //        let discoverVM = DiscoverViewModel(selectedIngredients: enviaDados)
 //        let discoverVC = DiscoverViewController()
@@ -176,8 +186,18 @@ extension HomeViewController: RecipeScreenProtocol {
 //        discoverVC.viewModel = discoverVM
 //        navigationController?.pushViewController(discoverVC, animated: true)
         
-        let sendData = viewModel?.getAllSelectedIngredientsAsString()
-        let prepairVM = 
+//        let sendData = viewModel?.getAllSelectedIngredientsAsString()
+        print(viewModel.getAllSelectedIngredientsAsString())
+        print(viewModel.selectedPeopleCount)
+        
+//        service.generateRecipe(message: "Ola, quanto e 2 + 2") { response, error in
+//            if let response = response{
+//                print(response.choices.first?.messages.content)
+//            }else{
+//                print(error)
+//            }
+//        }
+//
     }
 }
 
