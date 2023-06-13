@@ -1,8 +1,8 @@
 import UIKit
 
 protocol RecipeScreenProtocol: AnyObject{
-    func goToSearch()
-    func numberOfPeople(peopple: String)
+    func goToSearch(people: String?)
+    func selectHowManyPeople(people: String?)
 }
 
 class HomeScreen: UIView {
@@ -113,7 +113,7 @@ class HomeScreen: UIView {
         let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "+5"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
-        segmentedControl.selectedSegmentIndex = 0
+//        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.layer.cornerRadius = 20
         segmentedControl.backgroundColor = .whiteBase
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.backgroundColor: UIColor.whiteBase], for: .normal)
@@ -347,24 +347,19 @@ class HomeScreen: UIView {
         let selectedIndex = manyPeopleSegmentedControl.selectedSegmentIndex
         switch selectedIndex {
         case 0:
-            peoplesWillEat = "1 pessoa"
-            print("indice 0")
+            peoplesWillEat = "1 pessoa "
         case 1:
-            peoplesWillEat = "2 pessoas"
-            print("indice 1")
+            peoplesWillEat = "2 pessoas "
         case 2:
-            peoplesWillEat = "3 pessoas"
-            print("indice 2")
+            peoplesWillEat = "3 pessoas "
         case 3:
-            peoplesWillEat = "4 pessoas"
-            print("indice 3")
+            peoplesWillEat = "4 pessoas "
         case 4:
-            peoplesWillEat = "+5 pessoas"
-            print("indice 4")
+            peoplesWillEat = "+5 pessoas "
         default:
             break
         }
-        homeScreenProtocol?.numberOfPeople(peopple: peoplesWillEat)
+        homeScreenProtocol?.selectHowManyPeople(people: peoplesWillEat)
     }
 
     @objc func switchValueChanged(_ sender: UISwitch) {
@@ -398,9 +393,8 @@ class HomeScreen: UIView {
         mySwitch5.setOn(false, animated: true)
     }
     
-    
     @objc private func tappedToSearch(){
-        homeScreenProtocol?.goToSearch()
+        homeScreenProtocol?.goToSearch(people: "")
     }
     
     func addConstraintsConfig(){

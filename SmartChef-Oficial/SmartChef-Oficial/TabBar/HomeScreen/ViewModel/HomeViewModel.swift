@@ -6,16 +6,19 @@ protocol ViewModelDelegate: AnyObject {
 
 class HomeViewModel {
     
+    
     weak var delegate: ViewModelDelegate?
     
-    
+    var firstPharse = "Gere para mim uma receita para "
+    var finalRequestPharse = "Gere para mim uma receita para "
+    var withIngredients = "com os seguintes ingredientes "
     private var screen: HomeScreen?
     private var importView: Ingredient?
     private var ingredientList: [Ingredient] = []
     private var selectedIngredients: [Ingredient] = []
     private var ingredientSearch: [Ingredient] = []
-    public var callAlertControllError: ((Error) -> Void)?
     private var selectedSegmentControlIndex: Int = 0
+    public var callAlertControllError: ((Error) -> Void)?
     
     public func ingredientDATA() {
         let productsFromAPI = ProductsAPI()
@@ -53,7 +56,8 @@ class HomeViewModel {
     }
     
     func getAllSelectedIngredientsAsString() -> String {
-        return selectedIngredients.map { $0.name ?? "" }.joined(separator: ", ")
+        let ingredients = selectedIngredients.map { $0.name ?? "" }.joined(separator: ", ")
+        return ingredients
     }
     
     func countSelectedIngredients() -> Int {
@@ -97,66 +101,11 @@ class HomeViewModel {
         }
     }
     
-//    func segmentedControlValueChanged(selectedIndex: Int) {
-//            self.selectedIndex = selectedIndex
-//            
-//            // Faça algo com o índice selecionado
-//            print("Índice selecionado: \(selectedIndex)")
-//        }
-//    
-//    func segmentedControlValueChanged(selectedIndex: Int) {
-//            switch selectedIndex {
-//            case 0:
-//                // Índice 0 selecionado
-//                print("Número 1")
-//            case 1:
-//              
-//                print("Número 2")
-//            case 2:
-//                // Índice 2 selecionado
-//                print("Número 3")
-//            default:
-//                break
-//            }
-//        }
+    //PHARSE MAKER
     
-
-//    
-//    
-//    func selectedPeopleCount() -> Int {
-//        guard let selectedSegmentIndex = screen?.manyPeopleSegmentedControl.selectedSegmentIndex else { return 0 }
-//        return selectedSegmentIndex + 1
-//    }
-    
-    
-    
-//    var choice: String {
-//        if let screen = screen {
-//            if screen.mySwitch1.isOn {
-//                return MyKitchenHave.fogao.rawValue
-//            } else if screen.mySwitch2.isOn {
-//                return MyKitchenHave.forno.rawValue
-//            } else if screen.mySwitch3.isOn {
-//                return MyKitchenHave.batedeira.rawValue
-//            } else if screen.mySwitch4.isOn {
-//                return MyKitchenHave.liquidificador.rawValue
-//            }
-//        }
-//
-//        return ""
-//    }
-//
-//    var baseScript = "Gere uma receita da culinaria com estes ingredientes:"
-//    var secondScript = "Tenho apenas:"
-//    var manyPeople = "Receita para"
-//    var withThis = "Com estes eletrodomesticos de cozinha"
-//
-//    var time = 30
-//    var quantity = 2
-//
-//
-//
-//
-
+    public func setNumberOfPeople(number: String)-> String {
+        return number
+        
+    }
     
 }

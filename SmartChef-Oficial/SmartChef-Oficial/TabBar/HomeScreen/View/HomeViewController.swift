@@ -4,6 +4,7 @@ import UIKit
 class HomeViewController: UIViewController{
     
     var screen: HomeScreen?
+    var loading: Loading?
     var emptyState: EmptyStateView?
     var viewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
@@ -21,21 +22,16 @@ class HomeViewController: UIViewController{
         setTableViewDelegate()
         viewModel.callAlertControllError = self.errorAPI(_:)
         viewModel.ingredientDATA()
+        loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
+        
         let willEat = screen?.segmentedControlValueChanged()
-        let service = TextGPTService()
-        service.generateRecipe(message: "Quanto e 2 + 2") { response, error in
-            if let response = response {
-                //NAO ESTA NA THREAD PRINCIPAL
-                debugPrint(response.choices.first?.message.content)
-            }else{
-                debugPrint(error)
-            }
-        }
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,6 +80,7 @@ class HomeViewController: UIViewController{
             self.present(alert, animated: true)
         }
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -94,7 +91,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             screen?.removeSearchTableView()
             viewModel.addSelectedIngredient(indexPath: indexPath)
             screen?.insertedIngredientTableView.reloadData()
-            print(viewModel.countSelectedIngredients())
             break
         default:
             break
@@ -147,7 +143,6 @@ extension HomeViewController: UITextFieldDelegate{
         guard let text = textField.text else { return false }
         let updatedText = (text as NSString).replacingCharacters(in: range, with: string)
         screen?.removeSearchTableView()
-        print(updatedText)
         if !updatedText.isEmpty {
             screen?.addSearchTableView()
             viewModel.filterIngredients(with: updatedText)
@@ -174,30 +169,35 @@ extension HomeViewController: UITextFieldDelegate{
 }
 
 extension HomeViewController: RecipeScreenProtocol {
-    func numberOfPeople(peopple: String) {
-        print(peopple)
+    
+    func selectHowManyPeople(people: String?) {
+        viewModel.setNumberOfPeople(number: people ?? "")
     }
     
-    func goToSearch() {
-    
-//        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
-//        let discoverVM = DiscoverViewModel(selectedIngredients: enviaDados)
-//        let discoverVC = DiscoverViewController()
-//        discoverVM.selectedIngredients = enviaDados
-//        discoverVC.viewModel = discoverVM
-//        navigationController?.pushViewController(discoverVC, animated: true)
+    func goToSearch(people: String?) {
+        self.loading?.show(message: "< Criando sua receita >")
+        let first = viewModel.firstPharse
+        let numberPeople = (screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0) + 1 ?? 0
+        let ingredientsPharse = viewModel.withIngredients
+        let myIngredients = viewModel.getAllSelectedIngredientsAsString()
         
-//        let sendData = viewModel?.getAllSelectedIngredientsAsString()
-//        print(viewModel.selectedPeop
-
-//        service.generateRecipe(message: "Ola, quanto e 2 + 2") { response, error in
-//            if let response = response{
-//                print(response.choices.first?.messages.content)
-//            }else{
-//                print(error)
-//            }
-//        }
-//
+        let finalPharse = "\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients)"
+        
+                let service = TextGPTService()
+                service.generateRecipe(message: finalPharse) { response, error in
+                    if let response = response {
+                        DispatchQueue.main.async {
+                            
+                            self.loading?.hide()
+                            debugPrint(response.choices.first?.message.content ?? "")
+                        }
+                        }
+                    else{
+                        debugPrint(error ?? "")
+                        }
+                }
+        print(finalPharse)
     }
 }
+
 

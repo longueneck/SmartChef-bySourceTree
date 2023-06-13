@@ -45,7 +45,7 @@ final class Loading {
             containerView.topAnchor.constraint(equalTo: viewController.view.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor),
+            containerView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor, constant: 50),
             
             activityIndicatorView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
