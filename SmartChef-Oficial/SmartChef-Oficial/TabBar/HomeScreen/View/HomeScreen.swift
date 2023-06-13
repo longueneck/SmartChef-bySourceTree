@@ -2,6 +2,7 @@ import UIKit
 
 protocol RecipeScreenProtocol: AnyObject{
     func goToSearch()
+    func numberOfPeople(peopple: String)
 }
 
 class HomeScreen: UIView {
@@ -111,6 +112,7 @@ class HomeScreen: UIView {
     lazy var manyPeopleSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "+5"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.layer.cornerRadius = 20
         segmentedControl.backgroundColor = .whiteBase
@@ -120,6 +122,7 @@ class HomeScreen: UIView {
         let fontSelected = UIFont.sugarFont20
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: font], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: fontSelected], for: .selected)
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
     
@@ -339,8 +342,31 @@ class HomeScreen: UIView {
         self.addSubview(self.searchButton)
     }
     
-    
-    
+    @objc func segmentedControlValueChanged(){
+        var peoplesWillEat = ""
+        let selectedIndex = manyPeopleSegmentedControl.selectedSegmentIndex
+        switch selectedIndex {
+        case 0:
+            peoplesWillEat = "1 pessoa"
+            print("indice 0")
+        case 1:
+            peoplesWillEat = "2 pessoas"
+            print("indice 1")
+        case 2:
+            peoplesWillEat = "3 pessoas"
+            print("indice 2")
+        case 3:
+            peoplesWillEat = "4 pessoas"
+            print("indice 3")
+        case 4:
+            peoplesWillEat = "+5 pessoas"
+            print("indice 4")
+        default:
+            break
+        }
+        homeScreenProtocol?.numberOfPeople(peopple: peoplesWillEat)
+    }
+
     @objc func switchValueChanged(_ sender: UISwitch) {
         if sender.isOn {
         } else {

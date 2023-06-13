@@ -7,12 +7,11 @@ class HomeViewController: UIViewController{
     var emptyState: EmptyStateView?
     var viewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
-   
+    var segmentControl: UISegmentedControl?
     
     override func loadView() {
         self.screen = HomeScreen()
         self.view = self.screen
-        
     }
     
     override func viewDidLoad() {
@@ -23,6 +22,7 @@ class HomeViewController: UIViewController{
         viewModel.callAlertControllError = self.errorAPI(_:)
         viewModel.ingredientDATA()
         screen?.delegate(delegate: self)
+        let willEat = screen?.segmentedControlValueChanged()
         let service = TextGPTService()
         service.generateRecipe(message: "Quanto e 2 + 2") { response, error in
             if let response = response {
@@ -32,12 +32,10 @@ class HomeViewController: UIViewController{
                 debugPrint(error)
             }
         }
-      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,8 +69,7 @@ class HomeViewController: UIViewController{
         emptyState?.isHidden = true
         screen?.insertedIngredientTableView.separatorStyle = .singleLine
     }
-    
-    
+        
     public func errorAPI(_ error: Error){
         print(error)
         DispatchQueue.main.async {
@@ -177,6 +174,10 @@ extension HomeViewController: UITextFieldDelegate{
 }
 
 extension HomeViewController: RecipeScreenProtocol {
+    func numberOfPeople(peopple: String) {
+        print(peopple)
+    }
+    
     func goToSearch() {
     
 //        let enviaDados = recipeViewModel.getAllSelectedIngredientsAsString()
@@ -187,9 +188,8 @@ extension HomeViewController: RecipeScreenProtocol {
 //        navigationController?.pushViewController(discoverVC, animated: true)
         
 //        let sendData = viewModel?.getAllSelectedIngredientsAsString()
-        print(viewModel.getAllSelectedIngredientsAsString())
-        print(viewModel.selectedPeopleCount)
-        
+//        print(viewModel.selectedPeop
+
 //        service.generateRecipe(message: "Ola, quanto e 2 + 2") { response, error in
 //            if let response = response{
 //                print(response.choices.first?.messages.content)

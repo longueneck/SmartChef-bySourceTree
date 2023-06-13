@@ -1,14 +1,12 @@
-import UIKit
+import Foundation
 
-//enum MyKitchenHave: String {
-//    case fogao = "Fogão"
-//    case forno = "Forno"
-//    case batedeira = "Batedeira"
-//    case liquidificador = "Liquidificador"
-//}
+protocol ViewModelDelegate: AnyObject {
+    func selectedSegmentIndexChanged(to index: Int)
+}
 
 class HomeViewModel {
     
+    weak var delegate: ViewModelDelegate?
     
     
     private var screen: HomeScreen?
@@ -17,6 +15,7 @@ class HomeViewModel {
     private var selectedIngredients: [Ingredient] = []
     private var ingredientSearch: [Ingredient] = []
     public var callAlertControllError: ((Error) -> Void)?
+    private var selectedSegmentControlIndex: Int = 0
     
     public func ingredientDATA() {
         let productsFromAPI = ProductsAPI()
@@ -98,18 +97,37 @@ class HomeViewModel {
         }
     }
     
-//    func configureSegmentedControl() {
-//        for (index, count) in peopleCounts.enumerated() {
-//            screen?.manyPeopleSegmentedControl.setTitle(count, forSegmentAt: index)
+//    func segmentedControlValueChanged(selectedIndex: Int) {
+//            self.selectedIndex = selectedIndex
+//            
+//            // Faça algo com o índice selecionado
+//            print("Índice selecionado: \(selectedIndex)")
 //        }
+//    
+//    func segmentedControlValueChanged(selectedIndex: Int) {
+//            switch selectedIndex {
+//            case 0:
+//                // Índice 0 selecionado
+//                print("Número 1")
+//            case 1:
+//              
+//                print("Número 2")
+//            case 2:
+//                // Índice 2 selecionado
+//                print("Número 3")
+//            default:
+//                break
+//            }
+//        }
+    
+
+//    
+//    
+//    func selectedPeopleCount() -> Int {
+//        guard let selectedSegmentIndex = screen?.manyPeopleSegmentedControl.selectedSegmentIndex else { return 0 }
+//        return selectedSegmentIndex + 1
 //    }
     
-    var selectedPeopleCount: Int {
-        guard let selectedIndex = screen?.manyPeopleSegmentedControl.selectedSegmentIndex else {
-            return 0
-        }
-        return selectedIndex + 1
-    }
     
     
 //    var choice: String {
