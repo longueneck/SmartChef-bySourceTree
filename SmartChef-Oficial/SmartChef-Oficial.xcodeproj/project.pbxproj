@@ -214,13 +214,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		637C373B2A11A8B400CE7C4F /* PrepairScreen */ = {
+		637C373B2A11A8B400CE7C4F /* Prepair */ = {
 			isa = PBXGroup;
 			children = (
 				637C373C2A11A8BC00CE7C4F /* View */,
 				63D75E2F2A0FC24300B57C03 /* ViewModel */,
 			);
-			path = PrepairScreen;
+			path = Prepair;
 			sourceTree = "<group>";
 		};
 		637C373C2A11A8BC00CE7C4F /* View */ = {
@@ -253,40 +253,32 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
-				63035C1C29DB8A1B006B6F83 /* Model */,
 				638E450429C0215600BA3A0B /* LoginScreen */,
-				638E44FF29C01F5500BA3A0B /* TabBar */,
-				638E450D29C0226400BA3A0B /* RegisterScreen */,
+				638E450D29C0226400BA3A0B /* Register */,
 				635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */,
+				638E451829C023FB00BA3A0B /* Profile */,
+				C4CC785C29F837F20055DC8A /* TabBar */,
+				638E44F929C01B5E00BA3A0B /* Home */,
+				637C373B2A11A8B400CE7C4F /* Prepair */,
 				6342575E2A19529F0028240E /* Service */,
-				634E7F5229CB7CA2003996DD /* Utils */,
 				638F15D02A34FCC700504A0E /* Extension */,
-				637C373B2A11A8B400CE7C4F /* PrepairScreen */,
+				634E7F5229CB7CA2003996DD /* Utils */,
 				C4CC784B29F835640055DC8A /* Resources */,
+				63035C1C29DB8A1B006B6F83 /* Model */,
 				638E44F129C0173C00BA3A0B /* Info.plist */,
 				636D2C462A1D801300FFF763 /* GoogleService-Info.plist */,
 			);
 			path = "SmartChef-Oficial";
 			sourceTree = "<group>";
 		};
-		638E44F929C01B5E00BA3A0B /* HomeScreen */ = {
+		638E44F929C01B5E00BA3A0B /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				C4CC785929F837AA0055DC8A /* View */,
 				C4CC785829F837A40055DC8A /* ViewModel */,
 				C4CC787129F83BBE0055DC8A /* Cell */,
 			);
-			path = HomeScreen;
-			sourceTree = "<group>";
-		};
-		638E44FF29C01F5500BA3A0B /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				C4CC785C29F837F20055DC8A /* TabBar */,
-				638E44F929C01B5E00BA3A0B /* HomeScreen */,
-				638E451829C023FB00BA3A0B /* ProfileScreen */,
-			);
-			path = TabBar;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		638E450429C0215600BA3A0B /* LoginScreen */ = {
@@ -298,21 +290,21 @@
 			path = LoginScreen;
 			sourceTree = "<group>";
 		};
-		638E450D29C0226400BA3A0B /* RegisterScreen */ = {
+		638E450D29C0226400BA3A0B /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				637145C62A0829F600A8C72F /* ViewModel */,
 				C4CC785029F837090055DC8A /* View */,
 			);
-			path = RegisterScreen;
+			path = Register;
 			sourceTree = "<group>";
 		};
-		638E451829C023FB00BA3A0B /* ProfileScreen */ = {
+		638E451829C023FB00BA3A0B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				C4CC786A29F83A6A0055DC8A /* View */,
 			);
-			path = ProfileScreen;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		638F15D02A34FCC700504A0E /* Extension */ = {
@@ -406,7 +398,8 @@
 			children = (
 				638E450029C01F8600BA3A0B /* TabBarViewController.swift */,
 			);
-			path = TabBar;
+			name = TabBar;
+			path = TabBar/TabBar;
 			sourceTree = "<group>";
 		};
 		C4CC786A29F83A6A0055DC8A /* View */ = {
