@@ -100,9 +100,7 @@ class HomeViewModel {
             }
         }
     }
-    
-    //PHARSE MAKER
-    
+
     public func setNumberOfPeople(number: String)-> String {
         return number
         

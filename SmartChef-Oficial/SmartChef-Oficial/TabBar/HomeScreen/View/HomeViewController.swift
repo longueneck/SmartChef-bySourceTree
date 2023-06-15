@@ -191,8 +191,7 @@ extension HomeViewController: RecipeScreenProtocol {
                             self.loading?.hide()
                             debugPrint(response.choices.first?.message.content ?? "")
                         }
-                        }
-                    else{
+                        }else{
                         debugPrint(error ?? "")
                         }
                 }

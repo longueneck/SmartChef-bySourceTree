@@ -1,5 +1,4 @@
 import UIKit
-import UIKit
 
 protocol InsertedIngredientsViewCellProtocol {
     func removeIngredients(index: Int)
