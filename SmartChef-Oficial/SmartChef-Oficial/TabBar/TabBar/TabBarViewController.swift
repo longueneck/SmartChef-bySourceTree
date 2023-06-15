@@ -4,12 +4,11 @@ class MyTabBarController: UITabBarController{
     
     enum indexView: Int {
         case recipes = 0
-        case favorite = 1
-        case profile = 2
+        case profile = 1
+       
     }
     
     var recipes = HomeViewController()
-    var favorite = NewFavoriteViewController()
     var profile = ProfileViewController()
     
     override func viewDidLoad(){
@@ -27,10 +26,10 @@ class MyTabBarController: UITabBarController{
     private func setupTabBarController(){
         
         let tela01 = UINavigationController(rootViewController: recipes)
-        let tela02 = UINavigationController(rootViewController: favorite)
-        let tela03 = UINavigationController(rootViewController: profile)
+        let tela02 = UINavigationController(rootViewController: profile)
         
-        self.setViewControllers([tela01, tela02, tela03], animated: false)
+        
+        self.setViewControllers([tela01, tela02], animated: false)
         self.tabBar.backgroundColor = .yellowBase
         self.tabBar.unselectedItemTintColor = .brownBase
         self.tabBar.tintColor = .whiteBase
@@ -42,20 +41,10 @@ class MyTabBarController: UITabBarController{
         
         items[indexView.recipes.rawValue].image = .bookFill
         items[indexView.recipes.rawValue].title = .caseRecipe
-        
-        items[indexView.favorite.rawValue].image = .heartFill
-        items[indexView.favorite.rawValue].title = .caseFavorite
-        
+
         items[indexView.profile.rawValue].image = .personFill
         items[indexView.profile.rawValue].title = .caseProfile
         
-        self.selectedIndex = indexView.recipes.rawValue
-    }
-}
-
-extension MyTabBarController: HomeViewControllerProtocol{
-    
-    func navToScreen() {
         self.selectedIndex = indexView.recipes.rawValue
     }
 }
