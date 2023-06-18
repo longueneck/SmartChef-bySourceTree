@@ -4,8 +4,6 @@ import UIKit
 protocol ProfileViewControllerProtocol: AnyObject{
     
     func tapExit()
-    func tapCancel()
-    func tapSave()
 }
 class ProfileViewController: UIViewController{
     
@@ -20,7 +18,7 @@ class ProfileViewController: UIViewController{
     override func loadView() {
         self.profileScreen = ProfileScreen()
         self.view = self.profileScreen
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .yellowBase
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,16 +28,6 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         profileScreen?.setupDelegate(delegate: self)
-        profileScreen?.nameTextField.delegate = self
-        profileScreen?.emailTextField.delegate = self
-        profileScreen?.passwordTextField.delegate = self
-    
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        profileScreen?.nameTextField.resignFirstResponder()
-        profileScreen?.emailTextField.resignFirstResponder()
-        profileScreen?.passwordTextField.resignFirstResponder()
     }
     
     func showPicker(){
@@ -74,8 +62,8 @@ extension ProfileViewController: UITextFieldDelegate{
     }
 }
 
-extension ProfileViewController: ProfileScreenProtocol{
-    
+extension ProfileViewController: ProfileScreenProtocol {
+     
     func tapToChangeImage() {
         showPicker()
     }
@@ -84,13 +72,6 @@ extension ProfileViewController: ProfileScreenProtocol{
         self.profileViewControllerProtocol?.tapExit()
     }
     
-    func tapToCancel(){
-        self.profileViewControllerProtocol?.tapCancel()
-    }
-    
-    func tapToSave(){
-        self.profileViewControllerProtocol?.tapSave()
-    }
 }
 
 extension ProfileViewController: PHPickerViewControllerDelegate, UINavigationControllerDelegate {

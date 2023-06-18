@@ -34,21 +34,26 @@ class RegisterScreenViewController: UIViewController {
         register.passwordTextfield.resignFirstResponder()
         register.confirmPasswordTextfield.resignFirstResponder()
     }
-    
+
+    @objc func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+        
     func passCorrect(){
         register.confirmCorrect(textField: register.confirmPasswordTextfield)
         register.passCorrect(textField: register.passwordTextfield)
     }
-
+    
     func passIncorrect(){
         register.confirWorse(textField: register.confirmPasswordTextfield)
         register.passWorse(textField: register.passwordTextfield)
     }
-
+    
     func passEmpty(){
         register.confirmEmpty(textField: register.confirmPasswordTextfield)
         register.passEmpty(textField: register.passwordTextfield)
     }
+    
 }
 
 extension RegisterScreenViewController: RegisterScreenProtocol{
@@ -57,7 +62,7 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
     }
     
     func registerButton() {
-
+        
         let vc = SucessRegisterViewController()
         vc.recebeDado = viewModel.getEmail(email: register.emailTextField)
         
@@ -65,11 +70,11 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
         let password: String = viewModel.getPass(pass: register.passwordTextfield)
         
         self.auth?.createUser(withEmail: email , password: password, completion: { result, error in
-                
+            
             if error != nil{
-                #warning("Colocar os ALERTS depois!!!")
+#warning("Colocar os ALERTS depois!!!")
             }else{
-                #warning("Colocar os ALERTS depois!!!")
+#warning("Colocar os ALERTS depois!!!")
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         })
@@ -82,23 +87,19 @@ extension RegisterScreenViewController: UITextFieldDelegate{
         
         if viewModel.validateIsEmpty(user: register.userTextField.text ?? "", email: register.emailTextField.text ?? "", pass: register.passwordTextfield.text ?? "",
                                      confirm: register.confirmPasswordTextfield.text ?? "") {
-            
             register.turnButtonOn(button: register.createButton)
             
-            if viewModel.passIsEqual(
-                pass: register.passwordTextfield.text ?? "",
-                confirm: register.confirmPasswordTextfield.text ?? "") {
+            if viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
                 passCorrect()
                 
             }else if !viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
                 
-                passIncorrect()
+                register.confirmPasswordTextfield.layer.borderColor = UIColor.redIncorrectCG
                 register.turnButtonOff(button: register.createButton)
                 
             }else if register.isTextFieldEmpty(register.userTextField, textField2: register.emailTextField, textField3: register.passwordTextfield, textField4: register.confirmPasswordTextfield) {
                 
-                register.emailTextField.layer.borderColor = UIColor.lightYellowCG
-                
+                                register.emailTextField.layer.borderColor = UIColor.lightYellowCG
             }else{
                 passEmpty()
             }
@@ -108,28 +109,28 @@ extension RegisterScreenViewController: UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          
+        
         if string == " " && textField == register.userTextField || string == " " && textField == register.emailTextField || string == " " && textField == register.passwordTextfield || string == " " && textField == register.confirmPasswordTextfield{
-              textField.layer.borderColor = UIColor.red.cgColor
-               DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
-                   textField.layer.borderColor = UIColor.lightYellowCG
-               })
-               return false
-           }
-           return true
-       }
-    
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            textField.layer.borderColor = UIColor.brownBaseCG
+            textField.layer.borderColor = UIColor.red.cgColor
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
+                textField.layer.borderColor = UIColor.lightYellowCG
+            })
+            return false
         }
-        
-        func textFieldDidEndEditing(_ textField: UITextField) {
-            textField.layer.borderColor = UIColor.yellowBaseCG
-        }
-        
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-        }
+        return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.brownBaseCG
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.yellowBaseCG
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+}
+
 

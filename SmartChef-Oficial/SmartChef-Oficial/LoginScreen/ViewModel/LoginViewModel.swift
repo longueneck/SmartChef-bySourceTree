@@ -12,7 +12,6 @@ class LoginViewModel {
     public func validateLoginButton(email: String, password: String) -> Bool {
         let isEmailValid = email.contains("@") && email.contains(".com")
         let isPasswordValid = !password.isEmpty
-        print(email)
         return isEmailValid && isPasswordValid
     }
     

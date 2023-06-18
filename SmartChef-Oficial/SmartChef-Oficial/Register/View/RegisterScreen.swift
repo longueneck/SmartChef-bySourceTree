@@ -17,7 +17,7 @@ class RegisterScreen: UIView {
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(.arrowShape, for: .normal)
+        button.setImage(UIImage(systemName: "arrowshape.turn.up.left.fill"), for: .normal)
         button.tintColor = .brownBase
         button.addTarget(self, action: #selector(tapToBack), for: .touchUpInside)
         return button
@@ -46,7 +46,7 @@ class RegisterScreen: UIView {
         textPresentation.translatesAutoresizingMaskIntoConstraints = false
         textPresentation.text = .userNameRegister
         textPresentation.textColor = .brownBase
-        textPresentation.font = .systemFont17
+        textPresentation.font = .sugarFont14
         return textPresentation
     }()
     
@@ -71,7 +71,7 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = .emailRegister
         label.textColor = .brownBase
-        label.font = .systemFont17
+        label.font = .sugarFont14
         return label
     }()
     
@@ -98,7 +98,7 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = .passwordRegister
         label.textColor = .brownBase
-        label.font = .systemFont17
+        label.font = .sugarFont14
         return label
     }()
     
@@ -124,7 +124,7 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = .confirmPassRegister
         label.textColor = .brownBase
-        label.font = .systemFont17
+        label.font = .sugarFont14
         return label
     }()
     
@@ -156,7 +156,7 @@ class RegisterScreen: UIView {
         button.layer.shadowOpacity = 0.1
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
-        button.titleLabel?.font = .boldFont18
+        button.titleLabel?.font = .sugarFont17
         button.addTarget(self, action: #selector(tapToRegister), for: .touchUpInside)
         return button
     }()
@@ -230,19 +230,17 @@ class RegisterScreen: UIView {
     
     func setConstraints(){
         NSLayoutConstraint.activate([
-            
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
-            backButton.heightAnchor.constraint(equalToConstant: 50),
-            backButton.widthAnchor.constraint(equalToConstant: 50),
+        
+            backButton.bottomAnchor.constraint(equalTo: createAccountLabel.topAnchor, constant: -10),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             
             createAccountLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
             createAccountLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             
             textPresentLabel.topAnchor.constraint(equalTo: createAccountLabel.bottomAnchor, constant: 5),
-            textPresentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            textPresentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             
-            usernameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            usernameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             usernameLabel.topAnchor.constraint(equalTo: textPresentLabel.bottomAnchor, constant: 25),
             
             userTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 5),
@@ -250,7 +248,7 @@ class RegisterScreen: UIView {
             userTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             userTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             
-            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             emailLabel.topAnchor.constraint(equalTo: userTextField.bottomAnchor, constant: 10),
             
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 5),
@@ -258,7 +256,7 @@ class RegisterScreen: UIView {
             emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             
-            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
             
             passwordTextfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5),
@@ -266,7 +264,7 @@ class RegisterScreen: UIView {
             passwordTextfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             passwordTextfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             
-            confirmPasswordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            confirmPasswordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             confirmPasswordLabel.topAnchor.constraint(equalTo: passwordTextfield.bottomAnchor, constant: 15),
             
             confirmPasswordTextfield.topAnchor.constraint(equalTo: confirmPasswordLabel.bottomAnchor, constant: 5),

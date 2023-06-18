@@ -13,6 +13,7 @@ extension UIImage {
     static let facebookIconConnect = UIImage(named: "faceicon.png")
     
     static let arrowShape = UIImage(named: "arrowshape.turn.up.backward.fill")
+    static let arrowShapeString = "arrowshape.turn.up.backward.fill"
     
     static let houseFill = UIImage(systemName: "house.fill")
     
