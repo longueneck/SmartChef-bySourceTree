@@ -75,7 +75,7 @@ class ProfileScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Olá,"
-        label.font = .sugarFont18
+        label.font = .sugarFont24
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
     }()
@@ -84,7 +84,7 @@ class ProfileScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Kevin Longue"
-        label.font = .sugarFont17
+        label.font = .sugarFont20
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label
     }()
