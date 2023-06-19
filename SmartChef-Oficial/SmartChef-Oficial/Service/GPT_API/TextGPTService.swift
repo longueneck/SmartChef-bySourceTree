@@ -4,7 +4,7 @@ class TextGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
             return config
         }
         

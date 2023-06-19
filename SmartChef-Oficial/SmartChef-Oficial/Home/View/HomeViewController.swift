@@ -9,6 +9,7 @@ class HomeViewController: UIViewController{
     var viewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
     var segmentControl: UISegmentedControl?
+    var prepairScreen: PrepairScreen?
     
     override func loadView() {
         self.screen = HomeScreen()
@@ -26,12 +27,12 @@ class HomeViewController: UIViewController{
         screen?.delegate(delegate: self)
         
         let willEat = screen?.segmentedControlValueChanged()
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,7 +66,7 @@ class HomeViewController: UIViewController{
         emptyState?.isHidden = true
         screen?.insertedIngredientTableView.separatorStyle = .singleLine
     }
-        
+    
     public func errorAPI(_ error: Error){
         print(error)
         DispatchQueue.main.async {
@@ -182,20 +183,20 @@ extension HomeViewController: RecipeScreenProtocol {
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
         
         let finalPharse = "\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients)"
-        
-                let service = TextGPTService()
-                service.generateRecipe(message: finalPharse) { response, error in
-                    if let response = response {
-                        DispatchQueue.main.async {
-                            
-                            self.loading?.hide()
-                            debugPrint(response.choices.first?.message.content ?? "")
-                        }
-                        }else{
-                        debugPrint(error ?? "")
-                        }
-                }
         print(finalPharse)
+        let service = TextGPTService()
+        service.generateRecipe(message: finalPharse) { response, error in
+            if let response = response {
+                DispatchQueue.main.async {
+                    let prepairVC = PrepairViewController()
+                    self.loading?.hide()
+                    self.prepairScreen?.recipeText.text = response.choices.first?.message.content ?? ""
+                    self.navigationController?.pushViewController(prepairVC, animated: true)
+                }
+            }else{
+                debugPrint(error ?? "")
+            }
+        }
     }
 }
 
