@@ -9,7 +9,6 @@ class HomeViewController: UIViewController{
     var viewModel: HomeViewModel = HomeViewModel()
     var wrapperView: WrapperViewAnimation?
     var segmentControl: UISegmentedControl?
-    var prepairScreen: PrepairScreen?
     
     override func loadView() {
         self.screen = HomeScreen()
@@ -32,6 +31,7 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        screen?.searchedTableView.reloadData()
         
     }
     
@@ -182,7 +182,7 @@ extension HomeViewController: RecipeScreenProtocol {
         let ingredientsPharse = viewModel.withIngredients
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
         
-        let finalPharse = "\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients)"
+        let finalPharse = "Estou sem dinheiro e preciso comer, entao tenho que usar os ingreidientes que tenho em casa apenas, para nao ficar com fome, com base nisto\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients), onsidere os seguintes ingredientes comuns (Agua, Sal), e use apenas o que eu estou pedindo a voce, me responsa com o titulo da receita tambem"
         print(finalPharse)
         let service = TextGPTService()
         service.generateRecipe(message: finalPharse) { response, error in
@@ -190,7 +190,7 @@ extension HomeViewController: RecipeScreenProtocol {
                 DispatchQueue.main.async {
                     let prepairVC = PrepairViewController()
                     self.loading?.hide()
-                    self.prepairScreen?.recipeText.text = response.choices.first?.message.content ?? ""
+                    prepairVC.recipeData = response.choices.first?.message.content ?? ""
                     self.navigationController?.pushViewController(prepairVC, animated: true)
                 }
             }else{
@@ -199,5 +199,3 @@ extension HomeViewController: RecipeScreenProtocol {
         }
     }
 }
-
-

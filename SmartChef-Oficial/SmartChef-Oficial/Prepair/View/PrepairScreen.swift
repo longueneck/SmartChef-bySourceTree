@@ -15,7 +15,8 @@ class PrepairScreen: UIView {
         let image = UILabel()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.textColor = .red
-        image.text = "Kevin"
+        image.font = UIFont.sugarFont17
+        image.numberOfLines = 0
         
     return image
     }()
@@ -45,7 +46,7 @@ class PrepairScreen: UIView {
         
             recipeText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             recipeText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            recipeText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -20),
+            recipeText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             recipeText.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }

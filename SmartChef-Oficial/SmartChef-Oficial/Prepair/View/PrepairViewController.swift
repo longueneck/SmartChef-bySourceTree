@@ -8,6 +8,7 @@ class PrepairViewController: UIViewController {
     var prepair: PrepairScreen?
     var recipeTextContent: String = ""
     var viewModel: HomeViewModel = HomeViewModel()
+    var recipeData = ""
     
     override func loadView() {
         self.prepair = PrepairScreen()
@@ -22,7 +23,9 @@ class PrepairViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-       
+        
+        print(recipeData)
+        prepair?.recipeText.text = recipeData
         
     }
  
