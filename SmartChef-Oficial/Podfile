@@ -9,5 +9,6 @@ target 'SmartChef-Oficial' do
 
 pod 'FirebaseCore'
 pod 'FirebaseAuth'
-
+pod 'Firebase/Firestore' 
+ 
 end

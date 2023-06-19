@@ -1,11 +1,23 @@
 import UIKit
 import FirebaseAuth
+import Firebase
+
+protocol RegisterScreenViewControllerProtocol: AnyObject {
+    func registerAccount()
+}
+
 
 class RegisterScreenViewController: UIViewController {
     
     var auth: Auth?
     var register: RegisterScreen = RegisterScreen()
     var viewModel: RegisterViewModel = RegisterViewModel()
+    var firestore = Firestore.firestore()
+    weak var delegate : RegisterScreenViewControllerProtocol?
+    
+    public func delegate(delegate : RegisterScreenViewControllerProtocol?){
+        self.delegate = delegate
+    }
     
     override func loadView() {
         self.register = RegisterScreen()
@@ -68,14 +80,26 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
         
         let email: String = viewModel.getEmail(email: register.emailTextField)
         let password: String = viewModel.getPass(pass: register.passwordTextfield)
+        let name: String = viewModel.getName(name: register.userTextField)
         
         self.auth?.createUser(withEmail: email , password: password, completion: { result, error in
-            
-            if error != nil{
-#warning("Colocar os ALERTS depois!!!")
+            // Firestore Call to FrameWork
+            if error == nil{
+                if let idUser = result?.user.uid{
+                    self.firestore.collection("user").document(idUser).setData([
+                        "nome": name,
+                        "email": email,
+                        "id":idUser
+                    ])
+                }
+                Alert(controller: self).getAlert(title: "Sucesso", message: "Usuário cadastrado com sucesso"){
+                    action in
+                    if action {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }else{
-#warning("Colocar os ALERTS depois!!!")
-                self.navigationController?.pushViewController(vc, animated: true)
+                Alert(controller: self).getAlert(title: "Ops, Houve um erro", message: error?.localizedDescription ?? "")
             }
         })
     }

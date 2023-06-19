@@ -2,7 +2,6 @@
 import UIKit
 import FirebaseAuth
 
-
 class LoginScreenViewController: UIViewController {
     
     var viewModel: LoginViewModel = LoginViewModel()
@@ -100,12 +99,13 @@ extension LoginScreenViewController: LoginScreenProtocol{
         let email = viewModel.getEmail(email: loginScreen.loginTextField)
         let pass = viewModel.getPass(pass: loginScreen.passwordTextField)
         self.loading?.show(message: "< Acordando o Chef >")
+        
         self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
             
             if error != nil{
                 self.loading?.hide()
                 self.alert?.getAlert(title: .titleAlert, message: .messageAlertOne)
-            
+                
             }else{
                 self.loading?.hide()
                 if usuario == nil{

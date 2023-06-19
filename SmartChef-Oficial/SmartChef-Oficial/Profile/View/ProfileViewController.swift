@@ -1,6 +1,6 @@
 import PhotosUI
 import UIKit
-
+import Firebase
 protocol ProfileViewControllerProtocol: AnyObject{
     
     func tapExit()
@@ -8,6 +8,7 @@ protocol ProfileViewControllerProtocol: AnyObject{
 class ProfileViewController: UIViewController{
     
     weak private var profileViewControllerProtocol: ProfileViewControllerProtocol?
+    private var firestore = Firestore.firestore()
     
     func setupDelegate(delegate: ProfileViewControllerProtocol){
         self.profileViewControllerProtocol = delegate
@@ -71,6 +72,15 @@ extension ProfileViewController: ProfileScreenProtocol {
     func tapToExit(){
         self.profileViewControllerProtocol?.tapExit()
     }
+    
+    func tapToDelete() {
+        Alert(controller: self).getAlertOption(title: "Alerta", message: "Deseja realmente excluir sua conta? Após confirmação, seus dados serão deletados e não será possível recuperá-los.") {option in
+            if option {
+             //   self.firestore.collection("User").document().delete()
+            }
+        }
+    }
+    
     
 }
 

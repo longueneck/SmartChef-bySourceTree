@@ -22,8 +22,6 @@ class RegisterViewModel{
         return pass == confirm
     }
     
-    
-    
     public func getEmail(email: UITextField)-> String{
         return email.text ?? ""
     }
@@ -32,4 +30,7 @@ class RegisterViewModel{
         return pass.text ?? ""
     }
     
+    public func getName(name: UITextField)-> String{
+        return name.text ?? ""
+    }
 }

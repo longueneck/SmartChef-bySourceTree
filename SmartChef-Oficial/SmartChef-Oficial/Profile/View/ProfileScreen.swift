@@ -3,6 +3,7 @@ import UIKit
 protocol ProfileScreenProtocol: AnyObject{
     func tapToExit()
     func tapToChangeImage()
+    func tapToDelete()
 }
 
 class ProfileScreen: UIView {
@@ -89,6 +90,20 @@ class ProfileScreen: UIView {
         return label
     }()
  
+    
+    lazy var deleteAccountButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Deletar Conta", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.whiteBase, for: .normal)
+        button.backgroundColor = .brownBase
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(tappedDeleteAccount), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var exitButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +113,7 @@ class ProfileScreen: UIView {
         button.addTarget(self, action: #selector(tappedExitButton), for: .touchUpInside)
         return button
     }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -121,6 +137,7 @@ class ProfileScreen: UIView {
         self.addSubview(self.changerPicButton)
         self.addSubview(self.helloLabel)
         self.addSubview(self.nameLabel)
+        self.addSubview(self.deleteAccountButton)
         self.addSubview(self.exitButton)
         
         subviews.forEach { view in
@@ -145,6 +162,10 @@ class ProfileScreen: UIView {
     
     @objc private func tappedExitButton() {
         profileScreenProtocol?.tapToExit()
+    }
+    
+    @objc private func tappedDeleteAccount() {
+        profileScreenProtocol?.tapToDelete()
     }
     
     @objc private func tapchooseImage() {
@@ -184,7 +205,12 @@ class ProfileScreen: UIView {
         
             nameLabel.bottomAnchor.constraint(equalTo: helloLabel.bottomAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: helloLabel.trailingAnchor, constant: 5),
-
+            
+            deleteAccountButton.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 20),
+            deleteAccountButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            deleteAccountButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            deleteAccountButton.heightAnchor.constraint(equalToConstant: 35),
+            
             exitButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             exitButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
