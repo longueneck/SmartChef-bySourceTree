@@ -92,14 +92,14 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
                         "id":idUser
                     ])
                 }
-                Alert(controller: self).getAlert(title: "Sucesso", message: "Usuário cadastrado com sucesso"){
+                Alert(controller: self).getAlert(title: .registerTitleAlertSucess, message: .registerMessageAlertSucess){
                     action in
                     if action {
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
             }else{
-                Alert(controller: self).getAlert(title: "Ops, Houve um erro", message: error?.localizedDescription ?? "")
+                Alert(controller: self).getAlert(title: .registerTitleAlertFailure, message: error?.localizedDescription ?? "")
             }
         })
     }

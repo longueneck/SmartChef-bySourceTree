@@ -9,6 +9,7 @@ class LoginScreenViewController: UIViewController {
     var alert: Alert?
     var auth: Auth = Auth.auth()
     var loading: Loading?
+    var profileViewModel: ProfileViewModel = ProfileViewModel()
     
     override func loadView() {
         self.loginScreen = LoginScreen()
@@ -22,9 +23,11 @@ class LoginScreenViewController: UIViewController {
         loading = Loading(viewController: self)
         self.alert = Alert(controller: self)
         loginScreen.delegate(delegate: self)
-        
+        profileViewModel.delegate(delegate: self)
         addTfToDelegate()
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
+        loginScreen.loginTextField.text = "sergio.macedo@gmail.com"
+        loginScreen.passwordTextField.text = "123456"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +55,7 @@ class LoginScreenViewController: UIViewController {
 extension LoginScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-    
+        
         if viewModel.validateLoginButton(email: viewModel.getEmail(email: loginScreen.loginTextField), password: viewModel.getPass(pass: loginScreen.passwordTextField)){
             viewModel.turnButtonEnable(button: loginScreen.loginButton)
         }else{
@@ -74,7 +77,7 @@ extension LoginScreenViewController: UITextFieldDelegate{
         }
         return true
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.brownBaseCG
     }
@@ -101,23 +104,30 @@ extension LoginScreenViewController: LoginScreenProtocol{
         self.loading?.show(message: "< Acordando o Chef >")
         
         self.auth.signIn(withEmail: email, password: pass , completion: { (usuario, error) in
-            
-            if error != nil{
-                self.loading?.hide()
-                self.alert?.getAlert(title: .titleAlert, message: .messageAlertOne)
-                
-            }else{
+            if error == nil{
                 self.loading?.hide()
                 if usuario == nil{
                     self.alert?.getAlert(title: .titleAlert, message: .messageAlertTwo)
                 }else{
-                    
-                    self.navigationController?.pushViewController(MyTabBarController(), animated: true)
-                    
+                    self.profileViewModel.loadCurrentUser()
                 }
+            }else{
+                self.loading?.hide()
+                self.alert?.getAlert(title: .titleAlert, message: .messageAlertOne)
             }
-        }
-        )
+        })
     }
+}
+
+extension LoginScreenViewController : ProfileViewModelProtocol{
+    func sucess() {
+        self.navigationController?.pushViewController(ProfileViewController(self.profileViewModel.setNameUser), animated: true)
+    }
+    
+    func Failure() {
+        
+    }
+    
+    
 }
 

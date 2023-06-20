@@ -9,15 +9,24 @@ class ProfileViewController: UIViewController{
     
     weak private var profileViewControllerProtocol: ProfileViewControllerProtocol?
     private var firestore = Firestore.firestore()
+    private var profileScreen: ProfileScreen? = ProfileScreen()
+
     
     func setupDelegate(delegate: ProfileViewControllerProtocol){
         self.profileViewControllerProtocol = delegate
     }
     
-    var profileScreen: ProfileScreen?
+    required init(_ name: String?) {
+        super.init(nibName: nil, bundle: nil)
+        profileScreen?.nameLabel.text = name
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func loadView() {
-        self.profileScreen = ProfileScreen()
         self.view = self.profileScreen
         self.view.backgroundColor = .yellowBase
     }
@@ -43,6 +52,8 @@ class ProfileViewController: UIViewController{
                
     }
 }
+    
+
 
 extension ProfileViewController: UITextFieldDelegate{
     
@@ -63,26 +74,6 @@ extension ProfileViewController: UITextFieldDelegate{
     }
 }
 
-extension ProfileViewController: ProfileScreenProtocol {
-     
-    func tapToChangeImage() {
-        showPicker()
-    }
-    
-    func tapToExit(){
-        self.profileViewControllerProtocol?.tapExit()
-    }
-    
-    func tapToDelete() {
-        Alert(controller: self).getAlertOption(title: "Alerta", message: "Deseja realmente excluir sua conta? Após confirmação, seus dados serão deletados e não será possível recuperá-los.") {option in
-            if option {
-             //   self.firestore.collection("User").document().delete()
-            }
-        }
-    }
-    
-    
-}
 
 extension ProfileViewController: PHPickerViewControllerDelegate, UINavigationControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -100,5 +91,23 @@ extension ProfileViewController: PHPickerViewControllerDelegate, UINavigationCon
 }
 
 
+extension ProfileViewController: ProfileScreenProtocol {
+     
+    func tapToChangeImage() {
+        showPicker()
+    }
+    
+    func tapToExit(){
+        self.profileViewControllerProtocol?.tapExit()
+    }
+    
+    func tapToDelete() {
+        Alert(controller: self).getAlertOption(title: "Alerta", message: "Deseja realmente excluir sua conta? Após confirmação, seus dados serão deletados e não será possível recuperá-los.") {option in
+            if option {
+             //   self.firestore.collection("User").document().delete()
+            }
+        }
+    }
+}
 
 

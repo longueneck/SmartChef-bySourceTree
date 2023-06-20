@@ -22,12 +22,17 @@ extension String {
     static let confirmPassRegister = "Confirmar senha"
     static let createButton = "Criar conta"
     static let fatalErrorInit = "init(coder:) has not been implemented"
+    static let registerMessageAlertSucess = "Usuário criado com sucesso"
+    static let registerTitleAlertSucess = "Sucesso"
+    static let registerTitleAlertFailure = "Ops, Houve um erro!"
+    
     
     //MARK: SUCCESS
     static let welcome = "Bem Vindo!"
     static let sendLabel = "Enviamos seus dados cadastrais para o email abaixo"
     static let exampleEmail = "exemplo@gmail.com"
     static let setTitleLoginButton2 = "Entrar"
+    
     
     //MARK: TABBAR
     static let caseHome = "Home"

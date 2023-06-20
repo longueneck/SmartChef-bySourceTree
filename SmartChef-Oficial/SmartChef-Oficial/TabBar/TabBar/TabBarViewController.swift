@@ -9,7 +9,7 @@ class MyTabBarController: UITabBarController{
     }
     
     var recipes = HomeViewController()
-    var profile = ProfileViewController()
+    var profile = ProfileViewController(String())
     
     override func viewDidLoad(){
         super.viewDidLoad()
