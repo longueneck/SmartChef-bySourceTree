@@ -9,9 +9,7 @@ class HomeViewModel {
     
     weak var delegate: ViewModelDelegate?
     
-    var firstPharse = "Gere para mim uma receita para "
-    var finalRequestPharse = "Gere para mim uma receita para "
-    var withIngredients = "com os seguintes ingredientes "
+   
     private var screen: HomeScreen?
     private var importView: Ingredient?
     private var ingredientList: [Ingredient] = []
@@ -19,6 +17,10 @@ class HomeViewModel {
     private var ingredientSearch: [Ingredient] = []
     private var selectedSegmentControlIndex: Int = 0
     public var callAlertControllError: ((Error) -> Void)?
+    
+    var firstPharse = .firstPharse
+    var finalRequestPharse = .finalRequestPharse
+    var withIngredients = .withIngredients
     
     public func ingredientDATA() {
         let productsFromAPI = ProductsAPI()

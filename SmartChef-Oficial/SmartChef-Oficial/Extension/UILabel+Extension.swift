@@ -36,14 +36,6 @@ extension String {
     static let caseProfile = "Perfil"
     static let moreVisits = "Mais visitadas"
     
-    //MARK: HOME
-    static let discoverNewRecipes = "Descubra novas eceitas e divirta-se na cozinha!"
-    static let searchForRecipes = "  Pesquise por receitas"
-    static let recipeIngredientsTitle = "Receitas com meus ingredientes"
-    static let categoriasLabel = "Categorias"
-    static let niceSugarFont = "Nice Sugar"
-    static let tryTheseDrinks = "Experimente estas bebidas"
-    
     //MARK: RECIPE
     static let letsCook = "<Vamos Cozinhar?>"
     static let insertIngredient = "Insira seus ingredientes"
@@ -62,14 +54,8 @@ extension String {
     static let switchAll = "Todos"
     static let ok = "OK"
     
-    //MARK: Favorite
-    static let favorite = "< Favoritos >"
-    
-    static let heartFill = "heart.fill"
-    static let heart = "heart."
-
     //MARK: Prepair
-  
+    
     static let nameRecipeLabel = "Name Recipe"
     static let typeRecipeLabel = "Type Recipe"
     static let descriptonRecipeLabel = "Description Recipe"
@@ -90,4 +76,22 @@ extension String {
     static let emailPlaceholder = "Insira seu Email"
     static let emailTitleLabel = "Email"
     static let passwordTitleLabel = "Senha"
+    
+    
+    //MARK: API TEXTS
+    //MARK: ================================================
+    
+    //Phrases
+    
+    static let firstPharse = "Gere para mim uma receita para "
+    static let finalRequestPharse = "Gere para mim uma receita para "
+    static let withIngredients = "com os seguintes ingredientes "
+    
+    //MARK: SERVICE
+    
+    static let contentType = "Content-Type"
+    static let applicationJson = "application/json"
+    static let post = "POST"
+    static let erroConvert = "Erro na conversão response"
+
 }

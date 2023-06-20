@@ -4,7 +4,7 @@ class TextGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":.myKey]
             return config
         }
         
@@ -16,7 +16,7 @@ class TextGPTService {
         let url = URL(string: TextGPTService.baseURL)
         guard let url = url else {return}
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = .post
         let textRequest = TextGPTRequestMessagesModel(content: message)
         let request = TextGPTRequestModel(messages: [textRequest])
         let encoder = JSONEncoder()
@@ -25,7 +25,7 @@ class TextGPTService {
         let task = TextGPTService.session.dataTask(with: urlRequest) { data, urlResponse, error in
             if error == nil {
                 guard let response = urlResponse as? HTTPURLResponse else {
-                    closure(nil, APIErrors.converterResponse("Erro na conversão response"))
+                    closure(nil, APIErrors.converterResponse(.erroConvert))
                     return
                 }
                 if response.statusCode == 200{

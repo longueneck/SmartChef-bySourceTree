@@ -112,8 +112,6 @@ class HomeScreen: UIView {
     lazy var manyPeopleSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "+5"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-//        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.layer.cornerRadius = 20
         segmentedControl.backgroundColor = .whiteBase
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.backgroundColor: UIColor.whiteBase], for: .normal)

@@ -4,7 +4,7 @@ class ImageGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
             return config
         }
         
