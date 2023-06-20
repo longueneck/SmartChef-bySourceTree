@@ -20,6 +20,10 @@
 		634257612A1952D40028240E /* StaticSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634257602A1952D40028240E /* StaticSession.swift */; };
 		634257632A19535A0028240E /* ProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634257622A19535A0028240E /* ProductsAPI.swift */; };
 		634257652A1961360028240E /* RecipesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634257642A1961360028240E /* RecipesAPI.swift */; };
+		634839382A4123DD00B8F924 /* ImageGPTRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634839372A4123DD00B8F924 /* ImageGPTRequestModel.swift */; };
+		6348393A2A4124F900B8F924 /* ImageGPTResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634839392A4124F900B8F924 /* ImageGPTResponseModel.swift */; };
+		6348393C2A41258700B8F924 /* ImageGPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348393B2A41258700B8F924 /* ImageGPTService.swift */; };
+		6348393E2A413F0B00B8F924 /* ResponseImageURL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348393D2A413F0B00B8F924 /* ResponseImageURL+Extension.swift */; };
 		634E7F5429CB7CCA003996DD /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E7F5329CB7CCA003996DD /* CGSize+Extension.swift */; };
 		6361E0752A339B8800DF5E57 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361E0742A339B8800DF5E57 /* UIImage+Extension.swift */; };
 		6361E0772A339C8700DF5E57 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361E0762A339C8700DF5E57 /* UIFont+Extension.swift */; };
@@ -73,6 +77,10 @@
 		634257602A1952D40028240E /* StaticSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSession.swift; sourceTree = "<group>"; };
 		634257622A19535A0028240E /* ProductsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPI.swift; sourceTree = "<group>"; };
 		634257642A1961360028240E /* RecipesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesAPI.swift; sourceTree = "<group>"; };
+		634839372A4123DD00B8F924 /* ImageGPTRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGPTRequestModel.swift; sourceTree = "<group>"; };
+		634839392A4124F900B8F924 /* ImageGPTResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGPTResponseModel.swift; sourceTree = "<group>"; };
+		6348393B2A41258700B8F924 /* ImageGPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGPTService.swift; sourceTree = "<group>"; };
+		6348393D2A413F0B00B8F924 /* ResponseImageURL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResponseImageURL+Extension.swift"; sourceTree = "<group>"; };
 		634E7F5329CB7CCA003996DD /* CGSize+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
 		6361E0742A339B8800DF5E57 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		6361E0762A339C8700DF5E57 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -161,6 +169,7 @@
 		6342575E2A19529F0028240E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				634839362A4123C200B8F924 /* GPT-Image */,
 				630539CE2A37D3270014258C /* GPT_API */,
 				6342575F2A1952CA0028240E /* API */,
 			);
@@ -176,6 +185,17 @@
 				63BB78CD2A3434800059E657 /* LoadDataAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		634839362A4123C200B8F924 /* GPT-Image */ = {
+			isa = PBXGroup;
+			children = (
+				634839372A4123DD00B8F924 /* ImageGPTRequestModel.swift */,
+				634839392A4124F900B8F924 /* ImageGPTResponseModel.swift */,
+				6348393B2A41258700B8F924 /* ImageGPTService.swift */,
+				6348393D2A413F0B00B8F924 /* ResponseImageURL+Extension.swift */,
+			);
+			path = "GPT-Image";
 			sourceTree = "<group>";
 		};
 		634E7F5229CB7CA2003996DD /* Utils */ = {
@@ -538,8 +558,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6348393E2A413F0B00B8F924 /* ResponseImageURL+Extension.swift in Sources */,
 				638E44FE29C01C0700BA3A0B /* InsertedIngredientViewCell.swift in Sources */,
 				638E450729C0217100BA3A0B /* LoginScreenViewController.swift in Sources */,
+				6348393A2A4124F900B8F924 /* ImageGPTResponseModel.swift in Sources */,
 				630539D22A37D4730014258C /* TextGPTResponseModel.swift in Sources */,
 				638E451129C022B300BA3A0B /* SucessRegisterScreen.swift in Sources */,
 				638E44FC29C01BDA00BA3A0B /* HomeScreen.swift in Sources */,
@@ -557,6 +579,7 @@
 				63421EB129CBA8DC00D1D0DF /* WrapperViewAnimation.swift in Sources */,
 				6307066529E2FBD000D61DAF /* SearchTextField.swift in Sources */,
 				638E451B29C0241A00BA3A0B /* ProfileScreen.swift in Sources */,
+				634839382A4123DD00B8F924 /* ImageGPTRequestModel.swift in Sources */,
 				63E9FFFE29F85C84000F81B3 /* Recipe.swift in Sources */,
 				638E450F29C0228200BA3A0B /* RegisterScreen.swift in Sources */,
 				637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */,
@@ -566,6 +589,7 @@
 				634257612A1952D40028240E /* StaticSession.swift in Sources */,
 				6361E0772A339C8700DF5E57 /* UIFont+Extension.swift in Sources */,
 				6389F2412A2FFC8C007FBE41 /* Loading.swift in Sources */,
+				6348393C2A41258700B8F924 /* ImageGPTService.swift in Sources */,
 				63BB78CE2A3434800059E657 /* LoadDataAPI.swift in Sources */,
 				638E44E829C0173A00BA3A0B /* HomeViewController.swift in Sources */,
 				638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */,

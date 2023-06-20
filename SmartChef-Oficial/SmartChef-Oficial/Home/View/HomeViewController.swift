@@ -13,6 +13,7 @@ class HomeViewController: UIViewController{
     override func loadView() {
         self.screen = HomeScreen()
         self.view = self.screen
+        
     }
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        screen?.searchedTableView.reloadData()
+       
         
     }
     
@@ -182,20 +183,36 @@ extension HomeViewController: RecipeScreenProtocol {
         let ingredientsPharse = viewModel.withIngredients
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
         
-        let finalPharse = "Estou sem dinheiro e preciso comer, entao tenho que usar os ingreidientes que tenho em casa apenas, para nao ficar com fome, com base nisto\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients), onsidere os seguintes ingredientes comuns (Agua, Sal), e use apenas o que eu estou pedindo a voce, me responsa com o titulo da receita tambem"
+        let finalPharse = "Estou sem dinheiro e preciso comer, entao tenho que usar os ingreidientes que tenho em casa apenas, para nao ficar com fome, com base nisto\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients), onsidere os seguintes ingredientes comuns (Agua, Sal), e use apenas o que eu estou pedindo a voce, me responsa com o titulo da receita tambem, peo tambem que os topicos do Modo de Preparo, tenham um espaçamento de 1 linha para cada um, por favor!"
+        
         print(finalPharse)
         let service = TextGPTService()
         service.generateRecipe(message: finalPharse) { response, error in
-            if let response = response {
+            if let responseText = response {
                 DispatchQueue.main.async {
-                    let prepairVC = PrepairViewController()
-                    self.loading?.hide()
-                    prepairVC.recipeData = response.choices.first?.message.content ?? ""
-                    self.navigationController?.pushViewController(prepairVC, animated: true)
+                    let responseAPIText = responseText.choices.first?.message.content ?? ""
+                    let service2 = ImageGPTService()
+                    let imageRequestAPI = "Com base nesta resposta \(responseAPIText), crie para mim uma imagem de um prato utilizando o titulo da receita que voce me enviou com base tambem nestes ingredientes \(myIngredients), imagem gourmet e a mais profissional foto possivel do prato"
+                    service2.generateImage(message: imageRequestAPI) { response, error in
+                        if let responseImage = response {
+                            DispatchQueue.main.async {
+                                let prepairVC = PrepairViewController()
+                                
+            
+                                self.loading?.hide()
+                                prepairVC.recipeData = responseAPIText
+                                prepairVC.recipeImage = responseImage.data.first?.url ?? ""
+                                self.navigationController?.pushViewController(prepairVC, animated: true)
+                            }
+                        }else{
+                            debugPrint(error ?? "")
+                        }
+                    }
                 }
             }else{
                 debugPrint(error ?? "")
             }
         }
+        
     }
 }
