@@ -18,9 +18,9 @@ class HomeViewModel {
     private var selectedSegmentControlIndex: Int = 0
     public var callAlertControllError: ((Error) -> Void)?
     
-    var firstPharse = .firstPharse
-    var finalRequestPharse = .finalRequestPharse
-    var withIngredients = .withIngredients
+    var firstPharse: String = .firstPharse
+    var finalRequestPharse: String = .finalRequestPharse
+    var withIngredients: String = .withIngredients
     
     public func ingredientDATA() {
         let productsFromAPI = ProductsAPI()

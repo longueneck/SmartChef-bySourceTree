@@ -25,8 +25,8 @@ class HomeViewController: UIViewController{
         viewModel.ingredientDATA()
         loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
-        
         let willEat = screen?.segmentedControlValueChanged()
+        
         
     }
     
@@ -82,7 +82,6 @@ class HomeViewController: UIViewController{
             self.present(alert, animated: true)
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
