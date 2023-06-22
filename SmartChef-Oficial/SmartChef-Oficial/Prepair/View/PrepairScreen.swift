@@ -4,6 +4,19 @@ class PrepairScreen: UIView {
     
     private var textResponse: TextGPTResponseModel?
     
+    
+    lazy var thatsRecipeLabel: UILabel = {
+        let image = UILabel()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.textColor = .brownBase
+        image.font = UIFont.sugarFont17
+        image.numberOfLines = 0
+        image.clipsToBounds = true
+        image.text = "< Aqui está sua receita >"
+        
+    return image
+    }()
+    
     lazy var recipeImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +73,7 @@ class PrepairScreen: UIView {
     
     private func addElements(){
         
+        self.addSubview(self.thatsRecipeLabel)
         self.addSubview(self.recipeImageView)
         self.addSubview(self.scrolView)
         self.scrolView.addSubview(self.containerView)
@@ -69,8 +83,11 @@ class PrepairScreen: UIView {
     
     func setConstraints(){
         NSLayoutConstraint.activate([
-        
-            recipeImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            
+            thatsRecipeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            thatsRecipeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            recipeImageView.topAnchor.constraint(equalTo: thatsRecipeLabel.topAnchor, constant: 15),
             recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             recipeImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             recipeImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -30),

@@ -13,7 +13,6 @@ class HomeViewController: UIViewController{
     override func loadView() {
         self.screen = HomeScreen()
         self.view = self.screen
-        
     }
     
     override func viewDidLoad() {
@@ -26,14 +25,12 @@ class HomeViewController: UIViewController{
         loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
         let willEat = screen?.segmentedControlValueChanged()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-       
-        
+        screen?.searchButton.isEnabled = false
+        screen?.searchButton.alpha = 0.5
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,6 +41,7 @@ class HomeViewController: UIViewController{
         screen?.addTableViewDelegate(delegate: self, dataSource: self)
         screen?.setupCategoriesTableViewDelegate(delegate: self, dataSource: self)
     }
+    
     
     func setInitialConfigs() {
         screen?.addIngredientTextField.delegate = self
@@ -176,13 +174,13 @@ extension HomeViewController: RecipeScreenProtocol {
     }
     
     func goToSearch(people: String?) {
-        self.loading?.show(message: "< Criando sua receita >")
-        let first = viewModel.firstPharse
+        self.loading?.show(message: .alertRequest)
         let numberPeople = (screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0) + 1 ?? 0
-        let ingredientsPharse = viewModel.withIngredients
+        let numberOfTime = screen?.howManyTimeSlider.value ?? 0
+        let numberOfTImeInt = Int(numberOfTime)
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
         
-        let finalPharse = "Estou sem dinheiro e preciso comer, entao tenho que usar os ingreidientes que tenho em casa apenas, para nao ficar com fome, com base nisto\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients), onsidere os seguintes ingredientes comuns (Agua, Sal), e use apenas o que eu estou pedindo a voce, me responsa com o titulo da receita tambem, peo tambem que os topicos do Modo de Preparo, tenham um espaçamento de 1 linha para cada um, por favor!"
+        let finalPharse = "\(String.initPharse), \(String.generatePharse) \(numberPeople) \(String.pessoas).\(String.withIngredients) \(myIngredients). \(String.timePrepair) \(numberOfTImeInt) \(String.minutes), \(String.continuePharse).\(String.firstRule).\(String.modoDePreparo).\(String.rule1).\(String.forcePharse). \(String.removeIndesejable)"
         
         print(finalPharse)
         let service = TextGPTService()
@@ -191,7 +189,7 @@ extension HomeViewController: RecipeScreenProtocol {
                 DispatchQueue.main.async {
                     let responseAPIText = responseText.choices.first?.message.content ?? ""
                     let service2 = ImageGPTService()
-                    let imageRequestAPI = "Com base nesta resposta \(responseAPIText), crie para mim uma imagem de um prato utilizando o titulo da receita que voce me enviou com base tambem nestes ingredientes \(myIngredients), imagem gourmet e a mais profissional foto possivel do prato"
+                    let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
                     service2.generateImage(message: imageRequestAPI) { response, error in
                         if let responseImage = response {
                             DispatchQueue.main.async {

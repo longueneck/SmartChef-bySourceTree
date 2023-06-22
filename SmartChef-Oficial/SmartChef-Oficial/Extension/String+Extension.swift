@@ -82,10 +82,23 @@ extension String {
     //MARK: ================================================
     
     //Phrases
-    
-    static let firstPharse = "Gere para mim uma receita para "
-    static let finalRequestPharse = "Gere para mim uma receita para "
+    static let initPharse = "Estou sem dinheiro e preciso comer, entao tenho que usar os ingreidientes que tenho em casa apenas, para nao ficar com fome, com base nisto "
+    static let generatePharse = "Gere para mim uma receita para "
+    static let pessoas = "pessoas"
     static let withIngredients = "com os seguintes ingredientes "
+    static let timePrepair = "que demore"
+    static let minutes = "minutos"
+    static let myUtensiles = "Tenho na cozinha estes utensilios eletronicos de cozinha disponiveis para utilizar"
+    static let continuePharse = ", considere os seguintes ingredientes comuns (Agua, Sal), use apenas o que eu estou pedindo para voce.  você coloque espaçamento de 1 linha entre um topico e outro, por gentileza!"
+    static let firstRule = "Me responda começando com o nome da receita como titulo, apos isto coloque o tempo que estou te pedindo em outro topico chamado Tempo de Preparo, dpeois os ingredientes"
+    static let modoDePreparo = "No modo de preparo, peço que para cada tópico, tenha o espaçamento de 1 linha entre cada tópico"
+    static let rule1 = "Nada deve vir esrito antes do nome da receita."
+    static let forcePharse = "Resumindo, a resposta deve conter os sequintes assuntos, Nome da receita, Tempo de Preparo, Ingredientes, Modo de Preparo, Dicas de processos"
+    static let removeIndesejable = "No titulo da receita, nao coloque nada do tipo Nome da Receita: ou Titulo da Receita:"
+   
+    static let imagePharse = "Crie para mim uma imagem de um prato com base tambem nestes ingredientes,"
+    static let qualityImage = " imagem gourmet e a mais profissional foto possivel do prato"
+    static let imageRule = "crie uma imagem que tenha coerencia com o titulo, ou seja, contenha os ingredientes, nao inclua na imagem do prato nenhum ingrediente que nao tenha sido passado para criar a receita"
     
     //MARK: SERVICE
     
@@ -93,5 +106,5 @@ extension String {
     static let applicationJson = "application/json"
     static let post = "POST"
     static let erroConvert = "Erro na conversão response"
-
+    static let alertRequest = "< Criando sua receita >"
 }

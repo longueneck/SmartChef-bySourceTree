@@ -88,10 +88,8 @@ class HomeScreen: UIView {
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.minimumValue = 5
         slider.maximumValue = 60
-        slider.value = 5
+        slider.value = 25
         slider.addTarget(self, action: #selector(handleSliderValueChange), for: .valueChanged)
-
-        let step: Float = 5
         return slider
     }()
     
@@ -99,7 +97,8 @@ class HomeScreen: UIView {
         let insert = UILabel()
         insert.translatesAutoresizingMaskIntoConstraints = false  
         insert.textColor = .brownBase
-        insert.font = .sugarFont18
+        insert.text = "25"
+        insert.font = .sugarFont20
         return insert
     }()
     
@@ -126,6 +125,7 @@ class HomeScreen: UIView {
         let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "+5"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.layer.cornerRadius = 20
+        segmentedControl.selectedSegmentIndex = 1
         segmentedControl.backgroundColor = .whiteBase
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.backgroundColor: UIColor.whiteBase], for: .normal)
         segmentedControl.selectedSegmentTintColor = .yellowBase
@@ -452,7 +452,7 @@ class HomeScreen: UIView {
             numberOfMySliderLabel.leadingAnchor.constraint(equalTo: howManyTimeSlider.trailingAnchor, constant: 10),
             
             minuteLabel.centerXAnchor.constraint(equalTo: numberOfMySliderLabel.centerXAnchor),
-            minuteLabel.topAnchor.constraint(equalTo: numberOfMySliderLabel.bottomAnchor, constant: 2),
+            minuteLabel.topAnchor.constraint(equalTo: numberOfMySliderLabel.bottomAnchor, constant: 0),
             
             manyPeopleLabel.topAnchor.constraint(equalTo: howManyTimeSlider.bottomAnchor, constant: 20),
             manyPeopleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
