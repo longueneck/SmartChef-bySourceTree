@@ -24,14 +24,13 @@ class HomeViewController: UIViewController{
         viewModel.ingredientDATA()
         loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
-        
         let willEat = screen?.segmentedControlValueChanged()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-
+//        screen?.searchButton.isEnabled = false
+//        screen?.searchButton.alpha = 0.5
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,6 +41,7 @@ class HomeViewController: UIViewController{
         screen?.addTableViewDelegate(delegate: self, dataSource: self)
         screen?.setupCategoriesTableViewDelegate(delegate: self, dataSource: self)
     }
+    
     
     func setInitialConfigs() {
         screen?.addIngredientTextField.delegate = self
@@ -65,7 +65,7 @@ class HomeViewController: UIViewController{
         emptyState?.isHidden = true
         screen?.insertedIngredientTableView.separatorStyle = .singleLine
     }
-        
+    
     public func errorAPI(_ error: Error){
         print(error)
         DispatchQueue.main.async {
@@ -80,7 +80,6 @@ class HomeViewController: UIViewController{
             self.present(alert, animated: true)
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -170,33 +169,43 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: RecipeScreenProtocol {
     
-    func selectHowManyPeople(people: String?) {
-        viewModel.setNumberOfPeople(number: people ?? "")
-    }
-    
     func goToSearch(people: String?) {
-        self.loading?.show(message: "< Criando sua receita >")
-        let first = viewModel.firstPharse
-        let numberPeople = (screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0) + 1 ?? 0
-        let ingredientsPharse = viewModel.withIngredients
+        
+        let numberPeople = viewModel.getSelectedIndexSegmentControl(segmentControl: screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0)
+        let numberOfTime = viewModel.getSelectedTimeToSlider(time: Int(screen?.howManyTimeSlider.value ?? 0))
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
+        let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients)
         
-        let finalPharse = "\(first)\(numberPeople) pessoas \(ingredientsPharse)\(myIngredients)"
-        
-                let service = TextGPTService()
-                service.generateRecipe(message: finalPharse) { response, error in
-                    if let response = response {
-                        DispatchQueue.main.async {
-                            
-                            self.loading?.hide()
-                            debugPrint(response.choices.first?.message.content ?? "")
-                        }
-                        }else{
-                        debugPrint(error ?? "")
-                        }
-                }
         print(finalPharse)
+        self.loading?.show()
+        let service = TextGPTService()
+        
+        service.generateRecipe(message: finalPharse) { response, error in
+            if let responseText = response {
+                DispatchQueue.main.async {
+                    let responseAPIText = responseText.choices.first?.message.content ?? ""
+                    let service2 = ImageGPTService()
+                    let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
+                    service2.generateImage(message: imageRequestAPI) { response, error in
+                        if let responseImage = response {
+                            DispatchQueue.main.async {
+                                let prepairVC = PrepairViewController()
+                            
+                                prepairVC.recipeData = responseAPIText
+                                prepairVC.recipeImage = responseImage.data.first?.url ?? ""
+                                
+                                self.navigationController?.pushViewController(prepairVC, animated: true)
+                                self.loading?.hide()
+                            }
+                        }else{
+                            debugPrint(error ?? "")
+                        }
+                    }
+                }
+            }else{
+                debugPrint(error ?? "")
+            }
+        }
+        
     }
 }
-
-

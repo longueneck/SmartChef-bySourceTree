@@ -7,7 +7,7 @@ class MyTabBarController: UITabBarController{
         case profile = 1
        
     }
-    
+    var home: HomeScreen?
     var recipes = HomeViewController()
     var profile = ProfileViewController(String())
     
@@ -21,6 +21,7 @@ class MyTabBarController: UITabBarController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.home?.searchedTableView.reloadData()
     }
     
     private func setupTabBarController(){

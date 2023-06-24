@@ -3,8 +3,14 @@ import UIKit
 
 class PrepairViewController: UIViewController {
     
+    var loading: Loading?
+    var screen: HomeScreen?
     var prepair: PrepairScreen?
-       
+    var recipeTextContent: String = ""
+    var viewModel: HomeViewModel = HomeViewModel()
+    var recipeData = ""
+    var recipeImage = ""
+    
     override func loadView() {
         self.prepair = PrepairScreen()
         self.view = prepair
@@ -17,7 +23,21 @@ class PrepairViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-    }
+        self.view.backgroundColor = .yellowBase
+        
+        print(recipeData)
+        prepair?.recipeText.text = recipeData
 
+        UIImage.loadImageFromURL(recipeImage) { image in
+            if let image = image {
+                self.prepair?.recipeImageView.image = image
+            } else {
+              print("Erro inesperado")
+            }
+        }
+
+    }
+ 
+    
 }
+

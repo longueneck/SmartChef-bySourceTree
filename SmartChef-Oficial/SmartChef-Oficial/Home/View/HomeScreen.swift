@@ -2,7 +2,6 @@ import UIKit
 
 protocol RecipeScreenProtocol: AnyObject{
     func goToSearch(people: String?)
-    func selectHowManyPeople(people: String?)
 }
 
 class HomeScreen: UIView {
@@ -75,13 +74,6 @@ class HomeScreen: UIView {
         return table
     }()
     
-    lazy var scrolView: UIScrollView = {
-            let scroll = UIScrollView()
-            scroll.translatesAutoresizingMaskIntoConstraints = false
-            scroll.isScrollEnabled = true
-            return scroll
-        }()
-    
     lazy var backgroundView: UIView = {
         let white = UIView()
         white.translatesAutoresizingMaskIntoConstraints = false
@@ -93,10 +85,29 @@ class HomeScreen: UIView {
         let slider = UISlider()
         slider.tintColor = .yellowBase
         slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.minimumValue = 0
-        slider.maximumValue = 100
-        slider.value = 50
+        slider.minimumValue = 5
+        slider.maximumValue = 60
+        slider.value = 25
+        slider.addTarget(self, action: #selector(handleSliderValueChange), for: .valueChanged)
         return slider
+    }()
+    
+    lazy var numberOfMySliderLabel: UILabel = {
+        let insert = UILabel()
+        insert.translatesAutoresizingMaskIntoConstraints = false  
+        insert.textColor = .brownBase
+        insert.text = "25"
+        insert.font = .sugarFont20
+        return insert
+    }()
+    
+    lazy var minuteLabel: UILabel = {
+        let insert = UILabel()
+        insert.translatesAutoresizingMaskIntoConstraints = false
+        insert.text = "min"
+        insert.textColor = .brownBase
+        insert.font = .sugarFont14
+        return insert
     }()
     
     lazy var manyPeopleLabel: UILabel = {
@@ -112,9 +123,8 @@ class HomeScreen: UIView {
     lazy var manyPeopleSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "+5"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-//        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.layer.cornerRadius = 20
+        segmentedControl.selectedSegmentIndex = 1
         segmentedControl.backgroundColor = .whiteBase
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.backgroundColor: UIColor.whiteBase], for: .normal)
         segmentedControl.selectedSegmentTintColor = .yellowBase
@@ -323,6 +333,8 @@ class HomeScreen: UIView {
         self.addSubview(self.addIngredientTextField)
         self.addSubview(self.backgroundView)
         self.addSubview(self.howManyTimeSlider)
+        self.addSubview(self.numberOfMySliderLabel)
+        self.addSubview(self.minuteLabel)
         self.addSubview(self.manyPeopleLabel)
         self.addSubview(self.manyPeopleSegmentedControl)
         self.addSubview(self.insertedIngredientTableView)
@@ -342,6 +354,15 @@ class HomeScreen: UIView {
         self.addSubview(self.searchButton)
     }
     
+    @objc func handleSliderValueChange() {
+        let step: Float = 5
+        let roundedValue = round(howManyTimeSlider.value / step) * step
+        howManyTimeSlider.value = roundedValue
+        let valueInt = Int(roundedValue)
+        let valueText = String(valueInt)
+        self.numberOfMySliderLabel.text = valueText
+    }
+    
     @objc func segmentedControlValueChanged(){
         var peoplesWillEat = ""
         let selectedIndex = manyPeopleSegmentedControl.selectedSegmentIndex
@@ -359,7 +380,6 @@ class HomeScreen: UIView {
         default:
             break
         }
-        homeScreenProtocol?.selectHowManyPeople(people: peoplesWillEat)
     }
 
     @objc func switchValueChanged(_ sender: UISwitch) {
@@ -423,8 +443,14 @@ class HomeScreen: UIView {
             
             howManyTimeSlider.topAnchor.constraint(equalTo: yellowTopView.bottomAnchor, constant: 20),
             howManyTimeSlider.leadingAnchor.constraint(equalTo: addIngredientTextField.leadingAnchor),
-            howManyTimeSlider.trailingAnchor.constraint(equalTo: addIngredientTextField.trailingAnchor),
+            howManyTimeSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             howManyTimeSlider.heightAnchor.constraint(equalToConstant: 20),
+            
+            numberOfMySliderLabel.centerYAnchor.constraint(equalTo: howManyTimeSlider.centerYAnchor),
+            numberOfMySliderLabel.leadingAnchor.constraint(equalTo: howManyTimeSlider.trailingAnchor, constant: 10),
+            
+            minuteLabel.centerXAnchor.constraint(equalTo: numberOfMySliderLabel.centerXAnchor),
+            minuteLabel.topAnchor.constraint(equalTo: numberOfMySliderLabel.bottomAnchor, constant: 0),
             
             manyPeopleLabel.topAnchor.constraint(equalTo: howManyTimeSlider.bottomAnchor, constant: 20),
             manyPeopleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),

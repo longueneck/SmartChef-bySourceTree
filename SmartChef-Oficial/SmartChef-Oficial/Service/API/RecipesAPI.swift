@@ -4,7 +4,7 @@ class RecipesAPI{
     
     private let recipeURL = "recipes"
     
-    func getAllProducts(closure: @escaping([Ingredient]? , APIErrors?) -> Void ){
+    func getAllProducts(closure: @escaping([IngredientFromAPI]? , APIErrors?) -> Void ){
         guard let url = URL(string: "\(StaticSession.baseURL)\(recipeURL)") else {
             closure(nil, APIErrors.urlPharse("ERRO DE URL"))
             return
@@ -22,7 +22,7 @@ class RecipesAPI{
                         return}
                     do{
                         let jsonDecode = JSONDecoder()
-                        let ingredients = try jsonDecode.decode([Ingredient].self, from: data)
+                        let ingredients = try jsonDecode.decode([IngredientFromAPI].self, from: data)
                         closure(ingredients, nil)
                     }catch{
                         closure(nil, APIErrors.unknow(error))
