@@ -174,7 +174,7 @@ extension HomeViewController: RecipeScreenProtocol {
     }
     
     func goToSearch(people: String?) {
-        self.loading?.show(message: .alertRequest)
+        
         let numberPeople = (screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0) + 1 ?? 0
         let numberOfTime = screen?.howManyTimeSlider.value ?? 0
         let numberOfTImeInt = Int(numberOfTime)

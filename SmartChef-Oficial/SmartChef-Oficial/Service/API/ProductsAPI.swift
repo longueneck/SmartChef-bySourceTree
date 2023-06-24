@@ -14,7 +14,7 @@ class ProductsAPI{
     
     private let productsURL = "ingredient"
     
-    func getAllProducts(closure: @escaping([Ingredient]? , APIErrors?) -> Void ){
+    func getAllIngredientsFromAPI(closure: @escaping([Ingredient]? , APIErrors?) -> Void ){
         guard let url = URL(string: "\(StaticSession.baseURL)\(productsURL)") else {
             closure(nil, APIErrors.urlPharse("ERRO DE URL"))
             return

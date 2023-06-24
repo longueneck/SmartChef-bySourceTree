@@ -23,7 +23,7 @@ class HomeViewModel {
     
     public func ingredientDATA() {
         let productsFromAPI = ProductsAPI()
-        productsFromAPI.getAllProducts { [weak self] recipes, error in
+        productsFromAPI.getAllIngredientsFromAPI { [weak self] recipes, error in
             if error == nil {
                 guard let recipes = recipes else { return }
                 for recipe in recipes {
