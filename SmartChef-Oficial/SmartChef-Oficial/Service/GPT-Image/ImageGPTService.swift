@@ -4,7 +4,7 @@ class ImageGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
             return config
         }
         
@@ -12,12 +12,12 @@ class ImageGPTService {
         
         static var baseURL = "https://api.openai.com/v1/images/generations"
         
-    public func generateImage(message: String, closure:  @escaping(ImageGPTResponseModel? , APIErrors?) -> Void ) {
+    public func generateImage(message: String, closure:  @escaping(ImageResponseModel? , APIErrors?) -> Void ) {
         let url = URL(string: ImageGPTService.baseURL)
         guard let url = url else {return}
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        let request = ImageGPTRequestModel(prompt: message)
+        let request = ImageRequestModel(prompt: message)
         let encoder = JSONEncoder()
         let body = try? encoder.encode(request)
         urlRequest.httpBody = body
@@ -33,7 +33,7 @@ class ImageGPTService {
                         return}
                     do{
                         let jsonDecode = JSONDecoder()
-                        let recipe = try jsonDecode.decode(ImageGPTResponseModel.self, from: data)
+                        let recipe = try jsonDecode.decode(ImageResponseModel.self, from: data)
                         closure(recipe, nil)
                     }catch{
                         closure(nil, APIErrors.unknow(error))

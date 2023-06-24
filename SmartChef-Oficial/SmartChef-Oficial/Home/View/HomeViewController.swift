@@ -29,8 +29,8 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        screen?.searchButton.isEnabled = false
-        screen?.searchButton.alpha = 0.5
+//        screen?.searchButton.isEnabled = false
+//        screen?.searchButton.alpha = 0.5
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -169,21 +169,17 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: RecipeScreenProtocol {
     
-    func selectHowManyPeople(people: String?) {
-        viewModel.setNumberOfPeople(number: people ?? "")
-    }
-    
     func goToSearch(people: String?) {
         
-        let numberPeople = (screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0) + 1 ?? 0
-        let numberOfTime = screen?.howManyTimeSlider.value ?? 0
-        let numberOfTImeInt = Int(numberOfTime)
+        let numberPeople = viewModel.getSelectedIndexSegmentControl(segmentControl: screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0)
+        let numberOfTime = viewModel.getSelectedTimeToSlider(time: Int(screen?.howManyTimeSlider.value ?? 0))
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
-        
-        let finalPharse = "\(String.initPharse), \(String.generatePharse) \(numberPeople) \(String.pessoas).\(String.withIngredients) \(myIngredients). \(String.timePrepair) \(numberOfTImeInt) \(String.minutes), \(String.continuePharse).\(String.firstRule).\(String.modoDePreparo).\(String.rule1).\(String.forcePharse). \(String.removeIndesejable)"
+        let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients)
         
         print(finalPharse)
+        self.loading?.show()
         let service = TextGPTService()
+        
         service.generateRecipe(message: finalPharse) { response, error in
             if let responseText = response {
                 DispatchQueue.main.async {
@@ -194,12 +190,12 @@ extension HomeViewController: RecipeScreenProtocol {
                         if let responseImage = response {
                             DispatchQueue.main.async {
                                 let prepairVC = PrepairViewController()
-                                
-            
-                                self.loading?.hide()
+                            
                                 prepairVC.recipeData = responseAPIText
                                 prepairVC.recipeImage = responseImage.data.first?.url ?? ""
+                                
                                 self.navigationController?.pushViewController(prepairVC, animated: true)
+                                self.loading?.hide()
                             }
                         }else{
                             debugPrint(error ?? "")

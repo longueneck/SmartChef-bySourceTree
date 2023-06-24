@@ -2,7 +2,6 @@ import UIKit
 
 protocol RecipeScreenProtocol: AnyObject{
     func goToSearch(people: String?)
-    func selectHowManyPeople(people: String?)
 }
 
 class HomeScreen: UIView {
@@ -381,7 +380,6 @@ class HomeScreen: UIView {
         default:
             break
         }
-        homeScreenProtocol?.selectHowManyPeople(people: peoplesWillEat)
     }
 
     @objc func switchValueChanged(_ sender: UISwitch) {

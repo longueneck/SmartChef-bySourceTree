@@ -11,10 +11,10 @@ class HomeViewModel {
     
    
     private var screen: HomeScreen?
-    private var importView: Ingredient?
-    private var ingredientList: [Ingredient] = []
-    private var selectedIngredients: [Ingredient] = []
-    private var ingredientSearch: [Ingredient] = []
+    private var importView: IngredientFromAPI?
+    private var ingredientList: [IngredientFromAPI] = []
+    private var selectedIngredients: [IngredientFromAPI] = []
+    private var ingredientSearch: [IngredientFromAPI] = []
     private var selectedSegmentControlIndex: Int = 0
     public var callAlertControllError: ((Error) -> Void)?
     
@@ -28,7 +28,7 @@ class HomeViewModel {
                 guard let recipes = recipes else { return }
                 for recipe in recipes {
                     guard let name = recipe.name else { return }
-                    self?.ingredientList.append(Ingredient(name: name))
+                    self?.ingredientList.append(IngredientFromAPI(name: name))
                 }
             } else {
                 self?.callAlertControllError?(error!)
@@ -36,7 +36,7 @@ class HomeViewModel {
         }
     }
     
-    public func getAllIngredients() -> [Ingredient] {
+    public func getAllIngredients() -> [IngredientFromAPI] {
         return ingredientList
     }
     
@@ -52,7 +52,7 @@ class HomeViewModel {
         return selectedIngredients[indexPath.row].name ?? ""
     }
     
-    var getAllSelectedIngredients: [Ingredient] {
+    var getAllSelectedIngredients: [IngredientFromAPI] {
         return selectedIngredients
     }
     
@@ -69,11 +69,11 @@ class HomeViewModel {
         selectedIngredients.remove(at: index)
     }
     
-    func addIngredientSearch(ingredient: Ingredient) {
+    func addIngredientSearch(ingredient: IngredientFromAPI) {
         ingredientSearch.append(ingredient)
     }
     
-    var getIngredientSearch: [Ingredient] {
+    var getIngredientSearch: [IngredientFromAPI] {
         return ingredientSearch
     }
     
@@ -105,6 +105,19 @@ class HomeViewModel {
     public func setNumberOfPeople(number: String)-> String {
         return number
         
+    }
+    
+    func getSelectedIndexSegmentControl(segmentControl: Int)-> Int {
+        return segmentControl + 1
+    }
+    
+    func getSelectedTimeToSlider(time: Int)-> Int {
+        let timeInt = Int(time)
+        return timeInt
+    }
+    
+    func getTotalPharse(people: Int, time: Int, myIngredients: String)-> String{
+        return "\(String.initPharse), \(String.generatePharse) \(people) \(String.pessoas).\(String.withIngredients) \(myIngredients). \(String.timePrepair) \(time) \(String.minutes), \(String.continuePharse).\(String.firstRule).\(String.modoDePreparo).\(String.rule1).\(String.forcePharse). \(String.removeIndesejable)"
     }
     
 }

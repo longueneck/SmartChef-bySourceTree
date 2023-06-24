@@ -1,6 +1,6 @@
 import Foundation
 
-struct ImageGPTRequestModel: Encodable{
+struct ImageRequestModel: Encodable{
     
     var prompt: String 
     var n: Int = 2
