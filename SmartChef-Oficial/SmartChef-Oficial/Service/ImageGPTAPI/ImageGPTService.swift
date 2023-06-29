@@ -1,31 +1,30 @@
 import Foundation
 
-class TextGPTService {
+class ImageGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization": "Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
             return config
         }
         
         static var session: URLSession = URLSession(configuration: configuration)
         
-        static var baseURL = "https://api.openai.com/v1/chat/completions"
+        static var baseURL = "https://api.openai.com/v1/images/generations"
         
-    public func generateRecipe(message: String, closure:  @escaping(TextGPTResponseModel? , APIErrors?) -> Void ) {
-        let url = URL(string: TextGPTService.baseURL)
+    public func generateImage(message: String, closure:  @escaping(ImageResponseModel? , APIErrors?) -> Void ) {
+        let url = URL(string: ImageGPTService.baseURL)
         guard let url = url else {return}
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = .post
-        let textRequest = TextGPTRequestMessagesModel(content: message)
-        let request = TextGPTRequestModel(messages: [textRequest])
+        urlRequest.httpMethod = "POST"
+        let request = ImageRequestModel(prompt: message)
         let encoder = JSONEncoder()
         let body = try? encoder.encode(request)
         urlRequest.httpBody = body
-        let task = TextGPTService.session.dataTask(with: urlRequest) { data, urlResponse, error in
+        let task = ImageGPTService.session.dataTask(with: urlRequest) { data, urlResponse, error in
             if error == nil {
                 guard let response = urlResponse as? HTTPURLResponse else {
-                    closure(nil, APIErrors.converterResponse(.erroConvert))
+                    closure(nil, APIErrors.converterResponse("Erro na conversão response"))
                     return
                 }
                 if response.statusCode == 200{
@@ -34,7 +33,7 @@ class TextGPTService {
                         return}
                     do{
                         let jsonDecode = JSONDecoder()
-                        let recipe = try jsonDecode.decode(TextGPTResponseModel.self, from: data)
+                        let recipe = try jsonDecode.decode(ImageResponseModel.self, from: data)
                         closure(recipe, nil)
                     }catch{
                         closure(nil, APIErrors.unknow(error))
