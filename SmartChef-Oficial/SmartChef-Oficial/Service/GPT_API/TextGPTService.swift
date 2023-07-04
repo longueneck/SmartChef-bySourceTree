@@ -4,13 +4,13 @@ class TextGPTService {
     
         static var configuration: URLSessionConfiguration{
                 let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization": "Bearer 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"]
+            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization": APIKey.apiKey]
             return config
         }
         
         static var session: URLSession = URLSession(configuration: configuration)
         
-        static var baseURL = "https://api.openai.com/v1/chat/completions"
+    static var baseURL = APIConfig.baseTextUrl
         
     public func generateRecipe(message: String, closure:  @escaping(TextGPTResponseModel? , APIErrors?) -> Void ) {
         let url = URL(string: TextGPTService.baseURL)

@@ -53,8 +53,6 @@ class ProfileViewController: UIViewController{
     }
 }
     
-
-
 extension ProfileViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

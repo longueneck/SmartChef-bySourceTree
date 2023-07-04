@@ -2,16 +2,16 @@ import Foundation
 
 class ImageGPTService {
     
-        static var configuration: URLSessionConfiguration{
-                let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization":"Bearer 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"]
-            return config
-        }
-        
-        static var session: URLSession = URLSession(configuration: configuration)
-        
-        static var baseURL = "https://api.openai.com/v1/images/generations"
-        
+    static var configuration: URLSessionConfiguration{
+        let config = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = ["Content-Type":"application/json", "Authorization": APIKey.apiKey ]
+        return config
+    }
+    
+    static var session: URLSession = URLSession(configuration: configuration)
+    
+    static var baseURL = APIConfig.baseImageUrl
+    
     public func generateImage(message: String, closure:  @escaping(ImageResponseModel? , APIErrors?) -> Void ) {
         let url = URL(string: ImageGPTService.baseURL)
         guard let url = url else {return}
