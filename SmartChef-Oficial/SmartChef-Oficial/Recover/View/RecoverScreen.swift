@@ -25,7 +25,11 @@ class RecoverScreen: UIView {
         textfield.placeholder = "Digite seu email"
         textfield.backgroundColor = .white
         textfield.keyboardType = .default
+        textfield.layer.cornerRadius = 12
         textfield.autocorrectionType = .no
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
+        textfield.leftView = paddingView
+        textfield.leftViewMode = .always
         return textfield
     }()
 
@@ -33,8 +37,8 @@ class RecoverScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
-        button.setTitle("Recuperar", for: .normal)
-        button.tintColor = .black
+        button.setTitle("Recuperar", for: .normal)        
+        button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(tappedRecoverButton), for: .touchUpInside)
