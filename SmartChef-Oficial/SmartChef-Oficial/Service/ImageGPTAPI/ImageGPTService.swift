@@ -16,7 +16,7 @@ class ImageGPTService {
         let url = URL(string: ImageGPTService.baseURL)
         guard let url = url else {return}
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = .post
         let request = ImageRequestModel(prompt: message)
         let encoder = JSONEncoder()
         let body = try? encoder.encode(request)

@@ -179,20 +179,20 @@ extension HomeViewController: RecipeScreenProtocol {
         print(finalPharse)
         self.loading?.show()
         let service = TextGPTService()
-        
+
         service.generateRecipe(message: finalPharse) { response, error in
             if let responseText = response {
                 DispatchQueue.main.async {
                     let responseAPIText = responseText.choices.first?.message.content ?? ""
-//                    let service2 = ImageGPTService()
-//                    let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
-//                    service2.generateImage(message: imageRequestAPI) { response, error in
-//                        if let responseImage = response {
-//                            DispatchQueue.main.async {
+                    let service2 = ImageGPTService()
+                    let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
+                    service2.generateImage(message: imageRequestAPI) { response, error in
+                        if let responseImage = response {
+                            DispatchQueue.main.async {
                                 let prepairVC = PrepairViewController()
                             
                                 prepairVC.recipeData = responseAPIText
-//                                prepairVC.recipeImage = responseImage.data.first?.url ?? ""
+                                prepairVC.recipeImage = responseImage.data.first?.url ?? ""
                                 
                                 self.navigationController?.pushViewController(prepairVC, animated: true)
                                 self.loading?.hide()
@@ -202,10 +202,10 @@ extension HomeViewController: RecipeScreenProtocol {
                         }
                     }
                 }
-//            }else{
-//                debugPrint(error ?? "")
-//            }
-//        }
-//
-//    }
+            }else{
+                debugPrint(error ?? "")
+            }
+        }
+
+    }
 }

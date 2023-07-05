@@ -60,7 +60,6 @@ class ProfileScreen: UIView {
         return view
     }()
 
-    
     lazy var changerPicButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

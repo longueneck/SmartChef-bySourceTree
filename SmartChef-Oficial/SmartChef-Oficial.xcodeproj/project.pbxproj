@@ -35,6 +35,8 @@
 		637145C42A0829D600A8C72F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637145C32A0829D600A8C72F /* RegisterViewModel.swift */; };
 		637C373E2A11A8D900CE7C4F /* PrepairScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */; };
 		637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */; };
+		637FC6882A55F99D00DF08C3 /* RecoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FC6872A55F99D00DF08C3 /* RecoverScreen.swift */; };
+		637FC68A2A55F9B100DF08C3 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FC6892A55F9B100DF08C3 /* RecoverViewController.swift */; };
 		6388067C2A54C29A00D56EA9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388067B2A54C29A00D56EA9 /* APIKey.swift */; };
 		6388067E2A54C30800D56EA9 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388067D2A54C30800D56EA9 /* APIConfig.swift */; };
 		6389F23F2A2FB693007FBE41 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */; };
@@ -94,6 +96,8 @@
 		637145C32A0829D600A8C72F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		637C373D2A11A8D900CE7C4F /* PrepairScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairScreen.swift; sourceTree = "<group>"; };
 		637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewController.swift; sourceTree = "<group>"; };
+		637FC6872A55F99D00DF08C3 /* RecoverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverScreen.swift; sourceTree = "<group>"; };
+		637FC6892A55F9B100DF08C3 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		6388067B2A54C29A00D56EA9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		6388067D2A54C30800D56EA9 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -264,6 +268,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		637FC6862A55F97800DF08C3 /* Recover */ = {
+			isa = PBXGroup;
+			children = (
+				637FC68B2A55F9B500DF08C3 /* View */,
+			);
+			path = Recover;
+			sourceTree = "<group>";
+		};
+		637FC68B2A55F9B500DF08C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				637FC6872A55F99D00DF08C3 /* RecoverScreen.swift */,
+				637FC6892A55F9B100DF08C3 /* RecoverViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6388067A2A54C28E00D56EA9 /* Secret */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,8 +315,9 @@
 		638E44E229C0173A00BA3A0B /* SmartChef-Oficial */ = {
 			isa = PBXGroup;
 			children = (
+				637FC6862A55F97800DF08C3 /* Recover */,
 				6388067A2A54C28E00D56EA9 /* Secret */,
-				638E450429C0215600BA3A0B /* LoginScreen */,
+				638E450429C0215600BA3A0B /* Login */,
 				638E450D29C0226400BA3A0B /* Register */,
 				635E857029DCB6D900DF1FCB /* SuccessRegisterScreen */,
 				638E451829C023FB00BA3A0B /* Profile */,
@@ -323,13 +345,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		638E450429C0215600BA3A0B /* LoginScreen */ = {
+		638E450429C0215600BA3A0B /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				637145C52A0829E200A8C72F /* ViewModel */,
 				C4CC784C29F836D80055DC8A /* View */,
 			);
-			path = LoginScreen;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		638E450D29C0226400BA3A0B /* Register */ = {
@@ -394,8 +416,8 @@
 		C4CC784C29F836D80055DC8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
 				638E450829C0218D00BA3A0B /* LoginScreen.swift */,
+				638E450629C0217100BA3A0B /* LoginScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -582,6 +604,7 @@
 				638E44FE29C01C0700BA3A0B /* InsertedIngredientViewCell.swift in Sources */,
 				6388067E2A54C30800D56EA9 /* APIConfig.swift in Sources */,
 				638E450729C0217100BA3A0B /* LoginScreenViewController.swift in Sources */,
+				637FC68A2A55F9B100DF08C3 /* RecoverViewController.swift in Sources */,
 				6388067C2A54C29A00D56EA9 /* APIKey.swift in Sources */,
 				630539D22A37D4730014258C /* TextGPTResponseModel.swift in Sources */,
 				638E451129C022B300BA3A0B /* SucessRegisterScreen.swift in Sources */,
@@ -615,6 +638,7 @@
 				6361E0772A339C8700DF5E57 /* UIFont+Extension.swift in Sources */,
 				63193D562A4E032C00DFECD1 /* ImageResponseModel.swift in Sources */,
 				6389F2412A2FFC8C007FBE41 /* Loading.swift in Sources */,
+				637FC6882A55F99D00DF08C3 /* RecoverScreen.swift in Sources */,
 				638E44E829C0173A00BA3A0B /* HomeViewController.swift in Sources */,
 				638E44E429C0173A00BA3A0B /* AppDelegate.swift in Sources */,
 				638E451D29C0242D00BA3A0B /* ProfileViewController.swift in Sources */,
