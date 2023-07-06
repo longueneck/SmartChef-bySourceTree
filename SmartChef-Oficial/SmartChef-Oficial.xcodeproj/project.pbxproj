@@ -37,6 +37,7 @@
 		637C37402A11A98C00CE7C4F /* PrepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */; };
 		637FC6882A55F99D00DF08C3 /* RecoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FC6872A55F99D00DF08C3 /* RecoverScreen.swift */; };
 		637FC68A2A55F9B100DF08C3 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FC6892A55F9B100DF08C3 /* RecoverViewController.swift */; };
+		637FC68D2A5655E600DF08C3 /* CustomSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FC68C2A5655E600DF08C3 /* CustomSizes.swift */; };
 		6388067C2A54C29A00D56EA9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388067B2A54C29A00D56EA9 /* APIKey.swift */; };
 		6388067E2A54C30800D56EA9 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388067D2A54C30800D56EA9 /* APIConfig.swift */; };
 		6389F23F2A2FB693007FBE41 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */; };
@@ -98,6 +99,7 @@
 		637C373F2A11A98C00CE7C4F /* PrepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepairViewController.swift; sourceTree = "<group>"; };
 		637FC6872A55F99D00DF08C3 /* RecoverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverScreen.swift; sourceTree = "<group>"; };
 		637FC6892A55F9B100DF08C3 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
+		637FC68C2A5655E600DF08C3 /* CustomSizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSizes.swift; sourceTree = "<group>"; };
 		6388067B2A54C29A00D56EA9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		6388067D2A54C30800D56EA9 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
 				6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */,
+				637FC68C2A5655E600DF08C3 /* CustomSizes.swift */,
 				6389F2402A2FFC8C007FBE41 /* Loading.swift */,
 				636D2C4A2A1D954500FFF763 /* Alert.swift */,
 				63421EB029CBA8DC00D1D0DF /* WrapperViewAnimation.swift */,
@@ -644,6 +647,7 @@
 				638E451D29C0242D00BA3A0B /* ProfileViewController.swift in Sources */,
 				638E451529C022DF00BA3A0B /* SucessRegisterViewController.swift in Sources */,
 				63398A7829EEBE7C009B154A /* HomeViewModel.swift in Sources */,
+				637FC68D2A5655E600DF08C3 /* CustomSizes.swift in Sources */,
 				638E450929C0218D00BA3A0B /* LoginScreen.swift in Sources */,
 				631E7AA22A070AD8005EDE16 /* LoginViewModel.swift in Sources */,
 				638E450129C01F8600BA3A0B /* TabBarViewController.swift in Sources */,

@@ -67,6 +67,7 @@ extension String {
     static let ingredientsRecipeLabel = "Array of Ingredients Recipe"
     static let prepairRecipeLabel = "Prepair Mode Recipe"
     static let levelLabel = "Level"
+    static let void = ""
     
     //MARK: profile
     static let cancel = "Cancelar"

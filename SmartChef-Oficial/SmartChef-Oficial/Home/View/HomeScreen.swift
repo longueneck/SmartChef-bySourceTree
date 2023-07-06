@@ -29,7 +29,7 @@ class HomeScreen: UIView {
         letsCook.translatesAutoresizingMaskIntoConstraints = false
         letsCook.text = .letsCook
         letsCook.textColor = .brownBase
-        letsCook.font = .sugarFont24
+        letsCook.font =  CustomSizes.isSmall ? .sugarFont18 : .sugarFont24
         return letsCook
     }()
     
@@ -39,7 +39,7 @@ class HomeScreen: UIView {
         insert.text = .insertIngredient
         insert.textColor = .brownBase
         insert.numberOfLines = 0
-        insert.font = .sugarFont17
+        insert.font = CustomSizes.isSmall ? .sugarFont14 : .sugarFont17
         return insert
     }()
     
@@ -94,10 +94,10 @@ class HomeScreen: UIView {
     
     lazy var numberOfMySliderLabel: UILabel = {
         let insert = UILabel()
-        insert.translatesAutoresizingMaskIntoConstraints = false  
+        insert.translatesAutoresizingMaskIntoConstraints = false
         insert.textColor = .brownBase
         insert.text = "25"
-        insert.font = .sugarFont20
+        insert.font = CustomSizes.isSmall ? .sugarFont17 : .sugarFont20
         return insert
     }()
     
@@ -106,7 +106,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = "min"
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -116,7 +116,7 @@ class HomeScreen: UIView {
         insert.text = .manyPeople
         insert.textColor = .brownBase
         insert.numberOfLines = 0
-        insert.font = .sugarFont17
+        insert.font = CustomSizes.isSmall ? .sugarFont14 : .sugarFont17
         return insert
     }()
     
@@ -128,10 +128,10 @@ class HomeScreen: UIView {
         segmentedControl.backgroundColor = .whiteBase
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.backgroundColor: UIColor.whiteBase], for: .normal)
         segmentedControl.selectedSegmentTintColor = .yellowBase
-        let font = UIFont.sugarFont14
+        let font:UIFont? = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         let fontSelected = UIFont.sugarFont20
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: font], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: fontSelected], for: .selected)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: font!], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.brownBase, NSAttributedString.Key.font: fontSelected!], for: .selected)
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
@@ -141,7 +141,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = "O que podemos usar?"
         insert.textColor = .brownBase
-        insert.font = .sugarFont17
+        insert.font = CustomSizes.isSmall ? .sugarFont14 : .sugarFont17
         return insert
     }()
     
@@ -151,7 +151,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = .switch1
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -191,7 +191,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = .switch3
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -211,7 +211,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = .switch4
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -231,7 +231,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = .switch5
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -251,7 +251,7 @@ class HomeScreen: UIView {
         insert.translatesAutoresizingMaskIntoConstraints = false
         insert.text = .switchAll
         insert.textColor = .brownBase
-        insert.font = .sugarFont14
+        insert.font = CustomSizes.isSmall ? .sugarFont12 : .sugarFont14
         return insert
     }()
     
@@ -266,6 +266,8 @@ class HomeScreen: UIView {
         return switchControl
     }()
     
+   
+    
     lazy var searchButton:UIButton = {
         let search = UIButton()
         search.translatesAutoresizingMaskIntoConstraints = false
@@ -273,8 +275,19 @@ class HomeScreen: UIView {
         search.layer.cornerRadius = 10
         search.setTitle(.search, for: .normal)
         search.setTitleColor(.whiteBase, for: .normal)
-        search.titleLabel?.font = .sugarFont17
+        search.titleLabel?.font = CustomSizes.isSmall ? .sugarFont14 : .sugarFont17
         search.addTarget(self, action: #selector(tappedToSearch), for: .touchUpInside)
+        search.clipsToBounds = true
+
+        if CustomSizes.isSmall {
+            search.tintColor = .white
+            search.layer.cornerRadius = 22.5
+            search.setTitle(.void, for: .normal)
+            let image = UIImage(systemName: "magnifyingglass")
+            image?.withTintColor(.white, renderingMode: .alwaysTemplate)
+            search.setImage(image, for: .normal)
+        }
+        
         return search
     }()
     
@@ -417,8 +430,27 @@ class HomeScreen: UIView {
         homeScreenProtocol?.goToSearch(people: "")
     }
     
+    func arrayConstraint() -> [NSLayoutConstraint] {
+        if CustomSizes.isSmall {
+            return [
+                searchButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -12 ),
+                searchButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+                searchButton.heightAnchor.constraint(equalToConstant: 45),
+                searchButton.widthAnchor.constraint(equalToConstant: 45),
+            ]
+        }
+        
+        return [
+            searchButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25 ),
+            searchButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
+            searchButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
+            searchButton.heightAnchor.constraint(equalToConstant: 45),
+        ]
+    }
+    
     func addConstraintsConfig(){
-        NSLayoutConstraint.activate([
+        
+        let constraints = [
             
             yellowTopView.topAnchor.constraint(equalTo: self.topAnchor, constant: -20),
             yellowTopView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -498,12 +530,16 @@ class HomeScreen: UIView {
             
             switchLabelToAll.centerYAnchor.constraint(equalTo: mySwitchAll.centerYAnchor),
             switchLabelToAll.leadingAnchor.constraint(equalTo: mySwitchAll.trailingAnchor, constant: 7),
+         
             
-            searchButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -25 ),
-            searchButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
-            searchButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
-            searchButton.heightAnchor.constraint(equalToConstant: 45),
-        ])
+
+        ]
+        
+        let outherConstaints = arrayConstraint()
+        
+        let fullConstraints = constraints + outherConstaints
+        
+        NSLayoutConstraint.activate(fullConstraints)
     }
 }
 
