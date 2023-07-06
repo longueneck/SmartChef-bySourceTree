@@ -17,3 +17,4 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
+SmartChef-Oficial/Secret/APIKey.swift
