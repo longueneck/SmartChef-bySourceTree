@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		31B3C1BB2A40E57B00866407 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3C1BA2A40E57B00866407 /* User.swift */; };
 		31B3C1BE2A40E77500866407 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3C1BD2A40E77500866407 /* ProfileViewModel.swift */; };
-		63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63035C2729DB9CCE006B6F83 /* Localizable.strings */; };
 		630539D02A37D3390014258C /* TextGPTRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630539CF2A37D3390014258C /* TextGPTRequestModel.swift */; };
 		630539D22A37D4730014258C /* TextGPTResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630539D12A37D4730014258C /* TextGPTResponseModel.swift */; };
 		630539D42A37D5750014258C /* TextGPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630539D32A37D5750014258C /* TextGPTService.swift */; };
@@ -71,7 +70,6 @@
 		2CF34810ABD1C472C89AEE1A /* Pods-SmartChef-Oficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChef-Oficial.debug.xcconfig"; path = "Target Support Files/Pods-SmartChef-Oficial/Pods-SmartChef-Oficial.debug.xcconfig"; sourceTree = "<group>"; };
 		31B3C1BA2A40E57B00866407 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31B3C1BD2A40E77500866407 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		63035C2629DB9CCE006B6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		630539CF2A37D3390014258C /* TextGPTRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGPTRequestModel.swift; sourceTree = "<group>"; };
 		630539D12A37D4730014258C /* TextGPTResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGPTResponseModel.swift; sourceTree = "<group>"; };
 		630539D32A37D5750014258C /* TextGPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGPTService.swift; sourceTree = "<group>"; };
@@ -165,14 +163,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		63035C2229DB9C98006B6F83 /* TranslateByLocalization */ = {
-			isa = PBXGroup;
-			children = (
-				63035C2729DB9CCE006B6F83 /* Localizable.strings */,
-			);
-			path = TranslateByLocalization;
-			sourceTree = "<group>";
-		};
 		630539CE2A37D3270014258C /* GPT_API */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +209,6 @@
 		634E7F5229CB7CA2003996DD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				63035C2229DB9C98006B6F83 /* TranslateByLocalization */,
 				6389F23E2A2FB693007FBE41 /* EmptyStateView.swift */,
 				637FC68C2A5655E600DF08C3 /* CustomSizes.swift */,
 				6389F2402A2FFC8C007FBE41 /* Loading.swift */,
@@ -548,7 +537,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				638E44F029C0173C00BA3A0B /* LaunchScreen.storyboard in Resources */,
-				63035C2529DB9CCE006B6F83 /* Localizable.strings in Resources */,
 				636D2C472A1D801300FFF763 /* GoogleService-Info.plist in Resources */,
 				638E44ED29C0173C00BA3A0B /* Assets.xcassets in Resources */,
 				6398100829D5E704004503B8 /* Nice Sugar.ttf in Resources */,
@@ -660,14 +648,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		63035C2729DB9CCE006B6F83 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				63035C2629DB9CCE006B6F83 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		638E44EE29C0173C00BA3A0B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

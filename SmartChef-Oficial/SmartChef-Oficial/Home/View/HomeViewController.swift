@@ -24,7 +24,8 @@ class HomeViewController: UIViewController{
         viewModel.ingredientDATA()
         loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
-        let willEat = screen?.segmentedControlValueChanged()
+        
+//        let willEat = screen?.segmentedControlValue
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,6 +168,8 @@ extension HomeViewController: UITextFieldDelegate{
     }
 }
 
+ 
+
 extension HomeViewController: RecipeScreenProtocol {
     
     func goToSearch(people: String?) {
@@ -174,10 +177,13 @@ extension HomeViewController: RecipeScreenProtocol {
         let numberPeople = viewModel.getSelectedIndexSegmentControl(segmentControl: screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0)
         let numberOfTime = viewModel.getSelectedTimeToSlider(time: Int(screen?.howManyTimeSlider.value ?? 0))
         let myIngredients = viewModel.getAllSelectedIngredientsAsString()
-        let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients)
-        
+        let myEletro = viewModel.setMySwitch(switchOne: screen?.mySwitch1.isOn ?? false, switchTwo: screen?.mySwitch2.isOn ?? false, switchThree:  screen?.mySwitch3.isOn ?? false, switchFour: screen?.mySwitch4.isOn ?? false, switchFive: screen?.mySwitch5.isOn ?? false, switchAll: screen?.mySwitchAll.isOn ?? false)
+        let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients, utens: myEletro)
+      
         print(finalPharse)
-        self.loading?.show()
+        
+        self.loading?.show(message: "Gerando Receita")
+        
         let service = TextGPTService()
 
         service.generateRecipe(message: finalPharse) { response, error in
@@ -190,10 +196,10 @@ extension HomeViewController: RecipeScreenProtocol {
                         if let responseImage = response {
                             DispatchQueue.main.async {
                                 let prepairVC = PrepairViewController()
-                            
+
                                 prepairVC.recipeData = responseAPIText
                                 prepairVC.recipeImage = responseImage.data.first?.url ?? ""
-                                
+
                                 self.navigationController?.pushViewController(prepairVC, animated: true)
                                 self.loading?.hide()
                             }

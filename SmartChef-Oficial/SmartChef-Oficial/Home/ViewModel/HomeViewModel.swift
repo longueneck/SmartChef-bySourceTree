@@ -116,8 +116,33 @@ class HomeViewModel {
         return timeInt
     }
     
-    func getTotalPharse(people: Int, time: Int, myIngredients: String)-> String{
-        return "\(String.initPharse), \(String.generatePharse) \(people) \(String.pessoas).\(String.withIngredients) \(myIngredients). \(String.timePrepair) \(time) \(String.minutes), \(String.continuePharse).\(String.firstRule).\(String.modoDePreparo).\(String.rule1).\(String.forcePharse). \(String.removeIndesejable)"
+    func getTotalPharse(people: Int, time: Int, myIngredients: String,utens: [String])-> String{
+        return "\(String.initPharse), \(String.generatePharse) \(people) \(String.pessoas).\(String.withIngredients) \(myIngredients). \(String.timePrepair) \(time) \(String.minutes), tenho estes utensilios da cozinha para usar: \(utens), \(String.continuePharse).\(String.firstRule).\(String.modoDePreparo).\(String.rule1).\(String.forcePharse). \(String.removeIndesejable)"
     }
+    
+    func setMySwitch(switchOne: Bool, switchTwo: Bool, switchThree: Bool, switchFour: Bool, switchFive: Bool, switchAll: Bool) -> [String] {
+        var pharse: [String] = []
+        if switchOne == true && switchAll != true {
+            pharse.append("Fogão")
+        }
+        if switchTwo == true && switchAll != true {
+            pharse.append("Forno")
+        }
+        if switchThree == true && switchAll != true {
+            pharse.append("Micro-Ondas")
+        }
+        if switchFour == true && switchAll != true {
+            pharse.append("Batedeira")
+        }
+        if switchFive == true && switchAll != true {
+            pharse.append("Liquidificador")
+        }
+        if switchAll == true {
+            pharse.append("Fogão, Forno, Micro-Ondas, Batedeira, Liquidificador")
+        }
+        
+        return pharse
+    }
+    
     
 }

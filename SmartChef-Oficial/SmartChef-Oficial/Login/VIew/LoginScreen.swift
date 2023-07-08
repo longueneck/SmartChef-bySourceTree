@@ -3,6 +3,7 @@ import UIKit
 protocol LoginScreenProtocol: AnyObject {
     func actionButton()
     func actionRegister()
+    func resetPass()
 }
 
 class LoginScreen: UIView {
@@ -103,12 +104,13 @@ class LoginScreen: UIView {
         return pass
     }()
     
-    lazy var resetPassLabel: UILabel = {
-        let reset = UILabel()
+    lazy var resetPassLabel: UIButton = {
+        let reset = UIButton()
         reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.text = .resetpassword
-        reset.font = .boldFont14
-        reset.textColor = .brownBase
+        reset.setTitle(.resetpassword, for: .normal)
+        reset.titleLabel?.font = UIFont.boldFont14
+        reset.setTitleColor(.brownBase, for: .normal)
+        reset.addTarget(self, action: #selector(tapToResetPass), for: .touchUpInside)
         return reset
     }()
     
@@ -226,6 +228,10 @@ class LoginScreen: UIView {
         loginScreenProtocol?.actionRegister()
     }
     
+    @objc func tapToResetPass(){
+        loginScreenProtocol?.resetPass()
+    }
+
     func addConstraints(){
         
         NSLayoutConstraint.activate([
@@ -263,8 +269,8 @@ class LoginScreen: UIView {
             passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
             passwordTextField.heightAnchor.constraint(equalToConstant: 45),
             
-            resetPassLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 7),
-            resetPassLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 32),
+            resetPassLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 2),
+            resetPassLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
             resetPassLabel.heightAnchor.constraint(equalToConstant: 20),
             
             loginButton.topAnchor.constraint(equalTo: resetPassLabel.bottomAnchor,constant: 10),

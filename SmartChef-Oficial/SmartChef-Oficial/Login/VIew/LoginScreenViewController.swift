@@ -92,6 +92,10 @@ extension LoginScreenViewController: UITextFieldDelegate{
 }
 
 extension LoginScreenViewController: LoginScreenProtocol{
+    func resetPass() {
+        self.navigationController?.pushViewController(RecoverViewController(), animated: true)
+    }
+    
     func actionRegister() {
         self.navigationController?.pushViewController(RegisterScreenViewController(), animated: true)
     }
@@ -121,7 +125,7 @@ extension LoginScreenViewController: LoginScreenProtocol{
 
 extension LoginScreenViewController : ProfileViewModelProtocol{
     func sucess() {
-        self.navigationController?.pushViewController(ProfileViewController(self.profileViewModel.setNameUser), animated: true)
+        self.navigationController?.pushViewController(MyTabBarController(), animated: true)
     }
     
     func Failure() {
