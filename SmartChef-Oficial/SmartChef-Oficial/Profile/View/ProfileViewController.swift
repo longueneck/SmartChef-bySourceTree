@@ -11,7 +11,6 @@ class ProfileViewController: UIViewController{
     private var firestore = Firestore.firestore()
     private var profileScreen: ProfileScreen? = ProfileScreen()
 
-    
     func setupDelegate(delegate: ProfileViewControllerProtocol){
         self.profileViewControllerProtocol = delegate
     }
@@ -24,7 +23,6 @@ class ProfileViewController: UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func loadView() {
         self.view = self.profileScreen
@@ -49,7 +47,6 @@ class ProfileViewController: UIViewController{
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true)
-               
     }
 }
     
