@@ -23,6 +23,14 @@ class RecoverScreen: UIView {
         return button
     }()
     
+    lazy var logoImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "logoBranca")
+        image.clipsToBounds = true
+        return image
+    }()
+    
     lazy var resetPassLabel: UILabel = {
         let textReset = UILabel()
         textReset.translatesAutoresizingMaskIntoConstraints = false
@@ -75,6 +83,7 @@ class RecoverScreen: UIView {
     
     private func addElements() {
         self.addSubview(backButton)
+        self.addSubview(logoImage)
         self.addSubview(resetPassLabel)
         self.addSubview(emailTextField)
         self.addSubview(recoverButton)
@@ -84,11 +93,26 @@ class RecoverScreen: UIView {
         fatalError(.fatalErrorInit)
     }
     
+    public func turnButtonOn(button: UIButton){
+        button.isEnabled = true
+        button.alpha = 1.0
+    }
+    
+    public func turnButtonOff(button: UIButton){
+        button.isEnabled = false
+        button.alpha = 0.5
+    }
+    
     private func configConstraints() {
         NSLayoutConstraint.activate([
             
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            
+            logoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoImage.heightAnchor.constraint(equalToConstant: 200),
+            logoImage.widthAnchor.constraint(equalToConstant: 200),
+            logoImage.bottomAnchor.constraint(equalTo: resetPassLabel.topAnchor, constant: -40),
             
             resetPassLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -20),
             resetPassLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),

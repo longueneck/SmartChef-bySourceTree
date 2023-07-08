@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func loadView() {
         self.view = self.profileScreen
         self.view.backgroundColor = .yellowBase
@@ -72,7 +71,6 @@ class ProfileViewController: UIViewController{
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true)
-               
     }
 }
     

@@ -83,7 +83,6 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
         let name: String = viewModel.getName(name: register.userTextField)
         
         self.auth?.createUser(withEmail: email , password: password, completion: { result, error in
-            // Firestore Call to FrameWork
             if error == nil{
                 if let idUser = result?.user.uid{
                     self.firestore.collection("user").document(idUser).setData([
@@ -134,7 +133,7 @@ extension RegisterScreenViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if string == " " && textField == register.userTextField || string == " " && textField == register.emailTextField || string == " " && textField == register.passwordTextfield || string == " " && textField == register.confirmPasswordTextfield{
+        if  string == " " && textField == register.emailTextField || string == " " && textField == register.passwordTextfield || string == " " && textField == register.confirmPasswordTextfield{
             textField.layer.borderColor = UIColor.red.cgColor
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
                 textField.layer.borderColor = UIColor.lightYellowCG

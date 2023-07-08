@@ -2,9 +2,10 @@ import UIKit
 import Firebase
 
 class RecoverViewController: UIViewController {
-
-    var screen: RecoverScreen?
+    
+    var screen: RecoverScreen = RecoverScreen()
     var alert: Alert?
+    var viewModel: RecoverViewModel?
     
     override func loadView() {
         screen = RecoverScreen()
@@ -14,28 +15,19 @@ class RecoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellowBase
-        screen?.setDelegate(delegate: self)
-        screen?.recoverButton.isEnabled = false
-        screen?.recoverButton.alpha = 0.5
-        isEmptyEmail()
+        screen.setDelegate(delegate: self)
+        screen.turnButtonOff(button: screen.recoverButton)
+        setDelegate()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        screen?.emailTextField.resignFirstResponder()
-    }
-
-    func isEmptyEmail(){
-        if screen?.emailTextField.text?.isEmpty == false {
-            screen?.recoverButton.isEnabled = true
-            screen?.recoverButton.alpha = 1.0
-        }
-        
+        screen.emailTextField.resignFirstResponder()
     }
     
-    
+    func setDelegate(){
+        screen.emailTextField.delegate = self
+    }
 }
-
-
 
 extension RecoverViewController: RecoverScreenProtocol {
     func tapToBack() {
@@ -43,14 +35,19 @@ extension RecoverViewController: RecoverScreenProtocol {
     }
     
     func tappedRecover() {
-        print("Clicou aqui")
-        guard let email = screen?.emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !email.isEmpty else {
+        guard let email = screen.emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !email.isEmpty else {
             return
         }
         
         Auth.auth().fetchSignInMethods(forEmail: email) { [weak self] signInMethods, error in
             guard let self = self else { return }
             
+            Alert(controller: self).getAlertOption(title: .registerTitleAlertSucess, message: .registerMessageAlertSucess){
+                action in
+                if action {
+                    self.navigationController?.pushViewController(LoginScreenViewController(), animated: true)
+                }
+            }
             if let error = error {
                 print("Erro ao verificar os métodos de login:", error.localizedDescription)
                 self.alert?.getAlert(title: "Erro", message: "Erro ao buscar email")
@@ -64,11 +61,7 @@ extension RecoverViewController: RecoverScreenProtocol {
                         print("Erro ao enviar o link de redefinição de senha:", error.localizedDescription)
                         self.alert?.getAlert(title: "Erro", message: "Erro ao buscar email")
                     } else {
-                        self.alert?.getAlertOption(title: "Enviado", message: "Enviamos um email de redefinição de senha \n Verifique sua caixa de entrada", completion: { [weak self] (success) in
-                            if success {
-                                self?.navigationController?.popToViewController(LoginScreenViewController(), animated: true)
-                            }
-                        })
+                        
                     }
                 }
             }
@@ -76,6 +69,35 @@ extension RecoverViewController: RecoverScreenProtocol {
     }
 }
 
+extension RecoverViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let emailTextField = screen.emailTextField.text ?? ""
+        if emailTextField.isEmpty {
+            screen.turnButtonOff(button: screen.recoverButton)
+        }else{
+            screen.turnButtonOn(button: screen.recoverButton)
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 255/255, green: 177/255, blue: 0/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 0
+        textField.isEnabled = false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+    }
+    
+}
 
 
-  
+
+

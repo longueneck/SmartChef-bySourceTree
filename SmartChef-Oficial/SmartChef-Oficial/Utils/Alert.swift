@@ -18,14 +18,10 @@ class Alert: NSObject{
     
     public func getAlertOption(title: String, message: String, completion : ((Bool)-> Void)? = nil){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default) { action in
+        let ok = UIAlertAction(title: "OK", style: .default) { action in
             completion?(true)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            completion?(false)
-        }
         alertController.addAction(ok)
-        alertController.addAction(cancel)
         self.controller.present(alertController, animated: true)
     }
 }
