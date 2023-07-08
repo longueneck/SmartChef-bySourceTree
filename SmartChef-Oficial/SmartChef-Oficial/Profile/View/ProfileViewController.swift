@@ -9,9 +9,10 @@ class ProfileViewController: UIViewController{
     
     weak private var profileViewControllerProtocol: ProfileViewControllerProtocol?
     private var firestore = Firestore.firestore()
+    private var auth = Auth.auth()
     private var profileScreen: ProfileScreen? = ProfileScreen()
+    private var idUserLogged: String?
 
-    
     func setupDelegate(delegate: ProfileViewControllerProtocol){
         self.profileViewControllerProtocol = delegate
     }
@@ -33,11 +34,33 @@ class ProfileViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        if let id = self.auth.currentUser?.uid {
+            self.idUserLogged = id
+            getUserInfo()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileScreen?.setupDelegate(delegate: self)
+    }
+    
+    private func getUserInfo() {
+        guard let idUserLogged = self.idUserLogged else { return }
+        let user = self.firestore.collection("user").document(idUserLogged)
+        
+        user.getDocument(completion: { snapshot, error in
+            if let error = error {
+                print("Error fetching user data: \(error)")
+            }
+            
+            if let data = snapshot?.data() {
+                let name = data["nome"] as? String
+                
+                guard let profileScreen = self.profileScreen else {return}
+                profileScreen.nameLabel.text  = name ?? ""
+            }
+        })
     }
     
     func showPicker(){

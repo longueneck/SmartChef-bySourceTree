@@ -74,7 +74,7 @@ class ProfileScreen: UIView {
     lazy var helloLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Olá,"
+        label.text = "Olá"
         label.font = .sugarFont24
         label.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         return label

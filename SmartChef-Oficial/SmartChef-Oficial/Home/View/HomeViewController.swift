@@ -172,46 +172,56 @@ extension HomeViewController: UITextFieldDelegate{
 
 extension HomeViewController: RecipeScreenProtocol {
     
+    
+    
     func goToSearch(people: String?) {
         
-        let numberPeople = viewModel.getSelectedIndexSegmentControl(segmentControl: screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0)
-        let numberOfTime = viewModel.getSelectedTimeToSlider(time: Int(screen?.howManyTimeSlider.value ?? 0))
-        let myIngredients = viewModel.getAllSelectedIngredientsAsString()
-        let myEletro = viewModel.setMySwitch(switchOne: screen?.mySwitch1.isOn ?? false, switchTwo: screen?.mySwitch2.isOn ?? false, switchThree:  screen?.mySwitch3.isOn ?? false, switchFour: screen?.mySwitch4.isOn ?? false, switchFive: screen?.mySwitch5.isOn ?? false, switchAll: screen?.mySwitchAll.isOn ?? false)
-        let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients, utens: myEletro)
-      
-        print(finalPharse)
         
-        self.loading?.show(message: "Gerando Receita")
-        
-        let service = TextGPTService()
+        if viewModel.countSelectedIngredients() > 0 {
+            let numberPeople = viewModel.getSelectedIndexSegmentControl(segmentControl: screen?.manyPeopleSegmentedControl.selectedSegmentIndex ?? 0)
+            let numberOfTime = viewModel.getSelectedTimeToSlider(time: Int(screen?.howManyTimeSlider.value ?? 0))
+            let myIngredients = viewModel.getAllSelectedIngredientsAsString()
+            let myEletro = viewModel.setMySwitch(switchOne: screen?.mySwitch1.isOn ?? false, switchTwo: screen?.mySwitch2.isOn ?? false, switchThree:  screen?.mySwitch3.isOn ?? false, switchFour: screen?.mySwitch4.isOn ?? false, switchFive: screen?.mySwitch5.isOn ?? false, switchAll: screen?.mySwitchAll.isOn ?? false)
+            let finalPharse = viewModel.getTotalPharse(people: numberPeople, time: numberOfTime, myIngredients: myIngredients, utens: myEletro)
+          
+            print(finalPharse)
+            
+            self.loading?.show(message: "Gerando Receita")
+            
+            let service = TextGPTService()
 
-        service.generateRecipe(message: finalPharse) { response, error in
-            if let responseText = response {
-                DispatchQueue.main.async {
-                    let responseAPIText = responseText.choices.first?.message.content ?? ""
-                    let service2 = ImageGPTService()
-                    let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
-                    service2.generateImage(message: imageRequestAPI) { response, error in
-                        if let responseImage = response {
-                            DispatchQueue.main.async {
-                                let prepairVC = PrepairViewController()
+            service.generateRecipe(message: finalPharse) { response, error in
+                if let responseText = response {
+                    DispatchQueue.main.async {
+                        let responseAPIText = responseText.choices.first?.message.content ?? ""
+                        let service2 = ImageGPTService()
+                        let imageRequestAPI = "\(String.imagePharse), \(myIngredients), \(String.qualityImage), \(String.imageRule)"
+                        service2.generateImage(message: imageRequestAPI) { response, error in
+                            if let responseImage = response {
+                                DispatchQueue.main.async {
+                                    let prepairVC = PrepairViewController()
 
-                                prepairVC.recipeData = responseAPIText
-                                prepairVC.recipeImage = responseImage.data.first?.url ?? ""
+                                    prepairVC.recipeData = responseAPIText
+                                    prepairVC.recipeImage = responseImage.data.first?.url ?? ""
 
-                                self.navigationController?.pushViewController(prepairVC, animated: true)
-                                self.loading?.hide()
+                                    self.navigationController?.pushViewController(prepairVC, animated: true)
+                                    self.loading?.hide()
+                                }
+                            }else{
+                                debugPrint(error ?? "")
                             }
-                        }else{
-                            debugPrint(error ?? "")
                         }
                     }
+                }else{
+                    debugPrint(error ?? "")
                 }
-            }else{
-                debugPrint(error ?? "")
             }
+        } else {
+            // Mostrar alerta para o usuário
+            let alert = UIAlertController(title: "Erro", message: "Por favor, selecione pelo menos um ingrediente.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
-
     }
 }
