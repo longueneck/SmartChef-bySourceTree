@@ -75,9 +75,7 @@ extension RegisterScreenViewController: RegisterScreenProtocol{
     
     func registerButton() {
         
-        let vc = SucessRegisterViewController()
-        vc.recebeDado = viewModel.getEmail(email: register.emailTextField)
-        
+        let vc = MyTabBarController()
         let email: String = viewModel.getEmail(email: register.emailTextField)
         let password: String = viewModel.getPass(pass: register.passwordTextfield)
         let name: String = viewModel.getName(name: register.userTextField)
@@ -155,5 +153,3 @@ extension RegisterScreenViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
     }
 }
-
-

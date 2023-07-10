@@ -12,9 +12,9 @@ class PrepairScreen: UIView {
         image.font = UIFont.sugarFont17
         image.numberOfLines = 0
         image.clipsToBounds = true
-        image.text = "< Aqui está sua receita >"
+        image.text = "< Prontinho >"
         
-    return image
+        return image
     }()
     
     lazy var recipeImageView: UIImageView = {
@@ -27,25 +27,24 @@ class PrepairScreen: UIView {
         image.layer.shadowOpacity = 0.2
         image.layer.shadowOffset = CGSize(width: 0, height: 1)
         image.layer.shadowRadius = 2
-    return image
+        return image
     }()
     
     lazy var scrolView: UIScrollView = {
-            let scroll = UIScrollView()
-            scroll.translatesAutoresizingMaskIntoConstraints = false
-            scroll.isScrollEnabled = true
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.isScrollEnabled = true
         scroll.backgroundColor = .whiteBase
-
-            return scroll
-        }()
-
-        lazy var containerView: UIView = {
-            let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = .whiteBase
-
-            return view
-        }()
+        
+        return scroll
+    }()
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .whiteBase
+        return view
+    }()
     
     lazy var recipeText: UILabel = {
         let image = UILabel()
@@ -56,10 +55,9 @@ class PrepairScreen: UIView {
         image.clipsToBounds = true
         image.lineBreakMode = .byWordWrapping
         image.textAlignment = .justified
-        
-    return image
+        return image
     }()
-   
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,7 +76,7 @@ class PrepairScreen: UIView {
         self.addSubview(self.scrolView)
         self.scrolView.addSubview(self.containerView)
         self.containerView.addSubview(self.recipeText)
-       
+        
     }
     
     func setConstraints(){
@@ -87,7 +85,7 @@ class PrepairScreen: UIView {
             thatsRecipeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             thatsRecipeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            recipeImageView.topAnchor.constraint(equalTo: thatsRecipeLabel.topAnchor, constant: 15),
+            recipeImageView.topAnchor.constraint(equalTo: thatsRecipeLabel.bottomAnchor, constant: 25),
             recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             recipeImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             recipeImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -30),

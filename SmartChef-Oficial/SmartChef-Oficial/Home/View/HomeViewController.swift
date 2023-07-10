@@ -24,14 +24,12 @@ class HomeViewController: UIViewController{
         viewModel.ingredientDATA()
         loading = Loading(viewController: self)
         screen?.delegate(delegate: self)
-        
-//        let willEat = screen?.segmentedControlValue
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-//        screen?.searchButton.isEnabled = false
-//        screen?.searchButton.alpha = 0.5
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,17 +47,6 @@ class HomeViewController: UIViewController{
         screen?.delegate(delegate: self)
         guard let screen = screen else { return }
         wrapperView = WrapperViewAnimation(target: screen.addIngredientTextField)
-    }
-    
-#warning("RESOLVER EMPTY STATE")
-    func showEmptyState() {
-        if emptyState == nil {
-            emptyState = EmptyStateView(frame: (screen?.insertedIngredientTableView.bounds)!)
-            emptyState?.imageView.image = UIImage(named: "logo")
-            screen?.insertedIngredientTableView.addSubview(emptyState!)
-            screen?.insertedIngredientTableView.separatorStyle = .none
-        }
-        emptyState?.isHidden = false
     }
     
     func hideEmptyState() {
@@ -129,7 +116,6 @@ extension HomeViewController: InsertedIngredientsViewCellProtocol{
     func removeIngredients(index: Int) {
         viewModel.deleteSelectedIngredient(index: index)
         screen?.insertedIngredientTableView.reloadData()
-        showEmptyState()
     }
 }
 

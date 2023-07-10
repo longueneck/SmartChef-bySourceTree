@@ -130,51 +130,6 @@ class LoginScreen: UIView {
         return button
     }()
     
-    lazy var textConectLabel: UILabel = {
-        let reset = UILabel()
-        reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.text = .alternativeConnection
-        reset.font = .boldFont14
-        reset.textColor = .brownBase
-        return reset
-    }()
-    
-    lazy var autentitacionView: UIView = {
-        let separation = UIView()
-        separation.translatesAutoresizingMaskIntoConstraints = false
-        separation.backgroundColor = .whiteBase
-        separation.layer.cornerRadius = 10
-        return separation
-    }()
-    
-    lazy var googleIconImage: UIButton = {
-        let google = UIButton()
-        google.translatesAutoresizingMaskIntoConstraints = false
-        google.backgroundColor = .white
-        google.layer.cornerRadius = 20
-        google.layer.shadowColor = UIColor.black.cgColor
-        google.layer.shadowOpacity = 0.1
-        google.layer.shadowOffset = CGSize(width: 0, height: 2)
-        google.layer.shadowRadius = 2
-        google.setBackgroundImage(.googleIconConnect, for: .normal)
-        google.contentMode = .scaleAspectFill
-        return google
-    }()
-
-    lazy var facebookIconImage: UIButton = {
-        let facebook = UIButton()
-        facebook.translatesAutoresizingMaskIntoConstraints = false
-        facebook.backgroundColor = .whiteBase
-        facebook.layer.cornerRadius = 20
-        facebook.layer.shadowColor = UIColor.black.cgColor
-        facebook.layer.shadowOpacity = 0.1
-        facebook.layer.shadowOffset = CGSize(width: 0, height: 2)
-        facebook.layer.shadowRadius = 2
-        facebook.setImage(.facebookIconConnect, for: .normal)
-        facebook.contentMode = .scaleAspectFit
-        return facebook
-    }()
-    
     lazy var signInButton: UIButton = {
         let entrar = UIButton()
         entrar.translatesAutoresizingMaskIntoConstraints = false
@@ -213,10 +168,6 @@ class LoginScreen: UIView {
         self.addSubview(self.passwordTextField)
         self.addSubview(self.resetPassLabel)
         self.addSubview(self.loginButton)
-        self.addSubview(self.autentitacionView)
-        self.addSubview(self.textConectLabel)
-        self.addSubview(self.googleIconImage)
-        self.addSubview(self.facebookIconImage)
         self.addSubview(self.signInButton)
     }
     
@@ -277,25 +228,6 @@ class LoginScreen: UIView {
             loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),
             loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -25),
             loginButton.heightAnchor.constraint(equalToConstant: 45),
-            
-            autentitacionView.topAnchor.constraint(equalTo: loginButton.bottomAnchor),
-            autentitacionView.leadingAnchor.constraint(equalTo: suspenseView.leadingAnchor),
-            autentitacionView.trailingAnchor.constraint(equalTo: suspenseView.trailingAnchor),
-            autentitacionView.bottomAnchor.constraint(equalTo: signInButton.topAnchor),
-            
-            textConectLabel.bottomAnchor.constraint(equalTo: googleIconImage.topAnchor, constant: -10),
-            textConectLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            textConectLabel.heightAnchor.constraint(equalToConstant: 20),
-
-            facebookIconImage.trailingAnchor.constraint(equalTo: autentitacionView.centerXAnchor, constant: -20),
-            facebookIconImage.centerYAnchor.constraint(equalTo: autentitacionView.centerYAnchor,constant: 15),
-            facebookIconImage.heightAnchor.constraint(equalToConstant: 40),
-            facebookIconImage.widthAnchor.constraint(equalToConstant: 40),
-            
-            googleIconImage.leadingAnchor.constraint(equalTo: autentitacionView.centerXAnchor, constant: 20),
-            googleIconImage.centerYAnchor.constraint(equalTo: autentitacionView.centerYAnchor,constant: 15),
-            googleIconImage.heightAnchor.constraint(equalToConstant: 40),
-            googleIconImage.widthAnchor.constraint(equalToConstant: 40),
             
             signInButton.bottomAnchor.constraint(equalTo: suspenseView.bottomAnchor,constant: -15),
             signInButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 25),

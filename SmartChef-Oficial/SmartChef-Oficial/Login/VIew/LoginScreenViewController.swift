@@ -26,8 +26,7 @@ class LoginScreenViewController: UIViewController {
         profileViewModel.delegate(delegate: self)
         addTfToDelegate()
         viewModel.turnButtonUnEnable(button: loginScreen.loginButton)
-        loginScreen.loginTextField.text = "sergio.macedo@gmail.com"
-        loginScreen.passwordTextField.text = "123456"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
