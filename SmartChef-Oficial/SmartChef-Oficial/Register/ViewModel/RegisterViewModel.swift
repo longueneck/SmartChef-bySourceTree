@@ -6,20 +6,32 @@ class RegisterViewModel{
         
         let isUserValid = !user.isEmpty
         let isEmailValid = !email.isEmpty
-        let isEmailCorrect = email.contains("@") && email.contains(".com")
+        let isExistentEmail = email.contains("@hotmail.com") || email.contains("@gmail.com") || email.contains("@outlook.com") || email.contains("@yahoo.com")
         let isPasswordValid = !pass.isEmpty
+        let isValidPass = pass.count >= 8 && confirm.count >= 8
         let isConfirmValid = !confirm.isEmpty
         
-        return isUserValid && isEmailValid && isEmailCorrect && isPasswordValid && isConfirmValid
-    }
-    
-    public func validateEmailCorrect(textField: String) -> Bool{
-        let emailCorrect = textField.contains("@") && textField.contains(".com")
-        return emailCorrect
+        return isUserValid && isEmailValid && isPasswordValid && isConfirmValid && isExistentEmail && isValidPass
     }
     
     public func passIsEqual(pass: String, confirm: String) -> Bool{
-        return pass == confirm
+        var validation: Bool
+        if !pass.isEmpty && !confirm.isEmpty && pass == confirm {
+         validation = true
+        }else{
+            validation = false
+        }
+        return validation
+    }
+    
+    public func passAndConfirmIsEmpty(pass: String, confirm: String) -> Bool {
+        var validation: Bool
+        if pass.isEmpty && confirm.isEmpty {
+            validation = false
+        }else{
+            validation = true
+        }
+        return validation
     }
     
     public func getEmail(email: UITextField)-> String{

@@ -46,11 +46,11 @@ class RegisterScreenViewController: UIViewController {
         register.passwordTextfield.resignFirstResponder()
         register.confirmPasswordTextfield.resignFirstResponder()
     }
-
+    
     @objc func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
-        
+    
     func passCorrect(){
         register.confirmCorrect(textField: register.confirmPasswordTextfield)
         register.passCorrect(textField: register.passwordTextfield)
@@ -106,27 +106,46 @@ extension RegisterScreenViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        if viewModel.validateIsEmpty(user: register.userTextField.text ?? "", email: register.emailTextField.text ?? "", pass: register.passwordTextfield.text ?? "",
-                                     confirm: register.confirmPasswordTextfield.text ?? "") {
+        let userTF = register.userTextField.text ?? ""
+        let emailTF = register.emailTextField.text ?? ""
+        let passTF = register.passwordTextfield.text ?? ""
+        let confirmPassTF = register.confirmPasswordTextfield.text ?? ""
+        
+        if viewModel.validateIsEmpty(user: userTF, email: emailTF, pass: passTF, confirm: confirmPassTF) {
             register.turnButtonOn(button: register.createButton)
-            
-            if viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
-                passCorrect()
-                
-            }else if !viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
-                
-                register.confirmPasswordTextfield.layer.borderColor = UIColor.redIncorrectCG
-                register.turnButtonOff(button: register.createButton)
-                
-            }else if register.isTextFieldEmpty(register.userTextField, textField2: register.emailTextField, textField3: register.passwordTextfield, textField4: register.confirmPasswordTextfield) {
-                
-                                register.emailTextField.layer.borderColor = UIColor.lightYellowCG
-            }else{
-                passEmpty()
-            }
         }else{
             register.turnButtonOff(button: register.createButton)
         }
+        if viewModel.passIsEqual(pass: passTF, confirm: confirmPassTF) {
+            passCorrect()
+        }else if !viewModel.passIsEqual(pass: passTF, confirm: confirmPassTF){
+            passIncorrect()
+            register.turnButtonOff(button: register.createButton)
+        }else{
+            passEmpty()
+        }
+        
+        
+//        if viewModel.validateIsEmpty(user: register.userTextField.text ?? "", email: register.emailTextField.text ?? "", pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
+//            register.turnButtonOn(button: register.createButton)
+//        }else{
+//            register.turnButtonOff(button: register.createButton)
+//        }
+//        if viewModel.passIsEqual(pass: register.passwordTextfield.text ?? "", confirm: register.confirmPasswordTextfield.text ?? "") {
+//                passCorrect()
+//        }else{
+//            passIncorrect()
+//            register.turnButtonOff(button: register.createButton)
+//        }
+        //            }else if register.isTextFieldEmpty(register.userTextField, textField2: register.emailTextField, textField3: register.passwordTextfield, textField4: register.confirmPasswordTextfield) {
+        //
+        //                                register.emailTextField.layer.borderColor = UIColor.lightYellowCG
+        //            }else{
+        //                passEmpty()
+        //            }
+        //        }else{
+        //            register.turnButtonOff(button: register.createButton)
+        //        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

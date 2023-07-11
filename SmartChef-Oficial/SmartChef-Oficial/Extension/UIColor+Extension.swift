@@ -29,7 +29,7 @@ extension UIColor {
     
     static let whiteBaseCG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
     
-    static let greenCorrectCG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+    static let greenCorrectCG = UIColor(red: 0/255, green: 169/255, blue: 0/255, alpha: 1).cgColor
     
-    static let redIncorrectCG = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+    static let redIncorrectCG = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1).cgColor
 }
